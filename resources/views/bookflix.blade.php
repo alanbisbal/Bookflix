@@ -1,7 +1,9 @@
 @extends('plantilla')
 
-@section('seccion')
+<div class="container">
 
-    Bienvenido a bookflix
 
-@endsection
+
+  <a href="./login" class="btn btn-primary" >Iniciar Sesion</a>
+  <a href="./register" class="btn btn-primary">Registrarse</a>
+</div>

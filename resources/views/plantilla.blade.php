@@ -12,13 +12,7 @@
   </head>
   <body background="./imagenes/bookflix.jpeg">
 
-    <div class="container">
-
-      <a href="{{route('bookflix')}}" class="btn btn-primary" >Inicio</a>
-      <a href="{{route('inicioSesion')}}" class="btn btn-primary">Registro</a>
-    </div>
-    <div class="container" style="color:#FF0000">
-
+  <div class="container" style="color:#FF0000">
       <h1>@yield('seccion')</h1>
     </div>
     <!-- Optional JavaScript -->

@@ -13,8 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/','PagesController@inicio')->name('bookflix');	
+Route::view ('/','bookflix')->name('bookflix');
 
-Route::get('inicioSesion','PagesController@inicioSesion')->name('inicioSesion');
+Route::view ('/login','login');
 
+Route::view ('/home','home');
 
+Route::view ('/book','book');
+
+Route::view ('/information','information');
+
+Route::view ('/register','register');
