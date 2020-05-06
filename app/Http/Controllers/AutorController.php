@@ -14,7 +14,8 @@ class AutorController extends Controller
      */
     public function index()
     {
-        //
+      $datos['autores']=Autor::paginate()->sortBy('Nombre');
+          return view('agregarAutor',$datos);
     }
 
     /**
@@ -24,7 +25,8 @@ class AutorController extends Controller
      */
     public function create()
     {
-        //
+
+
     }
 
     /**
@@ -35,7 +37,9 @@ class AutorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $datoAutor=request()->except('_token');
+      Autor::insert($datoAutor);
+      return $this->index();
     }
 
     /**

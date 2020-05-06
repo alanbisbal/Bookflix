@@ -19,22 +19,22 @@
                     @endif
                     <container>
                         <container>
-                          <a href="{{route('agregarNovedad')}}" class="btn btn-info" role="button" >Agregar novedad
+                          <a href="{{'agregarNovedad'}}" class="btn btn-info" role="button" >Agregar novedad
                         </a>
                         </container>
                       </br></br>
                         <container>
-                          <a href="{{route('agregarLibro')}}" class="btn btn-info" role="button">Agregar libro
+                          <a href="{{'agregarLibro'}}" class="btn btn-info" role="button">Agregar libro
                         </a>
                         </container>
                       </br></br>
                           <container>
-                          <a href="{{route('agregarAutor')}}" class="btn btn-info" role="button">Agregar autor
+                          <a href="{{'agregarAutor'}}" class="btn btn-info" role="button">Agregar autor
                           </a>
                         </container>
                           </br></br>
                           <container>
-                          <a href="{{route('agregarEditorial')}}" class="btn btn-info" role="button">Agregar editorial
+                          <a href="{{'agregarEditorial'}}" class="btn btn-info" role="button">Agregar editorial
                             </a>
                         </container>
                           </br></br>

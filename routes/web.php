@@ -18,10 +18,10 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/administracion', 'HomeController@administracion')->name('administracion');
-Route::get('/agregarLibro', 'HomeController@agregarLibro')->name('agregarLibro');
-Route::get('/agregarNovedad', 'HomeController@agregarNovedad')->name('agregarNovedad');
-Route::get('/agregarAutor', 'HomeController@agregarAutor')->name('agregarAutor');
-Route::get('/agregarEditorial', 'HomeController@agregarEditorial')->name('agregarEditorial');
+
+Route::resource('agregarLibro','LibroController');
+Route::resource('agregarEditorial','EditorialController');
+Route::resource('agregarAutor','AutorController');
+Route::resource('agregarNovedad','NovedadController');

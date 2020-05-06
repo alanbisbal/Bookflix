@@ -14,7 +14,7 @@ class NovedadController extends Controller
      */
     public function index()
     {
-        //
+          return view('agregarNovedad');
     }
 
     /**
