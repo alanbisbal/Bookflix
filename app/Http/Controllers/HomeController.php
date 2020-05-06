@@ -25,13 +25,25 @@ class HomeController extends Controller
     {
         return view('home');
     }
-
-
     public function administracion()
     {
         return view('administracion');
     }
-
-
+    public function agregarLibro()
+    {
+        return view('agregarLibro');
+    }
+    public function agregarAutor()
+    {
+        return view('agregarAutor');
+    }
+    public function agregarNovedad()
+    {
+        return view('agregarNovedad');
+    }
+    public function agregarEditorial()
+    {
+        return view('agregarEditorial');
+    }
 
 }

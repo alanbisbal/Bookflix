@@ -20,10 +20,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/Administracion', 'HomeController@administracion')->name('administracion');
-Route::get('/Administracion/Agregarlibro', 'Admin@agregarLibro')->name('agregarLibro');
-Route::get('/Administracion/agregarAutor', 'Admin@agregarAutor')->name('agregarAutor');
-Route::get('/Administracion/agregarEditorial', 'Admin@agregarEditorial')->name('agregarEditorial');
-Route::get('/Administracion/agregarNovedad', 'Admin@agregarNovedad')->name('agregarNovedad');
-Route::get('/test')->name('test');
-Route::get('/perfil', 'Admin@perfil')->name('perfil');
+Route::get('/administracion', 'HomeController@administracion')->name('administracion');
+Route::get('/agregarLibro', 'HomeController@agregarLibro')->name('agregarLibro');
+Route::get('/agregarNovedad', 'HomeController@agregarNovedad')->name('agregarNovedad');
+Route::get('/agregarAutor', 'HomeController@agregarAutor')->name('agregarAutor');
+Route::get('/agregarEditorial', 'HomeController@agregarEditorial')->name('agregarEditorial');

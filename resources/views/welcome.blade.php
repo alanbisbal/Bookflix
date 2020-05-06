@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Bookflix</title>
+        <title>Laravel</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -49,9 +49,9 @@
             }
 
             .links > a {
-                color: #AF1717;
+                color: #636b6f;
                 padding: 0 25px;
-                font-size: 30px;
+                font-size: 13px;
                 font-weight: 600;
                 letter-spacing: .1rem;
                 text-decoration: none;
@@ -61,15 +61,9 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
-
-            .background{
-              text-transform: uppercase;
-               width:100%; height:100%;
-              background: url(imagenes/bookflix.jpeg);
-              }
         </style>
     </head>
-    <body class="background" >
+    <body>
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
@@ -85,6 +79,12 @@
                 </div>
             @endif
 
+            <div class="content">
+                <div class="title m-b-md">
+                    Bookflix
+                </div>
+
+            </div>
         </div>
     </body>
 </html>
