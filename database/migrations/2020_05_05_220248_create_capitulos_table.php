@@ -14,7 +14,10 @@ class CreateCapitulosTable extends Migration
     public function up()
     {
         Schema::create('capitulos', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
+            $table->string('isbn');
+            $table->integer('nro');
+            $table->string('titulo');
             $table->timestamps();
         });
     }

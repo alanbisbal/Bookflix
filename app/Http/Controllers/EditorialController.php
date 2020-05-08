@@ -14,7 +14,8 @@ class EditorialController extends Controller
      */
     public function index()
     {
-        return view('agregarEditorial');
+      $datos['editoriales']=Editorial::paginate()->sortBy('Nombre');
+          return view('agregarEditorial',$datos);
     }
 
     /**
@@ -35,7 +36,9 @@ class EditorialController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $datoEditorial=request()->except('_token');
+      Editorial::insert($datoEditorial);
+      return $this->index();
     }
 
     /**

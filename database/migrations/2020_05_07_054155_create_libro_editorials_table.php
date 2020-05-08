@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFavoritosTable extends Migration
+class CreateLibroEditorialsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateFavoritosTable extends Migration
      */
     public function up()
     {
-        Schema::create('favoritos', function (Blueprint $table) {
+        Schema::create('libro_editorials', function (Blueprint $table) {
             $table->id();
-            $table->string('emailusuario');
-            $table->integer('nroperfil');
             $table->string('isbn');
+            $table->string('nombreEditorial');
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ class CreateFavoritosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('favoritos');
+        Schema::dropIfExists('libro_editorials');
     }
 }

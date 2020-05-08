@@ -14,7 +14,8 @@ class NovedadController extends Controller
      */
     public function index()
     {
-          return view('agregarNovedad');
+      $datos['novedades']=Novedad::paginate()->sortBy('nombre');
+          return view('agregarNovedad',$datos);
     }
 
     /**
@@ -35,7 +36,9 @@ class NovedadController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $datoAutor=request()->except('_token');
+      Novedad::insert($datoAutor);
+      return $this->index();
     }
 
     /**

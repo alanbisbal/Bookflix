@@ -14,8 +14,14 @@ class CreatePerfilsTable extends Migration
     public function up()
     {
         Schema::create('perfils', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
+            $table->string('email');
+            $table->integer('nro');
+            $table->string('nombre');
+            $table->boolean('estado');
+            $table->binary('imagen')->nullable();
             $table->timestamps();
+
         });
     }
 

@@ -25,3 +25,4 @@ Route::resource('agregarLibro','LibroController');
 Route::resource('agregarEditorial','EditorialController');
 Route::resource('agregarAutor','AutorController');
 Route::resource('agregarNovedad','NovedadController');
+Route::resource('agregarGenero','GeneroController');

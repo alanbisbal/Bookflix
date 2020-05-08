@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Autor;
+use App\Editorial;
 use App\Libro;
+use App\Genero;
 use Illuminate\Http\Request;
 
 class LibroController extends Controller
@@ -14,7 +16,10 @@ class LibroController extends Controller
      */
     public function index()
     {
-        return view('agregarLibro');
+      $autores=Autor::all();
+      $editoriales=Editorial::all();
+      $generos=Genero::all();
+          return view('agregarLibro',['editoriales'=>$editoriales,'autores'=>$autores,'generos'=>$generos]);
     }
 
     /**
@@ -35,7 +40,9 @@ class LibroController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $datoLibro=request()->except('_token');
+      Libro::insert($datoLibro);
+      return $this->index();
     }
 
     /**

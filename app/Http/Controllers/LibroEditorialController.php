@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Libro_Autor;
+use App\libro_editorial;
 use Illuminate\Http\Request;
 
-class LibroAutorController extends Controller
+class LibroEditorialController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,7 @@ class LibroAutorController extends Controller
      */
     public function index()
     {
-      $datos['libros']=Autor::paginate()->sortBy('Nombre');
-          return view('agregarLibro',$datos);
+        //
     }
 
     /**
@@ -42,10 +41,10 @@ class LibroAutorController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Libro_Autor  $libro_Autor
+     * @param  \App\libro_editorial  $libro_editorial
      * @return \Illuminate\Http\Response
      */
-    public function show(Libro_Autor $libro_Autor)
+    public function show(libro_editorial $libro_editorial)
     {
         //
     }
@@ -53,10 +52,10 @@ class LibroAutorController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Libro_Autor  $libro_Autor
+     * @param  \App\libro_editorial  $libro_editorial
      * @return \Illuminate\Http\Response
      */
-    public function edit(Libro_Autor $libro_Autor)
+    public function edit(libro_editorial $libro_editorial)
     {
         //
     }
@@ -65,10 +64,10 @@ class LibroAutorController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Libro_Autor  $libro_Autor
+     * @param  \App\libro_editorial  $libro_editorial
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Libro_Autor $libro_Autor)
+    public function update(Request $request, libro_editorial $libro_editorial)
     {
         //
     }
@@ -76,10 +75,10 @@ class LibroAutorController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Libro_Autor  $libro_Autor
+     * @param  \App\libro_editorial  $libro_editorial
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Libro_Autor $libro_Autor)
+    public function destroy(libro_editorial $libro_editorial)
     {
         //
     }

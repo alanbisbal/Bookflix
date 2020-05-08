@@ -18,15 +18,17 @@
                         </div>
                     @endif
                     <container>
-                        <container>
-                          <a href="{{'agregarNovedad'}}" class="btn btn-info" role="button" >Agregar novedad
-                        </a>
-                        </container>
-                      </br></br>
+
                         <container>
                           <a href="{{'agregarLibro'}}" class="btn btn-info" role="button">Agregar libro
                         </a>
                         </container>
+                        </br></br>
+                        <container>
+                          <a href="{{'agregarNovedad'}}" class="btn btn-info" role="button" >Agregar novedad
+                        </a>
+                        </container>
+
                       </br></br>
                           <container>
                           <a href="{{'agregarAutor'}}" class="btn btn-info" role="button">Agregar autor
@@ -36,6 +38,11 @@
                           <container>
                           <a href="{{'agregarEditorial'}}" class="btn btn-info" role="button">Agregar editorial
                             </a>
+                        </container>
+                          </br></br>
+                          <container>
+                          <a href="{{'agregarGenero'}}" class="btn btn-info" role="button">Agregar genero
+                          </a>
                         </container>
                           </br></br>
                     </container>

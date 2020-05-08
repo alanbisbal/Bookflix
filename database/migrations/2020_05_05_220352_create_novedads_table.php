@@ -14,7 +14,9 @@ class CreateNovedadsTable extends Migration
     public function up()
     {
         Schema::create('novedads', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
+            $table->string('titulo');
+            $table->string('desc');
             $table->timestamps();
         });
     }

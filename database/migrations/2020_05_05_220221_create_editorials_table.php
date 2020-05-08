@@ -14,8 +14,8 @@ class CreateEditorialsTable extends Migration
     public function up()
     {
         Schema::create('editorials', function (Blueprint $table) {
-            $table->id();
-            $table->string('nombre');
+            $table->increments('id');
+            $table->string('nombre')->unique();
             $table->timestamps();
         });
     }

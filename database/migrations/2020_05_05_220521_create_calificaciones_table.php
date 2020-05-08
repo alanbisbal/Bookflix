@@ -14,8 +14,12 @@ class CreateCalificacionesTable extends Migration
     public function up()
     {
         Schema::create('calificaciones', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+          $table->id();
+          $table->string('emailusuario');
+          $table->integer('nroperfil');
+          $table->string('isbn');
+          $table->integer('calif');
+          $table->timestamps();
         });
     }
 

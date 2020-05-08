@@ -15,6 +15,8 @@ class CreateLibroAutorsTable extends Migration
     {
         Schema::create('libro__autors', function (Blueprint $table) {
             $table->id();
+            $table->integer('idAutor');
+            $table->string('isbn');
             $table->timestamps();
         });
     }

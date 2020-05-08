@@ -15,6 +15,7 @@ class CreateLibroNovedadsTable extends Migration
     {
         Schema::create('libro__novedads', function (Blueprint $table) {
             $table->id();
+            $table->string('isbn')->nullable();
             $table->timestamps();
         });
     }

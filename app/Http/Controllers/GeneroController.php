@@ -14,7 +14,8 @@ class GeneroController extends Controller
      */
     public function index()
     {
-        //
+      $datos['generos']=Genero::paginate()->sortBy('nombre');
+          return view('agregarGenero',$datos);
     }
 
     /**
@@ -35,7 +36,9 @@ class GeneroController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $datoGenero=request()->except('_token');
+      Genero::insert($datoGenero);
+      return $this->index();
     }
 
     /**

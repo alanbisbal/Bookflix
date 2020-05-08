@@ -15,6 +15,8 @@ class CreateLibroGenerosTable extends Migration
     {
         Schema::create('libro__generos', function (Blueprint $table) {
             $table->id();
+            $table->string('isbn');
+            $table->string('nombreGenero');
             $table->timestamps();
         });
     }
