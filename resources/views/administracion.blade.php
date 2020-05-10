@@ -20,28 +20,28 @@
                     <container>
 
                         <container>
-                          <a href="{{'agregarLibro'}}" class="btn btn-info" role="button">Agregar libro
+                          <a href="{{'librosCargados'}}" class="btn btn-info" role="button">Ver libros
                         </a>
                         </container>
                         </br></br>
                         <container>
-                          <a href="{{'agregarNovedad'}}" class="btn btn-info" role="button" >Agregar novedad
+                          <a href="{{'novedadesCargados'}}" class="btn btn-info" role="button" >Ver novedades
                         </a>
                         </container>
 
                       </br></br>
                           <container>
-                          <a href="{{'agregarAutor'}}" class="btn btn-info" role="button">Agregar autor
+                          <a href="{{'autoresCargados'}}" class="btn btn-info" role="button">Ver autores
                           </a>
                         </container>
                           </br></br>
                           <container>
-                          <a href="{{'agregarEditorial'}}" class="btn btn-info" role="button">Agregar editorial
+                          <a href="{{'editorialesCargados'}}" class="btn btn-info" role="button">Ver editoriales
                             </a>
                         </container>
                           </br></br>
                           <container>
-                          <a href="{{'agregarGenero'}}" class="btn btn-info" role="button">Agregar genero
+                          <a href="{{'generosCargados'}}" class="btn btn-info" role="button">Ver generos
                           </a>
                         </container>
                           </br></br>

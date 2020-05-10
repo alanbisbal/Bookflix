@@ -16,12 +16,16 @@ class LibroController extends Controller
      */
     public function index()
     {
+      $libros=Libro::all();
+          return view('librosCargados',['libros'=>$libros]);
+    }
+    public function agregarLibro()
+    {
       $autores=Autor::all();
       $editoriales=Editorial::all();
       $generos=Genero::all();
           return view('agregarLibro',['editoriales'=>$editoriales,'autores'=>$autores,'generos'=>$generos]);
     }
-
     /**
      * Show the form for creating a new resource.
      *

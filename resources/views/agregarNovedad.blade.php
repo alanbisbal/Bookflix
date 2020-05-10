@@ -20,23 +20,7 @@
               </form>
 
 
-              Novedades actuales:
-            </br>
-            <table class="table table-light">
-              <thread class="thread-light">
-                <th>ID</th>
-                <th>Titulo</th>
-                <th>Descripcion</th>
-              </thread>
-              <tbody>
-                  @foreach($novedades as $novedad)
-                    <tr>
-                      <td> {{$loop->iteration}}</td>
-                      <td> {{$novedad->titulo}}</td>
-                      <td> {{$novedad->desc}}</td>
-                    </tr>
-                  @endforeach
-                </tbody>
+
 
             </div>
         </div>

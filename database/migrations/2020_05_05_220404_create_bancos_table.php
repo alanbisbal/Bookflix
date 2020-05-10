@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateComentariosTable extends Migration
+class CreateBancosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,9 @@ class CreateComentariosTable extends Migration
      */
     public function up()
     {
-        Schema::create('comentarios', function (Blueprint $table) {
+        Schema::create('bancos', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('idperfil');
-            $table->foreign('idperfil')->references('id')->on('perfils');
-            $table->string('isbn');
-            $table->foreign('isbn')->references('isbn')->on('libros');
-            $table->string('desc');
+            $table->string('nombre')->unique();
             $table->timestamps();
         });
     }
@@ -31,6 +27,6 @@ class CreateComentariosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('comentarios');
+        Schema::dropIfExists('bancos');
     }
 }

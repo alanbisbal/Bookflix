@@ -15,9 +15,10 @@ class CreateLecturasTable extends Migration
     {
         Schema::create('lecturas', function (Blueprint $table) {
             $table->id();
-            $table->string('emailusuario');
-            $table->integer('nroperfil');
+            $table->unsignedInteger('idperfil');
+            $table->foreign('idperfil')->references('id')->on('perfils');
             $table->string('isbn');
+            $table->foreign('isbn')->references('isbn')->on('libros');
             $table->boolean('leido');
             $table->string('desde')->nullable();
             $table->timestamps();

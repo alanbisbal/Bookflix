@@ -15,9 +15,12 @@ class NovedadController extends Controller
     public function index()
     {
       $datos['novedades']=Novedad::paginate()->sortBy('nombre');
-          return view('agregarNovedad',$datos);
+          return view('novedadesCargados',$datos);
     }
-
+    public function agregarNovedad()
+    {
+          return view('agregarNovedad');
+    }
     /**
      * Show the form for creating a new resource.
      *

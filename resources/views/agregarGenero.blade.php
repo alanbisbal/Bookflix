@@ -16,21 +16,6 @@
               </form>
 
 
-              Autores actuales:
-            </br>
-            <table class="table table-light">
-              <thread class="thread-light">
-                <th>ID</th>
-                <th>Nombre</th>
-              </thread>
-              <tbody>
-                  @foreach($generos as $genero)
-                    <tr>
-                      <td> {{$loop->iteration}}</td>
-                      <td> {{$genero->nombre}}</td>
-                    </tr>
-                  @endforeach
-                </tbody>
 
               </div>
         </div>

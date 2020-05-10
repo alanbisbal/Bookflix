@@ -15,7 +15,12 @@ class AutorController extends Controller
     public function index()
     {
       $datos['autores']=Autor::paginate()->sortBy('nombre');
-          return view('agregarAutor',$datos);
+          return view('autoresCargados',$datos);
+    }
+
+    public function agregarAutor()
+    {
+          return view('agregarAutor');
     }
 
     /**

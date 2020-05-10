@@ -15,9 +15,12 @@ class GeneroController extends Controller
     public function index()
     {
       $datos['generos']=Genero::paginate()->sortBy('nombre');
-          return view('agregarGenero',$datos);
+          return view('generosCargados',$datos);
     }
-
+    public function agregarGenero()
+    {
+          return view('agregarGenero');
+    }
     /**
      * Show the form for creating a new resource.
      *

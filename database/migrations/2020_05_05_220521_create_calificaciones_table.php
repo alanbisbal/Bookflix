@@ -15,9 +15,10 @@ class CreateCalificacionesTable extends Migration
     {
         Schema::create('calificaciones', function (Blueprint $table) {
           $table->id();
-          $table->string('emailusuario');
-          $table->integer('nroperfil');
+          $table->unsignedInteger('idperfil');
+          $table->foreign('idperfil')->references('id')->on('perfils');
           $table->string('isbn');
+          $table->foreign('isbn')->references('isbn')->on('libros');
           $table->integer('calif');
           $table->timestamps();
         });

@@ -15,9 +15,13 @@ class EditorialController extends Controller
     public function index()
     {
       $datos['editoriales']=Editorial::paginate()->sortBy('Nombre');
-          return view('agregarEditorial',$datos);
+          return view('editorialesCargados',$datos);
     }
 
+    public function agregarEditorial()
+    {
+          return view('agregarEditorial');
+    }
     /**
      * Show the form for creating a new resource.
      *
