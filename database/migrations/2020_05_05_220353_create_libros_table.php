@@ -14,7 +14,7 @@ class CreateLibrosTable extends Migration
     public function up()
     {
         Schema::create('libros', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id');
             $table->string('isbn')->unique();
             $table->string('desc');
             $table->string('titulo');
@@ -22,10 +22,20 @@ class CreateLibrosTable extends Migration
             $table->string('titulo_trailer');
             $table->string('desc_trailer');
             $table->string('img_trailer');
+
+
             $table->string('editorial');
-            $table->integer('idautor');      
+            $table->foreign('editorial')->references('nombre')->on('editorials');
+
+            $table->unsignedInteger('idautor');
+            $table->foreign('idautor')->references('id')->on('autors');
+
+
             $table->string('genero');
+            $table->foreign('genero')->references('nombre')->on('generos');
+
             $table->timestamps();
+
         });
     }
 
