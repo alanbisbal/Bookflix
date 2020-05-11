@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-              <form action="{{'agregarLibro'}}" method="POST" enctype="multipart/form-data">
+              <form action="{{'librosCargados'}}" method="POST" enctype="multipart/form-data">
                 {{csrf_field()}}
                 <label for="isbn">{{'isbn: '}}</label>
                 <input type="text" name="isbn" id="isbn" value="">

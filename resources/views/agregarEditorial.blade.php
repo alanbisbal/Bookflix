@@ -7,7 +7,7 @@
             <div class="card">
 
               AgregarEditorial
-              <form action="{{'agregarEditorial'}}" method="POST" enctype="multipart/form-data">
+              <form action="{{'editorialesCargados'}}" method="POST" enctype="multipart/form-data">
                 {{csrf_field()}}
                 <label for="nombre">{{'Nombre: '}}</label>
                 <input type="text" name="nombre" id="nombre" value="">

@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-              <form action="{{'agregarNovedad'}}" method="POST" enctype="multipart/form-data">
+              <form action="{{'novedadesCargados'}}" method="POST" enctype="multipart/form-data">
                 {{csrf_field()}}
                 <label for="titulo">{{'Titulo:    '}}</label>
 

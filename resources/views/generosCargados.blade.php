@@ -20,7 +20,7 @@
 
 
                     <container>
-                      <a href="{{'agregarGenero'}}" class="btn btn-info" role="button">Nuevo autor
+                      <a href="{{'agregarGenero'}}" class="btn btn-info" role="button">Nuevo genero
                       </a>
                     </container>
                 </div>

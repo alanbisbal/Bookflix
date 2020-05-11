@@ -7,7 +7,7 @@
             <div class="card">
 
               Agregar Autor
-              <form action="{{'agregarAutor'}}" method="POST" enctype="multipart/form-data">
+              <form action="{{'autoresCargados'}}" method="POST" enctype="multipart/form-data">
                 {{csrf_field()}}
                 <label for="nombre">{{'Nombre: '}}</label>
                 <input type="text" name="nombre" id="nombre" value="">
