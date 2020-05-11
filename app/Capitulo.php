@@ -6,5 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Capitulo extends Model
 {
-    //
+  public function libro()
+    {
+        return $this->belongsTo('App\Perfil','isbn','isbn');
+    }
 }

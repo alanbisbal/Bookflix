@@ -19,6 +19,15 @@ class User extends Authenticatable
         'name', 'email', 'password','f_nac','es_premium','es_admin',
     ];
 
+    public function perfiles()
+    {
+        return $this->hasMany('App\Perfil');
+    }
+
+    public function tarjeta()
+    {
+        return $this->hasOne('App\Tarjeta');
+    }
     /**
      * The attributes that should be hidden for arrays.
      *

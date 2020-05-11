@@ -6,5 +6,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tarjeta extends Model
 {
-    //
+  public function usuario()
+  {
+      return $this->belongsTo('App\User','email','email');
+  }
+
+  public function banco()
+  {
+      return $this->belongsTo('App\Banco','banco','nombre');
+  }
+
+  public function pagos()
+  {
+      return $this->hasMany('App\Pago');
+  }
 }
