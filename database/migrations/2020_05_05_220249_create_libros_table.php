@@ -35,6 +35,7 @@ class CreateLibrosTable extends Migration
             $table->foreign('genero')->references('nombre')->on('generos');
 
             $table->timestamps();
+            
         });
     }
 
