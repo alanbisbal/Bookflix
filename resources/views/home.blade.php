@@ -17,6 +17,8 @@
                             {{ session('status') }}
                         </div>
                     @endif
+                    @if (!auth()->user()->es_admin)
+                      
                     <container>
                         <container>
                           <a href="#" class="btn btn-info" role="button">
@@ -37,6 +39,7 @@
                           </a>
                         </container>
                     </container>
+                    @endif
 
 
                 </div>
