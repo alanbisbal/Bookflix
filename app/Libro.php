@@ -40,10 +40,11 @@ class Libro extends Model
         }
 
 
-      public function autorNombre()
+      public function autorL()
         {
           return $this->belongsTo('App\Autor','id');
         }
+
 
 
     public function generoName()

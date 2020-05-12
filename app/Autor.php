@@ -13,5 +13,8 @@ class Autor extends Model
       return $this->hasMany('App\Libro','id','isbn');
 
     }
+    
+
+
 
 }

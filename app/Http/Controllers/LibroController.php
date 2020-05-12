@@ -45,6 +45,13 @@ class LibroController extends Controller
     public function store(Request $request)
     {
       $datoLibro=request()->except('_token');
+
+      if($request->hasFile('img_libro')){
+            $datoLibro['img_libro']=$request->file('img_libro')->store('uploads','public');
+      }
+      if($request->hasFile('img_trailer')){
+            $datoLibro['img_trailer']=$request->file('img_trailer')->store('uploads','public');
+      }
       Libro::insert($datoLibro);
       return $this->index();
     }
