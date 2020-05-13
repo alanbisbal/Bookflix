@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-7">
             <div class="card">
                 <div class="card-header"> Bienvenido {{auth()->user()->name}}
                   @if (auth()->user()->es_admin)
@@ -17,8 +17,9 @@
                             {{ session('status') }}
                         </div>
                     @endif
+
                     @if (!auth()->user()->es_admin)
-                      
+
                     <container>
                         <container>
                           <a href="#" class="btn btn-info" role="button">
@@ -46,14 +47,26 @@
 
             </div>
 
-            <container class="col-md-4" >
-               <h4>Seccion de libros</h4>
-            </container>
-        </div>
 
-        <container class="col-md-4" style="background-color:#aaaa">
-           <h4>Seccion de novedades</h4>
-        </container>
     </div>
+    <div class="col-md-3">
+      <div class="card">
+          <div class="card-header" >
+            Seccion de Novedades</br>
+          </div>
+
+            <div class="card-body" >
+            @foreach($novedades as $novedad)
+              <div class="card-header" >
+                {{$novedad->titulo}}
+                  </div>
+             {{$novedad->desc}}
+              </br>
+            @endforeach
+            </div>
+          </div>
+            </div>
+
 </div>
+
 @endsection

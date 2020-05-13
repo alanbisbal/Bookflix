@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Calificaciones extends Model
 {
+  
       public function perfil()
         {
             return $this->belongsTo('App\Perfil');

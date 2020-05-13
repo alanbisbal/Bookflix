@@ -31,6 +31,8 @@
                       <th>ID</th>
                       <th>Titulo</th>
                       <th>Descripcion</th>
+                      <th></th>
+                      <th></th>
                     </thread>
                     <tbody>
                         @foreach($novedades as $novedad)
@@ -38,6 +40,17 @@
                             <td> {{$loop->iteration}}</td>
                             <td> {{$novedad->titulo}}</td>
                             <td> {{$novedad->desc}}</td>
+                            <th>
+                              <form >
+                                <button>Eliminar</button>
+                              </form>
+                            </th>
+                            <th>
+                              <form  >
+                                @csrf
+                                <button>Editar</button>
+                              </form>
+                            </th>
                           </tr>
                         @endforeach
                       </tbody>

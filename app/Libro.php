@@ -42,7 +42,7 @@ class Libro extends Model
 
       public function autorL()
         {
-          return $this->belongsTo('App\Autor','id');
+          return $this->belongsTo('App\Autor','idautor','id');
         }
 
 

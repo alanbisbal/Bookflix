@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Novedad;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,10 +15,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $novedades= Novedad::all();
+    return view('welcome',compact('novedades'));
 });
 
 Auth::routes();
+
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/administracion', 'HomeController@administracion')->name('administracion');
 
@@ -37,3 +40,4 @@ Route::get('agregarNovedad','NovedadController@agregarNovedad');
 
 Route::resource('generosCargados','GeneroController');
 Route::get('agregarGenero','GeneroController@agregarGenero');
+Route::delete('borrarGenero/{id}', 'GeneroController@destroy')->name('borrarGenero');

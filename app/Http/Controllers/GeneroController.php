@@ -12,6 +12,12 @@ class GeneroController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+     public function __construct()
+     {
+         $this->middleware('admin');
+     }
+  
+
     public function index()
     {
       $datos['generos']=Genero::paginate()->sortBy('nombre');
@@ -86,6 +92,7 @@ class GeneroController extends Controller
      */
     public function destroy(Genero $genero)
     {
-        //
+      $genero->delete();
+      return redirect('generosCargados');
     }
 }

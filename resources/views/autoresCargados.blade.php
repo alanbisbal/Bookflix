@@ -29,13 +29,29 @@
                     <thread class="thread-light">
                       <th>ID</th>
                       <th>Nombre</th>
+                      <th></th>
+                      <th></th>
                     </thread>
                     <tbody>
                         @foreach($autores as $autor)
                           <tr>
                             <td> {{$loop->iteration}}</td>
                             <td> {{$autor->nombre}}</td>
+                            <th>
+                            <form >
+                              <button>Eliminar</button>
+                            </form>
+                          </th>
+                          <th>
+                            <form  >
+                              @csrf
+                              <button>Editar</button>
+                            </form>
+                          </th>
+
+
                           </tr>
+
                         @endforeach
                       </tbody>
 

@@ -36,6 +36,20 @@
                           <tr>
                             <td> {{$loop->iteration}}</td>
                             <td> {{$editorial->nombre}}</td>
+                            <th></th>
+                            <th></th>
+                            <th>
+                              <form >
+                                <button>Eliminar</button>
+                              </form>
+                            </th>
+                            <th>
+                              <form  >
+                                @csrf
+                                <button>Editar</button>
+                              </form>
+                            </th>
+
                           </tr>
                         @endforeach
                       </tbody>

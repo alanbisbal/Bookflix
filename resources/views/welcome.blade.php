@@ -23,7 +23,7 @@
             .full-height {
                 height: 100vh;
             }
-
+        
             .flex-center {
                 align-items: center;
                 display: flex;
@@ -38,6 +38,12 @@
                 position: absolute;
                 right: 10px;
                 top: 18px;
+            }
+
+            .down-right {
+                position: absolute;
+                right: 60px;
+                top: 250px;
             }
 
             .content {
@@ -83,8 +89,28 @@
                 <div class="title m-b-md">
                     Bookflix
                 </div>
+                <div class="down-right">
+                  <div class="card">
+                      <div class="card-header" >
+                        Seccion de Novedades</br>
+                      </div>
+
+                        <div class="card-body" >
+                        @foreach($novedades as $novedad)
+                          <div class="card-header" >
+                            {{$novedad->titulo}}
+                              </div>
+                         {{$novedad->desc}}
+                          </br>
+                        @endforeach
+                        </div>
+                      </div>
+                      </div>
 
             </div>
+
+
         </div>
+
     </body>
 </html>

@@ -5,7 +5,6 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-
               Agregar Autor
               <form action="{{'autoresCargados'}}" method="POST" enctype="multipart/form-data">
                 {{csrf_field()}}
@@ -16,6 +15,7 @@
               </form>
 
               </div>
+
         </div>
     </div>
 </div>

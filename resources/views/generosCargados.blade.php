@@ -29,12 +29,25 @@
                     <thread class="thread-light">
                       <th>ID</th>
                       <th>Nombre</th>
+                      <th></th>
+                      <th></th>
                     </thread>
                     <tbody>
                         @foreach($generos as $genero)
                           <tr>
                             <td> {{$loop->iteration}}</td>
                             <td> {{$genero->nombre}}</td>
+                            <th>
+                              <form >
+                                <button>Eliminar</button>
+                              </form>
+                            </th>
+                            <th>
+                              <form  >
+                                @csrf
+                                <button>Editar</button>
+                              </form>
+                            </th>
                           </tr>
                         @endforeach
                       </tbody>

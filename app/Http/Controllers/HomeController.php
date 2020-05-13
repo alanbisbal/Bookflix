@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Novedad;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,8 +24,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $novedades= Novedad::all();
+        return view('home',compact('novedades'));
     }
+
     public function administracion()
     {
         return view('administracion');

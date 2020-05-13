@@ -46,17 +46,29 @@
                             <td> {{$libro->titulo_trailer}}</td>
                             <td> {{$libro->desc_trailer}}</td>
                             <td> {{$libro->editorial}}</td>
-                            <td> {{$libro->autorL['nombre'] }}</td>
+                            <td> {{$libro->autorL->nombre}}</td>
                             <td> {{$libro->genero}}</td>
                             <td> {{$libro->autor}}</td>
-
+                            <th></th>
+                            <th></th>
+                            <th>
+                              <form >
+                                <button>Eliminar</button>
+                              </form>
+                            </th>
+                            <th>
+                              <form  >
+                                @csrf
+                                <button>Editar</button>
+                              </form>
+                            </th>
                           </tr>
                         @endforeach
                       </tbody>
-
-                      solucionar imagenes de trailer y portada, enlazar autor y editorial mediante relacion
                 </container>
             </div>
+
+            Modificar la cantidad de generos y autores para cada libro
 
 
 
