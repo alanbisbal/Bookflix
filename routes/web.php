@@ -26,18 +26,34 @@ Route::get('/administracion', 'HomeController@administracion')->name('administra
 
 Route::resource('librosCargados','LibroController');
 Route::get('agregarLibro','LibroController@agregarLibro');
-
+Route::delete('/eliminarLibro/{id}', 'LibroController@eliminar')->name('libro.eliminar');
+Route::get('/editarLibro/{id}', 'LibroController@editar' )->name('libro.editar');
+Route::put('/editarLibro/{id}', 'LibroController@update' )->name('libro.update');
 
 
 Route::resource('editorialesCargados','EditorialController');
 Route::get('agregarEditorial','EditorialController@agregarEditorial');
+Route::delete('/eliminarEditorial/{id}', 'EditorialController@eliminar')->name('editorial.eliminar');
+Route::get('/editarEditorial/{id}', 'EditorialController@editar' )->name('editorial.editar');
+Route::put('/editarEditorial/{id}', 'EditorialController@update' )->name('editorial.update');
+
 
 Route::resource('autoresCargados','AutorController');
 Route::get('agregarAutor','AutorController@agregarAutor');
+Route::delete('/eliminarAutor/{id}', 'AutorController@eliminar')->name('autor.eliminar');
+Route::get('/editarAutor/{id}', 'AutorController@editar' )->name('autor.editar');
+Route::put('/editarAutor/{id}', 'AutorController@update' )->name('autor.update');
+
 
 Route::resource('novedadesCargados','NovedadController');
 Route::get('agregarNovedad','NovedadController@agregarNovedad');
+Route::delete('/eliminarNovedad/{id}', 'NovedadController@eliminar')->name('novedad.eliminar');
+Route::get('/editarNovedad/{id}', 'NovedadController@editar' )->name('novedad.editar');
+Route::put('/editarNovedad/{id}', 'NovedadController@update' )->name('novedad.update');
+
 
 Route::resource('generosCargados','GeneroController');
 Route::get('agregarGenero','GeneroController@agregarGenero');
-Route::delete('borrarGenero/{id}', 'GeneroController@destroy')->name('borrarGenero');
+Route::delete('/eliminarLGenero/{id}', 'GeneroController@eliminar')->name('genero.eliminar');
+Route::get('/editarGenero/{id}', 'GeneroController@editar' )->name('genero.editar');
+Route::put('/editarGenero/{id}', 'GeneroController@update' )->name('genero.update');

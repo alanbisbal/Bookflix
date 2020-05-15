@@ -23,7 +23,7 @@
             .full-height {
                 height: 100vh;
             }
-        
+
             .flex-center {
                 align-items: center;
                 display: flex;
@@ -84,33 +84,31 @@
                     @endauth
                 </div>
             @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Bookflix
-                </div>
-                <div class="down-right">
-                  <div class="card">
-                      <div class="card-header" >
-                        Seccion de Novedades</br>
-                      </div>
-
-                        <div class="card-body" >
-                        @foreach($novedades as $novedad)
-                          <div class="card-header" >
-                            {{$novedad->titulo}}
-                              </div>
-                         {{$novedad->desc}}
-                          </br>
-                        @endforeach
-                        </div>
-                      </div>
-                      </div>
-
+            <div class="title m-b-md">
+                Bookflix
             </div>
 
+        </div>
+        <div class="content">
+
+            <div class="down-right">
+              <div class="card">
+                  <div class="card-header" >
+                    Seccion de Novedades</br>
+                  </div>
+
+                    <div class="card-body" >
+                    @foreach($novedades as $novedad)
+                      <div class="card-header" >
+                        {{$novedad->titulo}}
+                          </div>
+                     {{$novedad->desc}}
+                      </br>
+                    @endforeach
+                    </div>
+                  </div>
+                  </div>
 
         </div>
-
     </body>
 </html>

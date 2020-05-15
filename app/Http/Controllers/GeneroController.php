@@ -16,7 +16,7 @@ class GeneroController extends Controller
      {
          $this->middleware('admin');
      }
-  
+
 
     public function index()
     {
@@ -79,9 +79,16 @@ class GeneroController extends Controller
      * @param  \App\Genero  $genero
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Genero $genero)
-    {
-        //
+
+    public function update(Request $request, $id){
+
+    $generoActualizado = Genero::find($id);
+
+
+
+    $generoActualizado->nombre = $request->nombre;
+    $generoActualizado->save();
+    return $this->index();
     }
 
     /**
@@ -90,9 +97,16 @@ class GeneroController extends Controller
      * @param  \App\Genero  $genero
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Genero $genero)
+    public function eliminar($id)
     {
-      $genero->delete();
-      return redirect('generosCargados');
+      $generoEliminar = Genero::findOrFail($id);
+      $generoEliminar->delete();
+    return $this->index();
     }
+
+
+    public function editar($id){
+    $genero = Genero::findOrFail($id);
+    return view('editarGenero', compact('genero'));
+}
 }

@@ -77,31 +77,41 @@ class LibroController extends Controller
      * @param  \App\Libro  $libro
      * @return \Illuminate\Http\Response
      */
-    public function edit(Libro $libro)
-    {
-        //
-    }
+     public function update(Request $request, $id){
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Libro  $libro
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Libro $libro)
-    {
-        //
-    }
+     $libroActualizado = Libro::find($id);
+     $libroActualizado ->isbn = $request->isbn;
+     $libroActualizado ->desc = $request->desc;
+     $libroActualizado ->titulo = $request->titulo;
+     $libroActualizado ->i = $request->img_libro;
+     $libroActualizado ->titulo_trailer = $request->titulo_trailer;
+     $libroActualizado ->img_trailer = $request->img_trailer;
+     $libroActualizado ->editorial = $request->editorial;
+     $libroActualizado ->idautor = $request->idautor;
+     $libroActualizado ->genero = $request->genero;
+     $libroActualizado->save();
+     return $this->index();
+     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Libro  $libro
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Libro $libro)
-    {
-        //
-    }
+     /**
+      * Remove the specified resource from storage.
+      *
+      * @param  \App\Genero  $genero
+      * @return \Illuminate\Http\Response
+      */
+     public function eliminar($id)
+     {
+       $libroEliminar = Libro::findOrFail($id);
+       $libroEliminar->delete();
+     return $this->index();
+     }
+
+
+     public function editar($id){
+     $libro = Libro::findOrFail($id);
+     $generos = Genero::all()->sortBy('nombre');
+     $editoriales =Editorial::all()->sortBy('nombre');
+     $autores =Autor::all()->sortBy('nombre');
+     return view('editarLibro', compact('libro','generos','editoriales','autores'));
+ }
 }

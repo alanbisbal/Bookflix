@@ -66,31 +66,33 @@ class EditorialController extends Controller
      * @param  \App\Editorial  $editorial
      * @return \Illuminate\Http\Response
      */
-    public function edit(Editorial $editorial)
-    {
-        //
-    }
+     public function update(Request $request, $id){
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Editorial  $editorial
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Editorial $editorial)
-    {
-        //
-    }
+     $editorialActualizado = Editorial::find($id);
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Editorial  $editorial
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Editorial $editorial)
-    {
-        //
-    }
+
+
+     $editorialActualizado->nombre = $request->nombre;
+     $editorialActualizado->save();
+     return $this->index();
+     }
+
+     /**
+      * Remove the specified resource from storage.
+      *
+      * @param  \App\Genero  $genero
+      * @return \Illuminate\Http\Response
+      */
+     public function eliminar($id)
+     {
+       $editorialEliminar = Editorial::findOrFail($id);
+       $editorialEliminar->delete();
+     return $this->index();
+     }
+
+
+     public function editar($id){
+     $genero = Editorial::findOrFail($id);
+     return view('editarEditorial', compact('genero'));
+ }
 }

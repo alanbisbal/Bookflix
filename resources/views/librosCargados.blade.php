@@ -29,6 +29,7 @@
                     <thread class="thread-light">
                       <th>ID</th>
                       <th>ISBN</th>
+                      <th>Titulo</th>
                       <th>Portada</th>
                       <th>Tit. trailer</th>
                       <th>desc. trailer</th>
@@ -42,6 +43,7 @@
                           <tr>
                             <td> {{$loop->iteration}}</td>
                             <td> {{$libro->isbn}}</td>
+                            <td> {{$libro->titulo}}</td>
                             <td> <img src="{{asset('storage').'/'.$libro->img_libro}}"alt="" width="100"> </td>
                             <td> {{$libro->titulo_trailer}}</td>
                             <td> {{$libro->desc_trailer}}</td>
@@ -52,15 +54,19 @@
                             <th></th>
                             <th></th>
                             <th>
-                              <form >
-                                <button>Eliminar</button>
+                              <form action="{{ route('libro.eliminar', $libro->id )}}" class="d-inline" method="POST">
+                                  @method('DELETE')
+                                  @csrf
+                                  <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
                               </form>
-                            </th>
-                            <th>
-                              <form  >
-                                @csrf
-                                <button>Editar</button>
-                              </form>
+
+                          </th>
+                          <th>
+                            <form  >
+                              <td>
+                                  <a href="{{route('libro.editar', $libro)}}" class="btn btn-warning btn-sm">Editar</a>
+                              </td>
+                            </form>
                             </th>
                           </tr>
                         @endforeach
