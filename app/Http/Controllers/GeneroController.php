@@ -27,6 +27,11 @@ class GeneroController extends Controller
     {
           return view('agregarGenero');
     }
+
+    public function generosCargados()
+    {
+          return $this->index();
+    }
     /**
      * Show the form for creating a new resource.
      *

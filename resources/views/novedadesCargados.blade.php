@@ -41,15 +41,19 @@
                             <td> {{$novedad->titulo}}</td>
                             <td> {{$novedad->desc}}</td>
                             <th>
-                              <form >
-                                <button>Eliminar</button>
+                              <form action="{{ route('novedades.eliminar', $novedad->id )}}" class="d-inline" method="POST">
+                                  @method('DELETE')
+                                  @csrf
+                                  <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
                               </form>
-                            </th>
-                            <th>
-                              <form  >
-                                @csrf
-                                <button>Editar</button>
-                              </form>
+
+                          </th>
+                          <th>
+                            <form  >
+                              <td>
+                                  <a href="{{route('novedades.editar', $novedad)}}" class="btn btn-warning btn-sm">Editar</a>
+                              </td>
+                            </form>
                             </th>
                           </tr>
                         @endforeach
