@@ -108,7 +108,9 @@ class GeneroController extends Controller
 
 
     public function editar($id){
-    $genero = Genero::findOrFail($id);
-    return view('editarGenero', compact('genero'));
+    $generoActualizado = Genero::findOrFail($id);
+    $generoActualizado->nombre = $request->nombre;
+    $generoActualizado->save();
+    return redirect()->action('GeneroController@index');
 }
 }

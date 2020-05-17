@@ -12,6 +12,6 @@ class Favorito extends Model
     }
     public function libro()
     {
-        return $this->belongsTo('App\Perfil','isbn','isbn');
+        return $this->belongsTo('App\Perfil','idLibro','id');
     }
 }

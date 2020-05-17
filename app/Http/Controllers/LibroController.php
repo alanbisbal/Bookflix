@@ -86,9 +86,9 @@ class LibroController extends Controller
      $libroActualizado ->i = $request->img_libro;
      $libroActualizado ->titulo_trailer = $request->titulo_trailer;
      $libroActualizado ->img_trailer = $request->img_trailer;
-     $libroActualizado ->editorial = $request->editorial;
-     $libroActualizado ->idautor = $request->idautor;
-     $libroActualizado ->genero = $request->genero;
+     $libroActualizado ->idEditorial = $request->idEditorial;
+     $libroActualizado ->idAutor = $request->idAutor;
+     $libroActualizado ->idGenero = $request->idGenero;
      $libroActualizado->save();
      return $this->index();
      }

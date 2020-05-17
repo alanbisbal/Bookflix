@@ -36,7 +36,7 @@ class Libro extends Model
 
       public function editorialNombre()
         {
-          return $this->belongsTo('App\Editorial','editorial','nombre');
+          return $this->belongsTo('App\Editorial','idEditorial','id');
         }
 
 
@@ -45,11 +45,21 @@ class Libro extends Model
           return $this->belongsTo('App\Autor','idautor','id');
         }
 
+    public function generoL()
+      {
+        return $this->belongsTo('App\Genero','idautor','id');
+      }
+
+
+    public function editorialL()
+      {
+        return $this->belongsTo('App\Editorial ','idautor','id');
+      }
 
 
     public function generoName()
           {
-          return $this->belongsTo('App\Genero','genero','nombre');
+          return $this->belongsTo('App\Genero','idGenero','id');
           }
 
 

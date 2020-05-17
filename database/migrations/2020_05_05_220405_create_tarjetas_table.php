@@ -19,8 +19,8 @@ class CreateTarjetasTable extends Migration
             $table->foreign('email')->references('email')->on('users');
             $table->integer('numero');
             $table->integer('codigo');
-            $table->string('banco');
-            $table->foreign('banco')->references('nombre')->on('bancos');
+            $table->unsignedInteger('idBanco');
+            $table->foreign('idBanco')->references('id')->on('bancos');
             $table->timestamps();
         });
     }

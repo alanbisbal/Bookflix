@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGenerosTable extends Migration
+class CreateCapitulosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,13 @@ class CreateGenerosTable extends Migration
      */
     public function up()
     {
-        Schema::create('generos', function (Blueprint $table) {
+        Schema::create('capitulos', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombre')->unique();
+            $table->unsignedInteger('idLibro');
+            $table->foreign('idLibro')->references('id')->on('libros');
+            $table->integer('nro')->unique();
+            $table->string('titulo');
+            $table->string('capitulo');
             $table->timestamps();
         });
     }
@@ -27,6 +31,6 @@ class CreateGenerosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('generos');
+        Schema::dropIfExists('capitulos');
     }
 }

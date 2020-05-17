@@ -14,11 +14,11 @@ class CreateFavoritosTable extends Migration
     public function up()
     {
         Schema::create('favoritos', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->unsignedInteger('idperfil');
             $table->foreign('idperfil')->references('id')->on('perfils');
-            $table->string('isbn');
-            $table->foreign('isbn')->references('isbn')->on('libros');
+            $table->unsignedInteger('idLibro');
+            $table->foreign('idLibro')->references('id')->on('libros');
             $table->timestamps();
         });
     }

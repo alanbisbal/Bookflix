@@ -12,6 +12,6 @@ class Lectura extends Model
     }
     public function libro()
     {
-        return $this->belongsTo('App\Perfil','isbn');
+        return $this->belongsTo('App\Perfil');
     }
 }

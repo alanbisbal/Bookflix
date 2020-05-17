@@ -13,7 +13,7 @@ class Tarjeta extends Model
 
   public function banco()
   {
-      return $this->belongsTo('App\Banco','banco','nombre');
+      return $this->belongsTo('App\Banco','idBanco','id');
   }
 
   public function pagos()

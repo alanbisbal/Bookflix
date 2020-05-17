@@ -39,17 +39,17 @@
                   @endforeach
                 </select>
               </br>
-                <label for="editorial">{{'editorial: '}}</label>
-                <select name="editorial">
+                <label for="idEditorial">{{'editorial: '}}</label>
+                <select name="idEditorial">
                   @foreach($editoriales as $editorial)
-                    <option value="{{$editorial->nombre}}">{{$editorial->nombre}}</option>
+                    <option value="{{$editorial->id}}">{{$editorial->nombre}}</option>
                   @endforeach
                 </select>
                 </br>
-                <label for="genero">{{'Genero: '}}</label>
-                <select name="genero">
+                <label for="idGenero">{{'Genero: '}}</label>
+                <select name="idGenero">
                   @foreach($generos as $genero)
-                    <option value="{{$genero->nombre}}">{{$genero->nombre}}</option>
+                    <option value="{{$genero->id}}">{{$genero->nombre}}</option>
                   @endforeach
                 </select>
                 </br>

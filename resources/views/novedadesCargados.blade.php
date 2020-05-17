@@ -41,7 +41,7 @@
                             <td> {{$novedad->titulo}}</td>
                             <td> {{$novedad->desc}}</td>
                             <th>
-                              <form action="{{ route('novedades.eliminar', $novedad->id )}}" class="d-inline" method="POST">
+                              <form action="{{ route('novedad.eliminar', $novedad->id )}}" class="d-inline" method="POST">
                                   @method('DELETE')
                                   @csrf
                                   <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
@@ -51,7 +51,7 @@
                           <th>
                             <form  >
                               <td>
-                                  <a href="{{route('novedades.editar', $novedad)}}" class="btn btn-warning btn-sm">Editar</a>
+                                  <a href="{{route('novedad.editar', $novedad)}}" class="btn btn-warning btn-sm">Editar</a>
                               </td>
                             </form>
                             </th>
