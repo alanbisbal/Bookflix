@@ -52,7 +52,7 @@ Route::get('/editarNovedad/{id}', 'NovedadController@editar' )->name('novedad.ed
 Route::put('/editarNovedad/{id}', 'NovedadController@update' )->name('novedad.update');
 
 
-Route::get('generosCargados','GeneroController@generosCargados');
+Route::resource('generosCargados','GeneroController');
 Route::get('agregarGenero','GeneroController@agregarGenero');
 Route::delete('/eliminarLGenero/{id}', 'GeneroController@eliminar')->name('genero.eliminar');
 Route::get('/editarGenero/{id}', 'GeneroController@editar' )->name('genero.editar');

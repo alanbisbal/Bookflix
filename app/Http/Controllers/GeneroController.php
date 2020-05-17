@@ -52,7 +52,7 @@ class GeneroController extends Controller
     {
       $datoGenero=request()->except('_token');
       Genero::insert($datoGenero);
-      return $this->index();
+      return redirect()->action('GeneroController@index');
     }
 
     /**
@@ -88,12 +88,9 @@ class GeneroController extends Controller
     public function update(Request $request, $id){
 
     $generoActualizado = Genero::find($id);
-
-
-
     $generoActualizado->nombre = $request->nombre;
     $generoActualizado->save();
-    return $this->index();
+    return redirect()->action('GeneroController@index');
     }
 
     /**
@@ -106,7 +103,7 @@ class GeneroController extends Controller
     {
       $generoEliminar = Genero::findOrFail($id);
       $generoEliminar->delete();
-    return $this->index();
+    return redirect()->action('GeneroController@index');
     }
 
 
