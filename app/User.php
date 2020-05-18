@@ -28,6 +28,11 @@ class User extends Authenticatable
     {
         return $this->hasOne('App\Tarjeta');
     }
+
+    public function nuevoPerfil()
+    {
+        return view('nuevoPerfil');
+    }
     /**
      * The attributes that should be hidden for arrays.
      *

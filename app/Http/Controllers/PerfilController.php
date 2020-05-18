@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\User;
 use App\Perfil;
 use Illuminate\Http\Request;
 
@@ -15,6 +15,11 @@ class PerfilController extends Controller
     public function index()
     {
         //
+    }
+
+    public function nuevoPerfil()
+    {
+        return view('nuevoPerfil');
     }
 
     /**
@@ -72,6 +77,13 @@ class PerfilController extends Controller
         //
     }
 
+    public function agregarPerfil(Request $request)
+    {
+      $perfil=request()->except('_token');
+
+      Perfil::insert($perfil);
+      return redirect()->action('HomeController@index');
+    }
     /**
      * Remove the specified resource from storage.
      *

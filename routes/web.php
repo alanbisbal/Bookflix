@@ -23,6 +23,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/administracion', 'HomeController@administracion')->name('administracion');
+Route::get('perfil', 'PerfilController@agregarPerfil')->name('nuevoPerfil');
+Route::get('agregarPerfil', 'PerfilController@agregarPerfil' );
 
 Route::resource('librosCargados','LibroController');
 Route::get('agregarLibro','LibroController@agregarLibro');

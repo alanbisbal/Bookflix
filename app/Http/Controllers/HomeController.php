@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Novedad;
+use App\Perfil;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -25,12 +26,16 @@ class HomeController extends Controller
     public function index()
     {
         $novedades= Novedad::all();
-        return view('home',compact('novedades'));
+        $perfiles=Perfil::find(auth()->user()->id);
+        return view('home',compact('novedades','perfiles'));
     }
 
     public function administracion()
     {
         return view('administracion');
     }
-
+    public function nuevoPerfil()
+    {
+        return view('nuevoPerfil');
+    }
 }
