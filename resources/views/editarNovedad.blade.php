@@ -15,7 +15,7 @@
           {{ session('mensaje') }}
       </div>
   @endif
-  <form action="{{ route('genero.update', $genero->id) }}" method="POST">
+  <form action="{{ route('novedad.update', $novedad->id) }}" method="POST">
     @method('PUT')
     @csrf
 
@@ -25,9 +25,10 @@
         </div>
     @enderror
 
-
-
-    <input type="text" name="nombre" placeholder="Nombre" class="form-control mb-2" value="{{ $genero->nombre }}">
+Titulo:
+    <input type="text" name="titulo" placeholder="titulo" class="form-control mb-2" value="{{ $novedad->titulo }}">
+Descripcion:
+    <input type="text" name="desc" placeholder="desc" class="form-control mb-2" value="{{ $novedad->desc }}">
     <button class="btn btn-warning btn-block" type="submit">Editar</button>
   </form>
 @endsection

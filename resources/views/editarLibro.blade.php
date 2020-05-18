@@ -18,100 +18,107 @@
   <form action="{{ route('libro.update', $libro->id) }}" method="POST">
     @method('PUT')
     @csrf
-    ISBN:
+
+
     @error('isbn')
         <div class="alert alert-danger">
-            El nombre es obligatorio
+            El isbn es obligatorio
         </div>
     @enderror
-    <input type="text" name="isbn" placeholder="isbn" class="form-control mb-2" value="{{ $libro->isbn }}">
+    <label for="isbn">{{'ISBN: '}}</label>
+    <input type="text" name="isbn" id="isbn" value="{{ $libro->isbn}}">
+    </br>
 
-
-    TITULO:
     @error('titulo')
         <div class="alert alert-danger">
             El titulo es obligatorio
         </div>
     @enderror
-    <input type="text" name="titulo" placeholder="titulo" class="form-control mb-2" value="{{ $libro->titulo }}">
+    <label for="titulo">{{'Titulo: '}}</label>
+    <input type="text" name="titulo" id="titulo"  value="{{ $libro->titulo }}">
+</br>
 
-    DESCIPCION:
     @error('desc')
         <div class="alert alert-danger">
             La descripcion es obligatoria
         </div>
     @enderror
-    <input type="text" name="desc" placeholder="desc" class="form-control mb-2" value="{{ $libro->desc }}">
+    <label for="desc">{{'desc: '}}</label>
+    <input type="text" name="desc" id="desc" value="{{ $libro->desc }}">
+    </br>
 
 
-    IMAGEN:
     @error('img_libro')
         <div class="alert alert-danger">
             La portada es obligatoria
         </div>
     @enderror
-    <label for="img_trailer">{{'Imagen de trailer: '}}</label></br>
     <img src="{{asset('storage').'/'.$libro->img_libro}}"alt="" width="100">
+    <label for="img_libro">{{'Portada del libro: '}}</label>
+    </br>
+    <input accept="image/*" type="file" name="img_libro" >
 
-    <input accept="image/*" type="file" name="img_trailer" >
 
-    TITULO DE TRAILER
+</br></br>
     @error('titulo_trailer')
         <div class="alert alert-danger">
             El titulo del trailer es obligatorio
         </div>
     @enderror
-    <input type="text" name="titulo_trailer" placeholder="titulo_trailer" class="form-control mb-2" value="{{ $libro->titulo_trailer }}">
+    <label for="titulo_trailer">{{'Titulo de trailer: '}}</label>
+    <input type="text" name="titulo_trailer" id="titulo_trailer" value="{{ $libro->titulo_trailer }}">
 
 
 
+</br>
 
-    DESCIPCION DE TRAILER
     @error('desc_trailer')
         <div class="alert alert-danger">
             La descripcion del trailer es obligatoria
         </div>
     @enderror
-    <input type="text" name="nombre" placeholder="Nombre" class="form-control mb-2" value="{{ $libro->desc_trailer }}">
+    <label for="desc_trailer">{{'Descripcion de trailer: '}}</label>
+    <input type="text" name="desc_trailer" id="desc_trailer" value="{{ $libro->desc_trailer }}">
 
-
+</br>
 
     @error('nombre')
         <div class="alert alert-danger">
             El nombre es obligatorio
         </div>
     @enderror
-    <label for="img_trailer">{{'Imagen de trailer: '}}</label></br>
+
+
     <img src="{{asset('storage').'/'.$libro->img_trailer}}"alt="" width="100">
+    <label for="img_trailer">{{'Imagen de trailer: '}}</label>
     <input accept="image/*" type="file" name="img_trailer" >
 
 
 
-    EDITORIAL:
+
+
     </br>
-    <label for="editorial">{{'Editorial: '}}</label>
-    <select name="editorial">
+    <label for="idEditorial">{{'Editorial: '}}</label>
+    <select name="idEditorial" selected="{{$libro->idEditorial}}">
       @foreach($editoriales as $editorial)
-         <option value="{{$editorial->id}}" selected="{{$libro->editorial}}">{{$editorial->nombre}}</option>
+         <option value="{{$editorial->id}}" >{{$editorial->nombre}}</option>
       @endforeach
     </select>
 
 
-    AUTOR:
     </br>
     <label for="idautor">{{'Autor: '}}</label>
-    <select name="idautor">
+    <select name="idautor" selected="{{$libro->idautor}}">
       @foreach($autores as $autor)
-         <option value="{{$autor->id}}" selected="{{$libro->idautor}}">{{$autor->nombre}}</option>
+         <option value="{{$autor->id}}" >{{$autor->nombre}}</option>
       @endforeach
     </select>
 
-    GENERO
   </br>
-    <label for="genero">{{'Genero: '}}</label>
-    <select name="genero">
+    <label for="idGenero">{{'Genero: '}}</label>
+    <select name="idGenero" selected="{{$libro->idGenero}}">
       @foreach($generos as $genero)
-         <option value="{{$genero->id}}" selected="{{$libro->genero}}">{{$genero->nombre}}</option>
+         <option value="{{$genero->id}}" >{{$genero->nombre}}</option>
       @endforeach
     </select>
 

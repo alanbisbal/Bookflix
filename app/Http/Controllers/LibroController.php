@@ -21,14 +21,17 @@ class LibroController extends Controller
     public function index()
     {
       $libros=Libro::all();
-          return view('librosCargados',['libros'=>$libros]);
+          return view('librosCargados',compact('libros'));
     }
+
+
+
     public function agregarLibro()
     {
       $autores=Autor::all();
       $editoriales=Editorial::all();
       $generos=Genero::all();
-          return view('agregarLibro',['editoriales'=>$editoriales,'autores'=>$autores,'generos'=>$generos]);
+          return view('agregarLibro',compact('autores','editoriales','generos'));
     }
     /**
      * Show the form for creating a new resource.
@@ -83,35 +86,41 @@ class LibroController extends Controller
      $libroActualizado ->isbn = $request->isbn;
      $libroActualizado ->desc = $request->desc;
      $libroActualizado ->titulo = $request->titulo;
-     $libroActualizado ->i = $request->img_libro;
+
+     if(isset($request->img_libro)){
+             $libroActulizado->img_libro=$request->file('img_libro')->store('uploads','public');
+     }
      $libroActualizado ->titulo_trailer = $request->titulo_trailer;
-     $libroActualizado ->img_trailer = $request->img_trailer;
-     $libroActualizado ->idEditorial = $request->idEditorial;
-     $libroActualizado ->idAutor = $request->idAutor;
+     if(isset($request->img_trailer)){
+             $libroActualizado->img_trailer=$request->file('img_trailer')->store('uploads','public');
+      }
+    $libroActualizado ->idEditorial = $request->idEditorial;
+     $libroActualizado ->idautor = $request->idautor;
      $libroActualizado ->idGenero = $request->idGenero;
      $libroActualizado->save();
-     return $this->index();
+       return redirect()->action('LibroController@index');
      }
 
      /**
       * Remove the specified resource from storage.
       *
-      * @param  \App\Genero  $genero
+      * @param  \App\Libro  $libro
       * @return \Illuminate\Http\Response
       */
-     public function eliminar($id)
-     {
-       $libroEliminar = Libro::findOrFail($id);
-       $libroEliminar->delete();
-     return $this->index();
-     }
+      public function eliminar($id)
+      {
+        $libroEliminar = Libro::findOrFail($id);
+        $libroEliminar->delete();
+      return redirect()->action('LibroController@index');
+      }
 
 
-     public function editar($id){
-     $libro = Libro::findOrFail($id);
-     $generos = Genero::all()->sortBy('nombre');
-     $editoriales =Editorial::all()->sortBy('nombre');
-     $autores =Autor::all()->sortBy('nombre');
-     return view('editarLibro', compact('libro','generos','editoriales','autores'));
- }
+      public function editar($id){
+      $libro = Libro::findOrFail($id);
+      $libro->save();
+      $autores=Autor::all();
+      $editoriales=Editorial::all();
+      $generos=Genero::all();
+      return view('editarLibro',compact('libro','autores','generos','editoriales'));
+   }
 }

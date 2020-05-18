@@ -47,26 +47,15 @@ class Libro extends Model
 
     public function generoL()
       {
-        return $this->belongsTo('App\Genero','idautor','id');
+        return $this->belongsTo('App\Genero','idGenero','id');
       }
 
 
-    public function editorialL()
-      {
-        return $this->belongsTo('App\Editorial ','idautor','id');
-      }
 
-
-    public function generoName()
+  public function editorialL()
           {
-          return $this->belongsTo('App\Genero','idGenero','id');
+          return $this->belongsTo('App\Editorial','idEditorial','id');
           }
-
-
-
-
-
-
 
 
 

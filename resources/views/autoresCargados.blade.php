@@ -38,14 +38,18 @@
                             <td> {{$loop->iteration}}</td>
                             <td> {{$autor->nombre}}</td>
                             <th>
-                            <form >
-                              <button>Eliminar</button>
-                            </form>
+                              <form action="{{ route('autor.eliminar', $autor->id )}}" class="d-inline" method="POST">
+                                  @method('DELETE')
+                                  @csrf
+                                  <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                              </form>
+
                           </th>
                           <th>
                             <form  >
-                              @csrf
-                              <button>Editar</button>
+                              <td>
+                                  <a href="{{route('autor.editar', $autor->id)}}" class="btn btn-warning btn-sm">Editar</a>
+                              </td>
                             </form>
                           </th>
 

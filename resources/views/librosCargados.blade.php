@@ -50,9 +50,6 @@
                             <td> {{$libro->editorialL->nombre}}</td>
                             <td> {{$libro->autorL->nombre}}</td>
                             <td> {{$libro->generoL->nombre}}</td>
-                            <td> {{$libro->autor}}</td>
-                            <th></th>
-                            <th></th>
                             <th>
                               <form action="{{ route('libro.eliminar', $libro->id )}}" class="d-inline" method="POST">
                                   @method('DELETE')

@@ -46,7 +46,7 @@ class EditorialController extends Controller
     {
       $datoEditorial=request()->except('_token');
       Editorial::insert($datoEditorial);
-      return $this->index();
+      return redirect()->action('EditorialController@index');
     }
 
     /**
@@ -68,31 +68,29 @@ class EditorialController extends Controller
      */
      public function update(Request $request, $id){
 
-     $editorialActualizado = Editorial::find($id);
-
-
-
-     $editorialActualizado->nombre = $request->nombre;
-     $editorialActualizado->save();
-     return $this->index();
+     $editorialActualizada = Editorial::find($id);
+     $editorialActualizada->nombre = $request->nombre;
+     $editorialActualizada->save();
+     return redirect()->action('EditorialController@index');
      }
 
      /**
       * Remove the specified resource from storage.
       *
-      * @param  \App\Genero  $genero
+      * @param  \App\Editorial  $editorial
       * @return \Illuminate\Http\Response
       */
      public function eliminar($id)
      {
        $editorialEliminar = Editorial::findOrFail($id);
        $editorialEliminar->delete();
-     return $this->index();
+     return redirect()->action('EditorialController@index');
      }
 
 
      public function editar($id){
-     $genero = Editorial::findOrFail($id);
-     return view('editarEditorial', compact('genero'));
+     $editorial = Editorial::findOrFail($id);
+     $editorial->save();
+     return view('editarEditorial',compact('editorial'));
  }
 }

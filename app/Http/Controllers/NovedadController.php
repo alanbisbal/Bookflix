@@ -35,75 +35,40 @@ class NovedadController extends Controller
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-      $datoAutor=request()->except('_token');
-      Novedad::insert($datoAutor);
-      return $this->index();
-    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Novedad  $novedad
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Novedad $novedad)
-    {
-        //
-    }
+        /**
+         * Update the specified resource in storage.
+         *
+         * @param  \Illuminate\Http\Request  $request
+         * @param  \App\Novedad  $novedad
+         * @return \Illuminate\Http\Response
+         */
+         public function update(Request $request, $id){
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Novedad  $novedad
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Novedad $novedad)
-    {
-        //
-    }
+         $novedadActualizado = Novedad::find($id);
+         $novedadActualizado->titulo = $request->titulo;
+         $novedadActualizado->desc = $request->desc;
+         $novedadActualizado->save();
+         return redirect()->action('NovedadController@index');
+         }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Novedad  $novedad
-     * @return \Illuminate\Http\Response
-     */
-     public function update(Request $request, $id){
-
-     $novedadActualizado = Novedad::find($id);
+         /**
+          * Remove the specified resource from storage.
+          *
+          * @param  \App\Novedad  $novedad
+          * @return \Illuminate\Http\Response
+          */
+         public function eliminar($id)
+         {
+           $novedadEliminar = Novedad::findOrFail($id);
+           $novedadEliminar->delete();
+         return redirect()->action('NovedadController@index');
+         }
 
 
-
-     $editorialActualizado->nombre = $request->nombre;
-     $editorialActualizado->save();
-     return $this->index();
+         public function editar($id){
+         $novedad = Novedad::findOrFail($id);
+         $novedad->save();
+         return view('editarNovedad',compact('novedad'));
      }
-
-     /**
-      * Remove the specified resource from storage.
-      *
-      * @param  \App\Genero  $genero
-      * @return \Illuminate\Http\Response
-      */
-     public function eliminar($id)
-     {
-       $editorialEliminar = Editorial::findOrFail($id);
-       $editorialEliminar->delete();
-     return $this->index();
-     }
-
-
-     public function editar($id){
-     $genero = Editorial::findOrFail($id);
-     return view('editarEditorial', compact('genero'));
-   }
 }

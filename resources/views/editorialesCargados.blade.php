@@ -39,15 +39,19 @@
                             <th></th>
                             <th></th>
                             <th>
-                              <form >
-                                <button>Eliminar</button>
+                              <form action="{{ route('editorial.eliminar', $editorial->id )}}" class="d-inline" method="POST">
+                                  @method('DELETE')
+                                  @csrf
+                                  <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
                               </form>
-                            </th>
-                            <th>
-                              <form  >
-                                @csrf
-                                <button>Editar</button>
-                              </form>
+
+                          </th>
+                          <th>
+                            <form  >
+                              <td>
+                                  <a href="{{route('editorial.editar', $editorial->id)}}" class="btn btn-warning btn-sm">Editar</a>
+                              </td>
+                            </form>
                             </th>
 
                           </tr>

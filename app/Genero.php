@@ -8,6 +8,6 @@ class Genero extends Model
 {
   public function libros()
     {
-      return $this->hasMany('App\Libro','idLibros','id');
+      return $this->hasMany('App\Libro','id','id');
     }
 }

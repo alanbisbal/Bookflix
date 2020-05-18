@@ -80,19 +80,31 @@ class AutorController extends Controller
      * @param  \App\Autor  $autor
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Autor $autor)
-    {
-        //
-    }
+     public function update(Request $request, $id){
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Autor  $autor
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Autor $autor)
-    {
-        //
-    }
+     $autorActualizado = Autor::find($id);
+     $autorActualizado->nombre = $request->nombre;
+     $autorActualizado->save();
+     return redirect()->action('AutorController@index');
+     }
+
+     /**
+      * Remove the specified resource from storage.
+      *
+      * @param  \App\Autor  $autor
+      * @return \Illuminate\Http\Response
+      */
+     public function eliminar($id)
+     {
+       $autorEliminar = Autor::findOrFail($id);
+       $autorEliminar->delete();
+     return redirect()->action('AutorController@index');
+     }
+
+
+     public function editar($id){
+     $autor = Autor::findOrFail($id);
+     $autor->save();
+     return view('editarAutor',compact('autor'));
+ }
 }

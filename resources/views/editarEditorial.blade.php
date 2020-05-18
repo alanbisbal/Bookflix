@@ -15,7 +15,7 @@
           {{ session('mensaje') }}
       </div>
   @endif
-  <form action="{{ route('genero.update', $genero->id) }}" method="POST">
+  <form action="{{ route('editorial.update', $editorial->id) }}" method="POST">
     @method('PUT')
     @csrf
 
@@ -27,7 +27,7 @@
 
 
 
-    <input type="text" name="nombre" placeholder="Nombre" class="form-control mb-2" value="{{ $genero->nombre }}">
+    <input type="text" name="nombre" placeholder="Nombre" class="form-control mb-2" value="{{ $editorial->nombre }}">
     <button class="btn btn-warning btn-block" type="submit">Editar</button>
   </form>
 @endsection
