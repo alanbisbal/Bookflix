@@ -32,6 +32,7 @@
                       <th>Titulo</th>
                       <th>Portada</th>
                       <th>Tit. trailer</th>
+                      <th>Imagen trailer</th>
                       <th>desc. trailer</th>
                       <th>editorial</th>
                       <th>autor</th>
@@ -46,6 +47,7 @@
                             <td> {{$libro->titulo}}</td>
                             <td> <img src="{{asset('storage').'/'.$libro->img_libro}}"alt="" width="100"> </td>
                             <td> {{$libro->titulo_trailer}}</td>
+                            <td> <img src="{{asset('storage').'/'.$libro->img_trailer}}"alt="" width="100"> </td>
                             <td> {{$libro->desc_trailer}}</td>
                             <td> {{$libro->editorialL->nombre}}</td>
                             <td> {{$libro->autorL->nombre}}</td>

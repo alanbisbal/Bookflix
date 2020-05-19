@@ -5,6 +5,12 @@ use App\User;
 use App\Perfil;
 use Illuminate\Http\Request;
 
+
+
+
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
+
+
 class PerfilController extends Controller
 {
     /**
@@ -17,9 +23,9 @@ class PerfilController extends Controller
         //
     }
 
-    public function nuevoPerfil()
+    public function agregarPerfil()
     {
-        return view('nuevoPerfil');
+        return view('agregarPerfil');
     }
 
     /**
@@ -40,7 +46,9 @@ class PerfilController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $perfil=request()->except('_token');
+      Perfil::insert($perfil);
+      return redirect()->action('HomeController@index');
     }
 
     /**
@@ -72,18 +80,29 @@ class PerfilController extends Controller
      * @param  \App\Perfil  $perfil
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Perfil $perfil)
-    {
-        //
-    }
+     public function update(Request $request, Perfil $perfil)
+     {
+         //
+     }
+     public function cargarPerfil(Request $request,Perfil $perfil)
+     {
 
-    public function agregarPerfil(Request $request)
-    {
-      $perfil=request()->except('_token');
+       $cantidad_perfiles = Perfil::find(auth()->user()->email);
+       $perfil=request()->except('_token');
+       $perfil['email']=auth()->user()->email;
+       if(is_null($cantidad_perfiles))
+       {
+          $perfil['nro']=1;
+       }
+       else{
+         $perfil['nro']= (size($cantidad_perfiles)+1) ;
+       }
+       $perfil['estado']=1;
+       Perfil::insert($perfil);
+       return redirect()->action('HomeController@index');
+     }
 
-      Perfil::insert($perfil);
-      return redirect()->action('HomeController@index');
-    }
+
     /**
      * Remove the specified resource from storage.
      *

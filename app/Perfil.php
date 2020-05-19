@@ -30,4 +30,9 @@ class Perfil extends Model
         {
             return $this->hasMany('App\Favorito');
         }
+
+        public function nombre()
+         {
+             return $this->nombre;
+         }
 }

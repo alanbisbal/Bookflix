@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-
+use App\Perfil;
+use App\User;
 class LoginController extends Controller
 {
     /*
@@ -31,8 +32,16 @@ class LoginController extends Controller
     public function authenticated($request , $user){
         if(auth()->user()->es_admin){
             return redirect()->route('administracion') ;
-        }else{
-            return redirect()->route('home') ;
+        }else
+          {
+            $perfil_usuario = Perfil::where('email','=',auth()->user()->email);
+            if($perfil_usuario->count()<1){
+              return redirect()->route('agregarPerfil');
+            }
+            else{
+              return redirect()->route('home') ;
+            }
+
         }
       }
     /**

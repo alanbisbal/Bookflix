@@ -17,7 +17,7 @@ class CreatePerfilsTable extends Migration
             $table->increments('id');
             $table->string('email');
             $table->foreign('email')->references('email')->on('users');
-            $table->integer('nro')->unique();
+            $table->integer('nro');
             $table->string('nombre');
             $table->boolean('estado');
             $table->binary('imagen')->nullable();

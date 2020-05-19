@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-              <form action="{{'nuevoPerfil'}}" method="POST" enctype="multipart/form-data">
+              <form action="{{'cargarPerfil'}}" method="POST" enctype="multipart/form-data">
                 {{csrf_field()}}
                 <label for="nombre">{{'Nombre de perfil: '}}</label>
                 </br>

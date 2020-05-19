@@ -18,37 +18,29 @@
                         </div>
                     @endif
 
-                    @if (!auth()->user()->es_admin)
-                          @if(!isset($perfiles))
-                              {{auth()->user()->nuevoPerfil()}}
-                          @else
-                            @if(!auth()->user()->es_premium)
-                              $cant=2
-                            @else
-                              $cant=4
-                              @endif
-                          @foreach($perfiles as $perfil)
-                          <container>
-                            <a href="#" class="btn btn-info" role="button">
-                              <img src="https://image.freepik.com/vector-gratis/perfil-avatar-hombre-icono-redondo_24640-14044.jpg" width="100px"></img>
-                            </a>
-                          </container>
-                          @endforeach
-                            $cant=$cant-(count($perfiles))
-                          @foreach($cantidad as $cant)
-                          <container>
-                            <a href="#" class="btn btn-info" role="button">
-                              <img src="https://image.freepik.com/vector-gratis/perfil-avatar-hombre-icono-redondo_24640-14044.jpg" width="100px"></img>
-                            </a>
-                          </container>
-                          @endforeach
+
+                        @if(!auth()->user()->es_premium)
+                          {{$cant=2}}
+                        @else
+                          {{$cant=4}}
+                        @endif
+                          @if(is_null($perfiles))
+                            Empty
                           @endif
 
-                    @endif
+                          {{$perfiles->get()}}
+                      .................................
+                      @foreach($perfiles as $perfil)
+                          
+                            {{$perfil->nombre}}
+                      @endforeach
+
+
+
+
 
 
                 </div>
-
             </div>
 
 

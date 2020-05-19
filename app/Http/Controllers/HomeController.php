@@ -26,7 +26,7 @@ class HomeController extends Controller
     public function index()
     {
         $novedades= Novedad::all();
-        $perfiles=Perfil::find(auth()->user()->id);
+        $perfiles=Perfil::where("email","=",auth()->user()->email);
         return view('home',compact('novedades','perfiles'));
     }
 
