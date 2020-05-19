@@ -35,6 +35,18 @@ class NovedadController extends Controller
         //
     }
 
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+      $datoNovedad=request()->except('_token');
+      Novedad::insert($datoNovedad);
+      return $this->index();
+    }
 
         /**
          * Update the specified resource in storage.
