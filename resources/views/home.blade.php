@@ -5,40 +5,32 @@
     <div class="row justify-content-center">
         <div class="col-md-7">
             <div class="card">
-                <div class="card-header"> Bienvenido {{auth()->user()->name}}
+                <div class="card-header" > Bienvenido {{auth()->user()->name}} </br>
+                  Estas con el perfil {{$perfilActivo->nombre}}
                   @if (auth()->user()->es_admin)
                      <p>(Administrador)</p>
                     <a class="nav-link" href="{{route('administracion')}}">Tareas administrativas</a>
                   @endif
                  </div>
-                <div class="card-body">
+                <div class="card-body" align="center"  >
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
                         </div>
                     @endif
 
-
-                        @if(!auth()->user()->es_premium)
-                          {{$cant=2}}
-                        @else
-                          {{$cant=4}}
-                        @endif
-                          @if(is_null($perfiles))
-                            Empty
-                          @endif
-
-                          {{$perfiles->get()}}
-                      .................................
-                      @foreach($perfiles as $perfil)
-                          
-                            {{$perfil->nombre}}
-                      @endforeach
-
-
-
-
-
+                    <div class="card-body" >
+                    @foreach($libros as $libro)
+                      <div class="card-header" >
+                        titulo:{{$libro->titulo}}
+                      </br>
+                        isbn:{{$libro->isbn}}
+                          </div>
+                     portada:</br>
+                     <img src="{{asset('storage').'/'.$libro->img_libro}}" alt="100 "width="100" ></br>
+                      </br>
+                    @endforeach
+                    </div>
 
                 </div>
             </div>

@@ -23,6 +23,20 @@ class PerfilController extends Controller
         //
     }
 
+    public function seleccionPerfil()
+    {
+        $perfiles=Perfil::where("email","=",auth()->user()->email)->get()->sortBy('nombre');
+        $cant;
+        if (auth()->user()->es_premium) {
+          $cant=4;
+        }
+        else{
+          $cant=2;
+        }
+        $cant = $cant - sizeof($perfiles);
+        return view('seleccionPerfil',compact('perfiles','cant'));
+    }
+
     public function agregarPerfil()
     {
         return view('agregarPerfil');
@@ -47,8 +61,11 @@ class PerfilController extends Controller
     public function store(Request $request)
     {
       $perfil=request()->except('_token');
+      if($request->hasFile('imagen')){
+            $perfil['imagen']=$request->file('imagen')->store('uploads','public');
+      }
       Perfil::insert($perfil);
-      return redirect()->action('HomeController@index');
+      return redirect()->action('PerfilController@seleccionPerfil');
     }
 
     /**
@@ -97,9 +114,12 @@ class PerfilController extends Controller
        else{
          $perfil['nro']= (size($cantidad_perfiles)+1) ;
        }
+       if($request->hasFile('imagen')){
+             $perfil['imagen']=$request->file('imagen')->store('uploads','public');
+       }
        $perfil['estado']=1;
        Perfil::insert($perfil);
-       return redirect()->action('HomeController@index');
+       return redirect()->action('PerfilController@seleccionPerfil');
      }
 
 

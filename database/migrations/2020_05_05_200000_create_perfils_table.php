@@ -20,7 +20,7 @@ class CreatePerfilsTable extends Migration
             $table->integer('nro');
             $table->string('nombre');
             $table->boolean('estado');
-            $table->binary('imagen')->nullable();
+            $table->string('imagen')->nullable();
             $table->timestamps();
 
         });
