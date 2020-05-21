@@ -23,9 +23,15 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
+              @if (auth()->user()->es_admin)
+
+                <a class="navbar-brand" href="{{route('administracion')}}">Bookflix(admin)</a>
+
+                @else
                 <a class="navbar-brand" href="{{ url('/home') }}">
                     Bookflix
                 </a>
+                  @endif
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
