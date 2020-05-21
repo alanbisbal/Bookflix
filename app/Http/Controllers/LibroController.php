@@ -59,6 +59,9 @@ class LibroController extends Controller
       if($request->hasFile('img_trailer')){
             $datoLibro['img_trailer']=$request->file('img_trailer')->store('uploads','public');
       }
+      if($request->hasFile('pdf')){
+            $datoLibro['pdf']=$request->file('pdf')->store('uploads','public');
+      }
       Libro::insert($datoLibro);
       return $this->index();
     }

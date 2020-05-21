@@ -31,6 +31,7 @@
                       <th>ISBN</th>
                       <th>Titulo</th>
                       <th>Portada</th>
+                      <th>PDF</th>
                       <th>Tit. trailer</th>
                       <th>Imagen trailer</th>
                       <th>desc. trailer</th>
@@ -45,6 +46,7 @@
                             <td> {{$loop->iteration}}</td>
                             <td> {{$libro->isbn}}</td>
                             <td> {{$libro->titulo}}</td>
+                            <td> <a href="{{asset('storage').'/'.$libro->pdf}}" >pdf</a></td>
                             <td> <img src="{{asset('storage').'/'.$libro->img_libro}}"alt="" width="100"> </td>
                             <td> {{$libro->titulo_trailer}}</td>
                             <td> <img src="{{asset('storage').'/'.$libro->img_trailer}}"alt="" width="100"> </td>

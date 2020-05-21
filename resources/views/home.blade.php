@@ -22,12 +22,15 @@
                     <div class="card-body" >
                     @foreach($libros as $libro)
                       <div class="card-header" >
-                        titulo:{{$libro->titulo}}
+                      <a href="{{asset('storage').'/'.$libro->pdf}}"></br>
+                        {{$libro->titulo}}
                       </br>
-                        isbn:{{$libro->isbn}}
+                        <img src="{{asset('storage').'/'.$libro->img_libro}}" alt="100 "width="100" >
+                      </a>
+                      </br>
                           </div>
-                     portada:</br>
-                     <img src="{{asset('storage').'/'.$libro->img_libro}}" alt="100 "width="100" ></br>
+                    </br>
+
                       </br>
                     @endforeach
                     </div>

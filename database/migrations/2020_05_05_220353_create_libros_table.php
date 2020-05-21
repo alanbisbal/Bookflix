@@ -22,6 +22,7 @@ class CreateLibrosTable extends Migration
             $table->string('titulo_trailer');
             $table->string('desc_trailer');
             $table->string('img_trailer');
+            $table->string('pdf');
 
 
             $table->unsignedInteger('idEditorial');
