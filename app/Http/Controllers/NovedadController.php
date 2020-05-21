@@ -44,6 +44,9 @@ class NovedadController extends Controller
      */
     public function store(Request $request)
     {
+      $request->validate([
+    'titulo' => 'required',
+  'desc' => 'required',]);
       $datoNovedad=request()->except('_token');
       Novedad::insert($datoNovedad);
       return $this->index();
@@ -58,6 +61,9 @@ class NovedadController extends Controller
          */
          public function update(Request $request, $id){
 
+             $request->validate([
+           'titulo' => 'required',
+           'desc' => 'required',]);
          $novedadActualizado = Novedad::find($id);
          $novedadActualizado->titulo = $request->titulo;
          $novedadActualizado->desc = $request->desc;
@@ -73,9 +79,10 @@ class NovedadController extends Controller
           */
          public function eliminar($id)
          {
-           $novedadEliminar = Novedad::findOrFail($id);
-           $novedadEliminar->delete();
-         return redirect()->action('NovedadController@index');
+
+            $novedadEliminar = Novedad::findOrFail($id);
+            $novedadEliminar->delete();
+            return redirect()->action('NovedadController@index');
          }
 
 

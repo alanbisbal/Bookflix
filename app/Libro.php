@@ -6,6 +6,33 @@ use Illuminate\Database\Eloquent\Model;
 
 class Libro extends Model
 {
+
+      /**
+       * The attributes that are mass assignable.
+       *
+       * @var array
+       */
+      protected $fillable = [
+          'isbn', 'desc', 'titulo','pdf','img_libro','titulo_trailer','desc_trailer','img_trailer',
+          'idGenero','idautor','idEditorial','created_at','updated_at'
+      ];
+      /**
+       * The attributes that should be hidden for arrays.
+       *
+       * @var array
+       */
+      protected $hidden = [
+
+      ];
+
+      /**
+       * The attributes that should be cast to native types.
+       *
+       * @var array
+       */
+      protected $casts = [
+
+      ];
   public function calificaciones()
     {
         return $this->hasMany('App\Calificaciones');

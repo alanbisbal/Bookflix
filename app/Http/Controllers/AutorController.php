@@ -48,7 +48,7 @@ class AutorController extends Controller
     {
       $request->validate([
     'nombre' => 'required',]);
-    
+
       $datoAutor=request()->except('_token');
       Autor::insert($datoAutor);
       return $this->index();
@@ -109,10 +109,7 @@ class AutorController extends Controller
      return redirect()->action('AutorController@index');
      }
 
-
      public function editar($id){
-       $request->validate([
-     'nombre' => 'required',]);
      $autor = Autor::findOrFail($id);
      $autor->save();
      return view('editarAutor',compact('autor'));

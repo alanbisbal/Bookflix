@@ -30,8 +30,12 @@
               @if(auth()->user()->es_admin)
                 <a href="{{ route('administracion') }}">Bookflix</a>
                 @else
-                  <a href="{{ route('seleccionPerfil') }}">Bookflix</a>
-                @endif
+                  <a href="{{ route('seleccionPerfil') }}">Cambiar Perfil</a>
+                  @if(!empty($perfilActivo))
+                      <a href="{{ route('home',$perfilActivo->id) }}">Home</a>
+                      @endif
+                      <spbc>
+                 @endif
             @else
               <a href="{{ url('/') }}">Bookflix</a>
             @endauth

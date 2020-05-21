@@ -1,14 +1,7 @@
 @extends('plantilla')
 
 @section('seccion')
-<div class="container">
-    <a class="navbar-brand" href="{{ url('/home') }}">
-        Bookflix
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-</div>
+
   <h1>Editar libro</h1>
   @if (session('mensaje'))
       <div class="alert alert-success">
@@ -82,9 +75,9 @@
 
 </br>
 
-    @error('nombre')
+    @error('desc_trailer')
         <div class="alert alert-danger">
-            El nombre es obligatorio
+             es obligatorio
         </div>
     @enderror
 

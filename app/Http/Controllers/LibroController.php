@@ -52,8 +52,16 @@ class LibroController extends Controller
      */
     public function store(Request $request)
     {
+      $request->validate([
+      'titulo' => 'required',
+      'isbn'=>'required',
+      'desc'=>'required',
+      'titulo_trailer'=>'required',
+      'desc_trailer'=>'required',
+      'pdf'=>'required',
+      ]
+      );
       $datoLibro=request()->except('_token');
-
       if($request->hasFile('img_libro')){
             $datoLibro['img_libro']=$request->file('img_libro')->store('uploads','public');
       }
@@ -63,8 +71,9 @@ class LibroController extends Controller
       if($request->hasFile('pdf')){
             $datoLibro['pdf']=$request->file('pdf')->store('uploads','public');
       }
+
       Libro::insert($datoLibro);
-      return $this->index();
+      return redirect()->action('LibroController@index');
     }
 
     /**
@@ -85,7 +94,18 @@ class LibroController extends Controller
      * @return \Illuminate\Http\Response
      */
      public function update(Request $request, $id){
+       $request->validate([
+     'nombre' => 'required',
+      'titulo' => 'required',
+     'isbn'=>'required',
+     'desc'=>'required',
+      'pdf'=>'required',
+     'img_libro'=>'required',
+     'titulo_trailer'=>'required',
 
+   ]
+
+   );
      $libroActualizado = Libro::find($id);
      $libroActualizado ->isbn = $request->isbn;
      $libroActualizado ->desc = $request->desc;
@@ -113,6 +133,7 @@ class LibroController extends Controller
       */
       public function eliminar($id)
       {
+
         $libroEliminar = Libro::findOrFail($id);
         $libroEliminar->delete();
       return redirect()->action('LibroController@index');

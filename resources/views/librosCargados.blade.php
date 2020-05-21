@@ -27,14 +27,9 @@
                 <container>
                   <table class="table table-light">
                     <thread class="thread-light">
-                      <th>ID</th>
-                      <th>ISBN</th>
+
                       <th>Titulo</th>
                       <th>Portada</th>
-                      <th>PDF</th>
-                      <th>Tit. trailer</th>
-                      <th>Imagen trailer</th>
-                      <th>desc. trailer</th>
                       <th>editorial</th>
                       <th>autor</th>
                       <th>genero</th>
@@ -43,15 +38,10 @@
                     <tbody>
                         @foreach($libros as $libro)
                           <tr>
-                            <td> {{$loop->iteration}}</td>
-                            <td> {{$libro->isbn}}</td>
-                            <td> {{$libro->titulo}}</td>
-                            <td> <a href="{{asset('storage').'/'.$libro->pdf}}" >pdf</a></td>
+                            
+                            <td> <a href="{{asset('storage').'/'.$libro->pdf}}" >{{$libro->titulo}}</a></td>
                             <td> <img src="{{asset('storage').'/'.$libro->img_libro}}"alt="" width="100"> </td>
-                            <td> {{$libro->titulo_trailer}}</td>
-                            <td> <img src="{{asset('storage').'/'.$libro->img_trailer}}"alt="" width="100"> </td>
-                            <td> {{$libro->desc_trailer}}</td>
-                            <td> {{$libro->editorialL->nombre}}</td>
+                              <td> {{$libro->editorialL->nombre}}</td>
                             <td> {{$libro->autorL->nombre}}</td>
                             <td> {{$libro->generoL->nombre}}</td>
                             <th>
@@ -74,10 +64,6 @@
                       </tbody>
                 </container>
             </div>
-
-            Modificar la cantidad de generos y autores para cada libro
-
-
 
     </div>
 </div>

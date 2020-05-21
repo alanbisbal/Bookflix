@@ -18,21 +18,6 @@ class User extends Authenticatable
     protected $fillable = [
         'name', 'email', 'password','f_nac','es_premium','es_admin',
     ];
-
-    public function perfiles()
-    {
-        return $this->hasMany('App\Perfil');
-    }
-
-    public function tarjeta()
-    {
-        return $this->hasOne('App\Tarjeta');
-    }
-
-    public function nuevoPerfil()
-    {
-        return view('nuevoPerfil');
-    }
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -50,4 +35,19 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function perfiles()
+    {
+        return $this->hasMany('App\Perfil');
+    }
+
+    public function tarjeta()
+    {
+        return $this->hasOne('App\Tarjeta');
+    }
+
+    public function nuevoPerfil()
+    {
+        return view('nuevoPerfil');
+    }
+
 }

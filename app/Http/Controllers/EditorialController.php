@@ -44,6 +44,9 @@ class EditorialController extends Controller
      */
     public function store(Request $request)
     {
+
+        $request->validate([
+      'nombre' => 'required',]);
       $datoEditorial=request()->except('_token');
       Editorial::insert($datoEditorial);
       return redirect()->action('EditorialController@index');
@@ -68,6 +71,8 @@ class EditorialController extends Controller
      */
      public function update(Request $request, $id){
 
+         $request->validate([
+       'nombre' => 'required',]);
      $editorialActualizada = Editorial::find($id);
      $editorialActualizada->nombre = $request->nombre;
      $editorialActualizada->save();
@@ -82,6 +87,7 @@ class EditorialController extends Controller
       */
      public function eliminar($id)
      {
+
        $editorialEliminar = Editorial::findOrFail($id);
        $editorialEliminar->delete();
      return redirect()->action('EditorialController@index');

@@ -51,6 +51,8 @@ class GeneroController extends Controller
      */
     public function store(Request $request)
     {
+      $request->validate([
+    'nombre' => 'required',]);
       $datoGenero=request()->except('_token');
       Genero::insert($datoGenero);
       return redirect()->action('GeneroController@index');
@@ -87,7 +89,8 @@ class GeneroController extends Controller
      */
 
     public function update(Request $request, $id){
-
+      $request->validate([
+    'nombre' => 'required',]);
     $generoActualizado = Genero::find($id);
     $generoActualizado->nombre = $request->nombre;
     $generoActualizado->save();
