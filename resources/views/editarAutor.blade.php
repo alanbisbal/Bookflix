@@ -18,7 +18,6 @@
   <form action="{{ route('autor.update', $autor->id) }}" method="POST">
     @method('PUT')
     @csrf
-
     @error('nombre')
         <div class="alert alert-danger">
             El nombre es obligatorio

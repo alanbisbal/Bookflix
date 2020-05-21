@@ -17,6 +17,6 @@ class AdminMiddleware
     {
       if(Auth::check() && Auth::user()->es_admin){
         return $next($request);}
-      return redirect('/home');
+      return redirect('home');
     }
 }

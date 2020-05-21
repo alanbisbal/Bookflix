@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Genero;
 use Illuminate\Http\Request;
 
+
 class GeneroController extends Controller
 {
     /**

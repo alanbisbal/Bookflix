@@ -7,6 +7,7 @@ use App\Libro;
 use App\Genero;
 use Illuminate\Http\Request;
 
+
 class LibroController extends Controller
 {
     /**

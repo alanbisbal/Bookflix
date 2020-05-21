@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Novedad;
 use Illuminate\Http\Request;
 
+
 class NovedadController extends Controller
 {
     /**

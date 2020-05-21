@@ -26,11 +26,17 @@ class HomeController extends Controller
      */
     public function index($id)
     {
+      if(auth()->user()->es_admin){
+          return view('administracion');
+      }
       $perfiles=Perfil::where("email","=",auth()->user()->email)->get()->sortBy('nombre');
       if($perfiles->contains($id)){
         $libros=Libro::all();
         $novedades= Novedad::all();
         $perfilActivo=Perfil::where("id","=",$id)->get()->first();
+        if(empty($perfilActivo)){
+          return redirect()->action('PerfilController@seleccionPerfil');
+        }
         if (auth()->user()->es_premium) {
           $cant=4;
         }
@@ -38,9 +44,10 @@ class HomeController extends Controller
           $cant=2;
         }
         $cant = $cant - sizeof($perfiles);
+        if($perfiles)
         return view('home',compact('novedades','perfiles','cant','perfilActivo','libros'));
     }else {
-      return redirect()->action('PerfilController@seleccionPerfil');;
+      return redirect()->action('PerfilController@seleccionPerfil');
     }
   }
 

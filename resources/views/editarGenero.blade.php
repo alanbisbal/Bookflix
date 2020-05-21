@@ -15,6 +15,7 @@
           {{ session('mensaje') }}
       </div>
   @endif
+  
   <form action="{{ route('genero.update', $genero->id) }}" method="POST">
     @method('PUT')
     @csrf

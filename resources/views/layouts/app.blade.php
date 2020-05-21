@@ -23,15 +23,21 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-              @if (auth()->user()->es_admin)
 
-                <a class="navbar-brand" href="{{route('administracion')}}">Bookflix(admin)</a>
 
+
+              @auth
+              @if(auth()->user()->es_admin)
+                <a href="{{ route('administracion') }}">Bookflix</a>
                 @else
-                <a class="navbar-brand" href="{{ url('/home') }}">
-                    Bookflix
-                </a>
-                  @endif
+                  <a href="{{ route('seleccionPerfil') }}">Bookflix</a>
+                @endif
+            @else
+              <a href="{{ url('/') }}">Bookflix</a>
+            @endauth
+
+
+
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -59,9 +65,7 @@
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
-                                <a class="navbar-brand" href="{{ URL::previous() }}">
-                                    Volver
-                                </a>
+
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();

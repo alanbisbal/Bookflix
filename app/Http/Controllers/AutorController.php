@@ -46,6 +46,9 @@ class AutorController extends Controller
      */
     public function store(Request $request)
     {
+      $request->validate([
+    'nombre' => 'required',]);
+    
       $datoAutor=request()->except('_token');
       Autor::insert($datoAutor);
       return $this->index();
@@ -82,6 +85,11 @@ class AutorController extends Controller
      */
      public function update(Request $request, $id){
 
+
+         $request->validate([
+       'nombre' => 'required',]);
+
+
      $autorActualizado = Autor::find($id);
      $autorActualizado->nombre = $request->nombre;
      $autorActualizado->save();
@@ -103,6 +111,8 @@ class AutorController extends Controller
 
 
      public function editar($id){
+       $request->validate([
+     'nombre' => 'required',]);
      $autor = Autor::findOrFail($id);
      $autor->save();
      return view('editarAutor',compact('autor'));
