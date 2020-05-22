@@ -18,10 +18,15 @@
                         </div>
                     @endif
 
+
                       @foreach($perfiles as $perfil)
                       <div class="d-inline-block" style="width: 200px; height: 150px;" >
                       <a href="{{ ('/home'.'/'.$perfil->id) }}">
-                        <img src="{{asset('storage').'/'.$perfil->imagen}}" alt="100% "width="100%" ></br>
+                        @if(!empty($perfil->imagen))
+                        <img src="{{asset('storage').'/'.$perfil->imagen}}" alt="100% "width="100%" >
+                        @else
+                          <img src="imagenes/perfil.jpg" alt="100% "width="100%" >
+                        @endif</br>
                         {{ $perfil->nombre }}
                         </a>
                       </br>

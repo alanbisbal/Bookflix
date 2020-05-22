@@ -21,11 +21,16 @@
 
               <form action="{{'cargarPerfil'}}" method="POST" enctype="multipart/form-data">
                 {{csrf_field()}}
+
+                @error('nombre')
+                @enderror
                 <label for="nombre">{{'Nombre de perfil: '}}</label>
                 </br>
-
                 <input type="text" name="nombre" id="nombre" value="">
                 </br>
+                @if($errors->has('nombre'))
+                  El nombre no puede estar vacio
+                @endif
 
                 <label for="imagen">{{'Imagen de perfil: '}}</label>
                 </br>

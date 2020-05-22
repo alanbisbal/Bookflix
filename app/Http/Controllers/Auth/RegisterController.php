@@ -55,6 +55,7 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'f_nac' =>['required'],
         ]);
     }
 
@@ -70,7 +71,7 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'f_nac'=>date('2000-09-09 17:00:00') ,
+            'f_nac'=>$data['f_nac'] ,
             'es_premium'=>false,
             'es_admin'=>false,
         ]);

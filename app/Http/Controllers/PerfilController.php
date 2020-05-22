@@ -60,6 +60,8 @@ class PerfilController extends Controller
      */
     public function store(Request $request)
     {
+      $request->validate([
+        'nombre' => 'required',]);
       $perfil=request()->except('_token');
       if($request->hasFile('imagen')){
             $perfil['imagen']=$request->file('imagen')->store('uploads','public');
@@ -103,7 +105,8 @@ class PerfilController extends Controller
      }
      public function cargarPerfil(Request $request,Perfil $perfil)
      {
-
+       $request->validate([
+         'nombre' => 'required',]);
        $cantidad_perfiles = Perfil::find(auth()->user()->email);
        $perfil=request()->except('_token');
        $perfil['email']=auth()->user()->email;

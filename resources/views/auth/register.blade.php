@@ -61,6 +61,19 @@
                             </div>
                         </div>
 
+
+                        <div class="form-group row">
+                            <label for="f_nac" class="col-md-4 col-form-label text-md-right">Fec. Nac </label>
+
+                            <div class="col-md-6">
+                                <input id="f_nac" type="date"  name="f_nac"
+                                value="2000-01-01"
+                                min="1900-01-01"
+                                max="2500-12-31">
+
+                            </div>
+                        </div>
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
