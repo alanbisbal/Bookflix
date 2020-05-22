@@ -1,18 +1,27 @@
 @extends('layouts.app')
-
+<style>
+.btn-general:hover{
+  font-weight: bold;
+  background-color: black;
+  color: red;
+  border-color: black;
+}
+</style>
 @section('content')
-<div class="container">
+<div class="menu">
+  <div class="background-overlay">
+    <div class="container" >
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+            <div class="card" style="margin: 8% 10%;">
+                <div class="card-header">{{ __('Registrate en Bookflix') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nombre') }}</label>
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
@@ -26,7 +35,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Correo electrónico') }}</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
@@ -40,7 +49,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Contraseña') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
@@ -54,7 +63,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirmar contraseña') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
@@ -63,10 +72,10 @@
 
 
                         <div class="form-group row">
-                            <label for="f_nac" class="col-md-4 col-form-label text-md-right">Fec. Nac </label>
+                            <label for="f_nac" class="col-md-4 col-form-label text-md-right">Fecha de Nacimiento </label>
 
                             <div class="col-md-6">
-                                <input id="f_nac" type="date"  name="f_nac"
+                                <input id="f_nac" class="form-control align-center" type="date"  name="f_nac"
                                 value="2000-01-01"
                                 min="1900-01-01"
                                 max="2500-12-31">
@@ -76,8 +85,8 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
+                                <button type="submit" class="btn btn-primary btn-general" style="width: 40%">
+                                    {{ __('Registarse') }}
                                 </button>
                             </div>
                         </div>
@@ -85,6 +94,8 @@
                 </div>
             </div>
         </div>
+    </div>
+    </div>
     </div>
 </div>
 @endsection

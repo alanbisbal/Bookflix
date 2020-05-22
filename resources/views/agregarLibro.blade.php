@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="menu">
+  <div class="background-overlay">
+    <div class="container" >
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -17,7 +19,6 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
                     <div >
               <form class="form-group "action="{{'librosCargados'}}" method="POST" enctype="multipart/form-data">
 
@@ -136,5 +137,9 @@
               </div>
                 </div>
 
-
+              </div>
+                </div>
+                  </div>
+                </div>
+                  </div>
   @endsection
