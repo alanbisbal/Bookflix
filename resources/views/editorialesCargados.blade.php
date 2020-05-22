@@ -34,7 +34,7 @@
                     <tbody>
                         @foreach($editoriales as $editorial)
                           <tr>
-                            <td> {{$loop->iteration}}</td>
+                            <td> {{$editorial->id}}</td>
                             <td> {{$editorial->nombre}}</td>
                             <th></th>
                             <th></th>

@@ -35,13 +35,13 @@
                     <tbody>
                         @foreach($autores as $autor)
                           <tr>
-                            <td> {{$loop->iteration}}</td>
+                            <td> {{$autor->id}}</td>
                             <td> {{$autor->nombre}}</td>
                             <th>
                               <form action="{{ route('autor.eliminar', $autor->id )}}" class="d-inline" method="POST">
                                   @method('DELETE')
                                   @csrf
-                                  <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                                  <button type="submit" class="btn btn-danger btn-sm" >Eliminar</button>
                               </form>
 
                           </th>

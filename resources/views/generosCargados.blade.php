@@ -35,7 +35,7 @@
                     <tbody>
                         @foreach($generos as $genero)
                           <tr>
-                            <td> {{$loop->iteration}}</td>
+                            <td> {{$genero->id}}</td>
                             <td> {{$genero->nombre}}</td>
                             <th>
 
@@ -50,7 +50,8 @@
                             <th>
                               <form  >
                                 <td>
-                                    <a href="{{route('genero.editar', $genero)}}" class="btn btn-warning btn-sm">Editar</a>
+                                    <a href="{{route('genero.editar', $genero)}}"  class="btn btn-warning" onClick="alert('a')">
+Editar</a>
                                 </td>
                               </form>
                             </th>
