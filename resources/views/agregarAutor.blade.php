@@ -7,7 +7,6 @@
             <div class="card">
                 <div class="card-header"> Bienvenido {{auth()->user()->name}}
                   @if (auth()->user()->es_admin)
-                     <p>(Administrador)</p>
                     <a class="nav-link" href="{{route('administracion')}}">Tareas administrativas</a>
                   @endif
                  </div>
@@ -17,8 +16,6 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                  <div class="form-group row">
 
               <form action="{{'autoresCargados'}}" method="POST" enctype="multipart/form-data">
 
@@ -39,11 +36,10 @@
                 <input type="submit" class="btn btn-primary" value="Agregar">
               </form>
 
-              </div>
 
-        </div>
-      </div>
-  </div>
- </div>
-</div>
+
+                          </div>
+                      </div>
+                  </div>
+              </div>
 @endsection

@@ -1,21 +1,29 @@
-@extends('plantilla')
+@extends('layouts.app')
 
-@section('seccion')
+@section('content')
 <div class="container">
-    <a class="navbar-brand" href="{{ url('/home') }}">
-        Bookflix
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-</div>
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header"> Bienvenido {{auth()->user()->name}}
+                  @if (auth()->user()->es_admin)
+                     <p>(Administrador)</p>
+                    <a class="nav-link" href="{{route('administracion')}}">Tareas administrativas</a>
+                  @endif
+                 </div>
+                <div class="card-body">
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
   <h1>Editar genero</h1>
   @if (session('mensaje'))
       <div class="alert alert-success">
           {{ session('mensaje') }}
       </div>
   @endif
-  
+
   <form action="{{ route('genero.update', $genero->id) }}" method="POST">
     @method('PUT')
     @csrf
@@ -31,4 +39,10 @@
     <input type="text" name="nombre" placeholder="Nombre" class="form-control mb-2" value="{{ $genero->nombre }}">
     <button class="btn btn-warning btn-block" type="submit">Editar</button>
   </form>
+
+
+              </div>
+          </div>
+      </div>
+  </div>
 @endsection

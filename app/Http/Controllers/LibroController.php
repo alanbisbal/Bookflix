@@ -110,7 +110,6 @@ class LibroController extends Controller
      $libroActualizado ->isbn = $request->isbn;
      $libroActualizado ->desc = $request->desc;
      $libroActualizado ->titulo = $request->titulo;
-
      if(isset($request->img_libro)){
              $libroActulizado->img_libro=$request->file('img_libro')->store('uploads','public');
      }
@@ -118,7 +117,7 @@ class LibroController extends Controller
      if(isset($request->img_trailer)){
              $libroActualizado->img_trailer=$request->file('img_trailer')->store('uploads','public');
       }
-    $libroActualizado ->idEditorial = $request->idEditorial;
+     $libroActualizado ->idEditorial = $request->idEditorial;
      $libroActualizado ->idautor = $request->idautor;
      $libroActualizado ->idGenero = $request->idGenero;
      $libroActualizado->save();

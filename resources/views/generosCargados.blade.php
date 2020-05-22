@@ -50,8 +50,8 @@
                             <th>
                               <form  >
                                 <td>
-                                    <a href="{{route('genero.editar', $genero)}}"  class="btn btn-warning" onClick="alert('a')">
-Editar</a>
+                                    <a href="{{route('genero.editar', $genero)}}"  class="btn btn-warning">
+                                        Editar</a>
                                 </td>
                               </form>
                             </th>
@@ -65,5 +65,6 @@ Editar</a>
 
 
     </div>
+  </div>
 </div>
 @endsection

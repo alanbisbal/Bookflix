@@ -60,10 +60,10 @@
                       </tbody>
 
                 </container>
-            </div>
 
 
-
-    </div>
-</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 @endsection
