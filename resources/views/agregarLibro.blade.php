@@ -6,13 +6,14 @@
     <div class="container" >
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header"> Bienvenido {{auth()->user()->name}}
+            <div class="card" style="height: 60%">
+              <a class="nav-link" style="display:flex; align-content: center;"href="{{route('administracion')}}">Tareas administrativas</a>
+                  <!--{{auth()->user()->name}}-->
                   @if (auth()->user()->es_admin)
-                     <p>(Administrador)</p>
-                    <a class="nav-link" href="{{route('administracion')}}">Tareas administrativas</a>
+                  <a class="nav-link" style="display:flex; align-content: center;"href="{{route('administracion')}}">Tareas administrativas</a>
                   @endif
                  </div>
+                <div class="tarjetasanidadas " style="overflow-y: scroll;max-height: 650px;">
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
@@ -133,6 +134,7 @@
                 </br></br>
                 <input type="submit" value="Agregar">
               </form>
+            </div>
             </div>
               </div>
                 </div>

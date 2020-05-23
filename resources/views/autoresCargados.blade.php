@@ -5,10 +5,9 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header"> Bienvenido {{auth()->user()->name}}
+                <div class="card-header" style="display:flex; justify-content: space-between;"> <h3 style="display:flex">Bienvenido {{auth()->user()->name}}</h3>
                   @if (auth()->user()->es_admin)
-                     <p>(Administrador)</p>
-                    <a class="nav-link" href="{{route('administracion')}}">Tareas administrativas</a>
+                    <a class="nav-link" style="display:flex; align-content: center;"href="{{route('administracion')}}">Tareas administrativas</a>
                   @endif
                  </div>
                 <div class="card-body">
@@ -17,8 +16,6 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-
                     <container>
                       <a href="{{'agregarAutor'}}" class="btn btn-info" role="button">Nuevo autor
                       </a>
@@ -46,7 +43,7 @@
 
                           </th>
                           <th>
-                            <form  >
+                            <form>
                               <td>
                                   <a href="{{route('autor.editar', $autor->id)}}" class="btn btn-warning btn-sm">Editar</a>
                               </td>

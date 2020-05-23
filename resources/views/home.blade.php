@@ -36,14 +36,15 @@
                     <a class="nav-link" href="{{route('administracion')}}">Tareas administrativas</a>
                   @endif
                  </div>
-                <div class="card-body" align="center"  >
+                 <div class="tarjetasanidadas " style="overflow-y: scroll;max-height: 650px;">
+
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
                         </div>
                     @endif
 
-                    <div class="card-body" >
+                    <div class="card-body" style="height: 100%" >
                     @foreach($libros as $libro)
                       <div class="card-header" >
                       <a class="libros" href="{{asset('storage').'/'.$libro->pdf}}">
@@ -57,6 +58,7 @@
                       </br>
                     @endforeach
                     </div>
+
 
                 </div>
             </div>

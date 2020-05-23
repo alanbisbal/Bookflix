@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card" style="height: 60%">
                 <div class="card-header"> Bienvenido {{auth()->user()->name}}
                   @if (auth()->user()->es_admin)
                      <p>(Administrador)</p>

@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card" style="height: 60%">
 
               AgregarEditorial
               <form action="{{'editorialesCargados'}}" method="POST" enctype="multipart/form-data">
