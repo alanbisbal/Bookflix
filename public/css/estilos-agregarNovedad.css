@@ -1,0 +1,40 @@
+.card{
+    height: 60%
+}
+.card-body{
+    height: 350px;
+    max-height: 400px;
+}
+.contenedor-items{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+.item1{
+    display: grid;
+    grid-template-columns: 15% 85%;
+    padding: 5px 0px;
+}
+.item2{
+    padding: 5px 0px;
+    display: grid;
+    grid-template-columns: 15% 85%;
+}
+.nombre{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.texto{
+    width: 95%;
+    display: flex;
+    justify-content: center;
+}
+.item3{
+    width: 94%;
+    padding-top: 20px;
+    display: flex;
+    justify-content: end;
+}
+.labels{
+    width: 95%;
+}
