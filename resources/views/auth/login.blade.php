@@ -13,7 +13,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Iniciar sesión') }}</div>
+                <div class="card-header text-white"><h3>{{ __('Iniciar sesión') }}</h3></div>
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf

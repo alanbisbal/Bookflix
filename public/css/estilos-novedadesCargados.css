@@ -1,0 +1,30 @@
+.card-body{
+    max-height: 400px;
+  }
+.header-body{
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+}
+.encabezado-novedades{
+      display: grid;
+      grid-template-columns: 20% 54% 13% 13%;
+      height: 40px;
+}
+.centrar-items{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.novedades{
+    overflow-y: scroll;
+    max-height: 300px;
+    display: grid;
+    grid-template-columns: 20% 60% 10% 10%;
+    border: 2px solid black;
+}
+.nov-item{
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}

@@ -20,194 +20,45 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <style>
-    html{
-      width: 100%;
-      height: 100%;
-    }
-    body{
-      width: 100%;
-      height: 100%;
-    }
-    .container{
-      width: 100%;
-      height: 100%;
-      display: grid;
-      max-width: 100%;
-      max-height: 100%;
-      grid-template-rows: 15% 81% 4%;
-      padding: 0;
-      overflow: hidden;
-    }
-    .header{
-      width: 100%;
-      height: 100%;
-    }
-    .navbar{
-      height: 100%;
-      width: 100%;
-      background: black;
-      display: flex;
-      align-self: center;
-      justify-content: space-between;
-      flex-wrap: nowrap;
-    }
-    .navbar-brand{
-      margin-left: 50px;
-      width: 12%;
-      height: 100%;
-      min-width: 150px;
-      align-self: center;
-      display: flex;
-      justify-content: flex-start;
-    }
-    .navbar-bar{
-      display: flex;
-      justify-content: flex-end;
-    }
-    ul{
-      margin-right: 30px;
-    }
-    .nav-item{
-      margin-right: 40px;
-      align-self: center;
-    }
-    .nav-link{
-      background-color: white;
-      color:red;
-      border-radius: 6px;
-      width: 180px;
-      height: 60px;
-      text-align: center;
-      font-size: 20px;
-      align-items: center;
-    }
-    @media (max-width:800px){
-      .nav-link{
-        width: 110px;
-        font-size: 16px;
-        height: 50px;
-        align-self: center;
-      }
-    }
-    .nav-link:hover{
-        font-weight: bold;
-        color: red;
-
-    }
-    .alinear{
-      display: flex;
-      justify-content: center;
-      align-content: center;
-      color:red;
-    }
-    main{
-      display: inherit;
-    }
-    .menu{
-      background: url(/imagenes/biblioteca.jpg);
-      background-size: cover;
-      position: relative;
-    }
-    .background-overlay{
-      background: rgba(170, 96, 96, .4);
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      position: absolute;
-    }
-    .card{
-      margin-top: 50px;
-    }
-    .pie{
-      background-color: black;
-      color: red;
-      width: 100%;
-      height: 100%;
-      font-family: Courier New;
-      vertical-align: center;
-      display: flex;
-      justify-content: space-between;
-      padding: 0px 10px;
-      align-items: center;
-    }
-    .btn-general{
-      background-color: black;
-      color: red;
-      border-color: black;
-    }
-    .btn-general:hover{
-      font-weight: bold;
-      background-color: black;
-      color: red;
-      border-color: black;
-    }
-    .btn-link{
-      color: black;
-      width: 290px;
-    }
-    .btn-link:hover{
-      text-decoration: none;
-      color: black;
-      font-weight: bold;
-    }
-    .btn-info{
-      background-color: black;
-      color: red;
-    }
-    .btn-info:hover{
-      text-decoration: none;
-      color: red;
-      font-weight: bold;
-    }
-    .dropdown-toggle{
-      justify-content: center;
-    }
-    </style>
+    <link rel="stylesheet" type="text/css" href="css/estilos-app.css">
 </head>
 <body>
     <div id="app" class="container">
       <header class="header">
         <nav class="navbar navbar-expand-lg">
-              @auth
-              @if(auth()->user()->es_admin)
-                <a class="navbar-brand" href="{{ route('administracion') }}"><img src="/imagenes/bookflixnegro.png" style="width: 100%"></a>
-
-                  @else
-                  <a class="navbar-brand" href="{{ route('seleccionPerfil') }}"><img src="/imagenes/bookflixnegro.png" style="width: 100%"></a>
-
-                  <ul class="navbar-nav" >
-                    <li class="nav-item">
-                      <a class="nav-link" href="{{ route('seleccionPerfil') }}"><span class="alinear">Cambiar Perfil</span></a>
-                    </li>
-                  </ul>
-
-                  @if(!empty($perfilActivo))
-                  <ul class="navbar-nav" >
-                    <li class="nav-item">
-                      <a class="nav-link" href="{{ route('home',$perfilActivo->id) }}"><span class="alinear">Home</span></a>
-                    </li>
-                  </ul>
-                  @endif
-                
-                  <!-- <spbc> -->
-                  @endif
-              @else
+           @auth
+            @if(auth()->user()->es_admin)
+             <a class="navbar-brand" href="{{ route('administracion') }}"><img src="/imagenes/bookflixnegro.png" style="width: 100%"></a>
+            @else
+              <a class="navbar-brand" href="{{ route('seleccionPerfil') }}"><img src="/imagenes/bookflixnegro.png" style="width: 100%"></a>
+                <ul class="navbar-nav" >
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ route('seleccionPerfil') }}"><span class="alinear">Cambiar Perfil</span></a>
+                  </li>
+                </ul>
+                @if(!empty($perfilActivo))
+                 <ul class="navbar-nav" >
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ route('home',$perfilActivo->id) }}"><span class="alinear">Home</span></a>
+                  </li>
+                 </ul>
+                @endif          
+             @endif
+             @else
               <a class="navbar-brand" href="{{ url('/') }}"><img src="/imagenes/bookflixnegro.png" style="width: 100%"></a>
-              @endauth
+           @endauth
                 <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button> -->
                 <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
                     <!-- Left Side Of Navbar -->
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav">
-                        <!-- Authentication Links -->
-                        @guest
-                          <li class="nav-item">
-                            <a class="nav-link " href="/"><span class="alinear">{{ __('Inicio') }}</span></a>
-                          </li>
+           <ul class="navbar-nav">
+              <!-- Authentication Links -->
+             @guest
+              <li class="nav-item">
+               <a class="nav-link " href="/"><span class="alinear">{{ __('Inicio') }}</span></a>
+              </li>
                             <!--ESTABA: <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
@@ -216,40 +67,38 @@
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif-->
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
+             @else
+              <li class="nav-item dropdown">
+                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                 {{ Auth::user()->name }} <span class="caret"></span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="{{ route('logout') }}"
+                   onclick="event.preventDefault();
+                   document.getElementById('logout-form').submit();">
+                   {{ __('Cerrar sesión') }}
+                  </a>
+                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                  @csrf
+                  </form>
+                </div>
+              </li>
+             @endguest
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Cerrar sesión') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-
-                    </ul>
-          </nav>
-        </header>
-        <main>
-            @yield('content')
-        </main>
-        <footer class="pie">
-            <div class="pie-izq">
-              Ingeniería de Software 2 - Grupo 46
-            </div>
-            <div class="pie-der font-italic">
-                BAM © 2020
-            </div>
-        </footer>
+            </ul>
+        </nav>
+      </header>
+      <main>
+        @yield('content')
+      </main>
+      <footer class="pie">
+        <div class="pie-izq">
+         Ingeniería de Software 2 - Grupo 46
+        </div>
+        <div class="pie-der font-italic">
+          BAM © 2020
+        </div>
+      </footer>
     </div>
 
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

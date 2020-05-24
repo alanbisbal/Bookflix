@@ -3,7 +3,6 @@
 @section('content')
 <div class="menu">
   <div class="background-overlay">
-    <div class="container" >
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -22,38 +21,40 @@
                     <container>
 
                         <container>
-                          <a href="{{'librosCargados'}}" class="btn btn-info" role="button">Ver libros
-                        </a>
+                          <a href="{{'librosCargados'}}" class="btn btn-info" role="button">
+                            Ver libros
+                          </a>
                         </container>
                         </br></br>
                         <container>
-                          <a href="{{'novedadesCargados'}}" class="btn btn-info" role="button" >Ver novedades
-                        </a>
+                          <a href="{{'novedadesCargados'}}" class="btn btn-info" role="button" >
+                            Ver novedades
+                          </a>
                         </container>
-
                       </br></br>
                           <container>
-                          <a href="{{'autoresCargados'}}" class="btn btn-info" role="button">Ver autores
+                          <a href="{{'autoresCargados'}}" class="btn btn-info" role="button">
+                            Ver autores
                           </a>
                         </container>
                           </br></br>
                           <container>
-                          <a href="{{'editorialesCargados'}}" class="btn btn-info" role="button">Ver editoriales
-                            </a>
+                          <a href="{{'editorialesCargados'}}" class="btn btn-info" role="button">
+                            Ver editoriales
+                          </a>
                         </container>
                           </br></br>
                           <container>
-                          <a href="{{'generosCargados'}}" class="btn btn-info" role="button">Ver generos
+                          <a href="{{'generosCargados'}}" class="btn btn-info" role="button">
+                            Ver generos
                           </a>
                         </container>
                           </br></br>
                     </container>
-
                 </div>
             </div>
         </div>
     </div>
-</div>
-</div>
+  </div>
 </div>
 @endsection
