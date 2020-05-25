@@ -1,0 +1,38 @@
+.card{
+  height: 70%;
+  display: flex;
+  align-content:  center;
+  border: 1px solid black
+}
+.card-header{
+  display:flex;
+  align-items:center;
+  justify-content: center;
+  height: 15%; 
+  background-color: black; 
+  border: 2px solid black;
+  border-radius: 0px; 
+  width: 100%; 
+  color: white;
+}
+.tarjetasanidadas{
+  overflow-y: scroll;
+  max-height: 650px;
+}
+.tarjetaanidada-una{
+  border-style: solid;
+  border-radius: 0px;
+  border: 10px;
+}
+.card-body{
+  height: 100%;
+}
+.libros{
+  text-decoration: none;
+  color: red;
+}
+.libros:hover{
+  text-decoration: none;
+  color: red;
+  font-weight: bold;
+}

@@ -25,7 +25,7 @@
 <body>
     <div id="app" class="container">
       <header class="header">
-        <nav class="navbar navbar-expand-lg">
+        <nav class="navbar navbar-expand-lg navbar-fixed">
            @auth
             @if(auth()->user()->es_admin)
              <a class="navbar-brand" href="{{ route('administracion') }}"><img src="/imagenes/bookflixnegro.png" style="width: 100%"></a>
@@ -93,7 +93,7 @@
       </main>
       <footer class="pie">
         <div class="pie-izq">
-         Ingeniería de Software 2 - Grupo 46
+          Ingeniería de Software 2 - Grupo 46
         </div>
         <div class="pie-der font-italic">
           BAM © 2020
