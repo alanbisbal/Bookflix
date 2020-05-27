@@ -8,6 +8,9 @@
 }
 .card-body{
     background-color: white;
+    display: flex;
+    justify-content: space-around;
+    height: 280px;
 }
 .d-inline-block{
     width: 200px; 
@@ -21,4 +24,8 @@
     text-decoration: none;
     color: red;
     font-weight: bold;
+}
+h4{
+    display: flex;
+    justify-content: center;
 }

@@ -1,0 +1,6 @@
+.btn-general:hover{
+    font-weight: bold;
+    background-color: black;
+    color: red;
+    border-color: black;
+  }

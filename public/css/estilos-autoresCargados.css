@@ -1,0 +1,11 @@
+.card-header{
+    display: flex;
+    justify-content: space-between;
+}
+h3{
+    display: flex;
+}
+.nav-link{
+    display: flex;
+    align-content: center;
+}

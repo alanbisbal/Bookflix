@@ -1,0 +1,8 @@
+.botones-login{
+    display: flex;
+    justify-content: space-around;
+    padding-top: 15px;
+  }
+  .btn-general{
+    width: 30%;
+  }

@@ -1,0 +1,15 @@
+.card{
+    width: 100%;
+    height: 80%;
+    display: flex;
+    min-width: 650px;
+}
+.nav-link{
+    display: flex;
+    align-content: center;
+}
+.tarjetasanidadas{
+    overflow-y: scroll;
+    max-height: 650px;
+    height: 100%;
+}
