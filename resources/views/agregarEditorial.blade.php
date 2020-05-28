@@ -8,15 +8,10 @@
       <div class="card">
         <div class="card-header">
           <h3>
-            Bienvenido {{auth()->user()->name}}
+            Agregar editorial:
           </h3>
-          @if (auth()->user()->es_admin)
-            <a class="nav-link" href="{{route('administracion')}}">
-              Tareas administrativas
-            </a>
-          @endif
+          @include('vistas-includes.cabecera-tarjeta')
         </div>
-        AgregarEditorial
         <form action="{{'editorialesCargados'}}" method="POST" enctype="multipart/form-data">
           {{csrf_field()}}
           @error('nombre')

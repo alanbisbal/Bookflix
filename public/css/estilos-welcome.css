@@ -58,6 +58,9 @@ html{
   .navbar-nav{
     flex-direction: row;
   }
+  img{
+    width: 100%;
+  }
   .navbar-brand{
     margin-left: 50px;
     width: 12%;

@@ -72,12 +72,13 @@ html{
   .nav-link:hover{
       font-weight: bold;
       color: red;
-
+  }
+  .dropdown-toggle{
+    justify-content: center;
   }
   .alinear{
     display: flex;
     justify-content: center;
-    /*align-content: center;*/
     vertical-align: sub;
     color:red;
   }
@@ -153,6 +154,4 @@ html{
     color: red;
     font-weight: bold;
   }
-  .dropdown-toggle{
-    justify-content: center;
-  }
+  

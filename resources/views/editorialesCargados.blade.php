@@ -7,12 +7,10 @@
     <div class="col-md-8">
       <div class="card">
         <div class="card-header">
-          Bienvenido {{auth()->user()->name}}
-          @if (auth()->user()->es_admin)
-            <a class="nav-link" href="{{route('administracion')}}">
-              Tareas administrativas
-            </a>
-          @endif
+          <h3>
+            Editoriales cargadas:
+          </h3>
+          @include('vistas-includes.cabecera-tarjeta')
         </div>
         <div class="card-body">
           @if (session('status'))

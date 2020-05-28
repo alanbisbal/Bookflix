@@ -8,11 +8,7 @@
       <div class="card" >
         <div class="card-header">
           <h3>Agregar libro:</h3>
-           @if (auth()->user()->es_admin)
-            <a class="nav-link" href="{{route('administracion')}}">
-              Tareas administrativas
-            </a>
-          @endif
+          @include('vistas-includes.cabecera-tarjeta')
         </div>
         <div class="tarjetasanidadas">
           <div class="card-body">

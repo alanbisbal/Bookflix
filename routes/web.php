@@ -25,7 +25,6 @@ Route::get('/home/{perfil}', 'HomeController@index')->name('home');
 Route::get('/administracion', 'HomeController@administracion')->name('administracion');
 
 
-
 Route::get('nuevoPerfil', 'PerfilController@agregarPerfil')->name('nuevoPerfil');
 Route::get('agregarPerfil', 'PerfilController@agregarPerfil' )->name('agregarPerfil');
 Route::post('cargarPerfil', 'PerfilController@cargarPerfil' )->name('cargarPerfil');

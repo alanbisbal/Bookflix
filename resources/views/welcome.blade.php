@@ -20,36 +20,51 @@
       <nav class="navbar navbar-expand-lg">
         @auth
           @if(auth()->user()->es_admin)
-            <a class="navbar-brand" href="{{ route('administracion') }}"><img src="/imagenes/bookflixnegro.png" style="width: 100%"></a>
+            <a class="navbar-brand" href="{{ route('administracion') }}">
+              <img src="/imagenes/bookflixnegro.png">
+            </a>
             <ul class="navbar-nav" >
               <li class="nav-item">
-                <a class="nav-link" href="{{ route('administracion') }}"><span class="alinear">Home</span></a>
+                <a class="nav-link" href="{{ route('administracion') }}">
+                  <span class="alinear">
+                    Home
+                  </span>
+                </a>
               </li>
             </ul>
-                    <!--<a href="{{ route('administracion') }}">Home</a>-->
           @else
-            <a class="navbar-brand" href="{{ route('seleccionPerfil') }}"><img src="/imagenes/bookflixnegro.png" style="width: 100%"></a>
+            <a class="navbar-brand" href="{{ route('seleccionPerfil') }}">
+              <img src="/imagenes/bookflixnegro.png">
+            </a>
             <ul class="navbar-nav" >
               <li class="nav-item">
-                <a class="nav-link" href="{{ route('seleccionPerfil') }}"><span class="alinear">Home</span></a>
+                <a class="nav-link" href="{{ route('seleccionPerfil') }}">
+                  <span class="alinear">
+                    Home
+                  </span>
+                </a>
               </li>
             </ul>
-                  <!-- <a href="{{ route('seleccionPerfil') }}">Home</a> -->
           @endif
           @else
-                <!-- <a href="{{ route('login') }}">Login</a>
-
-                @if (Route::has('register'))
-                    <a href="{{ route('register') }}">Register</a>
-                @endif -->
-            <a class="navbar-brand" href="/"><img src="/imagenes/bookflixnegro.png" style="width: 100%"></a>
+            <a class="navbar-brand" href="/">
+              <img src="/imagenes/bookflixnegro.png">
+            </a>
             <ul class="navbar-nav" >
               <li class="nav-item">
-                <a class="nav-link" href="{{ route('login') }}"><span class="alinear">Iniciar sesión</span></a>
+                <a class="nav-link" href="{{ route('login') }}">
+                  <span class="alinear">
+                    Iniciar sesión
+                  </span>
+                </a>
               </li>
               @if (Route::has('register'))
               <li class="nav-item">
-                <a class="nav-link" href="{{ route('register') }}"><span class="alinear">Registrarse</span></a>
+                <a class="nav-link" href="{{ route('register') }}">
+                  <span class="alinear">
+                    Registrarse
+                  </span>
+                </a>
               </li>
               @endif
             </ul>
@@ -64,32 +79,13 @@
           <p>El sitio web donde vas a encontrar más de 70000 títulos, suscribite ya!</p>
       </div>
       <div class="barra">
-        <div class="card">
-          <div class="card-header">
-            Sección de novedades
-          </div>
-          <div class="tarjetasanidadas ">
-            @foreach($novedades as $novedad)
-            <div class="text-dark tarjetaanidada-una">
-              <div class="card-body">
-                <h5 class="card-title text-Left">{{$novedad->titulo}}</h5>
-                <p class="card-text text-center">{{$novedad->desc}}</p>
-              </div>
-            </div>
-            @endforeach
-          </div>
-        </div>
+        @include('vistas-includes.seccion-noticias')
       </div>
     </div>
   </div>   <!--CIERRO ITEM2-->
   <div class="item3">
     <footer class="pie">
-        <div class="pie-izq">
-          Ingeniería de Software 2 - Grupo 46
-        </div>
-        <div class="pie-der font-italic">
-            BAM © 2020
-        </div>
+      @include('vistas-includes.pie')
     </footer>
   </div>   <!-- CIERRO ITEM3-->
 </div>   <!--CIERRO CONTAINER -->

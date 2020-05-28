@@ -6,10 +6,11 @@
   <div class="row justify-content-center">
     <div class="col-md-8">
       <div class="card" >
-        <div class="card-header"><h3>Nueva novedad:</h3>
-          @if (auth()->user()->es_admin)
-            <a class="nav-link" href="{{route('administracion')}}">Tareas administrativas</a>
-          @endif
+        <div class="card-header">
+          <h3>
+            Agregar novedad:
+          </h3>
+          @include('vistas-includes.cabecera-tarjeta')
         </div>
         <div class="card-body">
           @if (session('status'))

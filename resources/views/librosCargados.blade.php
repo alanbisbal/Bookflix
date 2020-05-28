@@ -6,12 +6,11 @@
   <div class="row justify-content-center">
     <div class="col-md-8">
       <div class="card">
-        <div class="card-header" style="display:flex; justify-content: space-between;"> <h3 style="display:flex">Bienvenido {{auth()->user()->name}}</h3>
-          @if (auth()->user()->es_admin)
-            <a class="nav-link" href="{{route('administracion')}}">
-              Tareas administrativas
-            </a>
-          @endif
+        <div class="card-header"> 
+          <h3>
+            Libros cargados:
+          </h3>
+          @include('vistas-includes.cabecera-tarjeta')
         </div>
         <div class="tarjetasanidadas">
           <div class="card-body">

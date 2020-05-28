@@ -9,12 +9,10 @@
     <div class="col-md-8">
       <div class="card">
         <div class="card-header">
-          <h3>Bienvenido {{auth()->user()->name}}</h3>
-          @if (auth()->user()->es_admin)
-            <a class="nav-link" href="{{route('administracion')}}">
-              Tareas administrativas
-            </a>
-          @endif
+          <h3>
+            Novedades cargadas:
+          </h3>
+          @include('vistas-includes.cabecera-tarjeta')
         </div>
         <div class="card-body">
           @if (session('status'))
@@ -46,7 +44,7 @@
                 </form>
               </div>
               <div class="nov-item">
-                <form style="display: contents">
+                <form>
                   <a href="{{route('novedad.editar', $novedad)}}" class="btn btn-warning btn-sm">
                     Editar novedad
                   </a>
