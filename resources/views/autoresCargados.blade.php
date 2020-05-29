@@ -1,58 +1,58 @@
 @extends('layouts.app')
 
-<link rel="stylesheet" href="css/estilos-autoresCargados.css">
-
 @section('content')
-  <div class="row justify-content-center">
-    <div class="col-md-8">
-      <div class="card">
-        <div class="card-header">
-          <h3>
-            Autores cargados:
-          </h3>
-          @include('vistas-includes.cabecera-tarjeta')
-        </div>
-        <div class="card-body">
-          @if (session('status'))
-            <div class="alert alert-success" role="alert">
-              {{ session('status') }}
-            </div>
-          @endif
-          <div>
-            <a href="{{'agregarAutor'}}" class="btn btn-info" role="button">
-              Agregar autor
-            </a>
+<link rel="stylesheet" href="css/estilos-autoresCargados.css">
+<link rel="stylesheet" href="css/estilos-elementos-cargados.css">
+
+
+  <div class="col-md-8">
+    <div class="card">
+      <div class="card-header">
+        <h3>
+          Autores cargados:
+        </h3>
+        @include('vistas-includes.cabecera-tarjeta')
+      </div>
+      <div class="card-body">
+        @if (session('status'))
+          <div class="alert alert-success" role="alert">
+            {{ session('status') }}
           </div>
+        @endif
+        <div class="encabezado">
+          <span class="titulo">Nombre</span>
+          <span></span>
+          <span></span>
         </div>
-        <div>
-          <table class="table table-light">
-            <thread class="thread-light">
-              <th>Nombre</th>
-              <th></th>
-              <th></th>
-            </thread>
-            <tbody>
-              @foreach($autores as $autor)
-                <tr>
-                  <td> {{$autor->nombre}}</td>
-                  <th>
-                    <form action="{{ route('autor.eliminar', $autor->id )}}" class="d-inline" method="POST">
-                      @method('DELETE')
-                      @csrf
-                      <button type="submit" class="btn btn-danger btn-sm" >Eliminar</button>
-                    </form>
-                  </th>
-                  <th>
-                    <form>
-                      <td>
-                        <a href="{{route('autor.editar', $autor->id)}}" class="btn btn-warning btn-sm">Editar</a>
-                      </td>
-                    </form>
-                   </th>
-                </tr>
-              @endforeach
-            </tbody>
-          </table>
+        <div class="cuerpo">
+          @foreach($autores as $autor)
+            <div class="elemento">
+              <span>
+                {{$autor->nombre}}
+              </span>
+              <div>
+                <form action="{{ route('autor.eliminar', $autor->id )}}" class="d-inline" method="POST">
+                  @method('DELETE')
+                  @csrf
+                  <button type="submit" class="btn btn-danger btn-sm" >
+                    Eliminar
+                  </button>
+                </form>
+              </div>
+              <div>
+                <form>
+                    <a href="{{route('autor.editar', $autor->id)}}" class="btn btn-warning btn-sm">
+                      Editar
+                    </a>
+                </form>
+              </div>
+            </div>
+          @endforeach
+        </div>
+        <div class="boton">
+          <a href="{{'agregarAutor'}}" class="btn btn-info" role="button">
+            Agregar autor
+          </a>
         </div>
       </div>
     </div>

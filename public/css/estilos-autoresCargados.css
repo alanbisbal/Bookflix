@@ -1,11 +1,6 @@
-.card-header{
-    display: flex;
-    justify-content: space-between;
+.encabezado{
+    grid-template-columns: 70% 15% 15%;
 }
-h3{
-    display: flex;
-}
-.nav-link{
-    display: flex;
-    align-content: center;
+.elemento{
+    grid-template-columns: 70% 15% 15%;
 }

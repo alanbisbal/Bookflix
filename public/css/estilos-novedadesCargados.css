@@ -1,4 +1,4 @@
-.card-body{
+/*.card-body{
     max-height: 400px;
 }
 .header-body{
@@ -27,4 +27,14 @@
     display: flex;
     justify-content: center;
     align-self: center;
+}
+*/
+.encabezado{
+    grid-template-columns: 32% 32% 15% 21%;
+}
+.elemento{
+    grid-template-columns: 32% 32% 15% 21%;
+}
+.boton a{
+    width: 160px;
 }

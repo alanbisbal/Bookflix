@@ -13,3 +13,6 @@ h3{
     display: flex;
     justify-content: space-between;
 }
+.btn-info{
+    width: 140px;
+}

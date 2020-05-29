@@ -22,6 +22,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home/{perfil}', 'HomeController@index')->name('home');
+Route::get('/homeNuevo/{perfil}', function($perfil){
+  return view('home');
+});
 Route::get('/administracion', 'HomeController@administracion')->name('administracion');
 
 

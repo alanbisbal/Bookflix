@@ -1,0 +1,59 @@
+.card-header{
+    display: flex;
+    justify-content: space-between;
+}
+h3{
+    display: flex;
+}
+.nav-link{
+    display: flex;
+    align-content: center;
+}
+.card-body{
+    display: grid;
+    grid-template-rows: /*8% 79% 13%*/ 31px minmax(31px 300px) 49px;
+}
+.encabezado{
+    display: grid;
+    /*grid-template-columns: CADA VISTA DEFINE EL SUYO;*/
+    align-content: end;
+    justify-items: center;
+    min-height: 31px;
+    max-height: 31px;
+}
+.cuerpo{
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    border: 2px solid black;
+    justify-items: center;
+    min-height: 31px;
+    max-height: 300px;
+}
+.elemento{
+    display: grid;
+    /*grid-template-columns: CADA VISTA DEFINE EL SUYO;*/
+    /*border-bottom: 1px solid lightgray;*/
+    margin: 10px 0px;
+    justify-items: center;
+    align-items: center;
+}
+.titulo{
+    font-size: 25px;
+}
+.elemento:hover{
+    background-color: #F5CBCB;
+}
+.boton{
+    display: flex;
+    justify-content: right;
+    align-items: end;
+    min-height: 49px;
+    max-height: 31px;
+}
+.btn-info{
+    width: 140px;
+}
+.btn-info:hover{
+    background-color: black;
+}

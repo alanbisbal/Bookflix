@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
+@section('content')
+
 <link rel="stylesheet" href="css/estilos-seleccionPerfil.css">
 
-@section('content')
-<div class="row justify-content-center">
   <div class="col-md-8 ">
     <div class="card">
       <div class="card-header">  
@@ -37,5 +37,4 @@
       @endfor
     </div>
   </div>
-</div>
 @endsection

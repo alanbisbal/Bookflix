@@ -2,12 +2,11 @@
 
 <!-- NO ME CARGA NADA DE LAYOUTS.APP -->
 
-<link rel="stylesheet" href="css/estilos-home.css">
-
 @section('content')
-<div class="row justify-content-center">
+
+<link rel="stylesheet" href="/css/estilos-home.css">
   <div class="col-md-8">
-    <div class="card">
+     <div class="card">
       <div class="card-header">
         <h3>Bienvenido {{$perfilActivo->nombre}}</h3>
         @include('vistas-includes.cabecera-tarjeta')
@@ -32,7 +31,6 @@
     </div>
   </div>
   <div class="col-md-3">
-    @include('vistas-includes.seccion-noticias')
+    @include('vistas-includes.seccion-noticias') 
   </div>
-</div>
 @endsection

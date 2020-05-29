@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" type="image/x-icon" href="imagenes/LogoBookflix.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="/imagenes/LogoBookflix.ico">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Bookflix</title>
@@ -18,8 +18,7 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/estilos-app.css">
+    <link rel="stylesheet" type="text/css" href="/css/estilos-app.css">
 </head>
 <body>
   <div id="app" class="container">
@@ -29,7 +28,9 @@
     <main>
       <div class="menu">
         <div class="background-overlay">  
-          @yield('content')
+          <div class="row justify-content-center">
+            @yield('content')
+          </div>
         </div>
       </div>
     </main>
