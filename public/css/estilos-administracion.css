@@ -15,4 +15,28 @@ h3{
 }
 .btn-info{
     width: 140px;
+    border-color: black;
+}
+.btn.btn-info:hover{
+    background-color: black;
+    border-color: black;
+}
+/*.btn:active{
+    background-color: red;
+}
+.btn.btn-info:active{
+    background-color: red;
+}
+a:active{
+    background-color: red;
+}*/
+@media (max-width:1143px){
+    .card-body{
+      height: 505px;
+      flex-direction: column;
+    }
+    .elem{
+        display: flex;
+        justify-content: center;
+    }
 }

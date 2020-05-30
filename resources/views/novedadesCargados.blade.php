@@ -53,6 +53,9 @@
           @endforeach      
         </div>
         <div class="boton">
+          <a href="{{'administracion'}}" class="btn btn-info" role="button">
+            Volver
+          </a>
           <a href="{{'agregarNovedad'}}" class="btn btn-info" role="button">
             Agregar novedad
           </a>

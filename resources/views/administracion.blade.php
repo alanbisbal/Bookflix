@@ -18,27 +18,27 @@
             {{ session('status') }}
           </div>
         @endif
-        <div>
+        <div class="elem">
           <a href="{{'librosCargados'}}" class="btn btn-info" role="button">
             Ver libros
           </a>
         </div>
-        <div>
+        <div class="elem">
           <a href="{{'novedadesCargados'}}" class="btn btn-info" role="button" >
             Ver novedades
           </a>
         </div>
-        <div>
+        <div class="elem">
           <a href="{{'autoresCargados'}}" class="btn btn-info" role="button">
             Ver autores
           </a>
         </div>
-        <div>
+        <div class="elem">
           <a href="{{'editorialesCargados'}}" class="btn btn-info" role="button">
             Ver editoriales
           </a>
         </div>
-        <div>
+        <div class="elem">
           <a href="{{'generosCargados'}}" class="btn btn-info" role="button">
             Ver generos
           </a>

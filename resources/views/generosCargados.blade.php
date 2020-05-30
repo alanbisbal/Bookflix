@@ -3,6 +3,8 @@
 @section('content')
 
 <link rel="stylesheet" href="css/estilos-generosCargados.css">
+<link rel="stylesheet" href="css/estilos-elementos-cargados.css">
+
 
   <div class="col-md-8">
     <div class="card">
@@ -13,48 +15,46 @@
         @include('vistas-includes.cabecera-tarjeta')
       </div>
       <div class="card-body">
-          @if (session('status'))
-            <div class="alert alert-success" role="alert">
-              {{ session('status') }}
+        @if (session('status'))
+          <div class="alert alert-success" role="alert">
+            {{ session('status') }}
+          </div>
+        @endif
+        <div class="encabezado">
+          <span class="titulo">Nombre</span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="cuerpo">
+          @foreach($generos as $genero)
+            <div class="elemento">
+              <span> {{$genero->nombre}}</span>
+              <div>
+                <form action="{{ route('genero.eliminar', $genero->id )}}" class="d-inline" method="POST">
+                  @method('DELETE')
+                  @csrf
+                  <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                </form>
+              </div>
+              <div>
+                <form>
+                    <a href="{{route('genero.editar', $genero)}}"  class="btn btn-warning btn-sm">
+                      Editar
+                    </a>
+                  </td>
+                </form>
+              </div>
             </div>
-          @endif
-        <div>
+          @endforeach
+        </div>
+        <div class="boton">
+          <a href="{{'administracion'}}" class="btn btn-info" role="button">
+            Volver
+          </a>
           <a href="{{'agregarGenero'}}" class="btn btn-info" role="button">
             Agregar género
           </a>
         </div>
-      </div>
-      <div>
-        <table class="table table-light">
-          <thread class="thread-light">
-            <th>Nombre</th>
-            <th></th>
-            <th></th>
-          </thread>
-          <tbody>
-            @foreach($generos as $genero)
-              <tr>
-                <td> {{$genero->nombre}}</td>
-                <th>
-                  <form action="{{ route('genero.eliminar', $genero->id )}}" class="d-inline" method="POST">
-                    @method('DELETE')
-                    @csrf
-                    <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
-                  </form>
-                </th>
-                <th>
-                  <form>
-                    <td>
-                      <a href="{{route('genero.editar', $genero)}}"  class="btn btn-warning">
-                        Editar
-                      </a>
-                    </td>
-                  </form>
-                </th>
-              </tr>
-            @endforeach
-          </tbody>
-        </table>
       </div>
     </div>
   </div>

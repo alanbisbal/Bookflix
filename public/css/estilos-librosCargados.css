@@ -1,6 +1,6 @@
 .encabezado{
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(4, 20%) 10% 10%;
 }
 .elemento{
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(4, 20%) 10% 10%;
 }

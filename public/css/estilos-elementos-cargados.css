@@ -38,6 +38,11 @@ h3{
     justify-items: center;
     align-items: center;
 }
+.elemento span{
+    max-width: 200px;
+    max-height: 70px;
+    overflow: hidden;
+}
 .titulo{
     font-size: 25px;
 }
@@ -46,7 +51,7 @@ h3{
 }
 .boton{
     display: flex;
-    justify-content: right;
+    justify-content: space-between;
     align-items: end;
     min-height: 49px;
     max-height: 31px;

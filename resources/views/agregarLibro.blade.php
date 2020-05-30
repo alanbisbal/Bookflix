@@ -40,8 +40,8 @@
               @endif
               @error('desc')
               @enderror
-              <label for="desc" class="btn btn-secondary">{{'Descripción:'}}</label>
-              <input type="text" name="desc" id="desc" placeholder="Descripción" value="{{ old('desc') }}">
+              <label for="desc" class="btn btn-secondary">{{'Sinopsis:'}}</label>
+              <input type="text" name="desc" id="desc" placeholder="Sinopsis" value="{{ old('desc') }}">
               @if($errors->has('desc'))
                 <div class="alert alert-danger" role="alert">
                   La descripción no puede estar vacía

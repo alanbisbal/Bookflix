@@ -1,4 +1,4 @@
-.card-header{
+/*.card-header{
     display: flex;
     justify-content: space-between;
 }
@@ -8,4 +8,13 @@ h3{
 .nav-link{
     display: flex;
     align-content: center;
+}*/
+.encabezado{
+    grid-template-columns: 70% 15% 15%;
+}
+.elemento{
+    grid-template-columns: 70% 15% 15%;
+}
+.boton a{
+    width: 160px;
 }
