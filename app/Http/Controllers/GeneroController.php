@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Genero;
+use App\Libro;
 use Illuminate\Http\Request;
 
 
@@ -21,7 +22,7 @@ class GeneroController extends Controller
 
     public function index()
     {
-      $datos['generos']=Genero::paginate()->sortBy('nombre');
+      $datos['generos']=Genero::paginate()->sortBy('nombre')->where('visible','=',1);
           return view('generosCargados',$datos);
     }
     public function agregarGenero()
@@ -52,8 +53,15 @@ class GeneroController extends Controller
     public function store(Request $request)
     {
       $request->validate([
-    'nombre' => 'required',]);
+      'nombre' => 'required | unique:generos',],
+    [
+      'nombre.required'=>'Debe ingresar un nombre',
+      'nombre.unique'=>'Ese nombre ya existe en el sistema',
+    ]);
+
+
       $datoGenero=request()->except('_token');
+      $datoGenero['visible']=1;
       Genero::insert($datoGenero);
       return redirect()->action('GeneroController@index');
     }
@@ -90,7 +98,12 @@ class GeneroController extends Controller
 
     public function update(Request $request, $id){
       $request->validate([
-    'nombre' => 'required',]);
+      'nombre' => 'required | unique:generos',],
+    [
+      'nombre.required'=>'Debe ingresar un nombre',
+      'nombre.unique'=>'Ese nombre ya existe en el sistema',
+    ]);
+
     $generoActualizado = Genero::find($id);
     $generoActualizado->nombre = $request->nombre;
     $generoActualizado->save();
@@ -106,14 +119,20 @@ class GeneroController extends Controller
     public function eliminar($id)
     {
       $generoEliminar = Genero::findOrFail($id);
-      $generoEliminar->delete();
+      $generoEliminar->hacerInvisible();
+      $libros = Libro::where('idGenero','=',$id)->get();
+      foreach($libros as $libro){
+        $libro->hacerInvisible();
+
+      }
     return redirect()->action('GeneroController@index');
     }
 
 
-    public function editar($id){
-    $genero = Genero::findOrFail($id);
-    $genero->save();
-    return view('editarGenero',compact('genero'));
-}
-}
+    
+         public function editar($id){
+         $genero = Genero::findOrFail($id);
+         $genero->save();
+         return view('editarGenero',compact('genero'));
+     }
+    }

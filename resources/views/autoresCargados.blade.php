@@ -34,7 +34,7 @@
                 <form action="{{ route('autor.eliminar', $autor->id )}}" class="d-inline" method="POST">
                   @method('DELETE')
                   @csrf
-                  <button type="submit" class="btn btn-danger btn-sm" >
+                  <button class="btn btn-danger btn-sm" onclick="return confirm('¿Está seguro? Se eliminará el autor junto a todos los libros que sean de este autor')">
                     Eliminar
                   </button>
                 </form>

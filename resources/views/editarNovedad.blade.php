@@ -24,14 +24,14 @@
                         {{ session('mensaje') }}
                     </div>
                 @endif
+                @foreach($errors->all() as $error)
+                    <div class="alert alert-danger" role="alert">
+                        {{$error}}
+                    </div>
+                @endforeach
                 <form action="{{ route('novedad.update', $novedad->id) }}" method="POST">
                     @method('PUT')
                     @csrf
-                    @error('nombre')
-                        <div class="alert alert-danger">
-                            El nombre es obligatorio
-                        </div>
-                    @enderror
                     Titulo:
                     <input type="text" name="titulo" placeholder="titulo" class="form-control mb-2" value="{{ $novedad->titulo }}">
                     Descripcion:

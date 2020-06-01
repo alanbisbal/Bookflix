@@ -18,17 +18,15 @@
             {{ session('status') }}
           </div>
         @endif
+        @foreach($errors->all() as $error)
+          <div class="alert alert-danger" role="alert">
+            {{$error}}
+          </div>
+        @endforeach
         <form action="{{'autoresCargados'}}" method="POST" enctype="multipart/form-data">
           {{csrf_field()}}
-          @error('nombre')
-          @enderror
           <label for="nombre">{{'Nombre de Autor: '}}</label>
           <input type="text" name="nombre" id="nombre" value="{{ old('nombre') }}">
-          @if($errors->has('nombre'))
-            <div class="alert alert-danger" role="alert">
-                Nombre no puede estar vacio</br>
-            </div>
-          @endif
           <input type="submit" class="btn btn-primary" value="Agregar">
         </form>
       </div>

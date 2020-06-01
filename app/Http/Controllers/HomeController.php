@@ -31,7 +31,7 @@ class HomeController extends Controller
       }
       $perfiles=Perfil::where("email","=",auth()->user()->email)->get()->sortBy('nombre');
       if($perfiles->contains($id)){
-        $libros=Libro::all();
+        $libros=Libro::all()->where('visible','=',1);;
         $novedades= Novedad::all();
         $perfilActivo=Perfil::where("id","=",$id)->get()->first();
         if(empty($perfilActivo)){

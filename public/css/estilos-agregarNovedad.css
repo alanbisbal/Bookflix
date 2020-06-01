@@ -2,8 +2,11 @@
     height: 60%
 }
 .card-body{
-    height: 350px;
-    max-height: 400px;
+    height: 300px;
+    max-height: 600px;
+}
+.alert{
+    height: 25px;
 }
 .contenedor-items{
     display: grid;

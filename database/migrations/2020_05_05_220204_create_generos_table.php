@@ -16,6 +16,7 @@ class CreateGenerosTable extends Migration
         Schema::create('generos', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nombre')->unique();
+            $table->boolean('visible');
             $table->timestamps();
         });
     }

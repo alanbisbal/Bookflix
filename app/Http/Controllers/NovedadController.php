@@ -46,7 +46,11 @@ class NovedadController extends Controller
     {
       $request->validate([
     'titulo' => 'required',
-  'desc' => 'required',]);
+  'desc' => 'required',],
+  [
+    'titulo.required' => 'El titulo es requerido',
+  'desc.required' => 'La descripcion es requerida',
+  ]);
       $datoNovedad=request()->except('_token');
       Novedad::insert($datoNovedad);
       return $this->index();
@@ -63,7 +67,11 @@ class NovedadController extends Controller
 
              $request->validate([
            'titulo' => 'required',
-           'desc' => 'required',]);
+           'desc' => 'required',],
+           [
+             'titulo.required' => 'El titulo es requerido',
+           'desc.required' => 'La descripcion es requerida',
+           ]);
          $novedadActualizado = Novedad::find($id);
          $novedadActualizado->titulo = $request->titulo;
          $novedadActualizado->desc = $request->desc;
@@ -85,7 +93,7 @@ class NovedadController extends Controller
             return redirect()->action('NovedadController@index');
          }
 
-
+         
          public function editar($id){
          $novedad = Novedad::findOrFail($id);
          $novedad->save();

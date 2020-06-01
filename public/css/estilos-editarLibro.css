@@ -12,3 +12,6 @@ h3{
     display: flex;
     align-content: center;
 }
+.card{
+    overflow-y: scroll;
+}

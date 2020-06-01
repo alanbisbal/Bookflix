@@ -85,5 +85,10 @@ class Libro extends Model
           }
 
 
+      public function hacerInvisible()
+        {
+            $this['visible'] = 0;
+            $this->save();
+          }
 
 }

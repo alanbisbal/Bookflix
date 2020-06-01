@@ -35,4 +35,12 @@ class Genero extends Model
     {
       return $this->hasMany('App\Libro','id','id');
     }
+
+
+
+      public function hacerInvisible()
+        {
+            $this['visible'] = 0;
+            $this->save();            
+          }
 }

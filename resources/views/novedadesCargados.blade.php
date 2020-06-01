@@ -37,7 +37,7 @@
                 <form action="{{ route('novedad.eliminar', $novedad->id )}}" method="POST">
                   @method('DELETE')
                   @csrf
-                  <button type="submit" class="btn btn-danger btn-sm">
+                  <button class="btn btn-danger btn-sm" onclick="return confirm('¿Está seguro que desea eliminar la novedad? Se eliminará el autor junto a todos los libros que sean de este autor')">
                     Eliminar
                   </button>
                 </form>

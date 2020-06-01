@@ -33,7 +33,9 @@
                 <form action="{{ route('genero.eliminar', $genero->id )}}" class="d-inline" method="POST">
                   @method('DELETE')
                   @csrf
-                  <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                  <button class="btn btn-danger btn-sm" onclick="return confirm('¿Está seguro? Se eliminará el género junto a todos los libros que sean de este género')">
+                    Eliminar
+                  </button>
                 </form>
               </div>
               <div>

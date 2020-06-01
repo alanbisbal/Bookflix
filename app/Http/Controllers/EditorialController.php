@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Editorial;
+use App\Libro;
 use Illuminate\Http\Request;
 
 class EditorialController extends Controller
@@ -18,7 +19,7 @@ class EditorialController extends Controller
      }
     public function index()
     {
-      $datos['editoriales']=Editorial::paginate()->sortBy('Nombre');
+      $datos['editoriales']=Editorial::paginate()->sortBy('Nombre')->where('visible','=',1);
           return view('editorialesCargados',$datos);
     }
 
@@ -45,9 +46,14 @@ class EditorialController extends Controller
     public function store(Request $request)
     {
 
-        $request->validate([
-      'nombre' => 'required',]);
+      $request->validate([
+      'nombre' => 'required | unique:editorials',],
+      [
+        'nombre.required'=>'Debe ingresar un nombre',
+        'nombre.unique'=>'Ese nombre ya existe en el sistema',
+      ]);
       $datoEditorial=request()->except('_token');
+      $datoEditorial['visible']=1;
       Editorial::insert($datoEditorial);
       return redirect()->action('EditorialController@index');
     }
@@ -71,8 +77,12 @@ class EditorialController extends Controller
      */
      public function update(Request $request, $id){
 
-         $request->validate([
-       'nombre' => 'required',]);
+      $request->validate([
+     'nombre' => 'required | unique:editorials',],
+      [
+       'nombre.required'=>'Debe ingresar un nombre',
+       'nombre.unique'=>'Ese nombre ya existe en el sistema',
+     ]);
      $editorialActualizada = Editorial::find($id);
      $editorialActualizada->nombre = $request->nombre;
      $editorialActualizada->save();
@@ -88,13 +98,19 @@ class EditorialController extends Controller
      public function eliminar($id)
      {
 
-       $editorialEliminar = Editorial::findOrFail($id);
-       $editorialEliminar->delete();
+      $editorialEliminar = Editorial::findOrFail($id);
+      $editorialEliminar->hacerInvisible();
+      $libros = Libro::where('idEditorial','=',$id)->get();
+      foreach($libros as $libro){
+        $libro->hacerInvisible();
+        
+      }
      return redirect()->action('EditorialController@index');
      }
 
 
      public function editar($id){
+
      $editorial = Editorial::findOrFail($id);
      $editorial->save();
      return view('editarEditorial',compact('editorial'));
