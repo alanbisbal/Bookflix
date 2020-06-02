@@ -8,7 +8,7 @@
   <div class="col-md-8">
      <div class="card">
       <div class="card-header">
-        <h3>Bienvenido {{$perfilActivo->nombre}}</h3>
+        <h3>Bienvenido {{session('perfil')->nombre}}</h3>
         @include('vistas-includes.cabecera-tarjeta')
       </div>
       <div class="tarjetasanidadas">
@@ -20,9 +20,12 @@
         <div class="card-body">
           @foreach($libros as $libro)
             <div class="card-header" >
+              <a class="libros" href="{{route('libro.trailer',$libro->id)}}">
+                Ver Trailer
+              </a>
+              <img src="{{asset('storage').'/'.$libro->img_libro}}" alt="100" width="100">  
               <a class="libros" href="{{asset('storage').'/'.$libro->pdf}}">
-                {{$libro->titulo}}
-                <img src="{{asset('storage').'/'.$libro->img_libro}}" alt="100" width="100">
+                {{$libro->titulo}} de {{$libro->autorL->nombre}}
               </a>
             </div>
           @endforeach

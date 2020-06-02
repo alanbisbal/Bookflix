@@ -93,7 +93,7 @@ class NovedadController extends Controller
             return redirect()->action('NovedadController@index');
          }
 
-         
+
          public function editar($id){
          $novedad = Novedad::findOrFail($id);
          $novedad->save();

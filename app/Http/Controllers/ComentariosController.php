@@ -33,9 +33,20 @@ class ComentariosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,$idPerfil,$idLibro)
     {
-        //
+      {
+        $request->validate([
+        'desc' => 'required',],
+      [
+        'desc.required'=>'El campo no puede estar vacio',
+      ]);
+          $dato->desc=$request->desc;
+          $dato->idPerfil=$idPerfil;
+          $dato->idLibro=$idLibro;
+          Comentario::insert($dato);
+          return $dato;
+        }
     }
 
     /**

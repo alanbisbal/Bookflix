@@ -46,7 +46,7 @@ class EditorialController extends Controller
     public function store(Request $request)
     {
 
-      $request->validate([
+        $request->validate([
       'nombre' => 'required | unique:editorials',],
       [
         'nombre.required'=>'Debe ingresar un nombre',
@@ -103,7 +103,7 @@ class EditorialController extends Controller
       $libros = Libro::where('idEditorial','=',$id)->get();
       foreach($libros as $libro){
         $libro->hacerInvisible();
-        
+
       }
      return redirect()->action('EditorialController@index');
      }

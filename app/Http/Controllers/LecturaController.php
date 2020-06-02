@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Lectura;
 use Illuminate\Http\Request;
 
+
 class LecturaController extends Controller
 {
     /**
@@ -33,9 +34,15 @@ class LecturaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,$idPerfil,$idLibro)
     {
-        //
+
+      $dato->idPerfil=$idPerfil;
+      $dato->leido=0;
+      $dato->desde=null;
+      $dato->idLibro=$idLibro;
+      Lectura::insert($dato);
+      return $dato;
     }
 
     /**

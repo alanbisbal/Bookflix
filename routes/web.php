@@ -21,16 +21,15 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home/{perfil}', 'HomeController@index')->name('home');
-Route::get('/homeNuevo/{perfil}', function($perfil){
-  return view('home');
-});
-Route::get('/administracion', 'HomeController@administracion')->name('administracion');
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/administracion', 'Admin@administracion')->name('administracion');
+
 
 
 Route::get('nuevoPerfil', 'PerfilController@agregarPerfil')->name('nuevoPerfil');
 Route::get('agregarPerfil', 'PerfilController@agregarPerfil' )->name('agregarPerfil');
 Route::post('cargarPerfil', 'PerfilController@cargarPerfil' )->name('cargarPerfil');
+Route::get('activarPerfil/{id}', 'PerfilController@activarPerfil' )->name('activarPerfil');
 Route::get('seleccionPerfil', 'PerfilController@seleccionPerfil')->name('seleccionPerfil');
 
 
@@ -39,6 +38,7 @@ Route::get('agregarLibro','LibroController@agregarLibro');
 Route::delete('/eliminarLibro/{id}', 'LibroController@eliminar')->name('libro.eliminar');
 Route::get('/editarLibro/{id}', 'LibroController@editar' )->name('libro.editar');
 Route::put('/editarLibro/{id}', 'LibroController@update' )->name('libro.update');
+Route::get('/trailer/{id}', 'TrailerController@trailer' )->name('libro.trailer');
 
 
 Route::resource('editorialesCargados','EditorialController');

@@ -1,8 +1,11 @@
 <?php
+
 namespace App\Http\Controllers;
+
 use App\Autor;
 use App\Libro;
 use Illuminate\Http\Request;
+
 class AutorController extends Controller
 {
     /**
@@ -19,10 +22,12 @@ class AutorController extends Controller
       $datos['autores']=Autor::paginate()->sortBy('nombre')->where('visible','=',1);
           return view('autoresCargados',$datos);
     }
+
     public function agregarAutor()
     {
           return view('agregarAutor');
     }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -30,7 +35,10 @@ class AutorController extends Controller
      */
     public function create()
     {
+
+
     }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -44,11 +52,13 @@ class AutorController extends Controller
     [
       'nombre.required'=>'Debe ingresar un nombre',
     ]);
+
       $datoAutor=request()->except('_token');
       $datoAutor['visible']=1;
       Autor::insert($datoAutor);
       return $this->index();
     }
+
     /**
      * Display the specified resource.
      *
@@ -59,6 +69,7 @@ class AutorController extends Controller
     {
         //
     }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -69,6 +80,7 @@ class AutorController extends Controller
     {
         //
     }
+
     /**
      * Update the specified resource in storage.
      *
@@ -90,6 +102,7 @@ class AutorController extends Controller
      $autorActualizado->save();
      return redirect()->action('AutorController@index');
      }
+
      /**
       * Remove the specified resource from storage.
       *
@@ -108,7 +121,6 @@ class AutorController extends Controller
      }
 
      public function editar($id){
-       
      $autor = Autor::findOrFail($id);
      $autor->save();
      return view('editarAutor',compact('autor'));

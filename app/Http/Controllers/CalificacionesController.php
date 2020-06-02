@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Calificaciones;
 use Illuminate\Http\Request;
 
+
 class CalificacionesController extends Controller
 {
     /**
@@ -33,9 +34,14 @@ class CalificacionesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,$idPerfil,$idLibro)
     {
-        //
+
+      $dato->calif=$request->calif;
+      $dato->idPerfil=$idPerfil;
+      $dato->idLibro=$idLibro;
+      Calificacion::insert($dato);
+      return $dato;
     }
 
     /**

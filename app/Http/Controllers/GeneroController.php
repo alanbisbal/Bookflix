@@ -129,7 +129,7 @@ class GeneroController extends Controller
     }
 
 
-    
+
          public function editar($id){
          $genero = Genero::findOrFail($id);
          $genero->save();

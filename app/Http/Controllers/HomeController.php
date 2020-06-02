@@ -24,19 +24,15 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index($id)
+    public function index()
     {
       if(auth()->user()->es_admin){
           return view('administracion');
       }
       $perfiles=Perfil::where("email","=",auth()->user()->email)->get()->sortBy('nombre');
-      if($perfiles->contains($id)){
+      if(!empty(session('perfil'))){
         $libros=Libro::all()->where('visible','=',1);;
         $novedades= Novedad::all();
-        $perfilActivo=Perfil::where("id","=",$id)->get()->first();
-        if(empty($perfilActivo)){
-          return redirect()->action('PerfilController@seleccionPerfil');
-        }
         if (auth()->user()->es_premium) {
           $cant=4;
         }
@@ -45,18 +41,17 @@ class HomeController extends Controller
         }
         $cant = $cant - sizeof($perfiles);
         if($perfiles)
-        return view('home',compact('novedades','perfiles','cant','perfilActivo','libros'));
-    }else {
+        return view('home',compact('novedades','perfiles','cant','libros'));
+    }
+    else {
       return redirect()->action('PerfilController@seleccionPerfil');
     }
   }
 
-    public function administracion()
-    {
-        return view('administracion');
-    }
+
     public function nuevoPerfil()
     {
         return view('nuevoPerfil');
     }
+  
 }

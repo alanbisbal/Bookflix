@@ -48,7 +48,10 @@ class Admin extends Controller
      {
          return view('agregarNovedad');
      }
-
+     public function administracion()
+     {
+         return view('administracion');
+     }
      public function perfil()
      {
          return view('perfil');

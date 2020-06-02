@@ -5,7 +5,7 @@
           <img src="/imagenes/bookflixnegro.png" style="width: 100%">
         </a>
       @else
-        <a class="navbar-brand" href="{{ route('seleccionPerfil') }}">
+        <a class="navbar-brand" href="{{ route('home') }}">
           <img src="/imagenes/bookflixnegro.png" style="width: 100%">
         </a>
         <ul class="navbar-nav" >
@@ -16,18 +16,7 @@
               </span>
             </a>
           </li>
-        </ul>
-        @if(!empty($perfilActivo))
-          <ul class="navbar-nav" >
-            <li class="nav-item">
-              <a class="nav-link" href="{{ route('home',$perfilActivo->id) }}">
-                <span class="alinear">
-                  Home
-                </span>
-              </a>
-            </li>
-          </ul>
-        @endif          
+        </ul>         
       @endif
       @else
         <a class="navbar-brand" href="{{ url('/') }}">

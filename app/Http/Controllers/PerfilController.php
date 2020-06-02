@@ -51,6 +51,13 @@ class PerfilController extends Controller
     {
         //
     }
+    public function activarPerfil($id)
+    {
+      $perfil = Perfil::findOrFail($id);
+        session(['perfil' => $perfil]);
+      return redirect('home');
+
+    }
 
     /**
      * Store a newly created resource in storage.

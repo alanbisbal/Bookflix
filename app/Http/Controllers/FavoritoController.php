@@ -33,9 +33,13 @@ class FavoritoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($idPerfil,$idLibro)
     {
-        //
+
+    $dato->idPerfil=$idPerfil;
+      $dato->idLibro=$idLibro;
+      Favorito::insert($dato);
+      return $dato;
     }
 
     /**

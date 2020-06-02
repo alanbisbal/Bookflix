@@ -6,12 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Favorito extends Model
 {
-  public function perfil()
+  public function perfiles()
     {
-        return $this->belongsTo('App\Perfil');
+        return $this->belongsToMany('App\Perfil');
     }
-    public function libro()
+    public function libros()
     {
-        return $this->belongsTo('App\Perfil','idLibro','id');
+        return $this->belongsToMany('App\Libros');
     }
 }

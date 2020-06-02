@@ -17,7 +17,7 @@
       @endif
       @foreach($perfiles as $perfil)
         <div class="d-inline-block">
-          <a class="perfiles" href="{{ ('/home'.'/'.$perfil->id) }}">
+          <a class="perfiles" href="{{ route('activarPerfil',$perfil->id) }}">
             @if(!empty($perfil->imagen))
               <img src="{{asset('storage').'/'.$perfil->imagen}}" alt="100% "width="100%" >
             @else
@@ -27,14 +27,14 @@
           </a>
         </div>
       @endforeach
-      @for ($i = 0; $i < $cant; $i++)
+      @if ($cant>0)
         <div class="d-inline-block">
           <a class="perfiles" href="{{route('nuevoPerfil')}}">
             <img src="/imagenes/perfil.jpg"  alt="100%" width="100%">
             <h4>Nuevo perfil</h4> 
           </a>
         </div>
-      @endfor
+      @endif
     </div>
   </div>
 @endsection

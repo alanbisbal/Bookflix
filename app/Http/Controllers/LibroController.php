@@ -6,7 +6,7 @@ use App\Editorial;
 use App\Libro;
 use App\Genero;
 use Illuminate\Http\Request;
-
+use Illuminate\Validation\Rule;
 
 class LibroController extends Controller
 {
@@ -105,16 +105,13 @@ class LibroController extends Controller
      * @return \Illuminate\Http\Response
      */
      public function update(Request $request, $id){
-      
-      $libroActualizado = Libro::find($id);
-      
+       $libroActualizado = Libro::find($id);
          $request->validate([
          'titulo' => 'required',
          'isbn'=>'required | unique:libros,isbn,'.$libroActualizado->id,
          'desc'=>'required',
          'titulo_trailer'=>'required',
          'desc_trailer'=>'required',
-
        ],
        [
          'titulo.required' => 'Debe ingresar el titulo',
@@ -123,28 +120,27 @@ class LibroController extends Controller
          'desc.required'=>'Debe ingresar la descripcion ',
          'titulo_trailer.required'=>'Debe ingresar el titulo del trailer',
          'desc_trailer.required'=>'Debe ingresar la descripcion del trailer',
-
        ]
          );
-        
-        $libroActualizado ->isbn = $request->isbn;
-        $libroActualizado ->desc = $request->desc;
-        $libroActualizado ->titulo = $request->titulo;
-        $libroActualizado ->pdf = $libroActualizado ->pdf;
-        $libroActualizado ->titulo_trailer = $request->titulo_trailer;
-        if(isset($request->img_libro)){
-          $libroActualizado->img_libro=$request->file('img_libro')->store('uploads','public');
-        }
-        if(isset($request->img_trailer)){
-          $libroActualizado->img_trailer=$request->file('img_trailer')->store('uploads','public');
-        }
-        if(isset($request->pdf)){
-          $libroActualizado->pdf=$request->file('pdf')->store('uploads','public');
-        }
-        $libroActualizado ->idEditorial = $request->idEditorial;
-        $libroActualizado ->idautor = $request->idautor;
-        $libroActualizado ->idGenero = $request->idGenero;
-        $libroActualizado->save();
+
+     $libroActualizado ->isbn = $request->isbn;
+     $libroActualizado ->desc = $request->desc;
+     $libroActualizado ->titulo = $request->titulo;
+     $libroActualizado ->pdf = $libroActualizado ->pdf;
+     $libroActualizado ->titulo_trailer = $request->titulo_trailer;
+     if(isset($request->img_libro)){
+     $libroActualizado->img_libro=$request->file('img_libro')->store('uploads','public');
+     }
+     if(isset($request->img_trailer)){
+     $libroActualizado->img_trailer=$request->file('img_trailer')->store('uploads','public');
+     }
+     if(isset($request->pdf)){
+     $libroActualizado->pdf=$request->file('pdf')->store('uploads','public');
+     }
+     $libroActualizado ->idEditorial = $request->idEditorial;
+     $libroActualizado ->idautor = $request->idautor;
+     $libroActualizado ->idGenero = $request->idGenero;
+     $libroActualizado->save();
        return redirect()->action('LibroController@index');
      }
 
@@ -162,14 +158,15 @@ class LibroController extends Controller
       return redirect()->action('LibroController@index');
       }
 
-      
-      public function editar($id){
 
-        $libro = Libro::findOrFail($id);
-        $libro->save();
-        $autores=Autor::all();
-        $editoriales=Editorial::all();
-        $generos=Genero::all();
+      public function editar($id){
+      $libro = Libro::findOrFail($id);
+      $libro->save();
+      $autores=Autor::all();
+      $editoriales=Editorial::all();
+      $generos=Genero::all();
       return view('editarLibro',compact('libro','autores','generos','editoriales'));
    }
+
+
 }
