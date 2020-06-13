@@ -100,11 +100,7 @@ class EditorialController extends Controller
 
       $editorialEliminar = Editorial::findOrFail($id);
       $editorialEliminar->hacerInvisible();
-      $libros = Libro::where('idEditorial','=',$id)->get();
-      foreach($libros as $libro){
-        $libro->hacerInvisible();
 
-      }
      return redirect()->action('EditorialController@index');
      }
 

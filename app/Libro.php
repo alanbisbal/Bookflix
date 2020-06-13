@@ -13,7 +13,7 @@ class Libro extends Model
        * @var array
        */
       protected $fillable = [
-          'isbn', 'desc', 'titulo','pdf','img_libro','titulo_trailer','desc_trailer','img_trailer',
+          'id','isbn', 'desc', 'titulo','img_libro','titulo_trailer','desc_trailer','img_trailer',
           'idGenero','idautor','idEditorial','created_at','updated_at'
       ];
       /**
@@ -58,7 +58,7 @@ class Libro extends Model
 
   public function capitulos()
       {
-        return $this->hasMany('App\Capitulo');
+        return $this->hasMany('App\Capitulo','id','idLibro');
       }
 
       public function editorialNombre()
@@ -90,5 +90,11 @@ class Libro extends Model
             $this['visible'] = 0;
             $this->save();
           }
+
+
+          public function id()
+            {
+              return $this['id'];
+              }
 
 }

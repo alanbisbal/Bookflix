@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 use App\Libro;
+use App\Capitulo;
+use App\Comentarios;
+use App\Favorito;
+
 
 class TrailerController extends Controller
 {
@@ -22,7 +26,10 @@ class TrailerController extends Controller
     {
 
       $libro=Libro::find($id);
-      return view('trailer',compact('libro'));
+      $capitulos= Capitulo::where('idLibro',"=",$id)->get();
+      $comentarios= Comentarios::where('idLibro',"=",$id)->get();
+      $es_fav= Favorito::where('idLibro',"=",$id and 'idperfil',"=",session('perfil')->id );
+      return view('trailer',compact('libro','capitulos','comentarios','es_fav'));
     }
 
 }

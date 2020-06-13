@@ -6,12 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comentarios extends Model
 {
-  public function perfiles()
+  protected $fillable = [
+      'idperfil','desc','idLibro',
+  ];
+  public function perfil()
     {
-        return $this->belongsToMany('App\Perfil');
+        return $this->belongsTo('App\Perfil','idperfil','id');
     }
-    public function libros()
+    public function libro()
     {
-        return $this->belongsToMany('App\Libros');
+        return $this->belongsTo('App\Libro','idLibro','id');
     }
 }

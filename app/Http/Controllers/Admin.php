@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Libro;
+use App\User;
 
 class Admin extends Controller
 {
@@ -22,11 +24,18 @@ class Admin extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
 
+     public function estadisticas()
+     {
+         $users= User::all();
+         return view('estadisticas',compact('users'));
+     }
 
      public function agregarLibro()
      {
          return view('agregarLibro');
      }
+
+    
 
      public function update()
      {

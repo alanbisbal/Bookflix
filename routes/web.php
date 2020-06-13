@@ -23,6 +23,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/administracion', 'Admin@administracion')->name('administracion');
+Route::get('/estadisticas', 'Admin@estadisticas')->name('admin.estadisticas');
 
 
 
@@ -31,14 +32,26 @@ Route::get('agregarPerfil', 'PerfilController@agregarPerfil' )->name('agregarPer
 Route::post('cargarPerfil', 'PerfilController@cargarPerfil' )->name('cargarPerfil');
 Route::get('activarPerfil/{id}', 'PerfilController@activarPerfil' )->name('activarPerfil');
 Route::get('seleccionPerfil', 'PerfilController@seleccionPerfil')->name('seleccionPerfil');
-
+Route::get('/verCuenta', 'PerfilController@verCuenta')->name('verCuenta');
+Route::put('/verCuenta', 'PerfilController@updateCuenta')->name('cuenta.update');
 
 Route::resource('librosCargados','LibroController');
+Route::resource('guardarLibro','LibroController');
 Route::get('agregarLibro','LibroController@agregarLibro');
 Route::delete('/eliminarLibro/{id}', 'LibroController@eliminar')->name('libro.eliminar');
 Route::get('/editarLibro/{id}', 'LibroController@editar' )->name('libro.editar');
 Route::put('/editarLibro/{id}', 'LibroController@update' )->name('libro.update');
 Route::get('/trailer/{id}', 'TrailerController@trailer' )->name('libro.trailer');
+Route::post('/agregarCapitulos', 'CapituloController@agregarCapitulos' )->name('agregar.capitulos');
+Route::post('/agregarCapitulo', 'CapituloController@agregarCapitulo' )->name('agregar.capitulo');
+
+
+Route::post('/agregarComentario', 'ComentariosController@agregarComentario' )->name('agregarComentario');
+Route::post('/agregarFavorito', 'FavoritoController@agregarFavorito' )->name('agregarFavorito');
+Route::post('/eliminarFavorito', 'FavoritoController@eliminarFavorito' )->name('eliminarFavorito');
+
+
+
 
 
 Route::resource('editorialesCargados','EditorialController');

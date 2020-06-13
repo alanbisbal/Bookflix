@@ -38,12 +38,18 @@
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="{{ route('logout') }}"
-              onclick="event.preventDefault();
-              document.getElementById('logout-form').submit();">
-              {{ __('Cerrar sesión') }}
+                onclick="event.preventDefault();
+                document.getElementById('logout-form').submit();">
+                {{ __('Cerrar sesión') }}
             </a>
-            <form id="logout-form" action="{{ route('logout') }}" method="POST">
-              @csrf
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
+            <a class="dropdown-item" href="{{ route('verCuenta') }}">
+                {{ __('Ver Cuenta') }}
+            </a>
+            <form id="verCuenta" action="{{ route('verCuenta') }}" method="POST" style="display: none;">
+                @csrf
             </form>
           </div>
         </li>

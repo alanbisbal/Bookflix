@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Comentarios;
+use App\Libro;
 use Illuminate\Http\Request;
 
 class ComentariosController extends Controller
@@ -33,21 +34,20 @@ class ComentariosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request,$idPerfil,$idLibro)
-    {
-      {
-        $request->validate([
-        'desc' => 'required',],
-      [
-        'desc.required'=>'El campo no puede estar vacio',
-      ]);
-          $dato->desc=$request->desc;
-          $dato->idPerfil=$idPerfil;
-          $dato->idLibro=$idLibro;
-          Comentario::insert($dato);
-          return $dato;
-        }
-    }
+     public function store(Request $request,$idLibro)
+       {
+
+         }
+
+     public function agregarComentario(Request $request)
+       {
+           $comentario =new Comentarios;
+           $comentario->idperfil = session('perfil')->id;
+           $comentario->desc = $request->desc;
+           $comentario->idLibro = $request->idLibro;
+           $comentario->save();
+           return back();
+         }
 
     /**
      * Display the specified resource.

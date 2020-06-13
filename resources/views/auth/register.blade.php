@@ -26,6 +26,14 @@
                         </div>
                     </div>
                     <div class="form-group row">
+                        <label for="apellido" class="col-md-4 col-form-label text-md-right">
+                            {{ __('Apellido') }}
+                        </label>
+                        <div class="col-md-6">
+                            <input id="apellido" type="text" class="form-control " name="apellido" value="{{ old('apellido') }}" >
+                        </div>
+                    </div>
+                    <div class="form-group row">
                         <label for="email" class="col-md-3 col-form-label text-md-right">
                             {{ __('Correo electrónico') }}
                         </label>
@@ -65,6 +73,45 @@
                             <input id="f_nac" class="form-control align-center" type="date"  name="f_nac" value="2000-01-01"
                                 min="1900-01-01"
                                 max="2500-12-31">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="titular" class="col-md-4 col-form-label text-md-right">
+                            {{ __('Titular') }}
+                        </label>
+                        <div class="col-md-6">
+                            <input id="titular" type="text" class="form-control @error('name') is-invalid @enderror" name="titular" value="{{ old('titular') }}" required autocomplete="titular" autofocus>
+                            @error('name')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="n_tarjeta" class="col-md-4 col-form-label text-md-right">
+                            N° Tarjeta
+                        </label>
+                        <div class="col-md-6">
+                            <input id="n_tarjeta" type="text"  name="n_tarjeta">
+                            @error('n_tarjeta')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="t_codigo" class="col-md-4 col-form-label text-md-right">
+                            {{ __('Codigo de seguridad') }}
+                        </label>
+                        <div class="col-md-6">
+                           <input id="t_codigo" type="text" name="t_codigo">
+                           @error('t_codigo')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                     </div>
                     <div class="form-group row mb-0">

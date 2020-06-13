@@ -34,9 +34,10 @@
             <div class="elemento">
               <span>{{$libro->isbn}}</span>
               <div>
-                <a href="{{asset('storage').'/'.$libro->pdf}}">
+                <!--<a href="{{asset('storage').'/'.$libro->pdf}}">
                   {{$libro->titulo}}
-                </a>
+                </a>-->
+                <span> {{$libro->titulo}}</span>
               </div>
               <img src="{{asset('storage').'/'.$libro->img_libro}}"alt="" width="100"> 
               <span>{{$libro->editorialL->nombre}}</span>

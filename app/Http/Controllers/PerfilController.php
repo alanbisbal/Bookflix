@@ -25,6 +25,9 @@ class PerfilController extends Controller
 
     public function seleccionPerfil()
     {
+        if(auth()->user()->es_admin){
+          return view('administracion');
+        }
         $perfiles=Perfil::where("email","=",auth()->user()->email)->get()->sortBy('nombre');
         $cant;
         if (auth()->user()->es_premium) {
@@ -40,6 +43,13 @@ class PerfilController extends Controller
     public function agregarPerfil()
     {
         return view('agregarPerfil');
+    }
+
+
+    public function verCuenta()
+    {
+
+        return view('verCuenta');
     }
 
     /**
@@ -110,6 +120,25 @@ class PerfilController extends Controller
      {
          //
      }
+
+      public function updateCuenta(Request $request)
+      {
+        $request->validate([
+          'name' => 'required',
+          'apellido' => 'required',
+        ],
+        [
+          'name.required'=>'El nombre es requerido',
+          'apellido.required'=>'El apellido es requerido',
+        ]);
+        auth()->user()->name=$request->name;
+        auth()->user()->apellido=$request->apellido;
+        auth()->user()->save();
+          return redirect()->action('PerfilController@seleccionPerfil');
+      }
+
+
+
      public function cargarPerfil(Request $request,Perfil $perfil)
      {
        $request->validate([

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Favorito;
+use App\Libro;
 use Illuminate\Http\Request;
 
 class FavoritoController extends Controller
@@ -33,14 +34,28 @@ class FavoritoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store($idPerfil,$idLibro)
-    {
+     public function store(Request $request)
+       {
+         }
 
-    $dato->idPerfil=$idPerfil;
-      $dato->idLibro=$idLibro;
-      Favorito::insert($dato);
-      return $dato;
-    }
+    public function agregarFavorito(Request $request)
+      {
+
+        $fav= new Favorito;
+        $fav->idperfil =session('perfil')->id;
+        $fav->idLibro= $request->idLibro;
+        $fav->save();
+        return back();
+        }
+
+        public function eliminarFavorito(Request $request)
+          {
+          $fav=Favorito::where('idLibro','=',$request->idLibro)->first();
+          $fav->delete();
+          return redirect()->route('home');
+          }
+
+
 
     /**
      * Display the specified resource.

@@ -113,10 +113,7 @@ class AutorController extends Controller
      {
        $autorEliminar = Autor::findOrFail($id);
        $autorEliminar->hacerInvisible();
-       $libros = Libro::where('idAutor','=',$id)->get();
-       foreach($libros as $libro){
-         $libro->hacerInvisible();
-       }
+
      return redirect()->action('AutorController@index');
      }
 

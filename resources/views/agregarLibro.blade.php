@@ -23,7 +23,7 @@
             </div>
           @endforeach
           <div>
-            <form class="form-group "action="{{'librosCargados'}}" method="POST" enctype="multipart/form-data">
+            <form class="form-group "action="{{'guardarLibro'}}" method="POST" enctype="multipart/form-data">
               {{csrf_field()}}
               <label for="isbn"  class="btn btn-secondary">{{'ISBN:'}}</label>
               <input type="text" name="isbn" id="isbn" placeholder="ISBN" value="{{ old('isbn') }}">
@@ -33,8 +33,6 @@
               <input type="text" name="desc" id="desc" placeholder="Sinopsis" value="{{ old('desc') }}">
               <label for="img_libro" class="btn btn-secondary">{{'Portada del libro:'}}</label>
               <input accept="image/*" type="file" name="img_libro" >
-              <label for="pdf" class="btn btn-secondary">{{'PDF del libro:'}}</label>
-              <input accept="application/pdf" type="file" name="pdf" >
               <label for="titulo_trailer" class="btn btn-secondary">{{'Título del trailer:'}}</label>
               <input type="text" name="titulo_trailer" id="titulo_trailer" placeholder="Título del trailer" value="{{ old('titulo_trailer') }}">
               <label for="desc_trailer" class="btn btn-secondary">{{'Descripción del trailer:'}}</label>

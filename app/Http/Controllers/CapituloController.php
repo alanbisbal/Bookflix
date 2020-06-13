@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Capitulo;
+
+use App\Libro;
 use Illuminate\Http\Request;
 
 class CapituloController extends Controller
@@ -27,15 +29,29 @@ class CapituloController extends Controller
         //
     }
 
+
+    public function agregarCapitulo(Request $request)
+    {
+      $idLibro= $request['idLibro'];
+      $nro= Capitulo::all()->where('idLibro','=',$idLibro);
+      $datoCapitulo['nro']=sizeof($nro)+1;
+      $datoCapitulo['idLibro']=$request['idLibro'];
+      $datoCapitulo['titulo']= $request['titulo'];
+      $datoCapitulo['capitulo']=$request->file('capitulo')->store('uploads','public');
+      Capitulo::insert($datoCapitulo);
+
+      return view('agregarCapitulos',compact('idLibro'));
+    }
+
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $idLibro)
     {
-        //
+
     }
 
     /**

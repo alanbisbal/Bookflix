@@ -120,11 +120,7 @@ class GeneroController extends Controller
     {
       $generoEliminar = Genero::findOrFail($id);
       $generoEliminar->hacerInvisible();
-      $libros = Libro::where('idGenero','=',$id)->get();
-      foreach($libros as $libro){
-        $libro->hacerInvisible();
-
-      }
+    
     return redirect()->action('GeneroController@index');
     }
 

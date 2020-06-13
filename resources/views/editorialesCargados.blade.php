@@ -32,7 +32,7 @@
                 <form action="{{ route('editorial.eliminar', $editorial->id )}}" class="d-inline" method="POST">
                   @method('DELETE')
                   @csrf
-                  <button class="btn btn-danger btn-sm" onclick="return confirm('¿Esta seguro? Se eliminará la editorial junto a todos los libros que sean de esta editorial')">
+                  <button class="btn btn-danger btn-sm" onclick="return confirm('¿Está seguro que desea borrar la editorial?')">
                     Eliminar
                   </button>
                 </form>

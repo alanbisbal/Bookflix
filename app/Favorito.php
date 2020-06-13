@@ -6,12 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Favorito extends Model
 {
-  public function perfiles()
+  protected $fillable = [
+      'idperfil','idLibro',
+  ];
+  public function perfil()
     {
-        return $this->belongsToMany('App\Perfil');
+        return $this->belongsTo('App\Perfil','idperfil','id');
     }
-    public function libros()
+    public function libro()
     {
-        return $this->belongsToMany('App\Libros');
+        return $this->belongsTo('App\Libros','idLibro','id');
     }
 }

@@ -16,6 +16,7 @@ class CreateTarjetasTable extends Migration
         Schema::create('tarjetas', function (Blueprint $table) {
             $table->increments('id');
             $table->string('email');
+            $table->string('titular');
             $table->foreign('email')->references('email')->on('users');
             $table->integer('numero');
             $table->integer('codigo');

@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tarjeta extends Model
 {
+
+  protected $fillable = [
+      'numero','titular','codigo','idBanco','email',
+  ];
   public function usuario()
   {
       return $this->belongsTo('App\User','email','email');
