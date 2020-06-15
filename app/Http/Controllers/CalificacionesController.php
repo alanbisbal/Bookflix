@@ -37,13 +37,18 @@ class CalificacionesController extends Controller
     public function store(Request $request,$idPerfil,$idLibro)
     {
 
-      $dato->calif=$request->calif;
-      $dato->idPerfil=$idPerfil;
-      $dato->idLibro=$idLibro;
-      Calificacion::insert($dato);
-      return $dato;
+
     }
 
+    public function agregarCalificacion(Request $request)
+      {
+          $calificacion =new Calificaciones;
+          $calificacion->idperfil = session('perfil')->id;
+          $calificacion->idLibro = $request->idLibro;
+          $calificacion->calif=$request->valoracion;
+          $calificacion->save();
+          return back();
+        }
     /**
      * Display the specified resource.
      *

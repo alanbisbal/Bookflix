@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Comentarios extends Model
 {
   protected $fillable = [
-      'idperfil','desc','idLibro',
+      'id','idperfil','desc','idLibro',
   ];
   public function perfil()
     {

@@ -42,7 +42,7 @@ class User extends Authenticatable
 
     public function tarjeta()
     {
-        return $this->hasOne('App\Tarjeta');
+        return $this->hasOne('App\Tarjeta','email','email');
     }
 
     public function nuevoPerfil()

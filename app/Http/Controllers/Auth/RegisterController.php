@@ -53,17 +53,28 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'apellido' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'f_nac' =>['required'],
-            'n_tarjeta' =>['required'],
-            't_codigo' =>['required'],
+            'f_nac' =>['required','before:01/01/2012'],
+            'n_tarjeta' =>['required','size:12','integer'],
+            't_codigo' =>['required','size:3','integer'],
             'titular' =>['required'],
-        ]);
+        ],
+      [
+          'f_nac.before'=>'La fecha debe ser mayor de 18 años',
+          'f_nac.required'=>'La fecha debe ser ingresada',
+          'n_tarjeta.required'=>'El numero de tarjeta es requerido',
+          'n_tarjeta.size'=>'La tarjeta debe ser de 12 digitos',
+          'n_tarjeta.integer'=>'La tarjeta solo se permite numeros',
+
+          't_codigo.required'=>'El codigo de tarjeta es requerido',
+          't_codigo.size'=>'El codigo debe ser de 3 digitos',
+          't_codigo.integer'=>'El codigo solo se permite numeross',
+
+      ]);
     }
 
     /**

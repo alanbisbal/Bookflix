@@ -7,11 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Perfil extends Model
 {
-  public function usuario()
- {
-      
+    protected $fillable = [
+      'id','nombre','email','imagen'
+    ];
+      public function usuario()
+      {
+
         return $this->belongsTo('App\User','email','email');
-    }
+      }
 
         public function calificaciones()
           {
@@ -25,12 +28,12 @@ class Perfil extends Model
 
         public function lecturas()
           {
-              return $this->hasMany('App\Lecturas');
+              return $this->hasMany('App\Lecturas','idperfil','id');
           }
 
        public function favoritos()
         {
-            return $this->hasMany('App\Favorito');
+              return $this->hasMany('App\Favorito','idperfil','id');
         }
 
         public function nombre()

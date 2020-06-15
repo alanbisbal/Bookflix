@@ -21,6 +21,30 @@
     <link rel="stylesheet" type="text/css" href="/css/estilos-app.css">
 </head>
 <body>
+  <!-- Parte del "Ver más" -->
+  <script languague="javascript">
+    function mostrar() {
+      div = document.getElementById('flotante');
+      div.style.display = '';
+    }
+    function cerrar() {
+      div = document.getElementById('flotante');
+      div.style.display = 'none';
+    }
+  </script>
+  <!-- Parte del "Ver más" -->
+  <!-- Parte del "Confirmar cerrar sesión" -->
+  <script>
+    function CerrarSesion()
+    {
+      var x = confirm("¿Desea cerrar sesion?");
+      if (x)
+        return true;
+      else
+        return false;
+    }
+  </script>
+  <!-- Parte del "Confirmar cerrar sesión" -->
   <div id="app" class="container">
     <header class="header">
       @include('vistas-includes.navegador')

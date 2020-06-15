@@ -49,12 +49,20 @@ class FavoritoController extends Controller
         }
 
         public function eliminarFavorito(Request $request)
-          {
+        {
           $fav=Favorito::where('idLibro','=',$request->idLibro)->first();
           $fav->delete();
-          return redirect()->route('home');
-          }
+          return back();
+        }
 
+    public function verFavoritos()
+      {
+        if(empty(session('perfil'))){
+          return  redirect()->action('PerfilController@seleccionPerfil');
+        }
+        $favoritos=Favorito::where('idperfil',"=",session('perfil')->id)->get();
+        return view('verFavoritos',compact('favoritos'));
+      }
 
 
     /**

@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Libros;
+
 
 class Favorito extends Model
 {
@@ -15,6 +17,7 @@ class Favorito extends Model
     }
     public function libro()
     {
-        return $this->belongsTo('App\Libros','idLibro','id');
+        return $this->belongsTo('App\Libro','idLibro','id');
     }
+
 }

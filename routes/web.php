@@ -34,6 +34,9 @@ Route::get('activarPerfil/{id}', 'PerfilController@activarPerfil' )->name('activ
 Route::get('seleccionPerfil', 'PerfilController@seleccionPerfil')->name('seleccionPerfil');
 Route::get('/verCuenta', 'PerfilController@verCuenta')->name('verCuenta');
 Route::put('/verCuenta', 'PerfilController@updateCuenta')->name('cuenta.update');
+Route::post('/solicitarPremium', 'PerfilController@solicitarPremium')->name('solicitarPremium');
+Route::post('/cancelarPremium', 'PerfilController@cancelarPremium')->name('cancelarPremium');
+
 
 Route::resource('librosCargados','LibroController');
 Route::resource('guardarLibro','LibroController');
@@ -47,10 +50,13 @@ Route::post('/agregarCapitulo', 'CapituloController@agregarCapitulo' )->name('ag
 
 
 Route::post('/agregarComentario', 'ComentariosController@agregarComentario' )->name('agregarComentario');
+Route::post('/eliminarComentario', 'ComentariosController@eliminar')->name('comentario.eliminar');
 Route::post('/agregarFavorito', 'FavoritoController@agregarFavorito' )->name('agregarFavorito');
 Route::post('/eliminarFavorito', 'FavoritoController@eliminarFavorito' )->name('eliminarFavorito');
-
-
+Route::get('/misFavoritos', 'FavoritoController@verFavoritos' )->name('verFavoritos');
+Route::post('/agregarCalificacion', 'CalificacionesController@agregarCalificacion' )->name('agregarCalificacion');
+Route::get('/verLeidos', 'LecturaController@verLeidos' )->name('verLeidos');
+Route::post('/libroLeido', 'PerfilController@libroLeido' )->name('libroLeido');
 
 
 

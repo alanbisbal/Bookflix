@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Lectura;
+use App\Libro;
 use Illuminate\Http\Request;
 
 
@@ -89,4 +90,13 @@ class LecturaController extends Controller
     {
         //
     }
+
+    public function verLeidos()
+      {
+        if(empty(session('perfil'))){
+          return  redirect()->action('PerfilController@seleccionPerfil');
+        }
+        $leidos=Lectura::where('idperfil',"=",session('perfil')->id)->get();
+        return view('verLeidos',compact('leidos'));
+      }
 }

@@ -16,6 +16,20 @@
               </span>
             </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('verFavoritos') }}">
+              <span class="alinear">
+                Ver Favoritos
+              </span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('verLeidos') }}">
+              <span class="alinear">
+                Ver Leidos
+              </span>
+            </a>
+          </li>
         </ul>         
       @endif
       @else
@@ -37,11 +51,9 @@
             {{ Auth::user()->name }} <span class="caret"></span>
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="{{ route('logout') }}"
-                onclick="event.preventDefault();
-                document.getElementById('logout-form').submit();">
+            <button class="dropdown-item" href="{{ route('logout') }}" onclick="if(CerrarSesion()){event.preventDefault(); document.getElementById('logout-form').submit();}">
                 {{ __('Cerrar sesión') }}
-            </a>
+            </button>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf
             </form>

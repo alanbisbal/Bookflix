@@ -93,4 +93,12 @@ class ComentariosController extends Controller
     {
         //
     }
+
+    public function eliminar(Request $request)
+    {
+      $comentarioEliminar = Comentarios::findOrFail($request->idComentario);
+      $comentarioEliminar->delete();
+       return back();
+    }
+
 }

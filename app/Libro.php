@@ -1,6 +1,6 @@
 <?php
-
 namespace App;
+use App\Favorito;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -35,30 +35,35 @@ class Libro extends Model
       ];
   public function calificaciones()
     {
-        return $this->hasMany('App\Calificaciones');
+          return $this->hasMany('App\Calificaciones','idLibro','id');
     }
+
+    public function califProm()
+      {
+            return $this->calificaciones->average('calif');
+      }
 
 
   public function comentarios()
     {
-        return $this->hasMany('App\Comentarios');
+        return $this->hasMany('App\Comentarios','idLibro','id');
     }
 
 
   public function lecturas()
       {
-        return $this->hasMany('App\Lecturas');
+        return $this->hasMany('App\Lecturas','idLibro','id');
       }
 
 
   public function favoritos()
       {
-        return $this->hasMany('App\Favorito');
+        return $this->hasMany('App\Favorito','idLibro','id');
       }
 
   public function capitulos()
       {
-        return $this->hasMany('App\Capitulo','id','idLibro');
+        return $this->hasMany('App\Capitulo','idLibro','id');
       }
 
       public function editorialNombre()
@@ -92,9 +97,16 @@ class Libro extends Model
           }
 
 
-          public function id()
+    public function id()
             {
               return $this['id'];
               }
+
+    public function esFavorito()
+          {
+            return $this->favorito;
+          }
+
+
 
 }

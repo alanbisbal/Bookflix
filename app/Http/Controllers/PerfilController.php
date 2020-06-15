@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 use App\User;
 use App\Perfil;
+use App\Pago;
+use App\Lectura;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 
 
@@ -64,7 +67,7 @@ class PerfilController extends Controller
     public function activarPerfil($id)
     {
       $perfil = Perfil::findOrFail($id);
-        session(['perfil' => $perfil]);
+      session(['perfil' => $perfil]);
       return redirect('home');
 
     }
@@ -172,4 +175,75 @@ class PerfilController extends Controller
     {
         //
     }
+
+
+
+    public function solicitarPremium(Request $request)
+    {
+      $request->validate(
+        [
+        'pass' => 'required',
+        ],
+        [
+        'pass.required' => 'Ingrese la contraseña',
+        ]);
+      if(Hash::check($request->pass,auth()->user()->password)){
+        auth()->user()->es_premium=true;
+        Pago::create([
+          'idTarjeta'=>auth()->user()->tarjeta->id,
+          'monto'=>300,
+        ]);
+        auth()->user()->save();
+      }
+      else{
+        return back()->with('alertas','La contraseña ingresada es invalida');
+      }
+        return back()->with('alertas','Felicitaciones ! Ahora sos premium!');
+      }
+
+
+
+
+    public function cancelarPremium(Request $request)
+    {
+      $request->validate(
+        [
+        'pass' => 'required',
+        ],
+        [
+        'pass.required' => 'Ingrese la contraseña',
+        ]);
+    if(Hash::check($request->pass,auth()->user()->password)){
+      auth()->user()->es_premium=false;
+      auth()->user()->save();
+    }
+    else{
+      return back()->with('alertas','La contraseña ingresada es invalida');
+    }
+      return back()->with('alertas','Dejaste de ser usuario premium');
+    }
+
+
+
+
+    public function libroLeido(Request $request)
+    {
+      $lectura= Lectura::where('idLibro',"=",$request->idLibro)->
+                where('idperfil',"=",session('perfil')->id)->get();
+       if(empty($lectura->first())){
+         Lectura::create([
+        'idperfil'=>session('perfil')->id,
+        'idLibro'=>$request->idLibro,
+        'leido'=> 1,
+        'desde'=>$request->cap,
+       ]);
+          }
+     else{
+         $lectura->first()->desde=$request->cap;
+         $lectura->first()->save();
+       }
+      return redirect(asset('storage').'/'.$request->cap);
+
+    }
+
 }

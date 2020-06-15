@@ -59,6 +59,31 @@
                     </a>
                 </form>
               </div>
+              <div>
+                @foreach($libro->comentarios as $comentario)
+                  <div>
+                    <div>
+                      {{$comentario->perfil->nombre}}
+                      </br>
+                      {{$comentario->created_at}}
+                      </br>
+                      <textarea rows="5" cols="50" disabled="yes" >
+                        {{$comentario->desc}}
+                      </textarea>
+                      </br>
+                      <form action="{{ route('comentario.eliminar' )}}" class="d-inline" method="POST">
+                        @csrf
+                        <input type="hidden" name="idComentario" value="{{$comentario->id}}">
+                        <button class="btn btn-danger btn-sm" onclick="return confirm('¿Esta seguro que desea eliminar la novedad?')">
+                          Eliminar
+                        </button>
+                      </form>
+                      </br>
+                    </div>
+                  </div>
+                  -----------------------------------------------------
+                @endforeach
+              </div>
             </div>
           @endforeach
         </div>
