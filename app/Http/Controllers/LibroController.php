@@ -4,7 +4,10 @@ use App\Autor;
 use App\Editorial;
 use App\Libro;
 use App\Genero;
+use App\Lectura;
 use App\Capitulo;
+use App\Comentarios;
+use App\Calificaciones;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 

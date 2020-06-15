@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 class Lectura extends Model
 {
   protected $fillable = [
-      'idperfil','idLibro','leido','desde'
+      'id','idperfil','idLibro','leido','desde'
   ];
   public function perfil()
     {

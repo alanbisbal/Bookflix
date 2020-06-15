@@ -1,25 +1,23 @@
 @extends('layouts.app')
-<style>
-  .clasificacion{
-    direction: lft;
-    unicode-bidi: bidi-override;
-  }
-</style>
 
 @section('content')
+
+<link rel="stylesheet" type="text/css" href="/css/estilos-trailer.css">
+
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-8">
       <div class="card">
-        <div class="card-header" style="display:flex; justify-content: space-between;">
-          <h3 style="display:flex">
+        <div class="card-header">
+          <!--<h3 style="display:flex">
             Bienvenido {{auth()->user()->name}}
           </h3>
           @if (auth()->user()->es_admin)
             <a class="nav-link" style="display:flex; align-content: center;"href="{{route('administracion')}}">
               Tareas administrativas
             </a>
-          @endif
+          @endif-->
+          @include('vistas-includes.cabecera-tarjeta')
         </div>
         <div class="card-body">
           @if (session('status'))

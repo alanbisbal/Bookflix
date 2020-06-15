@@ -27,6 +27,7 @@ Route::get('/estadisticas', 'Admin@estadisticas')->name('admin.estadisticas');
 
 
 
+Route::get('/catalogo', 'HomeController@verCatalogo')->name('verCatalogo');
 Route::get('nuevoPerfil', 'PerfilController@agregarPerfil')->name('nuevoPerfil');
 Route::get('agregarPerfil', 'PerfilController@agregarPerfil' )->name('agregarPerfil');
 Route::post('cargarPerfil', 'PerfilController@cargarPerfil' )->name('cargarPerfil');

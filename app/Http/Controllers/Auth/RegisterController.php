@@ -59,20 +59,18 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
             'f_nac' =>['required','before:01/01/2012'],
-            'n_tarjeta' =>['required','size:12','integer'],
-            't_codigo' =>['required','size:3','integer'],
+            'n_tarjeta' =>['required','digits:12'],
+            't_codigo' =>['required','digits:3',],
             'titular' =>['required'],
         ],
       [
           'f_nac.before'=>'La fecha debe ser mayor de 18 años',
           'f_nac.required'=>'La fecha debe ser ingresada',
           'n_tarjeta.required'=>'El numero de tarjeta es requerido',
-          'n_tarjeta.size'=>'La tarjeta debe ser de 12 digitos',
-          'n_tarjeta.integer'=>'La tarjeta solo se permite numeros',
+          'n_tarjeta.digits'=>'La tarjeta debe ser de 12 digitos',
 
           't_codigo.required'=>'El codigo de tarjeta es requerido',
-          't_codigo.size'=>'El codigo debe ser de 3 digitos',
-          't_codigo.integer'=>'El codigo solo se permite numeross',
+          't_codigo.digits'=>'El codigo debe ser de 3 digitos ',
 
       ]);
     }

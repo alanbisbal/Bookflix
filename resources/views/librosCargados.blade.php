@@ -59,6 +59,7 @@
                     </a>
                 </form>
               </div>
+              <!-- PARTE DE COMENTARIOS 
               <div>
                 @foreach($libro->comentarios as $comentario)
                   <div>
@@ -84,6 +85,7 @@
                   -----------------------------------------------------
                 @endforeach
               </div>
+              -->
             </div>
           @endforeach
         </div>

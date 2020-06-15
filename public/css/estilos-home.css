@@ -1,5 +1,5 @@
 .card{
-  height: 70%;
+  height: 65%;
   display: flex;
   align-content:  center;
   border: 1px solid black
@@ -27,6 +27,13 @@
 .card-body{
   height: 100%;
 }
+.card-body-libros{
+  display: flex;
+  flex-direction: row;
+}
+.elementos{
+  margin-right: 15px;
+}
 .libros{
   text-decoration: none;
   color: red;
@@ -35,4 +42,11 @@
   text-decoration: none;
   color: red;
   font-weight: bold;
+}
+.titulo:hover{
+  font-weight: bold;
+}
+img{
+  width: 100px;
+  height: 100px;
 }

@@ -9,5 +9,17 @@
 }
 .boton {
   display: flex;
-  justify-content: right;
+  justify-content: center;
+}
+.columnas{
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+.izquierda{
+  display: flex;
+  flex-direction: column;
+}
+.derecha{
+  display: flex;
+  flex-direction: column;
 }

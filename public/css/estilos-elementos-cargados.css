@@ -22,6 +22,7 @@ h3{
     max-height: 31px;
 }
 .cuerpo{
+    background-color: rgb(228, 214, 211);
     display: flex;
     flex-direction: column;
     overflow-y: scroll;
@@ -29,6 +30,10 @@ h3{
     justify-items: center;
     min-height: 31px;
     max-height: 300px;
+}
+img{
+    width: 80px;
+    height: 100px;
 }
 .elemento{
     display: grid;

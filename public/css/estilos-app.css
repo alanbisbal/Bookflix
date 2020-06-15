@@ -48,6 +48,7 @@ html{
   .nav-item{
     margin-right: 40px;
     align-self: center;
+    list-style-type: none;
   }
   .nav-link{
     background-color: white;
@@ -102,7 +103,7 @@ html{
     margin-top: 50px;
     margin-bottom: 50px;
     border: 2px solid black;
-    max-height: 510px;
+    /*max-height: 510px;*/
   }
   .card-header{
       background-color: black;
@@ -127,6 +128,7 @@ html{
     justify-content: space-between;
     padding: 0px 10px;
     align-items: center;
+    bottom: 0;
   }
   .btn-general{
     background-color: black;

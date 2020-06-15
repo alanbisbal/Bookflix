@@ -20,27 +20,32 @@
         @endif
         <div class="elem">
           <a href="{{'librosCargados'}}" class="btn btn-info" role="button">
-            Ver libros
-          </a>
-        </div>
-        <div class="elem">
-          <a href="{{'novedadesCargados'}}" class="btn btn-info" role="button" >
-            Ver novedades
+            Libros
           </a>
         </div>
         <div class="elem">
           <a href="{{'autoresCargados'}}" class="btn btn-info" role="button">
-            Ver autores
+            Autores
           </a>
         </div>
         <div class="elem">
           <a href="{{'editorialesCargados'}}" class="btn btn-info" role="button">
-            Ver editoriales
+            Editoriales
           </a>
         </div>
         <div class="elem">
           <a href="{{'generosCargados'}}" class="btn btn-info" role="button">
-            Ver generos
+            Géneros
+          </a>
+        </div>
+        <div class="elem">
+          <a href="{{'novedadesCargados'}}" class="btn btn-info" role="button" >
+            Novedades
+          </a>
+        </div>
+        <div class="elem">
+          <a href="{{ route('admin.estadisticas') }}" class="btn btn-info" role="button">
+            Estadísticas
           </a>
         </div>
       </div>
