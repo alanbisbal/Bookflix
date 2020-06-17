@@ -25,26 +25,27 @@
                     </br>
                     @if(count($favoritos)==0)
                         {{'Tu lista de favoritos esta vacia.'}}
-                    @else
-                        .................................................................
-                        </br>
+                    @else  
                         @foreach($favoritos as $favorito)
-                            ID:{{$favorito->libro->id}}
-                            </br>
-                            TITULO:{{$favorito->libro->titulo}}
-                            </br>
-                            DESC:{{$favorito->libro->desc}}
-                            </br>
-                            <form  action="{{route('eliminarFavorito')}}" method="POST">
-                                {{csrf_field()}}
-                                <label for="idLibro"></label>
-                                <input type="hidden" name="idLibro" id="idLibro" value="{{ $favorito->libro->id }}">
-                                <button style="color:grey" type="submit" class="valoracion">
-                                    Eliminar favorito
-                                </button>
+                            @if($favorito->libro->visible)
+                                <a class="libros" href="{{route('libro.trailer',$favorito->libro->id)}}">
+                                    <img src="{{asset('storage').'/'.$favorito->libro->img_libro}}" alt="100" width="100">
+                                    </br>
+                                    Trailer
+                                </a>
                                 </br>
-                                .................................................................
-                            </form>
+                                <form  action="{{route('eliminarFavorito')}}" method="POST">
+                                    {{csrf_field()}}
+                                    <label for="idLibro"></label>
+                                    <input type="hidden" name="idLibro" id="idLibro" value="{{ $favorito->libro->id }}">
+                                    <button style="color:grey" type="submit" class="valoracion">
+                                        Eliminar favorito
+                                    </button>
+                                    </br>
+                                    .................................................................
+                                    </br>
+                                </form>
+                            @endif
                         @endforeach
                     @endif
                 </div>

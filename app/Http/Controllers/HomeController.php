@@ -32,7 +32,7 @@ class HomeController extends Controller
       }
       $perfiles=Perfil::where("email","=",auth()->user()->email)->get()->sortBy('nombre');
       if(!empty(session('perfil'))){
-        $libros=Libro::all()->where('visible','=',1);
+        $libros=Libro::all()->where('visible','=',1)->sortBy('nombre');
         $masvotados=$libros;
         $masleidos=Libro::all()->sortDesc()->
           each(function ($item) {

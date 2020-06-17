@@ -11,7 +11,7 @@
             </div>
             <div class="card-body">
                 @foreach($errors->all() as $error)
-                    <div class="alert alert-danger" role="alert">
+                    <div class="alert alert-danger errores" role="alert">
                         {{$error}}
                     </div>
                 @endforeach
@@ -26,7 +26,7 @@
                             </div>
                             <div class="form-group row">
                                 <label for="name" class="col-md-4 col-form-label text-md-right">
-                                    {{ __('Nombre') }}
+                                    {{ __('Nombre:') }}
                                 </label>
                                 <div class="col-md-7">
                                     <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
@@ -39,7 +39,7 @@
                             </div>
                             <div class="form-group row">
                                 <label for="apellido" class="col-md-4 col-form-label text-md-right">
-                                    {{ __('Apellido') }}
+                                    {{ __('Apellido:') }}
                                 </label>
                                 <div class="col-md-7">
                                     <input id="apellido" type="text" class="form-control " name="apellido" value="{{ old('apellido') }}" >
@@ -47,7 +47,7 @@
                             </div>
                             <div class="form-group row">
                                 <label for="email" class="col-md-4 col-form-label text-md-right">
-                                    {{ __('Correo electrónico') }}
+                                    {{ __('Correo electrónico:') }}
                                 </label>
                                 <div class="col-md-7">
                                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
@@ -60,7 +60,7 @@
                             </div>
                             <div class="form-group row">
                                 <label for="password" class="col-md-4 col-form-label text-md-right">
-                                    {{ __('Contraseña') }}
+                                    {{ __('Contraseña:') }}
                                 </label>
                                 <div class="col-md-7">
                                     <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
@@ -81,7 +81,7 @@
                             </div>
                             <div class="form-group row">
                                 <label for="f_nac" class="col-md-4 col-form-label text-md-right">
-                                    Fecha de Nacimiento
+                                    Fecha de nacimiento:
                                 </label>
                                 <div class="col-md-7">
                                     <input id="f_nac" class="form-control align-center" type="date"  name="f_nac" value="{{old('f_nac')}}"
@@ -101,7 +101,7 @@
                                     {{ __('Titular') }}
                                 </label>
                                 <div class="col-md-7">
-                                    <input id="titular" type="text" class="form-control @error('name') is-invalid @enderror" name="titular" value="{{ old('titular') }}" required autocomplete="titular" autofocus>
+                                    <input id="titular" type="text" class="form-control" name="titular" value="{{ old('titular') }}" >
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -109,16 +109,28 @@
                                     N° Tarjeta
                                 </label>
                                 <div class="col-md-7">
-                                    <input id="n_tarjeta" type="text" class="form-control" name="n_tarjeta"  value="{{old('n_tarjeta')}}">
+                                    <input id="n_tarjeta" type="text"  name="n_tarjeta" class="form-control" value="{{old('n_tarjeta')}}" >
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="t_codigo" class="col-md-4 col-form-label text-md-right">
-                                    {{ __('Codigo de seguridad') }}
+                                    {{ __('Código de seguridad') }}
                                 </label>
                                 <div class="col-md-7">
-                                    <input id="t_codigo" type="text" class="form-control"name="t_codigo" value="{{old('t_codigo')}}">
+                                    <input id="t_codigo" type="text" name="t_codigo" class="form-control" value="{{old('t_codigo')}}">
                                 </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="idBanco"class="col-md-4 col-form-label text-md-right">
+                                    {{'Banco:'}}
+                                </label>
+                                <select name="idBanco" class="col-md-7">
+                                    @foreach($bancos as $banco)
+                                        <option value="{{$banco->id}}">
+                                            {{$banco->nombre}}
+                                        </option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="form-group row mb-0">
                                 <div class="col-md-12 offset-md-0 boton">

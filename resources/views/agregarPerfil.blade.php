@@ -22,14 +22,26 @@
           {{csrf_field()}}
           @error('nombre')
           @enderror
-          <label for="nombre">{{'Nombre de perfil: '}}</label>
-          <input type="text" name="nombre" id="nombre" value="">
+          <label for="nombre">
+            {{'Nombre de perfil: '}}
+          </label>
+          <input type="text" name="nombre" id="nombre" class="form-control" value="">
           @if($errors->has('nombre'))
-            El nombre no puede estar vacio
+            <div class="alert alert-danger" role="alert">
+              El nombre no puede estar vacio
+            </div>
           @endif
-          <label for="imagen">{{'Imagen de perfil: '}}</label>
+          <div class="form-control">
+            <label for="imagen" >
+              {{'Imagen de perfil'}}
+            </label>
+          </div>
           <input accept="image/*" type="file" name="imagen" >
-          <input type="submit" value="Agregar">
+          </br>
+          </br>
+          <div class="col-md-6">
+            <input type="submit" class="form-control"value="Agregar">
+          </div>
         </form>
       </div>
     </div>

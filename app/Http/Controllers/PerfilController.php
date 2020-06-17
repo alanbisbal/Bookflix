@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support;
+
 use App\User;
 use App\Perfil;
 use App\Pago;
@@ -127,16 +129,36 @@ class PerfilController extends Controller
       public function updateCuenta(Request $request)
       {
         $request->validate([
-          'name' => 'required',
+          'nombre' => 'required',
           'apellido' => 'required',
+          'password' => ['required','min:8'],
+          'titular' => 'required',
+          'numero' => ['required','digits:12'],
+          'codigo' => ['required','digits:3',],
         ],
         [
-          'name.required'=>'El nombre es requerido',
+          'nombre.required'=>'El nombre es requerido',
           'apellido.required'=>'El apellido es requerido',
+          'password.required'=>'La contraseña es requerida',
+          'password.digits'=>'La contraseña debe tener al menos 8 caracteres',
+          'titular.required'=>'El nombre del titular es requerido',
+
+          'numero.required'=>'El numero de tarjeta es requerido',
+          'numero.digits'=>'El numero de tarjeta debe ser de 12 digitos',
+
+          'codigo.required'=>'El codigo de tarjeta es requerido',
+          'codigo.digits'=>'El codigo de tarjeta debe ser de 3 digitos ',
         ]);
-        auth()->user()->name=$request->name;
+        auth()->user()->name=$request->nombre;
         auth()->user()->apellido=$request->apellido;
+        if(!($request->pass == auth()->user()->password)){
+           auth()->user()->password = Hash::make($request->password);
+        }
+        auth()->user()->tarjeta->titular =$request->titular;
+        auth()->user()->tarjeta->numero =$request->numero;
+        auth()->user()->tarjeta->codigo =$request->codigo;
         auth()->user()->save();
+        auth()->user()->tarjeta->save();
           return redirect()->action('PerfilController@seleccionPerfil');
       }
 
@@ -144,23 +166,26 @@ class PerfilController extends Controller
 
      public function cargarPerfil(Request $request,Perfil $perfil)
      {
+
        $request->validate([
          'nombre' => 'required',]);
-       $cantidad_perfiles = Perfil::find(auth()->user()->email);
-       $perfil=request()->except('_token');
-       $perfil['email']=auth()->user()->email;
-       if(is_null($cantidad_perfiles))
-       {
+       $cantidad_perfiles = Perfil::where("email","=",auth()->user()->email)->get();
+     if(count($cantidad_perfiles)<4){
+         $perfil=request()->except('_token');
+         $perfil['email']=auth()->user()->email;
+         if(is_null($cantidad_perfiles))
+         {
           $perfil['nro']=1;
+        }
+        else{
+         $perfil['nro']= (count($cantidad_perfiles)+1) ;
+        }
+        if($request->hasFile('imagen')){
+              $perfil['imagen']=$request->file('imagen')->store('uploads','public');
+            }
+        $perfil['estado']=1;
+        Perfil::insert($perfil);
        }
-       else{
-         $perfil['nro']= (size($cantidad_perfiles)+1) ;
-       }
-       if($request->hasFile('imagen')){
-             $perfil['imagen']=$request->file('imagen')->store('uploads','public');
-       }
-       $perfil['estado']=1;
-       Perfil::insert($perfil);
        return redirect()->action('PerfilController@seleccionPerfil');
      }
 

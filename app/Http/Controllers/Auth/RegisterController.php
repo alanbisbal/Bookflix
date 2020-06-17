@@ -8,6 +8,7 @@ use App\User;
 use App\Perfil;
 use App\Pago;
 use App\Tarjeta;
+use App\Banco;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -45,6 +46,13 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+    public function showRegistrationForm()
+    {
+        $bancos = Banco::all();
+
+        return view('auth.register', compact('bancos'));
+    }
+
     /**
      * Get a validator for an incoming registration request.
      *
@@ -58,19 +66,20 @@ class RegisterController extends Controller
             'apellido' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'f_nac' =>['required','before:01/01/2012'],
-            'n_tarjeta' =>['required','digits:12'],
+            'f_nac' =>['required','before:01/01/2002'],
+            'n_tarjeta' =>['required','digits:16'],
             't_codigo' =>['required','digits:3',],
             'titular' =>['required'],
         ],
       [
+          
           'f_nac.before'=>'La fecha debe ser mayor de 18 años',
           'f_nac.required'=>'La fecha debe ser ingresada',
-          'n_tarjeta.required'=>'El numero de tarjeta es requerido',
-          'n_tarjeta.digits'=>'La tarjeta debe ser de 12 digitos',
+          'n_tarjeta.required'=>'El número de tarjeta es requerido',
+          'n_tarjeta.digits'=>'La tarjeta debe ser de 12 dígitos',
 
-          't_codigo.required'=>'El codigo de tarjeta es requerido',
-          't_codigo.digits'=>'El codigo debe ser de 3 digitos ',
+          't_codigo.required'=>'El código de tarjeta es requerido',
+          't_codigo.digits'=>'El código debe ser de 3 dígitos ',
 
       ]);
     }
@@ -98,7 +107,7 @@ class RegisterController extends Controller
           'titular' => $data['titular'],
           'numero'=>$data['n_tarjeta'],
           'codigo'=>$data['t_codigo'],
-          'idBanco'=> 1,
+          'idBanco'=>$data['idBanco'],
           ]);
       Pago::create([
         'idTarjeta'=>$tarjeta['id'],

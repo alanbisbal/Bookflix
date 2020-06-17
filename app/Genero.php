@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use Illuminate\Support;
 class Genero extends Model
 {
   /**
@@ -41,6 +42,6 @@ class Genero extends Model
       public function hacerInvisible()
         {
             $this['visible'] = 0;
-            $this->save();            
+            $this->save();
           }
 }

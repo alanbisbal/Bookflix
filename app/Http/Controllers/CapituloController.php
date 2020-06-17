@@ -83,9 +83,19 @@ class CapituloController extends Controller
      * @param  \App\Capitulo  $capitulo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Capitulo $capitulo)
+    public function update(Request $request, $id)
     {
-        //
+      $capituloActualizado = Capitulo::find($id);
+          $request->validate([
+          'titulo' => 'required'],
+          [
+            'titulo.required'=>'Debe ingresar un nombre',
+          ]);
+
+          $capituloActualizado->titulo = $request->titulo;
+          $capituloActualizado->save();
+      
+    return redirect()->action('LibroController@index');
     }
 
     /**
@@ -98,4 +108,10 @@ class CapituloController extends Controller
     {
         //
     }
+    public function capitulos(Request $request)
+    {
+       $libro = Libro::findOrFail($request->id);
+       return view('verCapitulos',compact('libro'));
+    }
+
 }

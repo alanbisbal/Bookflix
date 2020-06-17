@@ -42,7 +42,7 @@
                                 @endif
                         </div>
                         <div class="tarjetasanidadas " style="overflow-y: scroll;">
-                            <div class="card-body" align="center"  >
+                            <div class="card-body">
                                 @if (session('status'))
                                     <div class="alert alert-success" role="alert">
                                         {{ session('status') }}
@@ -51,12 +51,15 @@
                                 <div class="card-body" >
                                     <div class="card-header" >
                                         @foreach($libros as $libro)
-                                            <center class="alinear">
-                                                <a class="libros" href="{{route('libro.trailer',$libro->id)}}">
-                                                <img src="{{asset('storage').'/'.$libro->img_libro}}" alt="100" width="100"></br>
-                                                    Trailer
-                                                </a>
-                                            </center>
+                                            @if($libro->visible)
+                                                <div>
+                                                    <a class="libros" href="{{route('libro.trailer',$libro->id)}}">
+                                                    <img src="{{asset('storage').'/'.$libro->img_libro}}" alt="100" width="100">
+                                                        </br>
+                                                        Trailer
+                                                    </a>
+                                                </div>
+                                            @endif
                                         @endforeach
                                     </div>
                                 </div>

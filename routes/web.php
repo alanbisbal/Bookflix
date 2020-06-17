@@ -46,9 +46,11 @@ Route::delete('/eliminarLibro/{id}', 'LibroController@eliminar')->name('libro.el
 Route::get('/editarLibro/{id}', 'LibroController@editar' )->name('libro.editar');
 Route::put('/editarLibro/{id}', 'LibroController@update' )->name('libro.update');
 Route::get('/trailer/{id}', 'TrailerController@trailer' )->name('libro.trailer');
+Route::get('/comentarios/{id}', 'ComentariosController@comentarios' )->name('libro.comentarios');
 Route::post('/agregarCapitulos', 'CapituloController@agregarCapitulos' )->name('agregar.capitulos');
 Route::post('/agregarCapitulo', 'CapituloController@agregarCapitulo' )->name('agregar.capitulo');
-
+Route::get('/capitulos/{id}', 'CapituloController@capitulos' )->name('libro.capitulos');
+Route::put('/editarCapitulo/{id}', 'CapituloController@update' )->name('capitulo.update');
 
 Route::post('/agregarComentario', 'ComentariosController@agregarComentario' )->name('agregarComentario');
 Route::post('/eliminarComentario', 'ComentariosController@eliminar')->name('comentario.eliminar');

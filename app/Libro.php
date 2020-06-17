@@ -4,6 +4,7 @@ use App\Favorito;
 
 use Illuminate\Database\Eloquent\Model;
 
+use Illuminate\Support;
 class Libro extends Model
 {
 

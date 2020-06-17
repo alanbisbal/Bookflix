@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Favorito;
 use App\Libro;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
+
+use Illuminate\Support\Str;
 
 class FavoritoController extends Controller
 {
@@ -50,7 +53,8 @@ class FavoritoController extends Controller
 
         public function eliminarFavorito(Request $request)
         {
-          $fav=Favorito::where('idLibro','=',$request->idLibro)->first();
+          $fav=Favorito::where('idLibro','=',$request->idLibro)
+              ->where('idperfil','=',session('perfil')->id)->first();
           $fav->delete();
           return back();
         }

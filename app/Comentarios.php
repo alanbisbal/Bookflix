@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use Illuminate\Support;
 class Comentarios extends Model
 {
   protected $fillable = [

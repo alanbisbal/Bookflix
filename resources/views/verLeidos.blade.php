@@ -29,14 +29,16 @@
                         .................................................................
                         </br>
                         @foreach($leidos as $leido)
-                            ID:{{$leido->libro->id}}
-                            </br>
-                            TITULO:{{$leido->libro->titulo}}
-                            </br>
-                            DESC:{{$leido->libro->desc}}
-                            </br>
-                            .................................................................
-                            </br>
+                            @if($leido->libro->visible)
+                                <a class="libros" href="{{route('libro.trailer',$leido->libro->id)}}">
+                                    <img src="{{asset('storage').'/'.$leido->libro->img_libro}}" alt="100" width="100">
+                                    </br>
+                                    Trailer
+                                </a>
+                                </br>
+                                .................................................................
+                                </br>
+                            @endif
                         @endforeach
                     @endif
                 </div>

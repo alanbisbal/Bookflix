@@ -97,6 +97,8 @@ class GeneroController extends Controller
      */
 
     public function update(Request $request, $id){
+      $generoActualizado = Genero::find($id);
+    if(!$generoActualizado->nombre = $request->nombre){
       $request->validate([
       'nombre' => 'required | unique:generos',],
     [
@@ -104,11 +106,13 @@ class GeneroController extends Controller
       'nombre.unique'=>'Ese nombre ya existe en el sistema',
     ]);
 
-    $generoActualizado = Genero::find($id);
+
     $generoActualizado->nombre = $request->nombre;
     $generoActualizado->save();
-    return redirect()->action('GeneroController@index');
-    }
+
+  }
+  return redirect()->action('GeneroController@index');
+}
 
     /**
      * Remove the specified resource from storage.
@@ -120,7 +124,7 @@ class GeneroController extends Controller
     {
       $generoEliminar = Genero::findOrFail($id);
       $generoEliminar->hacerInvisible();
-    
+
     return redirect()->action('GeneroController@index');
     }
 

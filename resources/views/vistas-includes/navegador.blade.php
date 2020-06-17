@@ -19,60 +19,38 @@
         <a class="navbar-brand" href="{{ route('home') }}">
           <img src="/imagenes/bookflixnegro.png" style="width: 100%">
         </a>
-        <!--
-        <ul class="navbar-nav" >
-          <li class="nav-item">
-            <a class="nav-link" href="{{ route('seleccionPerfil') }}">
-              <span class="alinear">
-                Cambiar Perfil
-              </span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ route('verFavoritos') }}">
-              <span class="alinear">
-                Ver Favoritos
-              </span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ route('verLeidos') }}">
-              <span class="alinear">
-                Ver Leidos
-              </span>
-            </a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="{{ route('verCatalogo') }}">
+        @if(!empty(session('perfil')))
+          <ul class="navbar-nav" >
+            <li class="nav-item">
+              <a class="nav-link" href="{{ route('seleccionPerfil') }}">
                 <span class="alinear">
-                  Ver Catalogo
+                  Cambiar Perfil
                 </span>
               </a>
-          </li> 
-        </ul>   -->  
-        <ul class="navbar-nav" >
-          <li class="nav-item">
-            <a class="nav-link" href="{{ route('verCatalogo') }}">
-              <span class="alinear">
-                Catálogo
-              </span>
-            </a>
-          </li>     
-          <li class="nav-item">
-            <a class="nav-link" href="{{ route('verFavoritos') }}">
-              <span class="alinear">
-                Mis favoritos
-              </span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ route('verLeidos') }}">
-              <span class="alinear">
-                Libros leídos
-              </span>
-            </a>
-          </li>
-        </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ route('verFavoritos') }}">
+                <span class="alinear">
+                  Ver Favoritos
+                </span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ route('verLeidos') }}">
+                <span class="alinear">
+                  Ver Leidos
+                </span>
+              </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('verCatalogo') }}">
+                  <span class="alinear">
+                    Ver Catalogo
+                  </span>
+                </a>
+            </li> 
+          </ul>
+        @endif
       @endif
       @else
         <a class="navbar-brand" href="{{ url('/') }}">
@@ -95,18 +73,20 @@
             </span>
           </a>
           <div class="dropdown-menu dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="{{ route('seleccionPerfil') }}">
-              {{ __('Perfiles') }}
-            </a>
-            <form id="seleccionPerfil" action="{{ route('seleccionPerfil') }}" method="POST" style="display: none;">
-                @csrf
-            </form>
-            <a class="dropdown-item" href="{{ route('verCuenta') }}">
-                {{ __('Mi cuenta') }}
-            </a>
-            <form id="verCuenta" action="{{ route('verCuenta') }}" method="POST" style="display: none;">
-                @csrf
-            </form>
+            @if(!auth()->user()->es_admin)
+              <a class="dropdown-item" href="{{ route('seleccionPerfil') }}">
+                {{ __('Perfiles') }}
+              </a>
+              <form id="seleccionPerfil" action="{{ route('seleccionPerfil') }}" method="POST" style="display: none;">
+                  @csrf
+              </form>
+              <a class="dropdown-item" href="{{ route('verCuenta') }}">
+                  {{ __('Mi cuenta') }}
+              </a>
+              <form id="verCuenta" action="{{ route('verCuenta') }}" method="POST" style="display: none;">
+                  @csrf
+              </form>
+            @endif
             <div class="dropdown-divider"></div>
             <button class="dropdown-item" href="{{ route('logout') }}" onclick="if(CerrarSesion()){event.preventDefault(); document.getElementById('logout-form').submit();}">
               {{ __('Cerrar sesión') }}

@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\Libros;
 
+use Illuminate\Support;
 
 class Favorito extends Model
 {

@@ -35,6 +35,11 @@
               Agregar a favoritos★
             </button>
           </form>
+          @if(!($leido)->isEmpty())
+            <a href="{{asset('storage').'/'.$leido->first()->desde}}">
+              Continuar leyendo
+            </a> 
+          @endif
         @else
           <form  action="{{route('eliminarFavorito')}}" method="POST">
             {{csrf_field()}}

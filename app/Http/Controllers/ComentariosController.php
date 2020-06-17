@@ -100,5 +100,11 @@ class ComentariosController extends Controller
       $comentarioEliminar->delete();
        return back();
     }
+    public function comentarios(Request $request)
+    {
+       $libro = Libro::findOrFail($request->id);
+       return view('verComentarios',compact('libro'));
+    }
+
 
 }

@@ -76,16 +76,18 @@ class EditorialController extends Controller
      * @return \Illuminate\Http\Response
      */
      public function update(Request $request, $id){
+       $editorialActualizada = Editorial::find($id);
+       if(!$editorialActualizada->nombre = $request->nombre){
+         $request->validate([
+           'nombre' => 'required | unique:editorials',],
+           [
+             'nombre.required'=>'Debe ingresar un nombre',
+             'nombre.unique'=>'Ese nombre ya existe en el sistema',
+           ]);
 
-      $request->validate([
-     'nombre' => 'required | unique:editorials',],
-      [
-       'nombre.required'=>'Debe ingresar un nombre',
-       'nombre.unique'=>'Ese nombre ya existe en el sistema',
-     ]);
-     $editorialActualizada = Editorial::find($id);
-     $editorialActualizada->nombre = $request->nombre;
-     $editorialActualizada->save();
+           $editorialActualizada->nombre = $request->nombre;
+           $editorialActualizada->save();
+         }
      return redirect()->action('EditorialController@index');
      }
 

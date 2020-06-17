@@ -24,15 +24,17 @@
             </h4>
             </br>
             @foreach($libros as $libro)
-              <div class="elementos">
-                <a class="libros" href="{{route('libro.trailer',$libro->id)}}">
-                  <img src="{{asset('storage').'/'.$libro->img_libro}}" alt="100" width="100">
-                  </br>
-                  <h6 class="titulo text-center">
-                    {{($libro->titulo)}}
-                  </h6>
-                </a>
-              </div>
+              @if($libro->visible)
+                <div class="elementos">
+                  <a class="libros" href="{{route('libro.trailer',$libro->id)}}">
+                    <img src="{{asset('storage').'/'.$libro->img_libro}}" alt="100" width="100">
+                    </br>
+                    <h6 class="titulo text-center">
+                      {{($libro->titulo)}}
+                    </h6>
+                  </a>
+                </div>
+              @endif
             @endforeach
           </div>
           <div class="recomendacion">
@@ -41,12 +43,14 @@
             </h4>
             </br>
             @foreach($masleidos as $libro)
-                [<div class="elementos">
+              @if($libro->visible)
+                <div class="elementos">
                   <a class="libros" href="{{route('libro.trailer',$libro->id)}}">
                     <img src="{{asset('storage').'/'.$libro->img_libro}}" alt="100" width="100"></br>
                     Trailer
                   </a>
-                </div>]
+                </div>
+              @endif
             @endforeach
           </div>
           <div class="recomendacion">
@@ -55,12 +59,14 @@
             </h4>
             </br>
             @foreach($nuevos as $libro)
-              <div class="elementos">
-                <a class="libros" href="{{route('libro.trailer',$libro->id)}}">
-                  <img src="{{asset('storage').'/'.$libro->img_libro}}" alt="100" width="100"></br>
-                  Trailer
-                </a>
-              </div>
+              @if($libro->visible)
+                <div class="elementos">
+                  <a class="libros" href="{{route('libro.trailer',$libro->id)}}">
+                    <img src="{{asset('storage').'/'.$libro->img_libro}}" alt="100" width="100"></br>
+                    Trailer
+                  </a>
+                </div>
+              @endif
             @endforeach
           </div>
         </div>
