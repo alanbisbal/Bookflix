@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="css/estilos-librosCargados.css">
 <link rel="stylesheet" href="css/estilos-elementos-cargados.css">
 
-  <div class="col-md-10">
+  <!--<div class="col-md-10">-->
     <div class="card">
       <div class="card-header"> 
         <h3>
@@ -43,31 +43,25 @@
               <span>{{$libro->editorialL->nombre}}</span>
               <span>{{$libro->autorL->nombre}}</span>
               <span>{{$libro->generoL->nombre}}</span>
-              <div>
+              <div class="botones">
+                <a href="{{route('libro.comentarios', $libro)}}" class="btn bot1 btn-sm bot">
+                  Comentarios
+                </a>
+                <a href="{{route('libro.capitulos', $libro)}}" class="btn bot1 btn-sm bot">
+                  Capítulos
+                </a>
+              </div>
+              <div class="botones">
                 <form action="{{ route('libro.eliminar', $libro->id )}}" class="d-inline" method="POST">
                   @method('DELETE')
                   @csrf
-                  <button class="btn btn-danger btn-sm" onclick="return confirm('¿Esta seguro que desea eliminar el libro?')">
+                  <button class="btn btn-danger btn-sm bot text-white" onclick="return confirm('¿Esta seguro que desea eliminar el libro?')">
                     Eliminar
                   </button>
                 </form>
-              </div>
-              <div>
-                <!--<form>-->
-                    <a href="{{route('libro.editar', $libro)}}" class="btn btn-warning btn-sm">
-                      Editar libro
-                    </a>
-                <!--</form>-->
-              </div>
-              <div>
-                <a href="{{route('libro.comentarios', $libro)}}" class="btn btn-warning btn-sm">
-                  Comentarios
+                <a href="{{route('libro.editar', $libro)}}" class="btn btn-warning btn-sm bot text-white">
+                  Editar libro
                 </a>
-              </div>
-              <div>
-                  <a href="{{route('libro.capitulos', $libro)}}" class="btn btn-warning btn-sm">
-                    Capítulos
-                  </a>
               </div>
             </div>
           @endforeach
@@ -82,5 +76,5 @@
         </div>
       </div>
     </div>
-  </div>
+  <!--</div>-->
 @endsection

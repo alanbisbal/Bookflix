@@ -35,6 +35,7 @@
                             <form action="{{ route('capitulo.update', $capitulo->id) }}" method="POST">
                                 @method('PUT')
                                 @csrf
+                                </br>
                                 <input type="text" name="titulo" placeholder="titulo" class="form-control mb-2" value="{{ $capitulo->titulo }}">
                                 <div class="col-md-6">
                                     <button class="btn btn-warning btn-block" type="submit">
@@ -45,7 +46,7 @@
                                     </button>
                                 </div>
                             </form>
-                            </br>  -----------------------------------------------------  </br>
+                            </br>
                         @endforeach
                     @endif
                 </div>

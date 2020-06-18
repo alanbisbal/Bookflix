@@ -1,5 +1,16 @@
+.menu{
+    overflow-y: scroll;
+    overflow-x: hidden;
+    /*background-size: 100% 1115px;*/
+    background-repeat: repeat;
+}
+.background-overlay{
+    height: max-content;
+    background-repeat: repeat;
+  }
 .card{
     height: 100%;
+    width: 900px;
 }
 .card-header{
     display: flex;
@@ -12,7 +23,108 @@ h3{
     display: flex;
     align-content: center;
 }
-.tarjetasanidadas{
-    overflow-y: scroll;
-    max-height: 650px;
+.formulario{
+    display: grid;
+    grid-template-rows: 50px 236px 50px 50px 50px 50px 200px 50px;
+    justify-content: center;
+}
+.parte1{
+    display: flex;
+    flex-direction: row;
+}
+.p11{
+    width: 500px;
+}
+.p11 input{
+    margin-left: 10px;
+}
+.p21 input{
+    margin-left: 6px;
+}
+.parte2{
+    display: flex;
+    flex-direction: column;
+}
+.parte2 label{
+    width: 120px;
+}
+.parte2 textarea{
+    width: 800px;
+}
+.parte3{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+}
+.p13{
+    width: 60%;
+}
+.p13 input{
+    margin-left: 10px;
+    max-width: 305px;
+}
+.p23{
+    width: 40%;
+}
+.p23 select{
+    margin-left: 10px;
+    width: 228px;
+}
+.parte4{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+}
+.p14{
+    width: 50%;
+}
+.p14 select{
+    margin-left: 15px;
+    width: 260px;
+}
+.p24{
+    width: 50%;
+}
+.p24 select{
+    margin-left: 15px;
+    width: 293px;
+}
+.parte5{
+    margin-top: 20px;
+}
+.parte5 label{
+    width: 155px;
+}
+.parte5 input{
+    margin-left: 33px;
+}
+.parte6{
+    margin-top: 20px;
+}
+.parte7{
+    margin-top: 20px;
+}
+.parte6 input{
+    margin-left: 20px;
+}
+.parte7 textarea{
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+}
+.parte8{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.btn-info{
+    width: 140px;
+}
+.parte8 a{
+    color: red;
+}
+.parte8 a:hover{
+    color: red;
+    font-weight: bold;
+    background-color: black;
 }

@@ -157,7 +157,6 @@ class LibroController extends Controller
       */
       public function eliminar($id)
       {
-
         $libroEliminar = Libro::findOrFail($id);
         $libroEliminar->hacerInvisible();
       return redirect()->action('LibroController@index');

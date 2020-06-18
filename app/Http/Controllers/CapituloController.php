@@ -32,6 +32,17 @@ class CapituloController extends Controller
 
     public function agregarCapitulo(Request $request)
     {
+        $request->validate([
+            'titulo' => 'required',
+            'capitulo'=>'required'
+      
+          ],
+      
+            [
+              'titulo.required'=>'Debe ingresar un nombre para el capítulo',
+              'capitulo.requiered'=> 'Debe ingresar el archivo PDF del capítulo'
+            ]);
+
       $idLibro= $request['idLibro'];
       $nro= Capitulo::all()->where('idLibro','=',$idLibro);
       $datoCapitulo['nro']=sizeof($nro)+1;
