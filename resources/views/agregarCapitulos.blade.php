@@ -35,7 +35,7 @@
             <input type="hidden" name="idLibro" id="idLibro" value="{{ $idLibro }}">
             </br>
             <label for="capitulo">{{'PDF del capitulo: '}}</label>
-            <input type="file" name="capitulo" id="capitulo" value="{{ old('capitulo') }}">
+            <input accept="application/pdf" type="file" name="capitulo" id="capitulo" value="{{ old('capitulo') }}">
 
           </br>
 

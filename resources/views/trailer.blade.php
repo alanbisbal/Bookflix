@@ -138,7 +138,7 @@
             Leer libro
           </a>
           </br>
-          <input type="hidden" name="cap" id="cap" value="{{ $capitulos->first()->capitulo }}">
+          <input type="hidden" name="cap" id="cap" value="  {{ $capitulos->first()->capitulo }}">
           <input type="hidden" name="idLibro" id="idLibro" value="{{ $libro->id }}">
           <button type="submit">
             Leer

@@ -32,16 +32,17 @@ class CapituloController extends Controller
 
     public function agregarCapitulo(Request $request)
     {
-        $request->validate([
-            'titulo' => 'required',
-            'capitulo'=>'required'
-      
-          ],
-      
-            [
-              'titulo.required'=>'Debe ingresar un nombre para el capítulo',
-              'capitulo.requiered'=> 'Debe ingresar el archivo PDF del capítulo'
-            ]);
+
+      $request->validate([
+      'titulo' => 'required',
+      'capitulo'=>'required'
+
+    ],
+      [
+        'titulo.required'=>'Debe ingresar un nombre para el capitulo',
+        'capitulo.requiered'=> 'No se cargo archivo del capitulo'
+      ]);
+
 
       $idLibro= $request['idLibro'];
       $nro= Capitulo::all()->where('idLibro','=',$idLibro);
@@ -96,6 +97,7 @@ class CapituloController extends Controller
      */
     public function update(Request $request, $id)
     {
+
       $capituloActualizado = Capitulo::find($id);
           $request->validate([
           'titulo' => 'required'],
@@ -103,9 +105,12 @@ class CapituloController extends Controller
             'titulo.required'=>'Debe ingresar un nombre',
           ]);
 
+          if(!empty($request->capitulo)){
+            $capituloActualizado['capitulo']=$request->file('capitulo')->store('uploads','public');
+              }
           $capituloActualizado->titulo = $request->titulo;
           $capituloActualizado->save();
-      
+
     return redirect()->action('LibroController@index');
     }
 

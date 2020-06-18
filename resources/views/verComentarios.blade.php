@@ -10,6 +10,7 @@
                 <h3>
                     Comentarios del libro: <i>{{$libro->titulo}}</i>
                 </h3>
+                </br>
                 <h3>
                     Cantidad: {{$libro->comentarios->count()}}
                 </h3>

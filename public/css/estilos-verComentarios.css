@@ -4,15 +4,20 @@
     background-repeat: repeat;
 }
 .background-overlay{
-    height: 100%;
+    height: max-content;
     background-repeat: repeat;
 }
+.col-md-8{
+    display: flex;
+    justify-content: center;
+}
 .card{
-    width: 960px;
+    width: 782px;
 }
 .card-header{
     display: flex;
-    justify-content: space-between;
+    justify-items: flex-start;
+    flex-direction: column;
 }
 .texto{
     margin-bottom: 10px;
