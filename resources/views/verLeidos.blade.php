@@ -21,10 +21,10 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    Mis libros leidos
+                    Mis libros leídos
                     </br>
                     @if(count($leidos)==0)
-                        {{'Todavia no leiste ningun libro.'}}
+                        {{'Todavía no leíste ningún libro.'}}
                     @else
                         .................................................................
                         </br>

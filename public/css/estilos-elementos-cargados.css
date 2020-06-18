@@ -67,3 +67,26 @@ img{
 .btn-info:hover{
     background-color: black;
 }
+.btn.btn-info:hover{
+    background-color: black;
+    border-color: black;
+}
+.btn-info:not(:disabled):not(.disabled).active, .btn-info:not(:disabled):not(.disabled):active, .show > .btn-info.dropdown-toggle{
+    color: red;
+    background-color: black;
+    border-color: black;
+}
+.btn-info.focus, .btn-info:focus{
+    color: red;
+    background-color: black;
+    border-color: black;
+    box-shadow: none;
+}
+.btn-info:not(:disabled):not(.disabled).active:focus, .btn-info:not(:disabled):not(.disabled):active:focus, .show > .btn-info.dropdown-toggle:focus{
+    box-shadow: none;
+}
+.btn.btn-info:active{
+    color: red;
+    background-color: black;
+    border-color: black;
+}

@@ -21,18 +21,28 @@ h3{
     background-color: black;
     border-color: black;
 }
-/*.btn:active{
-    background-color: red;
+.btn-info:not(:disabled):not(.disabled).active, .btn-info:not(:disabled):not(.disabled):active, .show > .btn-info.dropdown-toggle{
+    color: red;
+    background-color: black;
+    border-color: black;
+}
+.btn-info.focus, .btn-info:focus{
+    color: red;
+    background-color: black;
+    border-color: black;
+    box-shadow: none;
+}
+.btn-info:not(:disabled):not(.disabled).active:focus, .btn-info:not(:disabled):not(.disabled):active:focus, .show > .btn-info.dropdown-toggle:focus{
+    box-shadow: none;
 }
 .btn.btn-info:active{
-    background-color: red;
+    color: red;
+    background-color: black;
+    border-color: black;
 }
-a:active{
-    background-color: red;
-}*/
 @media (max-width:1143px){
     .card-body{
-      height: 505px;
+      height: 400px;
       flex-direction: column;
     }
     .elem{
