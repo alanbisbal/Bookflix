@@ -25,9 +25,12 @@
         @endforeach
         <form action="{{'autoresCargados'}}" method="POST" enctype="multipart/form-data">
           {{csrf_field()}}
-          <label for="nombre">{{'Nombre completo del Autor: '}}</label>
+          <label for="nombre">{{'Nombre completo del Autor:'}}</label>
           <input type="text" name="nombre" id="nombre" value="{{ old('nombre') }}">
           <input type="submit" class="btn btn-primary" value="Agregar">
+          <a href="{{url('/autoresCargados')}}" class="btn btn-info" role="button">
+            Volver
+          </a>
         </form>
       </div>
     </div>

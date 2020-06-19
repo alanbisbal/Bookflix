@@ -138,7 +138,7 @@ html{
   }
   .tarjetasanidadas{
     overflow-y: scroll;
-    max-height: 650px;
+    max-height: 450px;
   }
   .tarjetasanidada-una{
     border-style: solid;
@@ -149,7 +149,7 @@ html{
     border-bottom: 10px;
   }
   .card-body{
-    height: 110px;
+    height: 160px;
     background-color: white;
     border-bottom: gray 2px solid;
   }

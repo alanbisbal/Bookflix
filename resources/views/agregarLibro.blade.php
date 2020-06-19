@@ -7,7 +7,9 @@
   <!--<div class="col-md-8">-->
     <div class="card" >
       <div class="card-header">
-        <h3>Agregar libro:</h3>
+        <h3>
+          Agregar libro:
+        </h3>
         @include('vistas-includes.cabecera-tarjeta')
       </div>
       <div class="tarjetasanidadas">
@@ -42,14 +44,18 @@
                 </div>
                 <div class="parte3">
                   <div class="p13">
-                    <label for="img_libro" class="btn btn-secondary">{{'Portada del libro:'}}</label>
+                    <label for="img_libro" class="btn btn-secondary">
+                      {{'Portada del libro:'}}
+                    </label>
                     <input accept="image/*" type="file" name="img_libro">
                   </div>
                   <div class="p23">
                     <label for="idautor" class="btn btn-secondary">{{'Autor:'}}</label>
                     <select name="idautor" >
                       @foreach($autores as $autor)
-                        <option value="{{$autor->id}}">{{$autor->nombre}}</option>
+                        <option value="{{$autor->id}}">
+                          {{$autor->nombre}}
+                        </option>
                       @endforeach
                     </select>
                   </div>
@@ -82,7 +88,7 @@
                 </div>
                 <div class="parte7">
                   <label for="desc_trailer" class="btn btn-secondary">{{'Descripción del trailer:'}}</label>
-                  <textarea rows="4" cols="60" type="text" name="desc_trailer" id="desc_trailer" placeholder="Descripción del trailer" value="{{ old('desc_trailer') }}"></textarea>
+                  <textarea rows="3" cols="60" type="text" name="desc_trailer" id="desc_trailer" placeholder="Descripción del trailer" value="{{ old('desc_trailer') }}"></textarea>
                 </div>
                 <div class="parte8">          
                   <!--<button type="submit" value="Agregar"></button>-->

@@ -31,7 +31,7 @@ h3{
     min-height: 31px;
     max-height: 300px;
 }
-img{
+.elemento img{
     width: 80px;
     height: 100px;
 }

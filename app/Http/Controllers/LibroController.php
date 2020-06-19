@@ -65,12 +65,12 @@ class LibroController extends Controller
       'img_libro'=> 'required',
     ],
     [
-      'titulo.required' => 'Debe ingresar el titulo',
+      'titulo.required' => 'Debe ingresar el título del libro',
       'isbn.required'=>'Debe ingresar el ISBN ',
-      'isbn.unique'=>'El ISBN ya esta registrado en la base de datos',
-      'desc.required'=>'Debe ingresar la descripcion ',
-      'titulo_trailer.required'=>'Debe ingresar el titulo del trailer',
-      'desc_trailer.required'=>'Debe ingresar la descripcion del trailer',
+      'isbn.unique'=>'El ISBN ya está registrado en la base de datos',
+      'desc.required'=>'Debe ingresar la descripción ',
+      'titulo_trailer.required'=>'Debe ingresar el título del trailer',
+      'desc_trailer.required'=>'Debe ingresar la descripción del trailer',
       'img_libro.required'=> 'Debe ingresar una imagen',
     ]
       );
@@ -123,12 +123,12 @@ class LibroController extends Controller
          'desc_trailer'=>'required',
        ],
        [
-         'titulo.required' => 'Debe ingresar el titulo',
+         'titulo.required'=>'Debe ingresar el título del libro',
          'isbn.required'=>'Debe ingresar el ISBN ',
-         'isbn.unique'=>'El ISBN ya esta registrado en la base de datos',
-         'desc.required'=>'Debe ingresar la descripcion ',
-         'titulo_trailer.required'=>'Debe ingresar el titulo del trailer',
-         'desc_trailer.required'=>'Debe ingresar la descripcion del trailer',
+         'isbn.unique'=>'El ISBN ya está registrado en la base de datos',
+         'desc.required'=>'Debe ingresar la descripción ',
+         'titulo_trailer.required'=>'Debe ingresar el título del trailer',
+         'desc_trailer.required'=>'Debe ingresar la descripción del trailer',
        ]
          );
 

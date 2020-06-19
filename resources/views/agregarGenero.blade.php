@@ -24,9 +24,12 @@
         <div class="form-group row">
           <form action="{{'generosCargados'}}" method="POST" enctype="multipart/form-data">
             {{csrf_field()}}
-            <label for="nombre">{{'Agregar Genero: '}}</label>
+            <label for="nombre">{{'Agregar Genero:'}}</label>
             <input type="text" name="nombre" id="nombre" value="">
             <input type="submit" class="btn btn-primary" value="Agregar">
+            <a href="{{url('/generosCargados')}}" class="btn btn-info" role="button">
+              Volver
+            </a>
           </form>
         </div>
       </div>

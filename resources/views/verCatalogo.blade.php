@@ -44,8 +44,8 @@
                                         {{ session('status') }}
                                     </div>
                                 @endif
-                                <div class="card-body" >
-                                    <div class="card-header" >
+                                <div class="card-body">
+                                    <div class="card-header">
                                         @foreach($libros as $libro)
                                             @if($libro->visible)
                                                 <div>

@@ -48,8 +48,8 @@ class NovedadController extends Controller
     'titulo' => 'required',
   'desc' => 'required',],
   [
-    'titulo.required' => 'El titulo es requerido',
-  'desc.required' => 'La descripcion es requerida',
+    'titulo.required' => 'El título es requerido',
+  'desc.required' => 'La descripción es requerida',
   ]);
       $datoNovedad=request()->except('_token');
       Novedad::insert($datoNovedad);
@@ -69,8 +69,8 @@ class NovedadController extends Controller
            'titulo' => 'required',
            'desc' => 'required',],
            [
-             'titulo.required' => 'El titulo es requerido',
-           'desc.required' => 'La descripcion es requerida',
+             'titulo.required' => 'El título es requerido',
+           'desc.required' => 'La descripción es requerida',
            ]);
          $novedadActualizado = Novedad::find($id);
          $novedadActualizado->titulo = $request->titulo;

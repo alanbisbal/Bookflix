@@ -10,7 +10,7 @@
     background-color: white;
     display: flex;
     justify-content: space-around;
-    height: 280px;
+    height: 350px;
 }
 .d-inline-block{
     width: 200px; 
@@ -20,12 +20,25 @@
     text-decoration: none;
     color: red;
 }
+.perfiles img{
+    max-width: 200px;
+    max-height: 200px;
+}
 .perfiles:hover{
     text-decoration: none;
     color: red;
     font-weight: bold;
 }
 h4{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.btn{
+    margin-top: 20px;
+    width: 120px;
+}
+.boton{
     display: flex;
     justify-content: center;
 }

@@ -1,17 +1,191 @@
+.menu{
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background-repeat: repeat;
+}
+.background-overlay{
+    height: max-content;
+    background-repeat: repeat;
+}
 .card{
-    height: 60%;
+    height: 100%;
+    width: 900px;
 }
 .card-header{
     display: flex;
     justify-content: space-between;
 }
 h3{
-    display: flex;
+    display:flex;
 }
 .nav-link{
     display: flex;
     align-content: center;
 }
-.card{
-    overflow-y: scroll;
+.formulario{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50px 236px 250px 350px 60px;
+    justify-content: center;
+}
+.parte1izq{
+    grid-column: 1/2;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+}
+.parte1izq label{
+    height: 37.6px;
+}
+.parte1izq input{
+    margin-left: 10px;
+    height: 28.8px;
+    margin-right: 10px;
+    width: 80%;
+}
+.parte1der{
+    grid-column: 2/-1;
+}
+.parte1der input{
+    margin-left: 10px;
+    width: 81%;
+
+}
+.parte2{
+    grid-column: 1/-1;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+.parte2 label{
+    width: 120px;
+}
+.parte2 textarea{
+    width: 100%;
+}
+.parte3izq{
+    grid-column: 1/2;
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    justify-content: space-between;
+}
+.parte3izq input{
+    max-width: 305px;
+}
+.parte3izq1 label{
+    width: 150px;
+    height: 37.6px;
+}
+.parte3izq1{
+    display: flex;
+    flex-direction: row;
+}
+.parte3izq img{
+    width: 100px;
+    height: 153.233px;
+}
+.parte3izq1 img{
+    margin-left: 30px;
+}
+.parte3der{
+    margin-top: 30px;
+    grid-column: 2/3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.parte3der select{
+    margin-left: 10px;
+    width: 260px;
+}
+.parte4izq{
+    margin-top: 30px;
+    grid-column: 1/2;
+    display: flex;
+    flex-direction: column;
+}
+.parte4izq label{
+    width: 140px;
+}
+.parte4izq input{
+    width: 100%;
+}
+.parte4izq1{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 15px;
+}
+.parte4izq2 label{
+    width: 160px;
+    height: 37.6px;
+    margin-top: 0px;
+}
+.parte4izq2{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+}
+.parte4izq img{
+    width: 100px;
+    height: 153.233px;
+}
+.parte4izq2 img{
+    margin-left: 30px;
+}
+.parte4izq3{
+    margin-top: 30px;
+    max-width: 305px;
+}
+.parte4der{
+    margin-top: 30px;
+    grid-column: 2/3;
+}
+.parte4der textarea{
+    width: 100%;
+}
+.parte5{
+    grid-row: 5;
+    grid-column: 1/-1;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.btn-warning{
+    width: 140px;
+}
+.btn-info{
+    width: 140px;
+}
+.parte5 a{
+    color: red;
+}
+.parte5 a:hover{
+    color: red;
+    font-weight: bold;
+    background-color: black;
+}
+.btn.btn-info:hover{
+    background-color: black;
+    border-color: black;
+}
+.btn-info:not(:disabled):not(.disabled).active, .btn-info:not(:disabled):not(.disabled):active, .show > .btn-info.dropdown-toggle{
+    color: red;
+    background-color: black;
+    border-color: black;
+}
+.btn-info.focus, .btn-info:focus{
+    color: red;
+    background-color: black;
+    border-color: black;
+    box-shadow: none;
+}
+.btn-info:not(:disabled):not(.disabled).active:focus, .btn-info:not(:disabled):not(.disabled):active:focus, .show > .btn-info.dropdown-toggle:focus{
+    box-shadow: none;
+}
+.btn.btn-info:active{
+    color: red;
+    background-color: black;
+    border-color: black;
 }

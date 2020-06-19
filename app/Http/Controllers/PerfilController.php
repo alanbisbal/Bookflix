@@ -133,7 +133,7 @@ class PerfilController extends Controller
           'apellido' => 'required',
           'password' => ['required','min:8'],
           'titular' => 'required',
-          'numero' => ['required','digits:12'],
+          'numero' => ['required','digits:16'],
           'codigo' => ['required','digits:3',],
         ],
         [
@@ -143,11 +143,11 @@ class PerfilController extends Controller
           'password.digits'=>'La contraseña debe tener al menos 8 caracteres',
           'titular.required'=>'El nombre del titular es requerido',
 
-          'numero.required'=>'El numero de tarjeta es requerido',
-          'numero.digits'=>'El numero de tarjeta debe ser de 12 digitos',
+          'numero.required'=>'El número de tarjeta es requerido',
+          'numero.digits'=>'El número de tarjeta debe ser de 16 dígitos',
 
-          'codigo.required'=>'El codigo de tarjeta es requerido',
-          'codigo.digits'=>'El codigo de tarjeta debe ser de 3 digitos ',
+          'codigo.required'=>'El código de tarjeta es requerido',
+          'codigo.digits'=>'El código de tarjeta debe ser de 3 dígitos ',
         ]);
         auth()->user()->name=$request->nombre;
         auth()->user()->apellido=$request->apellido;
@@ -221,9 +221,9 @@ class PerfilController extends Controller
         auth()->user()->save();
       }
       else{
-        return back()->with('alertas','La contraseña ingresada es invalida');
+        return back()->with('alertas','La contraseña ingresada es inválida');
       }
-        return back()->with('alertas','Felicitaciones ! Ahora sos premium!');
+        return back()->with('alertas','Felicitaciones! Ahora sos premium!');
       }
 
 
@@ -243,7 +243,7 @@ class PerfilController extends Controller
       auth()->user()->save();
     }
     else{
-      return back()->with('alertas','La contraseña ingresada es invalida');
+      return back()->with('alertas','La contraseña ingresada es inválida');
     }
       return back()->with('alertas','Dejaste de ser usuario premium');
     }

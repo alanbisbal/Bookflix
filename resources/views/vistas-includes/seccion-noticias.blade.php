@@ -2,7 +2,7 @@
     <div class="card-header">
         Sección de novedades
     </div>
-    <div class="tarjetasanidadas ">
+    <div class="tarjetasanidadas">
         @foreach($novedades as $novedad)
             <div class="text-dark tarjetaanidada-una">
                 <div class="card-body">

@@ -45,7 +45,10 @@
             </div>   
           </div> 
           <div class="item3">
-            <input type="submit" value="Agregar novedad">
+            <input type="submit" class="btn btn-info" value="Agregar novedad">
+            <a href="{{url('/novedadesCargados')}}" class="btn btn-info" role="button">
+              Volver
+            </a>
           </div>
         </form>
       </div>

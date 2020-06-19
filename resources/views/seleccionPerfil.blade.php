@@ -2,12 +2,14 @@
 
 @section('content')
 
-<link rel="stylesheet" href="css/estilos-seleccionPerfil.css">
+<link rel="stylesheet" href="/css/estilos-seleccionPerfil.css">
 
-  <div class="col-md-8 ">
+  <div class="col-md-8">
     <div class="card">
       <div class="card-header">  
-        <h3 class="text-center">Seleccioná tu perfil</h3>
+        <h3 class="text-center">
+          Seleccioná tu perfil
+        </h3>
       </div>
     <div class="card-body">
       @if (session('status'))
@@ -23,7 +25,14 @@
             @else
               <img src="imagenes/perfil.jpg" alt="100% "width="100%">
             @endif
-            <h4>{{ $perfil->nombre }}</h4>
+            <h4>
+              {{ $perfil->nombre }}
+            </h4>
+            <div class="boton">
+              <a href="" class="btn btn-warning" role="button">
+                Editar perfil
+              </a>
+            </div>
           </a>
         </div>
       @endforeach
@@ -31,7 +40,9 @@
         <div class="d-inline-block">
           <a class="perfiles" href="{{route('nuevoPerfil')}}">
             <img src="/imagenes/perfil.jpg"  alt="100%" width="100%">
-            <h4>Nuevo perfil</h4> 
+            <h4>
+              Nuevo perfil
+            </h4> 
           </a>
         </div>
       @endif

@@ -76,7 +76,7 @@ class RegisterController extends Controller
           'f_nac.before'=>'La fecha debe ser mayor de 18 años',
           'f_nac.required'=>'La fecha debe ser ingresada',
           'n_tarjeta.required'=>'El número de tarjeta es requerido',
-          'n_tarjeta.digits'=>'La tarjeta debe ser de 12 dígitos',
+          'n_tarjeta.digits'=>'El número de tarjeta debe ser de 16 dígitos',
 
           't_codigo.required'=>'El código de tarjeta es requerido',
           't_codigo.digits'=>'El código debe ser de 3 dígitos ',
