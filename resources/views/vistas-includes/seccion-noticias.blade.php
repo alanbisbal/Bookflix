@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card cb2">
     <div class="card-header">
         Sección de novedades
     </div>

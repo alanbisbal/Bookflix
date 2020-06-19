@@ -41,12 +41,20 @@ class ComentariosController extends Controller
 
      public function agregarComentario(Request $request)
        {
+        $request->validate([
+            'desc' => 'required',  ],
+          [
+          'desc.required'=>'Debe ingresar un comentario',
+        ]);
+
            $comentario =new Comentarios;
            $comentario->idperfil = session('perfil')->id;
            $comentario->desc = $request->desc;
            $comentario->idLibro = $request->idLibro;
            $comentario->save();
            return back();
+
+
          }
 
     /**

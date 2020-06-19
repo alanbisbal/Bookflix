@@ -1,8 +1,21 @@
+.menu{
+  overflow-y: scroll;
+  overflow-x: hidden;
+  background-repeat: repeat;
+}
+.background-overlay{
+  height: max-content;
+  background-repeat: repeat;
+}
 .card{
   height: 65%;
   display: flex;
   align-content:  center;
   border: 1px solid black
+}
+.cb2{
+  width: 400px;
+
 }
 .card-header{
   display:flex;
@@ -17,36 +30,54 @@
 }
 .tarjetasanidadas{
   overflow-y: scroll;
-  max-height: 650px;
+  height: 600px;
 }
 .tarjetaanidada-una{
   border-style: solid;
   border-radius: 0px;
   border: 10px;
 }
-.card-body{
-  height: 100%;
+.card1{
+  max-height: 300px;
+  margin-bottom: 40px;
+  overflow-y: scroll;
 }
-.card-body-libros{
+.cb1{
+  height: 180px;
+
+}
+.libro{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 40px;
 }
-.elementos{
-  margin-right: 15px;
+.libro a{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.imagen{
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+}
+.imagen img{
+  width: 100px;
+  height: 155px;
 }
 .libros{
-  text-decoration: none;
-  color: red;
+    margin: 15px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
-.libros:hover{
+/*.libros:hover{
   text-decoration: none;
   color: red;
   font-weight: bold;
-}
-.titulo:hover{
+}*/
+/*.titulo:hover{
   font-weight: bold;
-}
-img{
-  width: 100px;
-  height: 100px;
-}
+}*/
+

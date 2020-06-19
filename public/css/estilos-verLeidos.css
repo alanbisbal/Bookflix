@@ -19,7 +19,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-right: 10px;
+    margin-right: 20px;
 }
 .libro a{
     display: flex;

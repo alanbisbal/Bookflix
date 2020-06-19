@@ -40,7 +40,7 @@ class CapituloController extends Controller
     ],
       [
         'titulo.required'=>'Debe ingresar un nombre para el capítulo',
-        'capitulo.requiered'=> 'No se cargó archivo del capítulo'
+        'capitulo.required'=> 'No se cargó archivo del capítulo'
       ]);
 
 
