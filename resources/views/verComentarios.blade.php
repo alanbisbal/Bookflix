@@ -28,11 +28,15 @@
                         <div>
                             <div class="titulo">
                                 <h5>
-                                    Hecho por el perfil <b>{{$comentario->perfil->nombre}}</b> el <b>{{$comentario->created_at}}</b>
+                                    Hecho por el usuario <b>{{$comentario->perfil->usuario->apellido}}, {{$comentario->perfil->usuario->name}}</b>
+                                </h5>
+                                <h5 class="h5p1">
+                                    <span>Desde el perfil <b>{{$comentario->perfil->nombre}}</b></span>
+                                    <span><b>{{$comentario->created_at}}</b></span>
                                 </h5>
                             </div>
                             <div class="texto">
-                                <textarea rows="4" cols="100" disabled="yes" >
+                                <textarea rows="4" cols="80" disabled="yes" >
                                     {{$comentario->desc}}
                                 </textarea>
                             </div>
@@ -48,6 +52,9 @@
                         </div>
                     @endforeach
                 @endif
+                <a href="{{url('/librosCargados')}}" class="btn btn-info" role="button">
+                    Volver
+                </a>
             </div>
         </div>
     </div>

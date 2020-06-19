@@ -2,17 +2,14 @@
 
 @section('content')
 
+<link rel="stylesheet" href="/css/estilos-verCapitulos.css">
+
     <div class="col-md-8">
         <div class="card">
             <div class="card-header" style="display:flex; justify-content: space-between;">
-                <h3 style="display:flex">
-                    Bienvenido {{auth()->user()->name}}
+                <h3>
+                    Capítulos del libro: <i>{{$libro->titulo}}</i>
                 </h3>
-                @if (auth()->user()->es_admin)
-                    <a class="nav-link" style="display:flex; align-content: center;"href="{{route('administracion')}}">
-                        Tareas administrativas
-                    </a>
-                @endif
             </div>
             <div class="card-body">
                 @if (session('status'))
@@ -25,18 +22,15 @@
                         {{$error}}
                     </div>
                 @endforeach
-                Capitulos de {{$libro->titulo}}
-                </br>
                 @foreach($libro->capitulos as $capitulo)
                 <form action="{{ route('capitulo.update', $capitulo->id) }}" method="POST" enctype="multipart/form-data">
                     @method('PUT')
                     @csrf
-                    <label for="titulo">{{'Titulo del capitulo '}}</label>
+                    <label for="titulo">{{'Título del capítulo: '}}</label>
                     <input type="text" name="titulo" id="titulo" value="{{ $capitulo->titulo }}">
-                    </br>
                     <label for="capitulo">
                         <a href="{{asset('storage').'/'.$capitulo->capitulo}}">
-                            capitulo {{$capitulo->nro}}
+                            PDF del capítulo {{$capitulo->nro}}
                         </a>
                     </label>
                     <input accept="application/pdf" type="file" name="capitulo" id="capitulo" value="{{ asset('storage').'/'.$capitulo->capitulo }}">
@@ -44,15 +38,15 @@
                         <button class="btn btn-warning btn-block" type="submit">
                             Editar
                         </button>
-                        <button class="btn btn-warning btn-block" href="{{route('administracion')}}">
-                            Cancelar
-                        </button>
+                        
                     </div>
                 </form>
-                </br>-----------------------------------------------------</br>
                 @endforeach
+                <a href="{{url('/librosCargados')}}" class="btn btn-info" role="button">
+                    Volver
+                </a>
             </div>
         </div>
     </div>
-    
+
 @endsection

@@ -24,10 +24,6 @@
 </style>
 @section('content')
 
-<div class="menu">
-    <div class="background-overlay">
-         <div class="container" >
-            <div class="row justify-content-center">
                 <div class="col-md-8" style="height: 650px">
                     <div class="card" style="border: 1px solid black;">
                         <div class="card-header" style="height: 15%; background-color: black; border: 2px solid black; border-radius: 0px; width: 100%; color: white; ">
@@ -67,9 +63,5 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 @endsection

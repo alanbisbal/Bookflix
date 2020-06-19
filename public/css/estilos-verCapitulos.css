@@ -4,32 +4,8 @@
     background-repeat: repeat;
 }
 .background-overlay{
-    height: 100%;
+    height: max-content;
     background-repeat: repeat;
-}
-.col-md-8{
-    display: flex;
-    justify-content: center;
-}
-.card{
-    width: 782px;
-}
-.card-header{
-    display: flex;
-    justify-items: flex-start;
-    flex-direction: column;
-}
-.texto{
-    margin-bottom: 10px;
-}
-.boton{
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 15px;
-    margin-bottom: 10px;
-}
-.boton button{
-    width: 100px;   
 }
 .btn.btn-info:hover{
     background-color: black;
@@ -58,7 +34,6 @@
     width: 100px;
     border-color: black;
 }
-.h5p1{
-    display: flex;
-    justify-content: space-between;
+.btn-warning{
+    width: 100px;
 }
