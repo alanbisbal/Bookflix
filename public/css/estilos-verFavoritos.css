@@ -1,24 +1,53 @@
-.nombre{
+.menu{
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background-repeat: repeat;
+}
+.background-overlay{
+    height: 100%;
+    background-repeat: repeat;
+}
+.card{
+    max-width: 930px;
+}
+.favoritos{
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
 }
-.nombre input{
-    margin-left: 15px;
-    width: 550px;
+.libro{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 5px;
+}
+.arriba{
+    display: flex;
+    justify-content: center;
+}
+.libro a{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .imagen{
-    margin-top: 15px;
-}
-.imagen input{
-    margin-left: 17px;
-    max-width: 550px;
-}
-.boton{
-    margin-top: 15px;
+    margin-bottom: 10px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 }
+.imagen img{
+    width: 100px;
+    height: 155px;
+}
+.abajo{
+    margin-top: 10px;
+    display: flex;
+    justify-content: stretch;
+}
+
+/*boton*/
 .btn{
+    margin-top: 30px;
     width: 110px;
 }
 .btn.btn-info:hover{

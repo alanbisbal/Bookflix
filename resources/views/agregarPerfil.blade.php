@@ -4,7 +4,7 @@
 
 <link rel="stylesheet" href="css/estilos-agregarPerfil.css">
 
-  <div class="col-md-8">
+  <div class="col-md-6">
     <div class="card">
       <div class="card-header">
         <h3>
@@ -22,25 +22,29 @@
           {{csrf_field()}}
           @error('nombre')
           @enderror
-          <label for="nombre">
-            {{'Nombre de perfil: '}}
-          </label>
-          <input type="text" name="nombre" id="nombre" class="form-control" value="">
+          <div class="nombre">
+            <span>
+              {{'Nombre del perfil: '}}
+            </span>
+            <input type="text" name="nombre" id="nombre" value="">
+          </div>
           @if($errors->has('nombre'))
+            </br>
             <div class="alert alert-danger" role="alert">
               El nombre no puede estar vacio
             </div>
           @endif
-          <div class="form-control">
-            <label for="imagen" >
-              {{'Imagen de perfil'}}
-            </label>
+          <div class="imagen">
+            <span>
+              {{'Imagen del perfil:'}}
+            </span>
+            <input accept="image/*" type="file" name="imagen" >
           </div>
-          <input accept="image/*" type="file" name="imagen" >
-          </br>
-          </br>
-          <div class="col-md-6">
-            <input type="submit" class="form-control"value="Agregar">
+          <div class="boton">
+            <a href="{{url('/librosCargados')}}" class="btn btn-info" role="button">
+              Volver
+            </a>
+            <input type="submit" class="btn btn-info"value="Agregar">
           </div>
         </form>
       </div>

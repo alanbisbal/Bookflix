@@ -21,9 +21,13 @@
         <div class="d-inline-block">
           <a class="perfiles" href="{{ route('activarPerfil',$perfil->id) }}">
             @if(!empty($perfil->imagen))
-              <img src="{{asset('storage').'/'.$perfil->imagen}}" alt="100% "width="100%" >
+              <div class="imagen">
+                <img src="{{asset('storage').'/'.$perfil->imagen}}" alt="100% "width="100%" >
+              </div>
             @else
-              <img src="imagenes/perfil.jpg" alt="100% "width="100%">
+              <div class="imagen">
+                <img src="imagenes/perfil.jpg" alt="100% "width="100%">
+              </div>
             @endif
             <h4>
               {{ $perfil->nombre }}

@@ -2,3 +2,12 @@
     direction: lft;
     unicode-bidi: bidi-override;
 }
+.menu{
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background-repeat: repeat;
+}
+.background-overlay{
+    height: max-content;
+    background-repeat: repeat;
+}

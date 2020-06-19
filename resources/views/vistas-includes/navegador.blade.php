@@ -22,9 +22,9 @@
         @if(!empty(session('perfil')))
           <ul class="navbar-nav" >
             <li class="nav-item">
-              <a class="nav-link" href="{{ route('seleccionPerfil') }}">
+              <a class="nav-link" href="{{url('/home')}}">
                 <span class="alinear">
-                  Cambiar Perfil
+                  Home
                 </span>
               </a>
             </li>

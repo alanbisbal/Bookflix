@@ -1,49 +1,51 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header" style="display:flex; justify-content: space-between;">
-                    <h3 style="display:flex">
-                        Bienvenido {{auth()->user()->name}}
-                    </h3>
-                    @if (auth()->user()->es_admin)
-                        <a class="nav-link" style="display:flex; align-content: center;"href="{{route('administracion')}}">
-                            Tareas administrativas
-                        </a>
-                    @endif
-                </div>
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+
+<link rel="stylesheet" type="text/css" href="/css/estilos-verLeidos.css">
+
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h3>
                     Mis libros leídos
-                    </br>
-                    @if(count($leidos)==0)
-                        {{'Todavía no leíste ningún libro.'}}
-                    @else
-                        .................................................................
-                        </br>
+                </h3>
+            </div>
+            <div class="card-body">
+                @if (session('status'))
+                    <div class="alert alert-success" role="alert">
+                        {{ session('status') }}
+                    </div>
+                @endif
+                @if(count($leidos)==0)
+                    <h5>
+                        <i>{{'Todavía no leíste ningún libro.'}}</i>
+                    </h5>
+                @else
+                    <div class="libros">
                         @foreach($leidos as $leido)
                             @if($leido->libro->visible)
-                                <a class="libros" href="{{route('libro.trailer',$leido->libro->id)}}">
-                                    <img src="{{asset('storage').'/'.$leido->libro->img_libro}}" alt="100" width="100">
-                                    </br>
-                                    Trailer
-                                </a>
-                                </br>
-                                .................................................................
-                                </br>
+                                <div class="libro">
+                                    <a class="libros" href="{{route('libro.trailer',$leido->libro->id)}}">
+                                        <div class="imagen">
+                                            <img src="{{asset('storage').'/'.$leido->libro->img_libro}}" alt="100" width="100">
+                                        </div>
+                                        <i>
+                                            {{($leido->libro->titulo)}}
+                                        </i>
+                                    </a>
+                                </div>
                             @endif
                         @endforeach
-                    @endif
+                    </div>
+                @endif
+                <div class="boton">
+                    <a href="{{url('/home')}}" class="btn btn-info" role="button">
+                        Volver
+                    </a>
                 </div>
             </div>
         </div>
     </div>
-</div>
+
 @endsection

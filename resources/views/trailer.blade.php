@@ -4,19 +4,12 @@
 
 <link rel="stylesheet" type="text/css" href="/css/estilos-trailer.css">
 
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-md-8">
+    <div class="col-md-11">
       <div class="card">
         <div class="card-header">
-          <!--<h3 style="display:flex">
-            Bienvenido {{auth()->user()->name}}
+          <h3>
+            {{$libro->titulo}}
           </h3>
-          @if (auth()->user()->es_admin)
-            <a class="nav-link" style="display:flex; align-content: center;"href="{{route('administracion')}}">
-              Tareas administrativas
-            </a>
-          @endif-->
           @include('vistas-includes.cabecera-tarjeta')
         </div>
         <div class="card-body">
@@ -50,14 +43,8 @@
             </button>
           </form>
         @endif
-        </br>
-        <h3>
-          {{$libro->titulo}}
-        </h3>
-        </br>
         <img src="{{asset('storage').'/'.$libro->img_libro}}"alt="" width="100">
         Calificacion:
-        </br>
         <div class="valoracion">
           @for($i=0; $i < $libro->califProm() ; $i++)
             <span class="activo">
@@ -81,13 +68,9 @@
         </p>
         <div id="flotante" style="display:none;">
           ISBN:{{$libro->isbn}}
-          </br>
           Editorial: {{$libro->editorialL->nombre}}
-          </br>
           Autor:     {{$libro->autorL->nombre}}
-          </br>
           Genero:    {{$libro->generoL->nombre}} 
-          </br>
           <div id="close">
             <a href="javascript:cerrar();">
               Cerrar Detalle
@@ -128,8 +111,6 @@
           {{'Usted ya calificó este libro'}}
         @endif
       </div>
-      </br>
-      </br>
       @if(count($capitulos) == 1)
         <form action="{{route('libroLeido')}}" method="post">
           {{csrf_field()}}
@@ -137,7 +118,6 @@
           <a  href="{{asset('storage').'/'.$capitulos->first()->capitulo}}">
             Leer libro
           </a>
-          </br>
           <input type="hidden" name="cap" id="cap" value="  {{ $capitulos->first()->capitulo }}">
           <input type="hidden" name="idLibro" id="idLibro" value="{{ $libro->id }}">
           <button type="submit">
@@ -149,7 +129,6 @@
           <div>
             <div>
               {{$capitulo->titulo}}
-              </br>
               <form action="{{route('libroLeido')}}" method="post">
                 {{csrf_field()}}
                 <input type="hidden" name="cap" id="cap" value="{{ $capitulo->capitulo }}">
@@ -158,33 +137,23 @@
               </form>
             </div>
           </div>
-          </br>
         @endforeach
       @endif
-      </br>
-      Comentarios
-      </br>
-      </br>
-      ------------------------------------------------------
+      Comentarios:
       @foreach($comentarios as $comentario)
         <div>
             <div>
               {{$comentario->perfil->nombre}} {{$comentario->created_at}}
-              </br>
               <textarea rows="5" cols="50" disabled="yes">
                 {{$comentario->desc}}
               </textarea>
-              </br>
             </div>
         </div>
-        ------------------------------------------------------
       @endforeach
-      </br>
       @if($coment->isEmpty())
         <form action="{{route('agregarComentario')}}" method="POST">
           {{csrf_field()}}
           <textarea name="desc" rows="5" cols="50" placeholder="Escribir un comentario"></textarea>
-          </br>
           <label for="idLibro"></label>
           <input type="hidden" name="idLibro" id="idLibro" value="{{ $libro->id }}">
           <button  type="submit">
@@ -195,6 +164,5 @@
         {{'Usted ya comentó este libro'}}
       @endif
     </div>
-  </div>
-</div>
+
 @endsection

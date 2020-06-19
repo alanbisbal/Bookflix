@@ -6,17 +6,13 @@
 
 <link rel="stylesheet" href="/css/estilos-home.css">
   <div class="col-md-8">
-     
     <div class="card">
       <div class="card-header">
         <h4>
           Nuevos
         </h4>
       </div>
-      <div class="card-body" style="display:flex; flex-direction:row">
-      
-        
-        </br>
+      <div class="card-body">
         @foreach($nuevos as $libro)
           @if($libro->visible)
             <div class="elementos">
@@ -27,8 +23,7 @@
             </div>
           @endif
         @endforeach
-    
-    </div>
+      </div>
     </div>
   </div>
   <div class="col-md-3">

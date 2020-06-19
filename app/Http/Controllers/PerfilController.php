@@ -229,24 +229,24 @@ class PerfilController extends Controller
 
 
 
-    public function cancelarPremium(Request $request)
-    {
-      $request->validate(
-        [
-        'pass' => 'required',
-        ],
-        [
-        'pass.required' => 'Ingrese la contraseña',
-        ]);
-    if(Hash::check($request->pass,auth()->user()->password)){
-      auth()->user()->es_premium=false;
-      auth()->user()->save();
-    }
-    else{
-      return back()->with('alertas','La contraseña ingresada es inválida');
-    }
-      return back()->with('alertas','Dejaste de ser usuario premium');
-    }
+      public function cancelarPremium(Request $request)
+      {
+        $request->validate(
+          [
+          'pass' => 'required',
+          ],
+          [
+          'pass.required' => 'Ingrese la contraseña',
+          ]);
+      if(Hash::check($request->pass,auth()->user()->password)){
+        auth()->user()->es_premium=false;
+        auth()->user()->save();
+      }
+      else{
+        return back()->with('alertas','La contraseña ingresada es inválida');
+      }
+        return back()->with('alertas','Dejaste de ser usuario premium');
+      }
 
 
 
