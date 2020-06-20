@@ -41,7 +41,7 @@
                 @if(!($leido)->isEmpty())
                   <a href="{{asset('storage').'/'.$leido->first()->desde}}">
                     Continuar leyendo
-                  </a> 
+                  </a>
                 @endif
               </div>
               <div class="desctrailer">
@@ -102,11 +102,11 @@
                 <div class="card-header">
                   <h5>Ficha técnica:</h5>
                 </div>
-                <div class="card-body">  
+                <div class="card-body">
                   ISBN: {{$libro->isbn}}
                   </br>
                   Editorial: {{$libro->editorialL->nombre}}
-                  </br>                
+                  </br>
                   Autor: {{$libro->autorL->nombre}}
                   </br>
                   Genero: {{$libro->generoL->nombre}}

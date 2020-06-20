@@ -146,7 +146,7 @@ class LibroController extends Controller
      $libroActualizado ->idautor = $request->idautor;
      $libroActualizado ->idGenero = $request->idGenero;
      $libroActualizado->save();
-       return redirect()->action('CapituloController@agregarCapitulos')->with('idLibro ');
+       return redirect()->action('LibroController@index');;
      }
 
      /**
