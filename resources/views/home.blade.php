@@ -6,7 +6,7 @@
 
 <link rel="stylesheet" href="/css/estilos-home.css">
 
-  <div class="col-md-8">
+  <div class="col-md-7">
     <div class="card card1">
       <div class="card-header">
         <h4>
@@ -56,6 +56,6 @@
 
   </div>
   <div class="col-md-3">
-    @include('vistas-includes.seccion-noticias') 
+    @include('vistas-includes.seccion-noticias')
   </div>
 @endsection

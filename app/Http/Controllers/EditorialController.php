@@ -77,7 +77,7 @@ class EditorialController extends Controller
      */
      public function update(Request $request, $id){
        $editorialActualizada = Editorial::find($id);
-       if(!$editorialActualizada->nombre = $request->nombre){
+
          $request->validate([
            'nombre' => 'required | unique:editorials',],
            [
@@ -87,7 +87,7 @@ class EditorialController extends Controller
 
            $editorialActualizada->nombre = $request->nombre;
            $editorialActualizada->save();
-         }
+        
      return redirect()->action('EditorialController@index');
      }
 

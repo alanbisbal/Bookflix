@@ -37,13 +37,7 @@
                   {{$libro->titulo_trailer}}
                 </h3>
               </div>
-              <div class="continuarleyendo">
-                @if(!($leido)->isEmpty())
-                  <a href="{{asset('storage').'/'.$leido->first()->desde}}">
-                    Continuar leyendo
-                  </a>
-                @endif
-              </div>
+
               <div class="desctrailer">
                 {{$libro->desc_trailer}}
               </div>
@@ -63,16 +57,27 @@
                   </div>
                 </div>
               </div>
-              <div class="titcapitulos">
-                <h3>
-                  Capítulos:
-                </h3>
+              <div class="continuarleyendo">
+                @if(!($leido)->isEmpty())
+                  <a href="{{asset('storage').'/'.$leido->first()->desde}}">
+                    Continuar leyendo
+                  </a>
+                @endif
               </div>
+
               <div class="capitulos">
                 @if(count($capitulos) == 1)
+                <div class="titcapitulos">
+                  <h3>
+                    Libro:
+                  </h3>
+                </div>
+                  <div class="cap">
+
+
                   <form action="{{route('libroLeido')}}" method="post">
                     {{csrf_field()}}
-                    PDF:
+
                     <a  href="{{asset('storage').'/'.$capitulos->first()->capitulo}}">
                       Leer libro
                     </a>
@@ -82,7 +87,13 @@
                       Leer
                     </button>
                   </form>
+                </div>
                 @else
+                <div class="titcapitulos">
+                  <h3>
+                    Capítulos:
+                  </h3>
+                </div>
                   @foreach($capitulos as $capitulo)
                     <div class="cap">
                       <h6>Título:<i> {{$capitulo->titulo}}</i></h6>
@@ -217,16 +228,19 @@
                   </form>
                 </div>
               @else
+              <div style="margin-left:150px">
                 {{'Usted ya comentó este libro'}}
+              </div>
               @endif
             </div>
           </div>
+          <div class="botonvolver">
+            <a href="{{url('/home')}}" class="btn btn-info" role="button">
+              Volver
+            </a>
+          </div>
         </div>
-        <div class="botonvolver">
-          <a href="{{url('/home')}}" class="btn btn-info" role="button">
-            Volver
-          </a>
-        </div>
+
       </div>
     </div>
 

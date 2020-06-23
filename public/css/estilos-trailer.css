@@ -34,6 +34,10 @@
     display: flex;
     flex-direction: column;
 }
+.medio{
+    width: 700px;
+}
+
 .titulo h3{
     margin-left: 30px;
 }
@@ -44,8 +48,8 @@
 }
 .continuarleyendo{
     display: flex;
-    justify-content: flex-end;
-    margin-right: 30px;
+    justify-content: flex-start;
+    margin-left: 60px;
 }
 .continuarleyendo a{
     font-weight: bold;
@@ -60,7 +64,7 @@
     display: flex;
     justify-content: end;
     margin-right: 30px;
-    
+
 }
 .vermas p a{
     color: red;
@@ -79,7 +83,7 @@
     margin-bottom: 20px;
 }
 .capitulos{
-    margin-left: 60px;
+    margin-left: 0px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -103,7 +107,7 @@
 .derecha{
     display: flex;
     flex-direction: column;
-    margin-left: 30px;
+    margin-left: 0px;
     width: 300px;
 }
 .fav{
@@ -150,19 +154,18 @@
 }
 .boton{
     display: flex;
-    justify-content: flex-end;
-    margin-right: 395px;
+    margin-right: 150px;
 }
 .botonvolver{
     display: flex;
     justify-content: flex-start ;
     margin-bottom: 20px;
-    margin-left: 170px;
+    margin-left: 150px;
+
 }
 .botonvolver a{
-    
-    width: 140px;
-    height: 45px;
+
+    width: 110px;
 }
 
 

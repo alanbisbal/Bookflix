@@ -32,10 +32,13 @@
                     @method('PUT')
                     @csrf
                     <input type="text" name="nombre" placeholder="Nombre" class="form-control mb-2" value="{{ $editorial->nombre }}">
-                    <button class="btn btn-warning btn-block" type="submit">
+                    <button class="btn btn-info" type="submit">
                         Editar editorial
                     </button>
                 </form>
+                <a href="{{url('/editorialesCargados')}}" class="btn btn-info" role="button">
+                  Volver
+                </a>
             </div>
         </div>
     </div>

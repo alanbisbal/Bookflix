@@ -21,11 +21,11 @@
   display:flex;
   align-items:center;
   justify-content: center;
-  height: 15%; 
-  background-color: black; 
+  height: 15%;
+  background-color: black;
   border: 2px solid black;
-  border-radius: 0px; 
-  width: 100%; 
+  border-radius: 0px;
+  width: 100%;
   color: white;
 }
 .tarjetasanidadas{
@@ -80,4 +80,3 @@
 /*.titulo:hover{
   font-weight: bold;
 }*/
-
