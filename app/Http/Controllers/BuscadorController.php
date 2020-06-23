@@ -55,7 +55,7 @@ class BuscadorController extends Controller
                 ->from('generos')
                 ->whereRaw('generos.id = libros.idGenero')
                 ->where('nombre','like',"%$palabra%");
-      })->where('visible','=',1)->get();
+      })->where('visible','=',1)->orderBy('titulo')->get();
      return view('buscador',compact('busquedas','palabra'));
      }
 

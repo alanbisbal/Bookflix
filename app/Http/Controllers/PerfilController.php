@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support;
-
 use App\User;
 use App\Perfil;
 use App\Pago;
@@ -121,9 +120,21 @@ class PerfilController extends Controller
      * @param  \App\Perfil  $perfil
      * @return \Illuminate\Http\Response
      */
-     public function update(Request $request, Perfil $perfil)
+     public function update(Request $request, $id)
      {
-         //
+       $request->validate([
+     'nombre' => 'required',
+      ],
+     [
+       'nombre.required' => 'El nombre es requerido',
+     ]);
+     $perfilActualizado = Perfil::find($id);
+     $perfilActualizado->nombre = $request->nombre;
+     if(isset($request->imagen)){
+          $perfilActualizado->imagen=$request->file('imagen')->store('uploads','public');
+     }
+     $perfilActualizado->save();
+      return redirect()->action('PerfilController@seleccionPerfil');
      }
 
       public function updateCuenta(Request $request)
@@ -269,6 +280,15 @@ class PerfilController extends Controller
        }
       return redirect(asset('storage').'/'.$request->cap);
 
+    }
+
+
+
+
+    public function editarPerfil($id)
+    {
+      $perfil = Perfil::findOrFail($id);
+      return view('editarPerfil',compact('perfil'));
     }
 
 }

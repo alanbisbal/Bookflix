@@ -20,11 +20,20 @@
     <div class="card card1">
       <div class="card-header">
         <h4>
-          Más leídos por el público
+          Resultados:{{count($busquedas)}}
         </h4>
       </div>
       <div class="cb1">
+
         <div class="libros">
+
+        @if(count($busquedas)==0)
+          {{'No hay resultados para la busqueda'}}
+        @else
+        </br>
+
+
+
         @foreach($busquedas as $libro)
           @if($libro->visible)
             <div class="libro">
@@ -37,6 +46,7 @@
             </div>
           @endif
         @endforeach
+        @endif
       </div>
       </div>
     </div>

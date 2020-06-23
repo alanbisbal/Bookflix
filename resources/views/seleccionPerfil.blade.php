@@ -6,7 +6,7 @@
 
   <div class="col-md-8">
     <div class="card">
-      <div class="card-header">  
+      <div class="card-header">
         <h3 class="text-center">
           Seleccioná tu perfil
         </h3>
@@ -33,7 +33,7 @@
               {{ $perfil->nombre }}
             </h4>
             <div class="boton">
-              <a href="" class="btn btn-warning" role="button">
+              <a href="{{route('editarPerfil',$perfil->id)}}" class="btn btn-warning" role="button">
                 Editar perfil
               </a>
             </div>
@@ -46,7 +46,7 @@
             <img src="/imagenes/perfil.jpg"  alt="100%" width="100%">
             <h4>
               Nuevo perfil
-            </h4> 
+            </h4>
           </a>
         </div>
       @endif

@@ -33,6 +33,9 @@ Route::get('agregarPerfil', 'PerfilController@agregarPerfil' )->name('agregarPer
 Route::post('cargarPerfil', 'PerfilController@cargarPerfil' )->name('cargarPerfil');
 Route::get('activarPerfil/{id}', 'PerfilController@activarPerfil' )->name('activarPerfil');
 Route::get('seleccionPerfil', 'PerfilController@seleccionPerfil')->name('seleccionPerfil');
+Route::get('/editarPerfil/{id}', 'PerfilController@editarPerfil' )->name('editarPerfil');
+Route::put('/editarPerfil/{id}', 'PerfilController@update' )->name('perfil.update');
+
 Route::get('/verCuenta', 'PerfilController@verCuenta')->name('verCuenta');
 Route::put('/verCuenta', 'PerfilController@updateCuenta')->name('cuenta.update');
 Route::post('/solicitarPremium', 'PerfilController@solicitarPremium')->name('solicitarPremium');

@@ -6,6 +6,10 @@ use App\Novedad;
 use App\Perfil;
 use App\Lectura;
 use App\Libro;
+use App\Genero;
+use App\Autor;
+use App\Editorial;
+
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -33,12 +37,19 @@ class HomeController extends Controller
       $perfiles=Perfil::where("email","=",auth()->user()->email)->get()->sortBy('nombre');
       if(!empty(session('perfil'))){
         $libros=Libro::all()->where('visible','=',1)->sortBy('nombre');
+
         $masvotados=$libros;
-        $masleidos=Libro::all()->sortDesc()->
+
+
+        $masleidos=Libro::all()->
           each(function ($item) {
            $item->lecturas->count();
-        });//CONTINUAR CON LA CONSULTA
+        });
+
+
         $nuevos=$libros->sortByDesc('id');
+
+
         $novedades= Novedad::all();
         if (auth()->user()->es_premium) {
           $cant=4;
@@ -48,7 +59,7 @@ class HomeController extends Controller
         }
         $cant = $cant - sizeof($perfiles);
         if($perfiles)
-        return view('home',compact('novedades','cant','libros','nuevos','masleidos'));
+        return view('home',compact('novedades','cant','libros','nuevos','masleidos','nuevos'));
       }
       else{
           return redirect()->action('PerfilController@seleccionPerfil');
@@ -67,8 +78,11 @@ class HomeController extends Controller
          if(empty(session('perfil'))){
            return redirect()->action('PerfilController@seleccionPerfil');
          }
-           $libros=Libro::all()->where('visible','=',1);
-           return view('verCatalogo',compact('libros'));
+          $generos=Genero::all()->where('visible','=',1);
+          $autores=Autor::all()->where('visible','=',1);
+          $editoriales=Editorial::all()->where('visible','=',1);
+          $libros=Libro::all()->where('visible','=',1);
+          return view('verCatalogo',compact('libros','generos','autores','editoriales'));
        }
 
 
