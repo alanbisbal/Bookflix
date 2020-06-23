@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Novedad;
 use App\Editorial;
+use App\Genero;
 use App\Autor;
 use App\Perfil;
 use App\Lectura;
@@ -49,7 +50,12 @@ class BuscadorController extends Controller
                      ->from('autors')
                      ->whereRaw('autors.id = libros.idautor')
                      ->where('nombre','like',"%$palabra%");
-           })->where('visible','=',1)->get();
+           })->orWhereExists(function ($query) use ($palabra) {
+           $query->select(Genero::raw(1))
+                ->from('generos')
+                ->whereRaw('generos.id = libros.idGenero')
+                ->where('nombre','like',"%$palabra%");
+      })->where('visible','=',1)->get();
      return view('buscador',compact('busquedas','palabra'));
      }
 
