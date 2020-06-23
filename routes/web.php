@@ -89,3 +89,8 @@ Route::get('agregarGenero','GeneroController@agregarGenero');
 Route::delete('/eliminarLGenero/{id}', 'GeneroController@eliminar')->name('genero.eliminar');
 Route::get('/editarGenero/{id}', 'GeneroController@editar' )->name('genero.editar');
 Route::put('/editarGenero/{id}', 'GeneroController@update' )->name('genero.update');
+
+
+
+Route::post('/buscar', 'BuscadorController@busqueda' )->name('buscar');
+Route::get('/buscar', 'BuscadorController@busqueda' )->name('buscar');

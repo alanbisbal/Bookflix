@@ -18,7 +18,7 @@
             {{ session('status') }}
           </div>
         @endif
-        
+
         <form action="{{'novedadesCargados'}}" method="POST" enctype="multipart/form-data">
           @foreach($errors->all() as $error)
             <div class="alert alert-danger" role="alert">
@@ -32,18 +32,18 @@
                 <label class="nombre" for="titulo"><h5>{{'Título:    '}}</h5></label>
               </div>
               <div class="texto">
-                <input class="texto" type="text" name="titulo" id="titulo" value="{{old('titulo')}}">                    
-              </div>            
-            </div> 
+                <input class="texto" type="text" name="titulo" id="titulo" value="{{old('titulo')}}">
+              </div>
+            </div>
             <div class="item2">
               <div class="nombre">
                 <label for="desc"><h5>{{'Descripción: '}}</h5></label>
               </div>
               <div class="texto">
-                <input class="labels" type="text" name="desc" id="desc" value="{{old('desc')}}">              
-              </div>           
-            </div>   
-          </div> 
+                <input class="labels" type="text" name="desc" id="desc" value="{{old('desc')}}">
+              </div>
+            </div>
+          </div>
           <div class="item3">
             <input type="submit" class="btn btn-info" value="Agregar novedad">
             <a href="{{url('/novedadesCargados')}}" class="btn btn-info" role="button">

@@ -51,7 +51,7 @@
     </header>
     <main>
       <div class="menu">
-        <div class="background-overlay">  
+        <div class="background-overlay">
           <div class="row justify-content-center">
             @yield('content')
           </div>

@@ -14,7 +14,7 @@
             </a>
           </li>
         </ul>
-        -->  
+        -->
       @else
         <a class="navbar-brand" href="{{ route('home') }}">
           <img src="/imagenes/bookflixnegro.png" style="width: 100%">
@@ -48,7 +48,7 @@
                     Ver Catalogo
                   </span>
                 </a>
-            </li> 
+            </li>
           </ul>
         @endif
       @endif
