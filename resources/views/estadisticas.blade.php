@@ -18,35 +18,58 @@
           </div>
         @endif
         <div class="alert alert-success" role="alert">
-          Cantidad de usuarios totales: {{$users->count()}}
+          Cantidad de usuarios totales: {{$uTot}}
         </div>
         <div class="alert alert-success" role="alert">
-          Cantidad de usuarios entre 18 y 25 años: 
+          Cantidad de usuarios entre 18 y 30 años:{{$u18y30}}
+        </div>
+
+        <div class="alert alert-success" role="alert">
+          Cantidad de usuarios entre 31 y 50 años:{{$u31y50}}
         </div>
         <div class="alert alert-success" role="alert">
-          Cantidad de usuarios entre 25 y 33 años: 
+          Cantidad de usuarios con mas de 51 años:{{$u51mas}}
         </div>
+
         <div class="alert alert-success" role="alert">
-          Cantidad de usuarios entre 33 y 45 años: 
+        Los usuarios que mas leyeron</br>
+        @foreach($uMasLecturas as $u)
+          {{$u->email}}
+        </br>
+        @endforeach
         </div>
+
         <div class="alert alert-success" role="alert">
-          Cantidad de usuarios entre 45 y 55 años: 
+        Los usuarios que mas comentaron</br>
+        @foreach($uMasComentarios as $u)
+            {{$u->email}}
+        </br>
+        @endforeach
         </div>
+
         <div class="alert alert-success" role="alert">
-          Cantidad de usuarios entre 55 y 67 años: 
-        </div>
+          Los usuarios con premium {{count($uPremium)/$uTot*100 }}%</br>
+          @foreach($uPremium as $u)
+          {{$u->email}}
+        </br>
+        @endforeach
+      </div>
+
         <div class="alert alert-success" role="alert">
-          Cantidad de usuarios de 67 años para arriba: 
+        Los usuarios sin premium {{count($uNoPremium)/$uTot*100 }}%</br>
+        @foreach($uNoPremium as $u)
+            {{$u->email}}
+        </br>
+        @endforeach
         </div>
+
+
+
+
         <div class="alert alert-success" role="alert">
-          Cantidad de usuarios entre dos fechas...: 
+          Cantidad de usuarios entre dos fechas...:
         </div>
-        <!--@foreach($users as $user)
-          <div class="alert alert-success" role="alert">
-            Nombre: {{$user->name}}</br>
-            Apellido: {{$user->apellido}}</br>
-          </div>
-        @endforeach-->
+
         <a href="{{'administracion'}}" class="btn btn-info" role="button">
           Volver
         </a>

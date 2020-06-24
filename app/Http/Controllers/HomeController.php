@@ -9,7 +9,7 @@ use App\Libro;
 use App\Genero;
 use App\Autor;
 use App\Editorial;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -38,16 +38,23 @@ class HomeController extends Controller
       if(!empty(session('perfil'))){
         $libros=Libro::all()->where('visible','=',1)->sortBy('nombre');
 
-        $masvotados=$libros;
+        $masvotados=DB::table('libros')
+                    ->join('calificaciones', 'libros.id', '=', 'calificaciones.idLibro')
+                    ->where('visible','=','1')
+                    ->select('libros.*')
+                    ->distinct()
+                    ->get();
 
 
-        $masleidos=Libro::all()->
-          each(function ($item) {
-           $item->lecturas->count();
-        });
+        $masleidos=DB::table('libros')
+                    ->join('lecturas', 'libros.id', '=', 'lecturas.idLibro')
+                    ->where('visible','=','1')
+                    ->select('libros.*')
+                    ->distinct()
+                    ->get();
 
 
-        $nuevos=$libros->sortByDesc('id');
+        $nuevos=$libros->sortByDesc('id')->where('visible','=','1');
 
 
         $novedades= Novedad::all();
