@@ -11,6 +11,7 @@ use App\Autor;
 use App\Editorial;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class HomeController extends Controller
 {
@@ -40,19 +41,18 @@ class HomeController extends Controller
 
         $masvotados=DB::table('libros')
                     ->join('calificaciones', 'libros.id', '=', 'calificaciones.idLibro')
-                    ->where('visible','=','1')
                     ->select('libros.*')
+                    ->where('visible','=','1')
+                    ->orderByDesc('calif')
                     ->distinct()
                     ->get();
 
 
-        $masleidos=DB::table('libros')
-                    ->join('lecturas', 'libros.id', '=', 'lecturas.idLibro')
-                    ->where('visible','=','1')
-                    ->select('libros.*')
-                    ->distinct()
-                    ->get();
-
+       $masleidos=DB::table('libros')
+                      ->select('libros.*')
+                      ->join('lecturas', 'libros.id', '=', 'lecturas.idLibro')          
+                      ->where('visible','=','1')
+                      ->distinct();
 
         $nuevos=$libros->sortByDesc('id')->where('visible','=','1');
 
@@ -66,7 +66,7 @@ class HomeController extends Controller
         }
         $cant = $cant - sizeof($perfiles);
         if($perfiles)
-        return view('home',compact('novedades','cant','libros','nuevos','masleidos','nuevos'));
+        return view('home',compact('novedades','cant','libros','masvotados','masleidos','nuevos'));
       }
       else{
           return redirect()->action('PerfilController@seleccionPerfil');
