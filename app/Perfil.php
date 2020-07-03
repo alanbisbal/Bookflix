@@ -19,17 +19,17 @@ class Perfil extends Model
 
         public function calificaciones()
           {
-              return $this->hasMany('App\Calificaciones');
+              return $this->hasMany('App\Calificaciones','idperfil','id');
           }
 
         public function comentarios()
           {
-              return $this->hasMany('App\Comentarios');
+              return $this->hasMany('App\Comentarios','idperfil','id');
           }
 
         public function lecturas()
           {
-              return $this->hasMany('App\Lecturas','idperfil','id');
+              return $this->hasMany('App\Lectura','idperfil','id');
           }
 
        public function favoritos()

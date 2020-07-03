@@ -24,11 +24,7 @@
                         {{ session('mensaje') }}
                     </div>
                 @endif
-                @foreach($errors->all() as $error)
-                    <div class="alert alert-danger" role="alert">
-                        {{$error}}
-                    </div>
-                @endforeach
+
                 <form action=" {{route('perfil.update', $perfil->id)}}" method="POST" enctype="multipart/form-data">
                     @method('PUT')
                     @csrf
@@ -41,6 +37,41 @@
                       <input accept="image/*" type="file" name="imagen" >
                     <button class="btn btn-warning btn-block" type="submit">
                         Editar perfil
+                    </button>
+                  </br>
+                </form>
+                @foreach($errors->all() as $error)
+                    <div class="alert alert-danger" role="alert">
+                        {{$error}}
+                    </div>
+                @endforeach
+                @if(Session::has('alertas'))
+                    <div class="alert alert-danger" role="alert">
+                        {{ Session::get('alertas') }}
+                    </div>
+                @endif
+                @if($perfil->estado)
+                <form action="{{route('desactivarPerfil', $perfil->id)}}" method="POST" >
+                    @csrf
+                    <input type="password" name="pass" placeholder="Contraseña" class="form-control mb-2" value="">
+                    <button class="btn btn-warning" type="submit">
+                        Desactivar perfil
+                    </button>
+                </form>
+                @else
+                <form action="{{route('activarPerfil', $perfil->id)}}" method="POST" >
+                    @csrf
+                    <input type="password" name="pass" placeholder="Contraseña" class="form-control mb-2" value="">
+                    <button class="btn btn-warning" type="submit">
+                        Activar perfil
+                    </button>
+                </form>
+                @endif
+                <form action="{{route('eliminarPerfil', $perfil->id)}}" method="POST" >
+                    @csrf
+                    <input type="password" name="pass" placeholder="Contraseña" class="form-control mb-2" value="">
+                    <button class="btn btn-warning" type="submit">
+                        Eliminar perfil
                     </button>
                 </form>
             </div>

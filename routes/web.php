@@ -31,10 +31,14 @@ Route::get('/catalogo', 'HomeController@verCatalogo')->name('verCatalogo');
 Route::get('nuevoPerfil', 'PerfilController@agregarPerfil')->name('nuevoPerfil');
 Route::get('agregarPerfil', 'PerfilController@agregarPerfil' )->name('agregarPerfil');
 Route::post('cargarPerfil', 'PerfilController@cargarPerfil' )->name('cargarPerfil');
-Route::get('activarPerfil/{id}', 'PerfilController@activarPerfil' )->name('activarPerfil');
+Route::get('perfilActivo/{id}', 'PerfilController@perfilActivo' )->name('perfilActivo');
 Route::get('seleccionPerfil', 'PerfilController@seleccionPerfil')->name('seleccionPerfil');
 Route::get('/editarPerfil/{id}', 'PerfilController@editarPerfil' )->name('editarPerfil');
 Route::put('/editarPerfil/{id}', 'PerfilController@update' )->name('perfil.update');
+Route::post('/activarPerfil/{id}', 'PerfilController@activarPerfil')->name('activarPerfil');
+Route::post('/desactivarPerfil/{id}', 'PerfilController@desactivarPerfil')->name('desactivarPerfil');
+Route::post('/eliminarPerfil/{id}', 'PerfilController@eliminarPerfil')->name('eliminarPerfil');
+
 
 Route::get('/verCuenta', 'PerfilController@verCuenta')->name('verCuenta');
 Route::put('/verCuenta', 'PerfilController@updateCuenta')->name('cuenta.update');
