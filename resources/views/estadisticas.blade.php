@@ -65,9 +65,39 @@
 
 
 
-
+        @foreach($errors->all() as $error)
+          <div class="alert alert-danger" role="alert">
+          {{$error}}
+            </div>
+        @endforeach
         <div class="alert alert-success" role="alert">
-          Cantidad de usuarios entre dos fechas...:
+          Cantidad de usuarios entre dos fechas
+          <form  action="{{'usuariosEntreFechas'}}" method="get">
+          <div class="form-group row">
+              <label for="fechaInicio" class="col-md-4 col-form-label text-md-right">
+                Fecha de inicio
+              </label>
+              <div class="col-md-7">
+                  <input id="fechaInicio" class="form-control align-center" type="date"  name="fechaInicio" value="<?php echo date('Y-m-d'); ?>"
+                      min="1900-01-01"
+                      max="2500-12-41">
+              </div>
+          </div>
+          <div class="form-group row">
+              <label for="fechaFin" class="col-md-4 col-form-label text-md-right">
+                  Fecha de fin
+              </label>
+              <div class="col-md-7">
+                  <input id="fechaFin" class="form-control align-center" type="date"  name="fechaFin" value="<?php echo date('Y-m-d'); ?>"
+                      min="1900-01-01"
+                      max="2500-12-41">
+              </div>
+
+          </div>
+          <button type="submit" class="btn btn-primary btn-general">
+              {{ 'Consultar' }}
+          </button>
+        </form>
         </div>
 
         <a href="{{'administracion'}}" class="btn btn-info" role="button">

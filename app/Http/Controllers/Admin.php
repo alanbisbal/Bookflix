@@ -57,6 +57,21 @@ class Admin extends Controller
 
      }
 
+     public function usuariosEntreFechas(Request $request)
+     {
+       $request->validate([
+     'fechaInicio' => 'required',
+     'fechaFin' => 'required|after:'.$request->fechaInicio,
+      ],
+     [
+       'fechaFin.after' => 'La fecha de inicio debe ser menor que la fecha de fin',
+     ]);
+          $usuariosEntreFechas=User::where('created_at','>=',$request->fechaInicio)
+                                ->where('created_at','<=',$request->fechaFin)->get();
+
+         return view('verUsuariosEntreFechas',compact('usuariosEntreFechas'));
+     }
+
      public function agregarLibro()
      {
          return view('agregarLibro');
@@ -92,4 +107,8 @@ class Admin extends Controller
      {
          return view('perfil');
      }
+
+
+
+
 }
