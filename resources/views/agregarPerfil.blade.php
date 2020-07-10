@@ -41,7 +41,7 @@
             <input accept="image/*" type="file" name="imagen" >
           </div>
           <div class="boton">
-            <a href="{{url('/librosCargados')}}" class="btn btn-info" role="button">
+            <a href="{{url('/seleccionPerfil')}}" class="btn btn-info" role="button">
               Volver
             </a>
             <input type="submit" class="btn btn-info"value="Agregar">

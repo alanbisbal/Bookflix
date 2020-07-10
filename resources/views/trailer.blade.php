@@ -37,24 +37,17 @@
                   {{$libro->titulo_trailer}}
                 </h3>
               </div>
-              <div class="continuarleyendo">
-                @if(!($leido)->isEmpty())
-                  <a href="{{asset('storage').'/'.$leido->first()->desde}}">
-                    Continuar leyendo
-                  </a> 
-                @endif
-              </div>
               <div class="desctrailer">
                 {{$libro->desc_trailer}}
               </div>
               <div class="vermas">
                 <!-- esto es del script -->
                 <p>
-                  <a href="javascript:mostrar();">
+                  <a id="abrir" href="javascript:mostrar();">   <!-- abrir sería "boton" -->
                     Ver Detalle
                   </a>
                 </p>
-                <div id="flotante" style="display:none;">
+                <div id="flotante" style="display:none;">       <!-- flotante sería "contenedor" -->
                   {{$libro->desc}}
                   <div id="close" class="closea">
                     <a href="javascript:cerrar();">
@@ -63,16 +56,22 @@
                   </div>
                 </div>
               </div>
-              <div class="titcapitulos">
-                <h3>
-                  Capítulos:
-                </h3>
+              <div class="continuarleyendo">
+                @if(!($leido)->isEmpty())
+                  <a href="{{asset('storage').'/'.$leido->first()->desde}}">
+                    Continuar leyendo
+                  </a> 
+                @endif
               </div>
               <div class="capitulos">
                 @if(count($capitulos) == 1)
+                  <div class="titcapitulos">
+                    <h3>
+                      Capítulos:
+                    </h3>
+                  </div>
                   <form action="{{route('libroLeido')}}" method="post">
                     {{csrf_field()}}
-                    PDF:
                     <a  href="{{asset('storage').'/'.$capitulos->first()->capitulo}}">
                       Leer libro
                     </a>
@@ -83,6 +82,11 @@
                     </button>
                   </form>
                 @else
+                  <div class="titcapitulos">
+                    <h3>
+                      Capítulos:
+                    </h3>
+                  </div>
                   @foreach($capitulos as $capitulo)
                     <div class="cap">
                       <h6>Título:<i> {{$capitulo->titulo}}</i></h6>
@@ -217,15 +221,17 @@
                   </form>
                 </div>
               @else
-                {{'Usted ya comentó este libro'}}
+                <div class="yacomente">
+                  {{'Usted ya comentó este libro'}}
+                </div>
               @endif
             </div>
           </div>
-        </div>
-        <div class="botonvolver">
-          <a href="{{url('/home')}}" class="btn btn-info" role="button">
-            Volver
-          </a>
+          <div class="botonvolver">
+            <a href="{{url('/home')}}" class="btn btn-info" role="button">
+              Volver
+            </a>
+          </div>
         </div>
       </div>
     </div>

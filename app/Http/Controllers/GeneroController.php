@@ -98,19 +98,16 @@ class GeneroController extends Controller
 
     public function update(Request $request, $id){
       $generoActualizado = Genero::find($id);
-    if(!$generoActualizado->nombre = $request->nombre){
+
       $request->validate([
-      'nombre' => 'required | unique:generos',],
+      'nombre' => 'required|unique:generos',],
     [
       'nombre.required'=>'Debe ingresar un nombre',
       'nombre.unique'=>'Ese nombre ya existe en el sistema',
-    ]);
-
-
+    ]); 
     $generoActualizado->nombre = $request->nombre;
     $generoActualizado->save();
 
-  }
   return redirect()->action('GeneroController@index');
 }
 
@@ -128,9 +125,7 @@ class GeneroController extends Controller
     return redirect()->action('GeneroController@index');
     }
 
-
-
-         public function editar($id){
+  public function editar($id){
          $genero = Genero::findOrFail($id);
          $genero->save();
          return view('editarGenero',compact('genero'));

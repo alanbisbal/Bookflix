@@ -33,7 +33,7 @@
               {{ $perfil->nombre }}
             </h4>
             <div class="boton">
-              <a href="" class="btn btn-warning" role="button">
+              <a href="{{route('editarPerfil',$perfil->id)}}" class="btn btn-warning" role="button">
                 Editar perfil
               </a>
             </div>

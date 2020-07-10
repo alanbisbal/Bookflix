@@ -25,7 +25,7 @@
             <input class="col-md-10" type="text" name="nombre" id="nombre" value="">
           </div>  
           <div class="p2">
-            <a href="{{'librosCargados'}}" class="btn btn-info" role="button">
+            <a href="{{url('/editorialesCargados')}}" class="btn btn-info" role="button">
               Volver
             </a>
             <input type="submit" class="btn btn-info" value="Agregar">

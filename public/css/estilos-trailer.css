@@ -1,3 +1,5 @@
+/* COMMIT GENEROS Y EDITORIALES EDIT FIXED ESTÁ CÓMO LE QUEDÓ A ALAN */
+
 .clasificacion{
     direction: lft;
     unicode-bidi: bidi-override;
@@ -164,7 +166,9 @@
     width: 140px;
     height: 45px;
 }
-
+.yacomente{
+    margin-left: 150px;
+}
 
 
 

@@ -14,6 +14,10 @@ class CapituloController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+     public function __construct()
+     {
+         $this->middleware('admin');
+     }
     public function index()
     {
         //
@@ -33,17 +37,16 @@ class CapituloController extends Controller
     public function agregarCapitulo(Request $request)
     {
 
+
       $request->validate([
       'titulo' => 'required',
-      'capitulo'=>'required'
-
-    ],
+      'capitulo'=>'required',
+      ],
       [
         'titulo.required'=>'Debe ingresar un nombre para el capítulo',
-        'capitulo.required'=> 'No se cargó archivo del capítulo'
-      ]);
-
-
+        'capitulo.required'=> 'No se cargó archivo del capítulo',
+      ]
+    );
       $idLibro= $request['idLibro'];
       $nro= Capitulo::all()->where('idLibro','=',$idLibro);
       $datoCapitulo['nro']=sizeof($nro)+1;
@@ -51,10 +54,9 @@ class CapituloController extends Controller
       $datoCapitulo['titulo']= $request['titulo'];
       $datoCapitulo['capitulo']=$request->file('capitulo')->store('uploads','public');
       Capitulo::insert($datoCapitulo);
-
-      return view('agregarCapitulos',compact('idLibro'));
+      $idLibro= $request->idLibro;
+        return view('agregarCapitulos',compact('idLibro'));
     }
-
     /**
      * Store a newly created resource in storage.
      *

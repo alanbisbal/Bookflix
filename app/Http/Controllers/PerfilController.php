@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support;
-
 use App\User;
 use App\Perfil;
 use App\Pago;
@@ -30,18 +29,20 @@ class PerfilController extends Controller
 
     public function seleccionPerfil()
     {
+
         if(auth()->user()->es_admin){
           return view('administracion');
         }
-        $perfiles=Perfil::where("email","=",auth()->user()->email)->get()->sortBy('nombre');
-        $cant;
         if (auth()->user()->es_premium) {
           $cant=4;
         }
         else{
           $cant=2;
         }
-        $cant = $cant - sizeof($perfiles);
+        $contador=0;
+        $perfiles=Perfil::where("email","=",auth()->user()->email)
+                        ->take($cant)->get();
+
         return view('seleccionPerfil',compact('perfiles','cant'));
     }
 
@@ -66,12 +67,11 @@ class PerfilController extends Controller
     {
         //
     }
-    public function activarPerfil($id)
+    public function perfilActivo($id)
     {
       $perfil = Perfil::findOrFail($id);
       session(['perfil' => $perfil]);
       return redirect('home');
-
     }
 
     /**
@@ -121,9 +121,21 @@ class PerfilController extends Controller
      * @param  \App\Perfil  $perfil
      * @return \Illuminate\Http\Response
      */
-     public function update(Request $request, Perfil $perfil)
+     public function update(Request $request, $id)
      {
-         //
+       $request->validate([
+     'nombre' => 'required',
+      ],
+     [
+       'nombre.required' => 'El nombre es requerido',
+     ]);
+     $perfilActualizado = Perfil::find($id);
+     $perfilActualizado->nombre = $request->nombre;
+     if(isset($request->imagen)){
+          $perfilActualizado->imagen=$request->file('imagen')->store('uploads','public');
+     }
+     $perfilActualizado->save();
+      return redirect()->action('PerfilController@seleccionPerfil');
      }
 
       public function updateCuenta(Request $request)
@@ -173,13 +185,6 @@ class PerfilController extends Controller
      if(count($cantidad_perfiles)<4){
          $perfil=request()->except('_token');
          $perfil['email']=auth()->user()->email;
-         if(is_null($cantidad_perfiles))
-         {
-          $perfil['nro']=1;
-        }
-        else{
-         $perfil['nro']= (count($cantidad_perfiles)+1) ;
-        }
         if($request->hasFile('imagen')){
               $perfil['imagen']=$request->file('imagen')->store('uploads','public');
             }
@@ -271,4 +276,84 @@ class PerfilController extends Controller
 
     }
 
+
+
+
+    public function editarPerfil($id)
+    {
+      $perfil = Perfil::findOrFail($id);
+      return view('editarPerfil',compact('perfil'));
+    }
+
+
+
+    public function activarPerfil(Request $request,$id)
+    {
+
+      $request->validate(
+      [
+      'pass' => 'required',
+      ],
+      [
+      'pass.required' => 'Ingrese la contraseña',
+      ]);
+      if(Hash::check($request->pass,auth()->user()->password)){
+        $perfil = Perfil::findOrFail($id);
+        $perfil->estado=1;
+        $perfil->save();
+      }
+      else{
+          return back()->with('alertas','La contraseña ingresada es inválida');
+      }
+      return redirect()->action('PerfilController@seleccionPerfil')->with('alertas','El perfil se activo satisfactoriamente');
+      }
+
+
+    public function desactivarPerfil(Request $request,$id)
+    {
+      $request->validate(
+        [
+        'pass' => 'required',
+        ],
+        [
+        'pass.required' => 'Ingrese la contraseña',
+        ]);
+    if(Hash::check($request->pass,auth()->user()->password)){
+      $perfil = Perfil::findOrFail($id);
+      $perfil->estado=0;
+      $perfil->save();
+    }
+    else{
+        return back()->with('alertas','La contraseña ingresada es inválida');
+      }
+    return redirect()->action('PerfilController@seleccionPerfil')->with('alertas','El perfil se desactivo satisfactoriamente');
+    }
+
+
+
+    public function eliminarPerfil(Request $request,$id)
+    {
+
+
+      $request->validate(
+        [
+        'pass' => 'required',
+        ],
+        [
+        'pass.required' => 'Ingrese la contraseña',
+        ]);
+
+    if(Hash::check($request->pass,auth()->user()->password)){
+      $perfil = Perfil::findOrFail($id);
+      $perfil->comentarios()->delete();
+      $perfil->favoritos()->delete();
+      $perfil->lecturas()->delete();
+      $perfil->calificaciones()->delete();
+      $perfil->delete();
+    }
+    else{
+        return back()->with('alertas','La contraseña ingresada es inválida');
+      }
+    return redirect()->action('PerfilController@seleccionPerfil')->with('alertas','El perfil se elimino satisfactoriamente');
+    }
 }

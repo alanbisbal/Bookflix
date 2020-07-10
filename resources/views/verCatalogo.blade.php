@@ -4,6 +4,55 @@
 
 <link rel="stylesheet" href="css/estilos-verCatalogo.css">
 
+    <div class="card cb2">
+        <div class="card-header">
+            Filtros
+        </div>
+        <div class="card-body"> <!-- decia como clase "tarjetasanidadas" -->
+            <select class="mdb-select validate md-form" multiple searchable="Search here..">
+                @foreach($generos as $genero)
+                    <div class="text-dark tarjetaanidada-una">
+                        <div class="card-body">
+                            <ul>
+                                <option>
+                                    {{$genero->nombre}}
+                                </option>
+                            </ul>
+                        </div>
+                    </div>
+                @endforeach
+            </select>
+            </br>
+            <select class="mdb-select validate md-form" multiple name="autores">
+                @foreach($autores as $autor)
+                    <div class="text-dark tarjetaanidada-una">
+                        <div class="card-body">
+                            <ul>
+                                <option>
+                                    {{$autor->nombre}}
+                                </option>
+                            </ul>
+                        </div>
+                    </div>
+                @endforeach
+            </select>
+            </br>
+            <select class="mdb-select validate md-form" multiple searchable="Search here..">
+                @foreach($editoriales as $editorial)
+                    <div class="text-dark tarjetaanidada-una">
+                        <div class="card-body">
+                            <ul>
+                                <option>
+                                    {{$editorial->nombre}}
+                                </option>
+                            </ul>
+                        </div>
+                    </div>
+                @endforeach
+            </select>
+        </div>
+    </div>
+
     <div class="col-md-8">
         <div class="card">
             <div class="card-header">
