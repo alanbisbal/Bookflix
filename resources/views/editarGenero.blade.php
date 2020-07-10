@@ -38,8 +38,13 @@
                     </button>
                 </form>
                 <a href="{{url('/generosCargados')}}" class="btn btn-info" role="button">
+<<<<<<< HEAD
                     Volver
                 </a>
+=======
+              Volver
+            </a>
+>>>>>>> 3cb92584de9ded0ec32ebff5ae05a045585df41d
             </div>
         </div>
     </div>

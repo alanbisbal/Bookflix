@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="/css/estilos-editarLibro.css">
 
         <div class="card">
-            <div class="card-header"> 
+            <div class="card-header">
                 <h3>
                     Editar libro:
                 </h3>
@@ -51,7 +51,7 @@
                                 <label for="img_libro" class="btn btn-secondary">
                                     {{'Portada del libro:'}}
                                 </label>
-                                <img src="{{asset('storage').'/'.$libro->img_libro}}"alt="" width="100">  
+                                <img src="{{asset('storage').'/'.$libro->img_libro}}"alt="" width="100">
                             </div>
                             <input accept="image/*" type="file" name="img_libro" value="{{$libro->img_libro}}">
                         </div>
@@ -122,7 +122,7 @@
                                 <label for="img_trailer" class="btn btn-secondary">
                                     {{'Imagen de trailer:'}}
                                 </label>
-                                <img src="{{asset('storage').'/'.$libro->img_trailer}}"alt="" width="100">  
+                                <img src="{{asset('storage').'/'.$libro->img_trailer}}"alt="" width="100">
                             </div>
                             <div class="parte4izq3">
                                 <input accept="image/*" type="file" name="img_trailer" value="{{$libro->img_trailer}}">
@@ -136,7 +136,7 @@
                                 {{$libro->desc_trailer}}
                             </textarea>
                         </div>
-                        <div class="parte5">                        
+                        <div class="parte5">
                             <a href="{{url('/librosCargados')}}" class="btn btn-info" role="button">
                                 Volver
                             </a>

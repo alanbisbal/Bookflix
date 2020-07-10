@@ -37,7 +37,11 @@
                     </button>
                 </form>
                 <a href="{{url('/editorialesCargados')}}" class="btn btn-info" role="button">
+<<<<<<< HEAD
                     Volver
+=======
+                  Volver
+>>>>>>> 3cb92584de9ded0ec32ebff5ae05a045585df41d
                 </a>
             </div>
         </div>

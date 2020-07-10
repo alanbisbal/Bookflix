@@ -86,6 +86,9 @@
       a.style.display = '';
     }
   </script>
+
+
+
   <!-- Parte del "Ver más" -->
   <!-- Parte del "Confirmar cerrar sesión" -->
   <script>
@@ -105,7 +108,7 @@
     </header>
     <main>
       <div class="menu">
-        <div class="background-overlay">  
+        <div class="background-overlay">
           <div class="row justify-content-center">
             @yield('content')
           </div>

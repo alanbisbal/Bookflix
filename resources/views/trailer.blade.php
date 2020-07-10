@@ -37,6 +37,10 @@
                   {{$libro->titulo_trailer}}
                 </h3>
               </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3cb92584de9ded0ec32ebff5ae05a045585df41d
               <div class="desctrailer">
                 {{$libro->desc_trailer}}
               </div>
@@ -60,11 +64,17 @@
                 @if(!($leido)->isEmpty())
                   <a href="{{asset('storage').'/'.$leido->first()->desde}}">
                     Continuar leyendo
+<<<<<<< HEAD
                   </a> 
+=======
+                  </a>
+>>>>>>> 3cb92584de9ded0ec32ebff5ae05a045585df41d
                 @endif
               </div>
+
               <div class="capitulos">
                 @if(count($capitulos) == 1)
+<<<<<<< HEAD
                   <div class="titcapitulos">
                     <h3>
                       Capítulos:
@@ -72,6 +82,19 @@
                   </div>
                   <form action="{{route('libroLeido')}}" method="post">
                     {{csrf_field()}}
+=======
+                <div class="titcapitulos">
+                  <h3>
+                    Libro:
+                  </h3>
+                </div>
+                  <div class="cap">
+
+
+                  <form action="{{route('libroLeido')}}" method="post">
+                    {{csrf_field()}}
+
+>>>>>>> 3cb92584de9ded0ec32ebff5ae05a045585df41d
                     <a  href="{{asset('storage').'/'.$capitulos->first()->capitulo}}">
                       Leer libro
                     </a>
@@ -81,12 +104,21 @@
                       Leer
                     </button>
                   </form>
+                </div>
                 @else
+<<<<<<< HEAD
                   <div class="titcapitulos">
                     <h3>
                       Capítulos:
                     </h3>
                   </div>
+=======
+                <div class="titcapitulos">
+                  <h3>
+                    Capítulos:
+                  </h3>
+                </div>
+>>>>>>> 3cb92584de9ded0ec32ebff5ae05a045585df41d
                   @foreach($capitulos as $capitulo)
                     <div class="cap">
                       <h6>Título:<i> {{$capitulo->titulo}}</i></h6>
@@ -106,11 +138,11 @@
                 <div class="card-header">
                   <h5>Ficha técnica:</h5>
                 </div>
-                <div class="card-body">  
+                <div class="card-body">
                   ISBN: {{$libro->isbn}}
                   </br>
                   Editorial: {{$libro->editorialL->nombre}}
-                  </br>                
+                  </br>
                   Autor: {{$libro->autorL->nombre}}
                   </br>
                   Genero: {{$libro->generoL->nombre}}
@@ -221,9 +253,15 @@
                   </form>
                 </div>
               @else
+<<<<<<< HEAD
                 <div class="yacomente">
                   {{'Usted ya comentó este libro'}}
                 </div>
+=======
+              <div style="margin-left:150px">
+                {{'Usted ya comentó este libro'}}
+              </div>
+>>>>>>> 3cb92584de9ded0ec32ebff5ae05a045585df41d
               @endif
             </div>
           </div>
@@ -233,6 +271,10 @@
             </a>
           </div>
         </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3cb92584de9ded0ec32ebff5ae05a045585df41d
       </div>
     </div>
 

@@ -8,7 +8,13 @@
 
 <link rel="stylesheet" href="/css/estilos-home.css">
 
+<<<<<<< HEAD
   <div class="col-md-8">
+=======
+
+
+  <div class="col-md-7">
+>>>>>>> 3cb92584de9ded0ec32ebff5ae05a045585df41d
     <div>
       <form action="{{'buscar'}}" method="POST" enctype="multipart/form-data">
         {{csrf_field()}}
@@ -16,6 +22,39 @@
         <input type="submit" class="btn btn-primary" value="Buscar">
       </form>
     </div>
+<<<<<<< HEAD
+=======
+
+
+    <div class="card card1">
+      <div class="card-header">
+        <h4>
+          Más votados por el público
+        </h4>
+      </div>
+      <div class="cb1">
+        <div class="libros">
+        @foreach($masvotados as $libro)
+          @if($libro->visible)
+            <div class="libro">
+              <a  href="{{route('libro.trailer',$libro->id)}}">
+                <div class="imagen">
+                  <img src="{{asset('storage').'/'.$libro->img_libro}}" alt="100" width="100">
+                </div>
+                <b><i>{{($libro->titulo)}}</i></b>
+              </a>
+            </div>
+          @endif
+        @endforeach
+      </div>
+      </div>
+    </div>
+
+
+
+
+
+>>>>>>> 3cb92584de9ded0ec32ebff5ae05a045585df41d
     <div class="card card1">
       <div class="card-header">
         <h4>
@@ -39,7 +78,12 @@
         </div>
       </div>
     </div>
+<<<<<<< HEAD
     
+=======
+
+
+>>>>>>> 3cb92584de9ded0ec32ebff5ae05a045585df41d
     <div class="card card1">
       <div class="card-header">
         <h4>
@@ -66,7 +110,7 @@
   
   </div>
   <div class="col-md-3">
-    @include('vistas-includes.seccion-noticias') 
+    @include('vistas-includes.seccion-noticias')
   </div>
 
   
