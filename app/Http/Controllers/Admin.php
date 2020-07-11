@@ -4,8 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Libro;
+use App\Lectura;
 use App\User;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Builder;
+
 class Admin extends Controller
 {
     /**
@@ -66,11 +70,35 @@ class Admin extends Controller
      [
        'fechaFin.after' => 'La fecha de inicio debe ser menor que la fecha de fin',
      ]);
-          $usuariosEntreFechas=User::where('created_at','>=',$request->fechaInicio)
-                                ->where('created_at','<=',$request->fechaFin)->get();
+          $dateFin = new Carbon( $request->fechaFin );
+          $dateInicio = new Carbon( $request->fechaInicio );
+          $dateFin->day=$dateFin->day+1;
+          $usuariosEntreFechas=User::where('created_at','>=',$dateInicio)
+                                ->where('created_at','<',$dateFin)->get();
 
          return view('verUsuariosEntreFechas',compact('usuariosEntreFechas'));
      }
+
+
+     public function librosMasLeidos()
+     {
+
+       $masLeidos=DB::table('libros')
+                      ->select('libros.*')
+                      ->join('lecturas', 'libros.id', '=', 'lecturas.idLibro')
+                      ->where('visible','=','1')
+                      ->withCount()
+                      ->get();
+  return $masLeidos;
+         return view('librosMasLeidos',compact('masLeidos'));
+     }
+
+
+
+
+
+
+
 
      public function agregarLibro()
      {

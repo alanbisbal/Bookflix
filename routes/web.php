@@ -25,6 +25,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/administracion', 'Admin@administracion')->name('administracion');
 Route::get('/estadisticas', 'Admin@estadisticas')->name('admin.estadisticas');
 Route::get('/usuariosEntreFechas', 'Admin@usuariosEntreFechas')->name('usuariosEntreFechas');
+Route::get('/librosMasLeidos', 'Admin@librosMasLeidos')->name('librosMasLeidos');
 
 
 

@@ -63,6 +63,10 @@
         @endforeach
         </div>
 
+        <div class="alert alert-success" role="alert">
+        <a href="{{'librosMasLeidos'}}" >Libros mas leidos</a>
+        </div>
+
 
 
         @foreach($errors->all() as $error)
