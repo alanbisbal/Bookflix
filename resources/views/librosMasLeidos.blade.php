@@ -21,20 +21,20 @@
 
         <div class="alert alert-success" role="alert">
 
-
+  <div class="libros">
     @foreach($masLeidos as $libro)
 
-      <div class="libro">
-        <a  href="{{route('libro.trailer',$libro->id)}}">
+
+        <b><i>{{($libro->titulo)}} </i></b></br>
+        se leyó {{count($libro->lecturas)}} veces
           <div class="imagen">
             <img src="{{asset('storage').'/'.$libro->img_libro}}" alt="100" width="100">
-          </div>
-          <b><i>{{($libro->titulo)}}</i></b>
-        </a>
-      </div>
+            </div>
+
+
 
     @endforeach
-
+</div>
         </div>
 
         <a href="{{ old('redirect_to', URL::previous())}}" class="btn btn-info" role="button">

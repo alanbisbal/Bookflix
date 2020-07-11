@@ -54,7 +54,7 @@
       </div>
       <div class="cb1">
         <div class="libros">
-        @foreach($nuevos as $libro)
+        @foreach($masleidos as $libro)
           @if($libro->visible)
             <div class="libro">
               <a  href="{{route('libro.trailer',$libro->id)}}">

@@ -48,11 +48,9 @@ class HomeController extends Controller
                     ->get();
 
 
-       $masleidos=DB::table('libros')
-                      ->select('libros.*')
-                      ->join('lecturas', 'libros.id', '=', 'lecturas.idLibro')          
-                      ->where('visible','=','1')
-                      ->distinct();
+       $masleidos=Libro::withCount('lecturas')
+                        ->get()->sortBy('lecturas_count')->reverse();
+
 
         $nuevos=$libros->sortByDesc('id')->where('visible','=','1');
 

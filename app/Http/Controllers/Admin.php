@@ -83,14 +83,8 @@ class Admin extends Controller
      public function librosMasLeidos()
      {
 
-       $masLeidos=DB::table('libros')
-                      ->select('libros.*')
-                      ->join('lecturas', 'libros.id', '=', 'lecturas.idLibro')
-                      ->where('visible','=','1')
-                      ->withCount()
-                      ->get();
-  return $masLeidos;
-         return view('librosMasLeidos',compact('masLeidos'));
+      $masLeidos=Libro::withCount('lecturas')->get()->sortBy('lecturas_count')->reverse(); 
+       return view('librosMasLeidos',compact('masLeidos'));
      }
 
 
