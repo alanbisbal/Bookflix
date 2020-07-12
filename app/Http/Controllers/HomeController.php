@@ -90,5 +90,42 @@ class HomeController extends Controller
           return view('verCatalogo',compact('libros','generos','autores','editoriales'));
        }
 
+       public function catalogoFiltrado(Request $request)
+       {
+         if(empty(session('perfil'))){
+           return redirect()->action('PerfilController@seleccionPerfil');
+         }
+
+          $generos=Genero::all()->where('visible','=',1);
+
+          $autores=Autor::all()->where('visible','=',1);
+
+          $editoriales=Editorial::all()->where('visible','=',1);
+          $libros =Libro::all()->where('visible','=',1);
+
+          if(isset($request->autor)){
+            $librosAutor= Libro::where('idautor',"=",$request->autor)->get();
+            $libros=$libros->intersect($librosAutor);
+          }
+
+          if(isset($request->genero)){
+            $librosGenero= Libro::where('idGenero',"=",$request->genero)->get();
+            $libros=$libros->intersect($librosGenero);
+          }
+          if(isset($request->editorial)){
+            $librosEditorial= Libro::where('idEditorial',"=",$request->editorial)->get();
+              $libros=$libros->intersect($librosEditorial);
+          }
+          if(isset($request->orden)){
+            if($request->orden="ASC"){
+                 $libros=collect($libros)->sort();
+            }
+            else{
+                 $libros=collect($libros)->sortDesc();
+            }
+        }
+          return view('verCatalogo',compact('libros','generos','autores','editoriales'));
+       }
+
 
 }

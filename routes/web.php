@@ -30,6 +30,7 @@ Route::get('/librosMasLeidos', 'Admin@librosMasLeidos')->name('librosMasLeidos')
 
 
 Route::get('/catalogo', 'HomeController@verCatalogo')->name('verCatalogo');
+Route::post('/catalogoFiltrado', 'HomeController@catalogoFiltrado')->name('catalogoFiltrado');
 Route::get('nuevoPerfil', 'PerfilController@agregarPerfil')->name('nuevoPerfil');
 Route::get('agregarPerfil', 'PerfilController@agregarPerfil' )->name('agregarPerfil');
 Route::post('cargarPerfil', 'PerfilController@cargarPerfil' )->name('cargarPerfil');
