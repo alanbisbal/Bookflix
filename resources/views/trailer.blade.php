@@ -37,10 +37,6 @@
                   {{$libro->titulo_trailer}}
                 </h3>
               </div>
-<<<<<<< HEAD
-=======
-
->>>>>>> 3cb92584de9ded0ec32ebff5ae05a045585df41d
               <div class="desctrailer">
                 {{$libro->desc_trailer}}
               </div>
@@ -64,25 +60,12 @@
                 @if(!($leido)->isEmpty())
                   <a href="{{asset('storage').'/'.$leido->first()->desde}}">
                     Continuar leyendo
-<<<<<<< HEAD
-                  </a> 
-=======
                   </a>
->>>>>>> 3cb92584de9ded0ec32ebff5ae05a045585df41d
                 @endif
               </div>
 
               <div class="capitulos">
                 @if(count($capitulos) == 1)
-<<<<<<< HEAD
-                  <div class="titcapitulos">
-                    <h3>
-                      Capítulos:
-                    </h3>
-                  </div>
-                  <form action="{{route('libroLeido')}}" method="post">
-                    {{csrf_field()}}
-=======
                 <div class="titcapitulos">
                   <h3>
                     Libro:
@@ -94,7 +77,6 @@
                   <form action="{{route('libroLeido')}}" method="post">
                     {{csrf_field()}}
 
->>>>>>> 3cb92584de9ded0ec32ebff5ae05a045585df41d
                     <a  href="{{asset('storage').'/'.$capitulos->first()->capitulo}}">
                       Leer libro
                     </a>
@@ -106,19 +88,11 @@
                   </form>
                 </div>
                 @else
-<<<<<<< HEAD
-                  <div class="titcapitulos">
-                    <h3>
-                      Capítulos:
-                    </h3>
-                  </div>
-=======
                 <div class="titcapitulos">
                   <h3>
                     Capítulos:
                   </h3>
                 </div>
->>>>>>> 3cb92584de9ded0ec32ebff5ae05a045585df41d
                   @foreach($capitulos as $capitulo)
                     <div class="cap">
                       <h6>Título:<i> {{$capitulo->titulo}}</i></h6>
@@ -253,15 +227,9 @@
                   </form>
                 </div>
               @else
-<<<<<<< HEAD
-                <div class="yacomente">
-                  {{'Usted ya comentó este libro'}}
-                </div>
-=======
               <div style="margin-left:150px">
                 {{'Usted ya comentó este libro'}}
               </div>
->>>>>>> 3cb92584de9ded0ec32ebff5ae05a045585df41d
               @endif
             </div>
           </div>
@@ -271,10 +239,6 @@
             </a>
           </div>
         </div>
-<<<<<<< HEAD
-=======
-
->>>>>>> 3cb92584de9ded0ec32ebff5ae05a045585df41d
       </div>
     </div>
 

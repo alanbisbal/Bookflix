@@ -101,8 +101,4 @@ Route::put('/editarGenero/{id}', 'GeneroController@update' )->name('genero.updat
 
 
 Route::post('/buscar', 'BuscadorController@busqueda' )->name('buscar');
-<<<<<<< HEAD
 Route::get('/buscar', 'BuscadorController@busqueda' )->name('buscar');
-=======
-Route::get('/buscar', 'BuscadorController@busqueda' )->name('buscar');
->>>>>>> 3cb92584de9ded0ec32ebff5ae05a045585df41d

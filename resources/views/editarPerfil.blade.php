@@ -24,15 +24,6 @@
                         {{ session('mensaje') }}
                     </div>
                 @endif
-<<<<<<< HEAD
-                @foreach($errors->all() as $error)
-                    <div class="alert alert-danger" role="alert">
-                        {{$error}}
-                    </div>
-                @endforeach
-=======
-
->>>>>>> 3cb92584de9ded0ec32ebff5ae05a045585df41d
                 <form action=" {{route('perfil.update', $perfil->id)}}" method="POST" enctype="multipart/form-data">
                     @method('PUT')
                     @csrf
@@ -46,8 +37,6 @@
                     <button class="btn btn-warning btn-block" type="submit">
                         Editar perfil
                     </button>
-<<<<<<< HEAD
-=======
                   </br>
                 </form>
                 @foreach($errors->all() as $error)
@@ -83,13 +72,8 @@
                     <button class="btn btn-warning" type="submit">
                         Eliminar perfil
                     </button>
->>>>>>> 3cb92584de9ded0ec32ebff5ae05a045585df41d
                 </form>
             </div>
         </div>
     </div>
-<<<<<<< HEAD
 @endsection
-=======
-@endsection
->>>>>>> 3cb92584de9ded0ec32ebff5ae05a045585df41d

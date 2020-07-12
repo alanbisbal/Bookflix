@@ -25,11 +25,7 @@
             <input class="col-md-10" type="text" name="nombre" id="nombre" value="">
           </div>
           <div class="p2">
-<<<<<<< HEAD
             <a href="{{url('/editorialesCargados')}}" class="btn btn-info" role="button">
-=======
-            <a href="{{'editorialesCargados'}}" class="btn btn-info" role="button">
->>>>>>> 3cb92584de9ded0ec32ebff5ae05a045585df41d
               Volver
             </a>
             <input type="submit" class="btn btn-info" value="Agregar">
