@@ -55,6 +55,7 @@
         </h4>
       </div>
       <div class="cb1">
+<<<<<<< HEAD
         <div class="libros owl-carousel  owl-theme">
           @foreach($nuevos as $libro)
             @if($libro->visible)
@@ -69,6 +70,22 @@
             @endif
           @endforeach
         </div>
+=======
+        <div class="libros">
+        @foreach($masleidos as $libro)
+          @if($libro->visible)
+            <div class="libro">
+              <a  href="{{route('libro.trailer',$libro->id)}}">
+                <div class="imagen">
+                  <img src="{{asset('storage').'/'.$libro->img_libro}}" alt="100" width="100">
+                </div>
+                <b><i>{{($libro->titulo)}}</i></b>
+              </a>
+            </div>
+          @endif
+        @endforeach
+      </div>
+>>>>>>> 101f31b6490d319b186928d3001c6cbeda419092
       </div>
     </div>
 

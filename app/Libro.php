@@ -51,6 +51,7 @@ class Libro extends Model
     }
 
 
+
   public function lecturas()
       {
         return $this->hasMany('App\Lectura','idLibro','id');

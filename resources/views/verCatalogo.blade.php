@@ -8,45 +8,69 @@
         Filtros
     </div>
 
+	<form  action="{{'catalogoFiltrado'}}" method="post" >
+    @csrf
     <div class="tarjetasanidadas">
-      <select class="mdb-select validate md-form" multiple searchable="Search here..">
+
+      Genero:<select name="genero" value="">
+     	<option disabled selected value> -- Seleccione una opcion -- </option>
       @foreach($generos as $genero)
           <div class="text-dark tarjetaanidada-una">
               <div class="card-body">
                 <ul>
-                <option>{{$genero->nombre}}</option>
+                <option value="{{$genero->id}}">{{$genero->nombre}}</option>
                 </ul>
               </div>
           </div>
       @endforeach
       </select>
+
     </br>
-      <select class="mdb-select validate md-form" multiple name="autores">
+    Autor:<select name="autor" >
+    <option disabled selected value> -- Seleccione una opcion -- </option>
       @foreach($autores as $autor)
           <div class="text-dark tarjetaanidada-una">
               <div class="card-body">
                 <ul>
-                <option>{{$autor->nombre}}</option>
+                <option value="{{$autor->id}}">{{$autor->nombre}}</option>
               </ul>
               </div>
           </div>
       @endforeach
-      </select>
     </br>
-      <select class="mdb-select validate md-form" multiple searchable="Search here..">
-      @foreach($editoriales as $editorial)
-          <div class="text-dark tarjetaanidada-una">
-              <div class="card-body">
-              <ul>
-                <option>{{$editorial->nombre}}</option>
-              </ul>
-              </div>
-          </div>
-      @endforeach
     </select>
-    </div>
-</div>
+  </br>
+  Editorial:<select name="editorial">
+    <option disabled selected value> -- Seleccione una opcion -- </option>
+    @foreach($editoriales as $editorial)
+        <div class="text-dark tarjetaanidada-una">
+            <div class="card-body">
+            <ul>
+              <option value="{{$editorial->id}}">{{$editorial->nombre}}</option>
+            </ul>
+            </div>
+        </div>
+    @endforeach
+  </br>
+</select>
+</br>
+Orden:<select name="orden">
+  <option disabled selected value> -- Seleccione una opcion -- </option>
 
+      <div class="text-dark tarjetaanidada-una">
+          <div class="card-body">
+          <ul>
+            <option value="ASC">{{'A..Z'}}</option>
+            <option value="DESC">{{'Z..A'}}</option>
+          </ul>
+          </div>
+      </div>
+
+</br>
+</select>
+
+
+<<<<<<< HEAD
     <div class="card cb2">
         <div class="card-header">
             Filtros
@@ -96,6 +120,12 @@
         </div>
     </div>
 
+=======
+  </div>
+  <input type="submit" value="Enviar">
+  </form>
+</div>
+>>>>>>> 101f31b6490d319b186928d3001c6cbeda419092
     <div class="col-md-8">
         <div class="card">
             <div class="card-header">
@@ -110,8 +140,10 @@
                     </div>
                 @endif
                 <div class="libros">
+                  @if(count($libros)==0)
+                    No hay resultados para la busqueda
+                  @else
                     @foreach($libros as $libro)
-                        @if($libro->visible)
                             <div class="libro">
                                 <a href="{{route('libro.trailer',$libro->id)}}">
                                     <div class="imagen">
@@ -122,8 +154,9 @@
                                     </i>
                                 </a>
                             </div>
-                        @endif
+
                     @endforeach
+                    @endif
                 </div>
                 <div class="boton">
                     <a href="{{url('/home')}}" class="btn btn-info" role="button">
