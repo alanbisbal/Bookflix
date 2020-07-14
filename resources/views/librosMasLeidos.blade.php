@@ -17,30 +17,17 @@
             {{ session('status') }}
           </div>
         @endif
-
-
-        <div class="alert alert-success" role="alert">
-
-  <div class="libros">
-    @foreach($masLeidos as $libro)
-
-
-        <b><i>{{($libro->titulo)}} </i></b></br>
-        se leyó {{count($libro->lecturas)}} veces
-          <div class="imagen">
-            <img src="{{asset('storage').'/'.$libro->img_libro}}" alt="100" width="100">
-            </div>
-
-
-
-    @endforeach
-</div>
+        <div class="libros">
+          @foreach($masLeidos as $libro)
+            <b>{{count($libro->lecturas)}}</b> lecturas - <b><i>{{($libro->titulo)}}</i></b> de <i><b>{{$libro->autorL->nombre}}</i></b>.
+            </br>
+          @endforeach
         </div>
-
         <a href="{{ old('redirect_to', URL::previous())}}" class="btn btn-info" role="button">
           Volver
         </a>
       </div>
     </div>
   </div>
+  
 @endsection

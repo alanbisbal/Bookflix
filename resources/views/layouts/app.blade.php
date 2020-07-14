@@ -24,53 +24,7 @@
     
 </head>
 <body>
-  
-  <div class="vermas1">
-    <!-- esto es del script2 
-    <p>
-      <a id="boton1" href="javascript:mostrar2('contenedor1', 'boton1')">
-        Ver Mas
-      </a>
-    </p>
-    <div id="contenedor1" style="display:none;">
-      {{$libro->desc}}
-      <a  href="javascript:cerrar2('contenedor1', 'boton1')">
-        Cerrar
-      </a>
-    </div>
-  </div>
-  <div class="vermas2">
-    <p>
-      <a id="boton2" href="javascript:mostrar2('contenedor2', 'boton2')">
-        Ver Mas
-      </a>
-    </p>
-    <div id="contenedor2" style="display:none;">
-      {{$libro->desc}}
-      <a  href="javascript:cerrar2('contenedor2', 'boton2')">
-        Cerrar
-      </a>
-    </div>
-  </div>
-  <script>
-    function mostrar2(contenedor, boton) {
-      div = document.getElementById(contenedor);
-      div.style.display = '';
-      a = document.getElementById(boton);
-      a.style.display = 'none';
-    }
-    function cerrar2(contenedor, boton) {
-      div = document.getElementById(contenedor);
-      div.style.display = 'none';
-      a = document.getElementById(boton);
-      a.style.display = '';
-    }
-  </script>
-   esto es del script2 -->
-  <!-- 
-<a id="abrir-1" href="javascript:mostrar('contenedor1', 'abrir-1')">Ver Mas</a>
-<a  href="javascript:cerrar('contenedor1', 'abrir-1')">Cerrar</a>
- -->
+    
 <!-- Parte del "Ver más" -->
   <script languague="javascript">
     function mostrar() {

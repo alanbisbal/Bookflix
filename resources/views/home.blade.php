@@ -11,6 +11,7 @@
 
 
   <div class="col-md-7">
+    <!--
     <div>
       <form action="{{'buscar'}}" method="POST" enctype="multipart/form-data">
         {{csrf_field()}}
@@ -18,7 +19,7 @@
         <input type="submit" class="btn btn-primary" value="Buscar">
       </form>
     </div>
-
+    -->
 
     <div class="card card1">
       <div class="card-header">
@@ -43,10 +44,6 @@
       </div>
       </div>
     </div>
-
-
-
-
 
     <div class="card card1">
       <div class="card-header">

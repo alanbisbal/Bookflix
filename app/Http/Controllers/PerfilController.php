@@ -305,7 +305,7 @@ class PerfilController extends Controller
       else{
           return back()->with('alertas','La contraseña ingresada es inválida');
       }
-      return redirect()->action('PerfilController@seleccionPerfil')->with('alertas','El perfil se activo satisfactoriamente');
+      return redirect()->action('PerfilController@seleccionPerfil')->with('alertas','El perfil se activó correctamente');
       }
 
 
@@ -326,7 +326,7 @@ class PerfilController extends Controller
     else{
         return back()->with('alertas','La contraseña ingresada es inválida');
       }
-    return redirect()->action('PerfilController@seleccionPerfil')->with('alertas','El perfil se desactivo satisfactoriamente');
+    return redirect()->action('PerfilController@seleccionPerfil')->with('alertas','El perfil se desactivó correctamente');
     }
 
 
@@ -354,6 +354,6 @@ class PerfilController extends Controller
     else{
         return back()->with('alertas','La contraseña ingresada es inválida');
       }
-    return redirect()->action('PerfilController@seleccionPerfil')->with('alertas','El perfil se elimino satisfactoriamente');
+    return redirect()->action('PerfilController@seleccionPerfil')->with('alertas','El perfil se eliminó correctamente');
     }
 }

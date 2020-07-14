@@ -2,23 +2,22 @@
 
 @section('content')
 
-<link rel="stylesheet" href="css/estilos-editarNovedad.css">
+<link rel="stylesheet" href="/css/estilos-editarPerfil.css">
 
     <div class="col-md-8">
         <div class="card">
             <div class="card-header">
                 <h3>
-                    Editar perfil:
+                    Editar perfil
                 </h3>
                 @include('vistas-includes.cabecera-tarjeta')
             </div>
             <div class="card-body">
-                    @if (session('status'))
+                @if (session('status'))
                     <div class="alert alert-success" role="alert">
                         {{ session('status') }}
                     </div>
                 @endif
-                <h1>Editar perfil</h1>
                 @if (session('mensaje'))
                     <div class="alert alert-success">
                         {{ session('mensaje') }}
@@ -27,18 +26,30 @@
                 <form action=" {{route('perfil.update', $perfil->id)}}" method="POST" enctype="multipart/form-data">
                     @method('PUT')
                     @csrf
-                    Nombre:
-                    <input type="text" name="nombre" placeholder="Nombre" class="form-control mb-2" value="{{ $perfil->nombre }}">
-
-                    <div class="imagen">
-                      <img src="{{asset('storage').'/'.$perfil->imagen}}" alt="150px "width="150px" >
+                    <div class="editar">
+                        <div class="foto">
+                            <div class="imagen">
+                                <img src="{{asset('storage').'/'.$perfil->imagen}}" alt="150px "width="150px">
+                            </div>
+                            </br>
+                            <span>Seleccione su nueva foto de perfil:</span>
+                            </br>
+                            <input accept="image/*" type="file" name="imagen">
+                        </div>
+                        <div class="colderecha">
+                            <div class="nombre">
+                                <span>Ingrese el nuevo nombre del perfil:</span>
+                                <input type="text" name="nombre" placeholder="Nombre" class="form-control mb-3" value="{{ $perfil->nombre }}">
+                            </div>
+                        </div>
+                        </br>
                     </div>
-                      <input accept="image/*" type="file" name="imagen" >
-                    <button class="btn btn-warning btn-block" type="submit">
-                        Editar perfil
+                    <button class="btn btn-info " type="submit" style="width: 100%">
+                        Guardar cambios
                     </button>
-                  </br>
+                    </br>
                 </form>
+                <hr>
                 @foreach($errors->all() as $error)
                     <div class="alert alert-danger" role="alert">
                         {{$error}}
@@ -52,28 +63,43 @@
                 @if($perfil->estado)
                 <form action="{{route('desactivarPerfil', $perfil->id)}}" method="POST" >
                     @csrf
-                    <input type="password" name="pass" placeholder="Contraseña" class="form-control mb-2" value="">
-                    <button class="btn btn-warning" type="submit">
-                        Desactivar perfil
-                    </button>
+                    <div class="desac_y_elim">
+                        <span>Ingrese su contraseña: </span>
+                        <input type="password" name="pass" placeholder="Contraseña" class="form-control mb-2" value="">
+                        <button class="btn btn-info" type="submit">
+                            Desactivar perfil
+                        </button>
+                    </div>
                 </form>
                 @else
                 <form action="{{route('activarPerfil', $perfil->id)}}" method="POST" >
                     @csrf
-                    <input type="password" name="pass" placeholder="Contraseña" class="form-control mb-2" value="">
-                    <button class="btn btn-warning" type="submit">
-                        Activar perfil
-                    </button>
+                    <div class="desac_y_elim">
+                        <span>Ingrese su contraseña: </span>
+                        <input type="password" name="pass" placeholder="Contraseña" class="form-control mb-2" value="">
+                        <button class="btn btn-info" type="submit">
+                            Activar perfil
+                        </button>
+                    </div>
                 </form>
                 @endif
+                <hr>
                 <form action="{{route('eliminarPerfil', $perfil->id)}}" method="POST" >
                     @csrf
-                    <input type="password" name="pass" placeholder="Contraseña" class="form-control mb-2" value="">
-                    <button class="btn btn-warning" type="submit">
-                        Eliminar perfil
-                    </button>
+                    <div class="desac_y_elim">
+                        <span>Ingrese su contraseña: </span>
+                        <input type="password" name="pass" placeholder="Contraseña" class="form-control mb-2" value="">
+                        <button class="btn btn-info" type="submit">
+                            Eliminar perfil
+                        </button>
+                    </div>
                 </form>
+                <hr>
+                <a href="{{url('/seleccionPerfil')}}" class="botonvolver btn btn-info" role="button">
+                    Volver
+                </a>
             </div>
         </div>
     </div>
+
 @endsection

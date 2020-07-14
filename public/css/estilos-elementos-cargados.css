@@ -11,7 +11,6 @@ h3{
 }
 .card-body{
     display: grid;
-    grid-template-rows: /*8% 79% 13%*/ 31px minmax(31px 300px) 49px;
 }
 .encabezado{
     display: grid;
@@ -29,7 +28,7 @@ h3{
     border: 2px solid black;
     justify-items: center;
     min-height: 31px;
-    max-height: 300px;
+    max-height: 270px;
 }
 .elemento img{
     width: 80px;

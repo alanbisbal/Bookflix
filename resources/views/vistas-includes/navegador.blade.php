@@ -23,31 +23,40 @@
           <ul class="navbar-nav" >
             <li class="nav-item">
               <a class="nav-link" href="{{url('/home')}}">
-                <span class="alinear">
+                <span class="alinear" style="width: 80px;">
                   Home
                 </span>
               </a>
             </li>
             <li class="nav-item">
+              <a class="nav-link" href="{{ route('verCatalogo') }}">
+                <span class="alinear" style="width: 90px;">
+                  Catálogo
+                </span>
+              </a>
+          </li>
+            <li class="nav-item">
+              <form action="{{'buscar'}}" method="POST" enctype="multipart/form-data">
+                {{csrf_field()}}
+                <input type="text" name="busqueda" id="busqueda" value="{{ old('busqueda') }}">
+                <button type="submit" class="btn btn-buscar" style="width: 80px;">
+                  Buscar
+                </button>
+              </form>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="{{ route('verFavoritos') }}">
-                <span class="alinear">
-                  Ver Favoritos
+                <span class="alinear" style="width: 120px;">
+                  Mis Favoritos
                 </span>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{{ route('verLeidos') }}">
-                <span class="alinear">
-                  Ver Leidos
+                <span class="alinear" style="width: 110px;">
+                  Libros leídos
                 </span>
               </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('verCatalogo') }}">
-                  <span class="alinear">
-                    Ver Catalogo
-                  </span>
-                </a>
             </li>
           </ul>
         @endif
@@ -60,14 +69,14 @@
     <ul class="navbar-nav">
       @guest
         <li class="nav-item">
-          <a class="nav-link " href="/">
+          <a class="nav-link boton-navegador" href="/">
             <span class="alinear">{{ __('Inicio') }}
             </span>
           </a>
         </li>
       @else
         <li class="nav-item dropdown">
-          <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+          <a id="navbarDropdown" class="nav-link dropdown-toggle boton-navegador" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
             <span class="caret">
               Menú
             </span>

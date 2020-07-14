@@ -1,0 +1,94 @@
+.menu{
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.background-overlay{
+    height: max-content;
+}
+.card-header{
+    display: flex;
+    justify-content: space-between;
+}
+h3{
+    display:flex;
+}
+.nav-link{
+    display: flex;
+    align-content: center;
+}
+.editar{
+    display: grid;
+    grid-template-columns: 50% 50%  ;
+}
+.colderecha{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.nombre{
+    display: flex;
+    flex-direction: column;
+    margin-left: 50px;
+}
+.nombre span{
+    margin-bottom: 10px;
+}
+.nombre input{
+    width: 300px;
+}
+.foto{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.botoneditar{
+    margin-left: 50px;
+    width: 100%;
+}
+.desac_y_elim{
+    display: flex;
+}
+.desac_y_elim span{
+    margin-right: 20px;
+    margin-top: 5px;
+}
+.desac_y_elim input{
+    width: 424px;
+    margin-right: 20px;
+}
+.imagen img{
+    width: 100px;
+    height: 155px;
+}
+
+/*boton*/
+.btn{
+    width: 150px;
+    height: 38px;
+}
+.botonvolver{
+    width: 100px;
+}
+.btn.btn-info:hover{
+    background-color: black;
+    border-color: black;
+}
+.btn-info:not(:disabled):not(.disabled).active, .btn-info:not(:disabled):not(.disabled):active, .show > .btn-info.dropdown-toggle{
+    color: red;
+    background-color: black;
+    border-color: black;
+}
+.btn-info.focus, .btn-info:focus{
+    color: red;
+    background-color: black;
+    border-color: black;
+    box-shadow: none;
+}
+.btn-info:not(:disabled):not(.disabled).active:focus, .btn-info:not(:disabled):not(.disabled):active:focus, .show > .btn-info.dropdown-toggle:focus{
+    box-shadow: none;
+}
+.btn.btn-info:active{
+    color: red;
+    background-color: black;
+    border-color: black;
+}

@@ -2,24 +2,29 @@
     width: 95%;
 }
 .encabezado{
-    grid-template-columns: 11% 18% 9% 13% 15% 15% 8% 9%;
+    grid-template-columns: 12% 18% 9% 13% 15% 12% 9% 9%;
 }
 .elemento{
-    grid-template-columns: 11% 18% 9% 13% 15% 15% 8% 9%;
+    grid-template-columns: 12% 18% 9% 13% 15% 12% 9% 9%;
+}
+.elemento span{
+    margin-left: 15px;
 }
 .botones{
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 .bot{
     width: 110px;
     margin-top: 5px;
     margin-bottom: 5px;
+    margin-left: 60px;
 }
 .bot1{
     background-color: black;
     color: white;
+    margin-right: 10px;
 }
 .bot:hover{
     color: white;
