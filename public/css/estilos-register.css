@@ -8,6 +8,9 @@
   height: max-content;
   background-repeat: repeat;
 }
+h4{
+  margin-bottom: 20px;
+}
 .btn-general:hover{
   font-weight: bold;
   background-color: black;
@@ -32,4 +35,8 @@
 .derecha{
   display: flex;
   flex-direction: column;
+}
+.banco{
+  margin-left: 23px;
+  margin-bottom: 70px;
 }

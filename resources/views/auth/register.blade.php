@@ -4,7 +4,7 @@
 
 <link rel="stylesheet" href="css/estilos-register.css">
 
-    <div class="col-md-8">
+    <div class="col-md-10">
         <div class="card">
             <div class="card-header">
                 <h3>{{ __('Registrate') }}</h3> 
@@ -73,7 +73,7 @@
                             </div>
                             <div class="form-group row">
                                 <label for="password-confirm" class="col-md-4 col-form-label text-md-right">
-                                    {{ __('Confirmar contraseña') }}
+                                    {{ __('Confirmar contraseña:') }}
                                 </label>
                                 <div class="col-md-7">
                                     <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
@@ -98,7 +98,7 @@
                             </div>
                             <div class="form-group row">
                                 <label for="titular" class="col-md-4 col-form-label text-md-right">
-                                    {{ __('Titular') }}
+                                    {{ __('Titular:') }}
                                 </label>
                                 <div class="col-md-7">
                                     <input id="titular" type="text" class="form-control" name="titular" value="{{ old('titular') }}" >
@@ -106,7 +106,7 @@
                             </div>
                             <div class="form-group row">
                                 <label for="n_tarjeta" class="col-md-4 col-form-label text-md-right">
-                                    N° Tarjeta
+                                    N° Tarjeta:
                                 </label>
                                 <div class="col-md-7">
                                     <input id="n_tarjeta" type="text"  name="n_tarjeta" class="form-control" value="{{old('n_tarjeta')}}" >
@@ -114,7 +114,7 @@
                             </div>
                             <div class="form-group row">
                                 <label for="t_codigo" class="col-md-4 col-form-label text-md-right">
-                                    {{ __('Código de seguridad') }}
+                                    {{ __('Código de seguridad:') }}
                                 </label>
                                 <div class="col-md-7">
                                     <input id="t_codigo" type="text" name="t_codigo" class="form-control" value="{{old('t_codigo')}}">
@@ -124,7 +124,7 @@
                                 <label for="idBanco"class="col-md-4 col-form-label text-md-right">
                                     {{'Banco:'}}
                                 </label>
-                                <select name="idBanco" class="col-md-7">
+                                <select name="idBanco" class="banco col-md-6">
                                     @foreach($bancos as $banco)
                                         <option value="{{$banco->id}}">
                                             {{$banco->nombre}}

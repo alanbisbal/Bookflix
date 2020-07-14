@@ -1,3 +1,7 @@
+.background-overlay{
+    height: 100%;
+    background-repeat: repeat;
+  }
 .card-header{
     display: flex;
     justify-content: space-between;
@@ -61,6 +65,7 @@ h3{
     max-height: 31px;
 }
 .btn-info{
+    margin-top: 10px;
     width: 140px;
 }
 .btn-info:hover{
