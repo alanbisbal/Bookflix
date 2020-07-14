@@ -4,7 +4,7 @@
 
 <link rel="stylesheet" href="/css/estilos-verCapitulos.css">
 
-    <div class="col-md-8">
+    <div class="col-md-11">
         <div class="card">
             <div class="card-header" style="display:flex; justify-content: space-between;">
                 <h3>
@@ -26,20 +26,17 @@
                 <form action="{{ route('capitulo.update', $capitulo->id) }}" method="POST" enctype="multipart/form-data">
                     @method('PUT')
                     @csrf
-                    <label for="titulo">{{'Título del capítulo: '}}</label>
-                    <input type="text" name="titulo" id="titulo" value="{{ $capitulo->titulo }}">
-                    <label for="capitulo">
+                    <label class="titcap" for="titulo">{{'Título del capítulo: '}}</label>
+                    <input class="input-titcap" type="text" name="titulo" id="titulo" value="{{ $capitulo->titulo }}">
+                    <label class="label-cap" for="capitulo">
                         <a href="{{asset('storage').'/'.$capitulo->capitulo}}">
                             PDF del capítulo {{$capitulo->nro}}
                         </a>
                     </label>
                     <input accept="application/pdf" type="file" name="capitulo" id="capitulo" value="{{ asset('storage').'/'.$capitulo->capitulo }}">
-                    <div class="col-md-6">
-                        <button class="btn btn-warning btn-block" type="submit">
-                            Editar
-                        </button>
-                        
-                    </div>
+                    <button class="boton-editar btn btn-info" type="submit">
+                        Editar
+                    </button>
                 </form>
                 @endforeach
                 <a href="{{url('/librosCargados')}}" class="btn btn-info" role="button">

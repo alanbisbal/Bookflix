@@ -74,6 +74,20 @@
     a.style.display = '';
   }
 </script>
+<script>
+  function mostrar7(contenedor, boton) {
+    div = document.getElementById(contenedor);
+    div.style.display = '';
+    a = document.getElementById(boton);
+    a.style.display = 'none';
+  }
+  function cerrar7(contenedor, boton) {
+    div = document.getElementById(contenedor);
+    div.style.display = 'none';
+    a = document.getElementById(boton);
+    a.style.display = '';
+  }
+</script>
 
   <div class="col-md-8">
     <div class="card">
@@ -200,11 +214,31 @@
           </div>
         </div>
         <hr>
+        <div class="vermas7">
+          <p>
+            <b>Los libros más leidos:</b>
+            </br>
+            <a id="boton7" href="javascript:mostrar7('contenedor7', 'boton7')">
+              Ver libros ↓
+            </a>
+          </p>
+          <div id="contenedor7" style="display:none;">
+            <div class="alert alert-success">
+              <!-- ACÁ IRÍA EL FOREACH -->
+            </div>
+            <a  href="javascript:cerrar7('contenedor7', 'boton7')">
+              Cerrar ↑
+            </a>
+          </div>
+        </div>
+        <!--
+          ES LO QUE ESTABA ANTES DE METER MANO:
         <div>
           <a href="{{'librosMasLeidos'}}">
             <b>Ver libros más leidos</b>
           </a>
         </div>
+        -->
         <hr>
         @foreach($errors->all() as $error)
           <div class="alert alert-danger" role="alert">
