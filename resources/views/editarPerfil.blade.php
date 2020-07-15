@@ -28,9 +28,15 @@
                     @csrf
                     <div class="editar">
                         <div class="foto">
-                            <div class="imagen">
-                                <img src="{{asset('storage').'/'.$perfil->imagen}}" alt="150px "width="150px">
-                            </div>
+                            @if(!empty($perfil->imagen))
+                                <div class="imagen">
+                                    <img src="{{asset('storage').'/'.$perfil->imagen}}" alt="100% "width="100%" >
+                                </div>
+                            @else
+                                <div class="imagen">
+                                    <img src="/imagenes/perfil.jpg" alt="100% "width="100%">
+                                </div>
+                            @endif
                             </br>
                             <span>Seleccione su nueva foto de perfil:</span>
                             </br>

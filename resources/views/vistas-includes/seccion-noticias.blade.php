@@ -1,6 +1,6 @@
 <div class="card cb2">
     <div class="card-header">
-        Sección de novedades
+        <h5>Sección de novedades</h5>
     </div>
     <div class="tarjetasanidadas">
         @foreach($novedades as $novedad)

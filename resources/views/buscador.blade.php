@@ -4,7 +4,7 @@
 
 @section('content')
 
-<link rel="stylesheet" href="/css/estilos-home.css">
+<link rel="stylesheet" href="/css/estilos-buscador.css">
 
 
 
@@ -16,7 +16,6 @@
         <input type="submit" class="btn btn-primary" value="Buscar">
       </form>
     </div>
-
     <div class="card card1">
       <div class="card-header">
         <h4>
@@ -24,30 +23,25 @@
         </h4>
       </div>
       <div class="cb1">
-
         <div class="libros">
-
-        @if(count($busquedas)==0)
-          {{'No hay resultados para la busqueda'}}
-        @else
-        </br>
-
-
-
-        @foreach($busquedas as $libro)
-          @if($libro->visible)
-            <div class="libro">
-              <a  href="{{route('libro.trailer',$libro->id)}}">
-                <div class="imagen">
-                  <img src="{{asset('storage').'/'.$libro->img_libro}}" alt="100" width="100">
+          @if(count($busquedas)==0)
+            {{'No hay resultados para la busqueda'}}
+          @else
+            </br>
+            @foreach($busquedas as $libro)
+              @if($libro->visible)
+                <div class="libro">
+                  <a  href="{{route('libro.trailer',$libro->id)}}">
+                    <div class="imagen">
+                      <img src="{{asset('storage').'/'.$libro->img_libro}}" alt="100" width="100">
+                    </div>
+                    <b><i>{{($libro->titulo)}}</i></b>
+                  </a>
                 </div>
-                <b><i>{{($libro->titulo)}}</i></b>
-              </a>
-            </div>
+              @endif
+            @endforeach
           @endif
-        @endforeach
-        @endif
-      </div>
+        </div>
       </div>
     </div>
 

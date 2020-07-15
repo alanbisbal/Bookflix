@@ -52,7 +52,6 @@ ul{
 }
 .nav-item span{
   font-size: 18px;
-  font-weight: bold;
 }
 /*
 .nav-link{
@@ -79,6 +78,11 @@ ul{
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.boton-navegador:hover{
+  background-color: white;
+  color:red;
+  font-weight: bold;
 }
 @media (max-width:800px){
   .nav-link{
@@ -127,7 +131,7 @@ main{
   position: absolute;
 }
 .card{
-  margin-top: 30px;
+  margin-top: 40px;
   margin-bottom: 50px;
   border: 2px solid black;
   /*max-height: 510px;*/

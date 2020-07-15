@@ -6,8 +6,7 @@
   background-repeat: repeat;
 }
 .background-overlay{
-  height: max-content;
-  background-repeat: repeat;
+  height: 1050px;
 }
 .card{
   height: 65%;
@@ -46,7 +45,6 @@
 }
 .cb1{
   height: 180px;
-
 }
 .libro{
   display: flex;

@@ -22,12 +22,10 @@
           {{ session('status') }}
         </div>
       @endif
-
       @foreach($perfiles as $perfil)
         <div class="d-inline-block">
           @if($perfil->estado)
           <a class="perfiles" href="{{ route('perfilActivo',$perfil->id) }}">
-
           @endif
             @if(!empty($perfil->imagen))
               <div class="imagen">
@@ -35,7 +33,7 @@
               </div>
             @else
               <div class="imagen">
-                <img src="imagenes/perfil.jpg" alt="100% "width="100%">
+                <img src="/imagenes/perfil.jpg" alt="100% "width="100%">
               </div>
             @endif
             <h4>
@@ -46,7 +44,6 @@
                 Editar perfil
               </a>
             </div>
-
           </a>
         </div>
       @endforeach
