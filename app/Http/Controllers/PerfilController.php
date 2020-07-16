@@ -278,7 +278,6 @@ class PerfilController extends Controller
 
 
 
-
     public function editarPerfil($id)
     {
       $perfil = Perfil::findOrFail($id);
@@ -322,6 +321,7 @@ class PerfilController extends Controller
       $perfil = Perfil::findOrFail($id);
       $perfil->estado=0;
       $perfil->save();
+      session(['perfil' => null]);
     }
     else{
         return back()->with('alertas','La contraseña ingresada es inválida');

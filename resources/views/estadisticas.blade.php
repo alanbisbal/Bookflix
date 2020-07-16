@@ -140,10 +140,14 @@
           </p>
           <div id="contenedor3" style="display:none;">
             <div class="alert alert-success">
+              @if(count($uMasLecturas)==0)
+                No hay lecturas realizadas todavia
+              @else
               @foreach($uMasLecturas as $u)
                 {{$u->email}}
                 </br>
               @endforeach
+              @endif
             </div>
             <a  href="javascript:cerrar3('contenedor3', 'boton3')">
               Cerrar ↑
@@ -182,10 +186,14 @@
           </p>
           <div id="contenedor5" style="display:none;">
             <div class="alert alert-success">
+              @if(count($uPremium)==0)
+              No hay usuarios usuarios Premium
+              @else
               @foreach($uPremium as $u)
                 {{$u->email}}
                 </br>
               @endforeach
+              @endif
             </div>
             <a  href="javascript:cerrar5('contenedor5', 'boton5')">
               Cerrar ↑
@@ -203,10 +211,14 @@
           </p>
           <div id="contenedor6" style="display:none;">
             <div class="alert alert-success">
+              @if(count($uNoPremium)==0)
+              No hay usuarios comunes
+              @else
               @foreach($uNoPremium as $u)
               {{$u->email}}
               </br>
             @endforeach
+            @endif
             </div>
             <a  href="javascript:cerrar6('contenedor6', 'boton6')">
               Cerrar ↑
