@@ -99,9 +99,6 @@ class Admin extends Controller
 
 
 
-
-
-
      public function agregarLibro()
      {
          return view('agregarLibro');
