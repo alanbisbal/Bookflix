@@ -44,6 +44,29 @@
       </div>
       </div>
     </div>
+    <div class="card card1">
+      <div class="card-header">
+        <h4>
+          Mejores calificados por el público
+        </h4>
+      </div>
+      <div class="cb1">
+        <div class="libros">
+        @foreach($mejoresCalificados as $libro)
+          @if($libro->visible)
+            <div class="libro">
+              <a  href="{{route('libro.trailer',$libro->id)}}">
+                <div class="imagen">
+                  <img src="{{asset('storage').'/'.$libro->img_libro}}" alt="100" width="100">
+                </div>
+                <b><i>{{($libro->titulo)}}</i></b>
+              </a>
+            </div>
+          @endif
+        @endforeach
+      </div>
+      </div>
+    </div>
 
     <div class="card card1">
       <div class="card-header">
@@ -93,12 +116,12 @@
       </div>
       </div>
     </div>
-  
+
   </div>
   <div class="col-md-3">
     @include('vistas-includes.seccion-noticias')
   </div>
 
-  
+
 
 @endsection

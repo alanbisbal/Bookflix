@@ -224,7 +224,11 @@
           </p>
           <div id="contenedor7" style="display:none;">
             <div class="alert alert-success">
-              <!-- ACÁ IRÍA EL FOREACH -->
+              @foreach($masLeidos as $libro)
+              <b>{{count($libro->lecturas)}}</b> lecturas - <b><i>{{($libro->titulo)}}</i></b> de <i><b>{{$libro->autorL->nombre}}</i></b>.
+              </br>
+              </br>
+            @endforeach
             </div>
             <a  href="javascript:cerrar7('contenedor7', 'boton7')">
               Cerrar ↑

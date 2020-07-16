@@ -54,6 +54,7 @@
   </br>
 </select>
 </br>
+<div>
 Orden:<select name="orden">
   <option disabled selected value> -- Seleccione una opcion -- </option>
 
@@ -68,10 +69,10 @@ Orden:<select name="orden">
 
 </br>
 </select>
-
+</div>
 
   </div>
-  <input type="submit" value="Enviar">
+  <input type="submit" value="Enviar" class="btn btn-primary btn-general">
   </form>
 </div>
     <div class="col-md-8">

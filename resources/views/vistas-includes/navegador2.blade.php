@@ -37,15 +37,9 @@
           </li>
 
             <li class="nav-item">
-              <form action="{{'buscar'}}" method="POST" enctype="multipart/form-data">
-                {{csrf_field()}}
-                <input type="text" name="busqueda" id="busqueda" value="">
-                <button type="submit" class="btn btn-buscar" style="width: 80px;">
-                  Buscar
-                </button>
-              </form>
-            </li>
             
+            </li>
+
             <li class="nav-item">
               <a class="nav-link" href="{{ route('verFavoritos') }}">
                 <span class="alinear" style="width: 120px;">
