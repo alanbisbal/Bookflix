@@ -4,7 +4,7 @@
 
 <link rel="stylesheet" type="text/css" href="/css/estilos-verFavoritos.css">
 
-    <div class="col-md-9">
+    <div class="col-md-10">
         <div class="card">
             <div class="card-header">
                 <h3>
@@ -39,7 +39,7 @@
                                             {{csrf_field()}}
                                             <label for="idLibro"></label>
                                             <input type="hidden" name="idLibro" id="idLibro" value="{{ $favorito->libro->id }}">
-                                            <button type="submit" class="valoracion">
+                                            <button type="submit" class="valoracion btn btn-info">
                                                 Eliminar de favoritos
                                             </button>
                                         </form>

@@ -77,14 +77,11 @@
                   <form action="{{route('libroLeido')}}" method="post">
                     {{csrf_field()}}
 
-                    <a  href="{{asset('storage').'/'.$capitulos->first()->capitulo}}">
+                    <a style="margin-left: 50px;" class="btn btn-info" href="{{asset('storage').'/'.$capitulos->first()->capitulo}}">
                       Leer libro
                     </a>
                     <input type="hidden" name="cap" id="cap" value="  {{ $capitulos->first()->capitulo}}">
                     <input type="hidden" name="idLibro" id="idLibro" value="{{ $libro->id }}">
-                    <button type="submit">
-                      Leer
-                    </button>
                   </form>
                 </div>
                 @else
@@ -100,7 +97,7 @@
                         {{csrf_field()}}
                         <input type="hidden" name="cap" id="cap" value="{{ $capitulo->capitulo }}">
                         <input type="hidden" name="idLibro" id="idLibro" value="{{ $libro->id }}">
-                        <button type="submit">Leer</button>
+                        <button type="submit" class=" btn btn-info" style="margin-top: 0px;">Leer</button>
                       </form>
                     </div>
                   @endforeach
