@@ -66,14 +66,10 @@
 
               <div class="capitulos">
                 @if(count($capitulos) == 1)
-                <div class="titcapitulos">
-                  <h3>
-                    Libro:
-                  </h3>
-                </div>
-                  <div class="cap">
 
+                  <div class="fav">
 
+                  <div class="btn btn-info btn">
                   <form action="{{route('libroLeido')}}" method="post">
                     {{csrf_field()}}
 
@@ -82,26 +78,28 @@
                     </a>
                     <input type="hidden" name="cap" id="cap" value="  {{ $capitulos->first()->capitulo}}">
                     <input type="hidden" name="idLibro" id="idLibro" value="{{ $libro->id }}">
-                    <button type="submit">
-                      Leer
-                    </button>
+
                   </form>
+                  </div>
                 </div>
                 @else
                 <div class="titcapitulos">
                   <h3>
-                    Capítulos:
+                    Lista de capitulos:
                   </h3>
                 </div>
+
                   @foreach($capitulos as $capitulo)
+
                     <div class="cap">
+                      <div class="btn btn-info btn">
                       <h6>Título:<i> {{$capitulo->titulo}}</i></h6>
                       <form action="{{route('libroLeido')}}" method="post">
                         {{csrf_field()}}
                         <input type="hidden" name="cap" id="cap" value="{{ $capitulo->capitulo }}">
                         <input type="hidden" name="idLibro" id="idLibro" value="{{ $libro->id }}">
-                        <button type="submit">Leer</button>
                       </form>
+                        </div>
                     </div>
                   @endforeach
                 @endif

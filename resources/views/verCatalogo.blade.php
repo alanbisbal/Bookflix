@@ -44,7 +44,7 @@
                     </ul>
                   </div>
                 </div>
-              @endforeach          
+              @endforeach
             </select>
           </div>
           <div class="filtro">
@@ -62,7 +62,7 @@
                 @endforeach
             </select>
           </div>
-          <div class="filtro verde">  
+          <div class="filtro verde">
             <span class="nombre-filtro">Orden: </span>
             <select name="orden" >
               <option selected value> Seleccione una opción </option>
@@ -102,7 +102,14 @@
           @endif
           <div class="libros">
             @if(count($libros)==0)
-              No hay resultados para la búsqueda
+            <div class="libro">
+
+                  <i>
+                    {{'No hay resultados'}}
+                  </i>
+                </div>
+
+            </div>
             @else
               @foreach($libros as $libro)
                 <div class="libro">

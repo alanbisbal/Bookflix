@@ -19,6 +19,8 @@
 }
 .cbderecha{
     margin-left: 390px;
+    min-width: 850px;
+    min-height: 431px;
 }
 .card-header{
     display: flex;

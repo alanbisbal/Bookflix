@@ -31,18 +31,24 @@
                                             <div class="imagen">
                                                 <img src="{{asset('storage').'/'.$favorito->libro->img_libro}}" alt="100" width="100">
                                             </div>
-                                            <i>{{($favorito->libro->titulo)}}</i>   
+                                            <i>{{($favorito->libro->titulo)}}</i>
                                         </a>
                                     </div>
                                     <div class="abajo">
+
                                         <form  action="{{route('eliminarFavorito')}}" method="POST">
                                             {{csrf_field()}}
+
                                             <label for="idLibro"></label>
+
                                             <input type="hidden" name="idLibro" id="idLibro" value="{{ $favorito->libro->id }}">
+
                                             <button type="submit" class="valoracion">
                                                 Eliminar de favoritos
                                             </button>
+
                                         </form>
+
                                     </div>
                                 </div>
                             @endif
