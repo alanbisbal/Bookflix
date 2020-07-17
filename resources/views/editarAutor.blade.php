@@ -2,7 +2,7 @@
 
 @section('content')
 
-<link rel="stylesheet" href="css/estilos-editarAutor.css">
+<link rel="stylesheet" href="/css/estilos-editarAutor.css">
 
     <div class="col-md-8">
         <div class="card">
@@ -33,10 +33,16 @@
                     @method('PUT')
                     @csrf
                     <input type="text" name="nombre" placeholder="Nombre" class="form-control mb-2" value="{{ $autor->nombre }}">
-                    <button class="btn btn-warning btn-block" type="submit">
-                        Editar autor
-                    </button>
+                    <div class="botones">
+                        <a href="{{url('/autoresCargados')}}" class="btn btn-info" role="button">
+                            Volver
+                        </a>
+                        <button class="btn btn-info" type="submit">
+                            Editar autor
+                        </button>
+                    </div>
                 </form>
+                
             </div>
         </div>
     </div>

@@ -2,7 +2,7 @@
 
 @section('content')
 
-<link rel="stylesheet" href="css/estilos-editarGenero.css">
+<link rel="stylesheet" href="/css/estilos-editarGenero.css">
 
     <div class="col-md-8">
         <div class="card">
@@ -18,7 +18,6 @@
                         {{ session('status') }}
                     </div>
                 @endif
-                <h1>Editar genero</h1>
                 @foreach($errors->all() as $error)
                     <div class="alert alert-danger" role="alert">
                         {{$error}}
@@ -33,13 +32,16 @@
                     @method('PUT')
                     @csrf
                     <input type="text" name="nombre" placeholder="Nombre" class="form-control mb-2" value="{{ $genero->nombre }}">
-                    <button class="btn btn-info" type="submit">
-                        Editar género
-                    </button>
+                    <div class="botones">
+                        <a href="{{url('/generosCargados')}}" class="btn btn-info" role="button">
+                            Volver
+                        </a>
+                        <button class="btn btn-info" type="submit">
+                            Editar género
+                        </button>
+                    </div>
                 </form>
-                <a href="{{url('/generosCargados')}}" class="btn btn-info" role="button">
-                    Volver
-                </a>
+                
             </div>
         </div>
     </div>

@@ -1,5 +1,5 @@
 .card{
-    height: 60%;
+    height: 70%;
 }
 .card-header{
     display: flex;
@@ -11,4 +11,41 @@ h3{
 .nav-link{
     display: flex;
     align-content: center;
+}
+
+
+
+/*boton*/
+.botones{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.btn-info{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 140px;
+}
+.btn.btn-info:hover{
+    background-color: black;
+    border-color: black;
+}
+.btn-info:not(:disabled):not(.disabled).active, .btn-info:not(:disabled):not(.disabled):active, .show > .btn-info.dropdown-toggle{
+    color: red;
+    background-color: black;
+    border-color: black;
+}
+.btn-info.focus, .btn-info:focus{
+    color: red;
+    background-color: black;
+    border-color: black;
+    box-shadow: none;
+}
+.btn-info:not(:disabled):not(.disabled).active:focus, .btn-info:not(:disabled):not(.disabled):active:focus, .show > .btn-info.dropdown-toggle:focus{
+    box-shadow: none;
+}
+.btn.btn-info:active{
+    color: red;
+    background-color: black;
+    border-color: black;
 }

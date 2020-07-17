@@ -42,6 +42,9 @@
             @endforeach
           @endif
         </div>
+        <a href="{{url('/home')}}" class="btn btn-info" role="button">
+          Volver
+        </a>
       </div>
     </div>
 

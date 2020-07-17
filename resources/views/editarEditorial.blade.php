@@ -2,7 +2,7 @@
 
 @section('content')
 
-<link rel="stylesheet" href="css/estilos-editarEditorial.css">
+<link rel="stylesheet" href="/css/estilos-editarEditorial.css">
 
     <div class="col-md-8">
         <div class="card">
@@ -32,13 +32,16 @@
                     @method('PUT')
                     @csrf
                     <input type="text" name="nombre" placeholder="Nombre" class="form-control mb-2" value="{{ $editorial->nombre }}">
-                    <button class="btn btn-info" type="submit">
-                        Editar editorial
-                    </button>
+                    <div class="botones">
+                        <a href="{{url('/editorialesCargados')}}" class="btn btn-info" role="button">
+                            Volver
+                        </a>
+                        <button class="btn btn-info" type="submit">
+                            Editar editorial
+                        </button>
+                    </div>
                 </form>
-                <a href="{{url('/editorialesCargados')}}" class="btn btn-info" role="button">
-                    Volver
-                </a>
+                
             </div>
         </div>
     </div>
