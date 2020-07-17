@@ -57,8 +57,8 @@ class Admin extends Controller
 
 
         $masLeidos=Libro::withCount('lecturas')->get()->sortBy('lecturas_count')->reverse();
-        $masLeidos=$masLeidos->take(10);
 
+        $masLeidos=$masLeidos->take(10);
         $uMasLecturas=$uMasLecturas->take(10);
         $uMasComentarios=$uMasComentarios->take(10);
 

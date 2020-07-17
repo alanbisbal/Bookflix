@@ -11,9 +11,9 @@
 	<form  action="{{'catalogoFiltrado'}}" method="post" >
     @csrf
     <div class="tarjetasanidadas">
-
+      <div class="alert alert-success">
       Genero:<select name="genero" value="">
-     	<option disabled selected value> -- Seleccione una opcion -- </option>
+     	<option  selected value> -- Seleccione una opcion -- </option>
       @foreach($generos as $genero)
           <div class="text-dark tarjetaanidada-una">
               <div class="card-body">
@@ -26,8 +26,10 @@
       </select>
 
     </br>
+  </div>
+    <div class="alert ">
     Autor:<select name="autor" >
-    <option disabled selected value> -- Seleccione una opcion -- </option>
+    <option  selected value> -- Seleccione una opcion -- </option>
       @foreach($autores as $autor)
           <div class="text-dark tarjetaanidada-una">
               <div class="card-body">
@@ -40,8 +42,10 @@
     </br>
     </select>
   </br>
+</div>
+  <div class="alert alert-success">
   Editorial:<select name="editorial">
-    <option disabled selected value> -- Seleccione una opcion -- </option>
+    <option  selected value> -- Seleccione una opcion -- </option>
     @foreach($editoriales as $editorial)
         <div class="text-dark tarjetaanidada-una">
             <div class="card-body">
@@ -54,9 +58,11 @@
   </br>
 </select>
 </br>
-<div>
-Orden:<select name="orden">
-  <option disabled selected value> -- Seleccione una opcion -- </option>
+</div>
+
+<div class="alert ">
+Orden:<select name="orden" >
+  <option selected value> -- Seleccione una opcion -- </option>
 
       <div class="text-dark tarjetaanidada-una">
           <div class="card-body">
@@ -72,8 +78,14 @@ Orden:<select name="orden">
 </div>
 
   </div>
-  <input type="submit" value="Enviar" class="btn btn-primary btn-general">
+  <a href="{{url('/home')}}" class="btn btn-info" role="button">
+    Volver
+  </a>
+  <input type="submit" value="Enviar" class="btn btn-info">
+
+
   </form>
+
 </div>
     <div class="col-md-8">
         <div class="card">
@@ -107,11 +119,7 @@ Orden:<select name="orden">
                     @endforeach
                     @endif
                 </div>
-                <div class="boton">
-                    <a href="{{url('/home')}}" class="btn btn-info" role="button">
-                        Volver
-                    </a>
-                </div>
+
             </div>
         </div>
     </div>

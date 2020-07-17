@@ -12,7 +12,6 @@ use App\Editorial;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
-
 class HomeController extends Controller
 {
     /**
@@ -48,8 +47,7 @@ class HomeController extends Controller
 
 
 
-        $mejoresCalificados=Libro::where('visible', '=', 1)
-
+    $mejoresCalificados=Libro::where('visible', '=', 1)
 	                     ->leftJoin('calificaciones', 'calificaciones.idLibro', '=', 'libros.id')
 	                     ->select(array('libros.*',
 		                     DB::raw('AVG(calif) as ratings_average')
@@ -57,7 +55,7 @@ class HomeController extends Controller
 	                     ->groupBy('id')
 	                     ->orderBy('ratings_average', 'DESC')
 	                     ->get();
-          ;
+
 
 
 
@@ -128,14 +126,14 @@ class HomeController extends Controller
             $librosEditorial= Libro::where('idEditorial',"=",$request->editorial)->get();
               $libros=$libros->intersect($librosEditorial);
           }
+
+          $libros=collect($libros)->sortBy('titulo');
           if(isset($request->orden)){
-            if($request->orden="ASC"){
-                 $libros=collect($libros)->sort();
+            if($request->orden == "DESC"){
+              $libros=$libros->sortByDesc('titulo');
             }
-            else{
-                 $libros=collect($libros)->sortDesc();
-            }
-        }
+          }
+
           return view('verCatalogo',compact('libros','generos','autores','editoriales'));
        }
 

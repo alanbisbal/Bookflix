@@ -96,7 +96,7 @@
       </div>
     </div>
 
-    <div class="card card1">
+    <!-- <div class="card card1">
       <div class="card-header">
         <h4>
           Más votados por el público
@@ -118,7 +118,7 @@
         @endforeach
       </div>
       </div>
-    </div>
+    </div> -->
 
   </div>
   <div class="col-md-3">
