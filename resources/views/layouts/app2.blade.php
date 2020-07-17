@@ -58,7 +58,7 @@
   <!-- Parte del "Confirmar cerrar sesión" -->
   <div id="app" class="container">
     <header class="header">
-      @include('vistas-includes.navegador')
+      @include('vistas-includes.navegador2')
     </header>
     <main>
       <div class="menu">

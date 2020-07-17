@@ -44,7 +44,7 @@ class Libro extends Model
             return $this->calificaciones->average('calif');
       }
 
-
+    
   public function comentarios()
     {
         return $this->hasMany('App\Comentarios','idLibro','id');

@@ -54,10 +54,18 @@ class Admin extends Controller
                      ->select('users.*')->distinct()
                      ->get();
 
+
+
+        $masLeidos=Libro::withCount('lecturas')->get()->sortBy('lecturas_count')->reverse();
+
+        $masLeidos=$masLeidos->take(10);
+        $uMasLecturas=$uMasLecturas->take(10);
+        $uMasComentarios=$uMasComentarios->take(10);
+
         $uPremium=User::all()->where('es_premium', '=', 1 );
         $uNoPremium=User::all()->where('es_premium', '=', 0 );
          return view('estadisticas',compact('uTot','u18y30','u31y50','u51mas',
-         'uMasLecturas','uMasComentarios','uPremium','uNoPremium'));
+         'uMasLecturas','uMasComentarios','uPremium','uNoPremium','masLeidos'));
 
      }
 
@@ -83,12 +91,9 @@ class Admin extends Controller
      public function librosMasLeidos()
      {
 
-      $masLeidos=Libro::withCount('lecturas')->get()->sortBy('lecturas_count')->reverse(); 
+      $masLeidos=Libro::withCount('lecturas')->get()->sortBy('lecturas_count')->reverse();
        return view('librosMasLeidos',compact('masLeidos'));
      }
-
-
-
 
 
 

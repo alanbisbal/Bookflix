@@ -9,16 +9,10 @@
 
 
   <div class="col-md-7">
-    <div>
-      <form action="{{'buscar'}}" method="POST" enctype="multipart/form-data">
-        {{csrf_field()}}
-        <input type="text" name="busqueda" id="busqueda" value="{{ $palabra }}">
-        <input type="submit" class="btn btn-primary" value="Buscar">
-      </form>
-    </div>
     <div class="card card1">
       <div class="card-header">
         <h4>
+          Para la busqueda:"{{ $palabra }}"</br>
           Resultados:{{count($busquedas)}}
         </h4>
       </div>

@@ -12,7 +12,6 @@ use App\Editorial;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
-
 class HomeController extends Controller
 {
     /**
@@ -39,21 +38,32 @@ class HomeController extends Controller
       if(!empty(session('perfil'))){
         $libros=Libro::all()->where('visible','=',1)->sortBy('nombre');
 
-        $masvotados=DB::table('libros')
-                    ->join('calificaciones', 'libros.id', '=', 'calificaciones.idLibro')
-                    ->select('libros.*')
-                    ->where('visible','=','1')
-                    ->orderByDesc('calif')
-                    ->distinct()
-                    ->get();
+        $masvotados=Libro::withCount('calificaciones')
+                         ->get()->sortBy('calificaciones_count')->reverse();
 
 
-       $masleidos=Libro::withCount('lecturas')
-                        ->get()->sortBy('lecturas_count')->reverse();
+        $masleidos=Libro::withCount('lecturas')
+                          ->get()->where('visible','=',1)->sortBy('lecturas_count')->reverse();
+
+
+
+    $mejoresCalificados=Libro::where('visible', '=', 1)
+	                     ->leftJoin('calificaciones', 'calificaciones.idLibro', '=', 'libros.id')
+	                     ->select(array('libros.*',
+		                     DB::raw('AVG(calif) as ratings_average')
+		                     ))
+	                     ->groupBy('id')
+	                     ->orderBy('ratings_average', 'DESC')
+	                     ->get();
+
+
 
 
         $nuevos=$libros->sortByDesc('id')->where('visible','=','1');
-
+        $masvotados=$masvotados->take(10);
+        $masleidos=$masleidos->take(10);
+        $nuevos=$nuevos->take(10);
+        $mejoresCalificados=$mejoresCalificados->take(10);
 
         $novedades= Novedad::all();
         if (auth()->user()->es_premium) {
@@ -64,7 +74,7 @@ class HomeController extends Controller
         }
         $cant = $cant - sizeof($perfiles);
         if($perfiles)
-        return view('home',compact('novedades','cant','libros','masvotados','masleidos','nuevos'));
+        return view('home',compact('novedades','cant','libros','masvotados','masleidos','nuevos','mejoresCalificados'));
       }
       else{
           return redirect()->action('PerfilController@seleccionPerfil');
@@ -116,14 +126,14 @@ class HomeController extends Controller
             $librosEditorial= Libro::where('idEditorial',"=",$request->editorial)->get();
               $libros=$libros->intersect($librosEditorial);
           }
+
+          $libros=collect($libros)->sortBy('titulo');
           if(isset($request->orden)){
-            if($request->orden="ASC"){
-                 $libros=collect($libros)->sort();
+            if($request->orden == "DESC"){
+              $libros=$libros->sortByDesc('titulo');
             }
-            else{
-                 $libros=collect($libros)->sortDesc();
-            }
-        }
+          }
+
           return view('verCatalogo',compact('libros','generos','autores','editoriales'));
        }
 
