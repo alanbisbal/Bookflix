@@ -258,8 +258,10 @@ class PerfilController extends Controller
 
     public function libroLeido(Request $request)
     {
+    
       $lectura= Lectura::where('idLibro',"=",$request->idLibro)->
                 where('idperfil',"=",session('perfil')->id)->get();
+
        if(empty($lectura->first())){
          Lectura::create([
         'idperfil'=>session('perfil')->id,
@@ -267,6 +269,7 @@ class PerfilController extends Controller
         'leido'=> 1,
         'desde'=>$request->cap,
        ]);
+
           }
      else{
          $lectura->first()->desde=$request->cap;
