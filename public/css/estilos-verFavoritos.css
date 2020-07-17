@@ -4,7 +4,7 @@
     background-repeat: repeat;
 }
 .background-overlay{
-    min-height: 505px;
+    min-height: 100vh;
     height: max-content;
     background-repeat: repeat;
 }
@@ -13,7 +13,7 @@
     justify-content: center;
 }
 .card{
-    width: 90%;
+    width: 100%;
 }
 .favoritos{
     display: flex;
@@ -53,7 +53,7 @@
 /*boton*/
 .btn-info{
     margin-top: 30px;
-    width: 110px;
+    width: 200px;
 }
 .btn.btn-info:hover{
     background-color: black;

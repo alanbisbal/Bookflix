@@ -102,14 +102,7 @@
           @endif
           <div class="libros">
             @if(count($libros)==0)
-            <div class="libro">
-
-                  <i>
-                    {{'No hay resultados'}}
-                  </i>
-                </div>
-
-            </div>
+              <h5><i><b>No hay resultados para la búsqueda</b></i></h5>
             @else
               @foreach($libros as $libro)
                 <div class="libro">

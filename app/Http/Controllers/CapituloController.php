@@ -36,8 +36,6 @@ class CapituloController extends Controller
 
     public function agregarCapitulo(Request $request)
     {
-
-
       $request->validate([
       'titulo' => 'required',
       'capitulo'=>'required',

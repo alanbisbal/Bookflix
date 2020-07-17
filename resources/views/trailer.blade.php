@@ -69,18 +69,17 @@
 
                   <div class="fav">
 
-                  <div class="btn btn-info btn">
-                  <form action="{{route('libroLeido')}}" method="post">
+                <form action="{{route('libroLeido')}}" method="post">
                     {{csrf_field()}}
 
-                    <a  href="{{asset('storage').'/'.$capitulos->first()->capitulo}}">
+                   <a style="margin-left: 50px;" class="btn btn-info" href="{{asset('storage').'/'.$capitulos->first()->capitulo}}">
                       Leer libro
                     </a>
                     <input type="hidden" name="cap" id="cap" value="  {{ $capitulos->first()->capitulo}}">
                     <input type="hidden" name="idLibro" id="idLibro" value="{{ $libro->id }}">
 
                   </form>
-                  </div>
+
                 </div>
                 @else
                 <div class="titcapitulos">
@@ -92,14 +91,15 @@
                   @foreach($capitulos as $capitulo)
 
                     <div class="cap">
-                      <div class="btn btn-info btn">
+
                       <h6>Título:<i> {{$capitulo->titulo}}</i></h6>
                       <form action="{{route('libroLeido')}}" method="post">
                         {{csrf_field()}}
                         <input type="hidden" name="cap" id="cap" value="{{ $capitulo->capitulo }}">
                         <input type="hidden" name="idLibro" id="idLibro" value="{{ $libro->id }}">
+                        <button type="submit" class=" btn btn-info" style="margin-top:0px;">Leer</button>
                       </form>
-                        </div>
+
                     </div>
                   @endforeach
                 @endif

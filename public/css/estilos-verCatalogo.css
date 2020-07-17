@@ -4,6 +4,7 @@
     background-repeat: repeat;
 }
 .background-overlay{
+    min-height: 100vh;
     height: max-content;
     background-repeat: repeat;
 }
