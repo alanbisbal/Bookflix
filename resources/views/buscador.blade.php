@@ -8,18 +8,16 @@
 
 
 
-  <div class="col-md-7">
+  <div class="col-md-8">
     <div class="card card1">
       <div class="card-header">
         <h4>
-          Para la busqueda:"{{ $palabra }}"</br>
-          Resultados:{{count($busquedas)}}
+          Hubo {{count($busquedas)}} resultados para la búsqueda "{{ $palabra }}".
         </h4>
       </div>
-      <div class="cb1">
         <div class="libros">
           @if(count($busquedas)==0)
-            {{'No hay resultados para la busqueda'}}
+            {{'No hay resultados para la búsqueda'}}
           @else
             </br>
             @foreach($busquedas as $libro)
@@ -29,20 +27,21 @@
                     <div class="imagen">
                       <img src="{{asset('storage').'/'.$libro->img_libro}}" alt="100" width="100">
                     </div>
-                    <b><i>{{($libro->titulo)}}</i></b>
+                    <div class="titulo">
+                      <b><i>{{($libro->titulo)}}</i></b>
+                    </div>
                   </a>
                 </div>
               @endif
             @endforeach
           @endif
         </div>
-        <a href="{{url('/home')}}" class="btn btn-info" role="button">
-          Volver
-        </a>
+        <div class="boton-volver">
+          <a href="{{url('/home')}}" class="btn btn-info" role="button">
+            Volver
+          </a>
+        </div>
       </div>
     </div>
-
-
-  </div>
 
 @endsection

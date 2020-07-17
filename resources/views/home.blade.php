@@ -30,19 +30,22 @@
       </div>
       <div class="cb1">
         <div class="libros">
-        @foreach($mejoresCalificados as $libro)
-          @if($libro->visible)
-            <div class="libro">
-              <a  href="{{route('libro.trailer',$libro->id)}}">
-                <div class="imagen">
-                  <img src="{{asset('storage').'/'.$libro->img_libro}}" alt="100" width="100">
-                </div>
-                <b><i>{{($libro->titulo)}}</i></b>
-              </a>
-            </div>
-          @endif
-        @endforeach
-      </div>
+          @foreach($mejoresCalificados as $libro)
+            @if($libro->visible)
+              <div class="libro">
+                <a  href="{{route('libro.trailer',$libro->id)}}">
+                  <div class="imagen">
+                    <img src="{{asset('storage').'/'.$libro->img_libro}}" alt="100" width="100">
+                  </div>
+                  <div class="titulo">
+                    <span>"{{($libro->titulo)}}"</span>
+                    <span>{{$libro->autorL->nombre}}</span>
+                  </div>
+                </a>
+              </div>
+            @endif
+          @endforeach
+        </div>
       </div>
     </div>
 
@@ -61,7 +64,10 @@
                 <div class="imagen">
                   <img src="{{asset('storage').'/'.$libro->img_libro}}" alt="100" width="100">
                 </div>
-                <b><i>{{($libro->titulo)}}</i></b>
+                <div class="titulo">
+                  <span>"{{($libro->titulo)}}"</span>
+                  <span>{{$libro->autorL->nombre}}</span>
+                </div>
               </a>
             </div>
           @endif
@@ -87,7 +93,10 @@
                 <div class="imagen">
                   <img src="{{asset('storage').'/'.$libro->img_libro}}" alt="100" width="100">
                 </div>
-                <b><i>{{($libro->titulo)}}</i></b>
+                <div class="titulo">
+                  <span>"{{($libro->titulo)}}"</span>
+                  <span>{{$libro->autorL->nombre}}</span>
+                </div>
               </a>
             </div>
           @endif

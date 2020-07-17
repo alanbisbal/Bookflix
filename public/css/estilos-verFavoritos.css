@@ -4,11 +4,16 @@
     background-repeat: repeat;
 }
 .background-overlay{
+    min-height: 505px;
     height: max-content;
     background-repeat: repeat;
 }
+.col-md-9{
+    display: flex;
+    justify-content: center;
+}
 .card{
-    max-width: 930px;
+    width: 90%;
 }
 .favoritos{
     display: flex;

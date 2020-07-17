@@ -4,10 +4,10 @@
     background-repeat: repeat;
 }
 .background-overlay{
+    min-height: 100vh;
     height: max-content;
 }
   .card{
-    height: 100%;
     display: flex;
     align-content:  center;
     border: 1px solid black
@@ -23,19 +23,17 @@
     width: 100%;
     color: white;
   }
-  .card1{
-    margin-bottom: 40px;
-  }
   .libro{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    margin-right: 40px;
+    margin: 14px;
   }
   .libro a{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    width: 140px;
+    justify-items: center;
   }
   .imagen{
     margin-bottom: 10px;
@@ -52,13 +50,20 @@
       flex-direction: row;
       flex-wrap: wrap;
   }
-
+  .titulo{
+    display: flex;
+    justify-content: center;
+  }
 
 
 
   /*boton*/
+.boton-volver{
+  display: flex;
+  justify-content: flex-end;
+}
 .btn-info{
-    margin-top: 30px;
+    margin: 30px;
     width: 110px;
 }
 .btn.btn-info:hover{

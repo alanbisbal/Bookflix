@@ -8,7 +8,7 @@
     <div class="card">
       <div class="card-header">
         <h3>
-          Estadísticas:
+          Usuarios entre dos fechas
         </h3>
       </div>
       <div class="card-body">
